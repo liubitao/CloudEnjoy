@@ -1,0 +1,65 @@
+# Uncomment the next line to define a global platform for your project
+
+# source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+
+# 定义当前pod支持的最低版本
+IosPlatform = '13.0'
+
+platform :ios, IosPlatform
+inhibit_all_warnings!
+
+target 'CloudEnjoy' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  inherit! :search_paths
+
+  # Pods for CloudEnjoy
+  #本地pod库--------------------------
+  
+  # 网络请求
+   pod 'LSNetwork', :path => 'developPods/LSNetwork'
+  # 项目基础模块
+   pod 'LSBaseModules', :path => 'developPods/LSBaseModules'
+  
+  #本地pod库--------------------------
+  
+  # RxSwift
+  pod 'RxSwift', '~> 6.2.0'
+  pod 'RxCocoa', '~> 6.2.0'
+  pod 'RxDataSources', '~> 5.0.0'
+  pod 'RxViewController', '~> 2.0.0'
+  pod 'RxGesture', '~> 4.0.3'
+  pod 'Result', '~> 5.0.0'
+  
+  # 布局
+  pod 'SnapKit', '~> 5.0.1'
+  
+  # 数据解析
+  pod 'HandyJSON', '~> 5.0.2'
+  
+  # 图片加载
+  pod 'Kingfisher' , '~> 6.3.1'
+
+  # 键盘监控
+  pod 'IQKeyboardManagerSwift', '~> 6.5.8'
+  
+  # swift 工具类
+  pod 'SwifterSwift', '~> 5.2.0'
+
+  # 分段控制器
+  pod 'JXSegmentedView', '~> 1.2.7'
+  
+  #图片选择器 
+  pod 'AnyImageKit'
+
+  # 高德地图
+  pod 'AMapLocation-NO-IDFA', '~> 2.8.0'
+  
+  # 富文本
+  pod 'AttributedString' , '~> 3.3.4'
+  
+  # 刷新控件
+  pod 'MJRefresh', '~> 3.7.5'
+  
+end
+

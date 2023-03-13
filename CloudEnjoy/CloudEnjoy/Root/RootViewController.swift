@@ -1,0 +1,122 @@
+//
+//  RootViewController.swift
+//  Haylou_Fun
+//
+//  Created by liubitao on 2021/11/18.
+//
+
+import UIKit
+import IQKeyboardManagerSwift
+import LSNetwork
+import LSBaseModules
+import SnapKit
+
+class RootViewController: LSBaseViewController {
+    
+    var tabBarViewController: LSTabBarViewController?
+    var loginVC: LSLoginViewController?
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+          
+        self.setupLaunch()
+    }
+
+    override func setupNotifications() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(refreshTokenDB), name: .refreshToken, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(logout), name: .reLogin, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(logout), name: .logout, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setupTabBarViewController), name: .login, object: nil)
+    }
+    
+    func setupLaunch() {
+        var launchViewController: LSLaunchViewController? = nil
+        launchViewController = LSLaunchViewController(hide:{[weak self] in
+            launchViewController?.removeFromParent()
+            launchViewController?.view.removeFromSuperview()
+            self?.showHomeViewController()
+        })
+        addChild(launchViewController!)
+        view.addSubview(launchViewController!.view)
+        launchViewController?.view.snp.makeConstraints({ make in
+            make.edges.equalToSuperview()
+        })
+    }
+    
+    func showHomeViewController() {
+        /// 根据数据库中的token判断
+        guard appIsLogin() else {
+            self.setupLoginViewController()
+            return
+        }
+        
+//        self.getUserInfo()
+        
+        self.setupTabBarViewController()
+    }
+    
+    /// 主页
+    @objc func setupTabBarViewController() {
+        clearAllSub()
+        tabBarViewController = LSTabBarViewController()
+        addChild(tabBarViewController!)
+        view.addSubview(tabBarViewController!.view)
+        tabBarViewController!.view.sendSubviewToBack(view)
+    }
+    
+    /// 登录界面
+    @objc func setupLoginViewController() {
+        clearAllSub()
+        loginVC = LSLoginViewController()
+        addChild(loginVC!)
+        view.addSubview(loginVC!.view)
+        loginVC?.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        loginVC!.view.sendSubviewToBack(view)
+    }
+    
+    /// 清空上次的记录
+    func clearAllSub() {
+        tabBarViewController?.view.removeFromSuperview()
+        tabBarViewController?.removeFromParent()
+        tabBarViewController = nil
+        loginVC?.view.removeFromSuperview()
+        loginVC?.removeFromParent()
+        loginVC = nil
+    }
+    
+    /// 请求用户信息并加入数据库中
+    func getUserInfo() {
+    }
+    
+    //退出登录，删除所有信息
+    @objc func logout() {
+        LoginDataCache.removeAll()
+        AppDataCache.removeAll()
+        self.setupLoginViewController()
+    }
+}
+
+
+extension RootViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .default
+    }
+    
+    override var shouldAutorotate: Bool {
+        return  false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        return .portrait
+    }
+    
+}
+

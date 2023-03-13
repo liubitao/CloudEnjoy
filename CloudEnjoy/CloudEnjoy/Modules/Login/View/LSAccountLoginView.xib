@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LSAccountLoginView" customModule="CloudEnjoy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="324" height="308"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MrG-s1-9MH">
+                    <rect key="frame" x="19" y="16" width="286" height="43"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="商户号" translatesAutoresizingMaskIntoConstraints="NO" id="lrC-in-bs9">
+                            <rect key="frame" x="15" y="13.666666666666668" width="16" height="16"/>
+                        </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入商户号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jcG-Gz-j9x">
+                            <rect key="frame" x="51" y="11.666666666666668" width="219" height="20"/>
+                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="7vb-kN-Ioa"/>
+                        <constraint firstItem="lrC-in-bs9" firstAttribute="leading" secondItem="MrG-s1-9MH" secondAttribute="leading" constant="15" id="VSw-Mg-kFc"/>
+                        <constraint firstAttribute="trailing" secondItem="jcG-Gz-j9x" secondAttribute="trailing" constant="16" id="YMY-M4-JGe"/>
+                        <constraint firstItem="lrC-in-bs9" firstAttribute="centerY" secondItem="MrG-s1-9MH" secondAttribute="centerY" id="ZdO-vq-nPC"/>
+                        <constraint firstItem="jcG-Gz-j9x" firstAttribute="leading" secondItem="lrC-in-bs9" secondAttribute="trailing" constant="20" id="cUC-77-H22"/>
+                        <constraint firstItem="jcG-Gz-j9x" firstAttribute="centerY" secondItem="MrG-s1-9MH" secondAttribute="centerY" id="pJC-Gb-3LI"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iKO-Tr-TLP">
+                    <rect key="frame" x="19" y="75" width="286" height="43"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="员工工号" translatesAutoresizingMaskIntoConstraints="NO" id="Hrh-UM-aZ9">
+                            <rect key="frame" x="15" y="13.333333333333327" width="15.666666666666664" height="16.333333333333329"/>
+                        </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入商户号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hqi-nl-i1O">
+                            <rect key="frame" x="50.666666666666671" y="11.666666666666671" width="219.33333333333331" height="20"/>
+                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="hqi-nl-i1O" firstAttribute="leading" secondItem="Hrh-UM-aZ9" secondAttribute="trailing" constant="20" id="1nN-gh-8qK"/>
+                        <constraint firstItem="hqi-nl-i1O" firstAttribute="centerY" secondItem="iKO-Tr-TLP" secondAttribute="centerY" id="6lo-4C-eWL"/>
+                        <constraint firstItem="Hrh-UM-aZ9" firstAttribute="centerY" secondItem="iKO-Tr-TLP" secondAttribute="centerY" id="SQ2-xZ-yWB"/>
+                        <constraint firstAttribute="height" constant="43" id="gcS-qp-eU2"/>
+                        <constraint firstItem="Hrh-UM-aZ9" firstAttribute="leading" secondItem="iKO-Tr-TLP" secondAttribute="leading" constant="15" id="h3b-aa-bNy"/>
+                        <constraint firstAttribute="trailing" secondItem="hqi-nl-i1O" secondAttribute="trailing" constant="16" id="wJN-FD-z1c"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWG-wh-fcK">
+                    <rect key="frame" x="19" y="134" width="286" height="43"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="密码" translatesAutoresizingMaskIntoConstraints="NO" id="2LT-Pg-LKn">
+                            <rect key="frame" x="15" y="12.666666666666659" width="15" height="17.666666666666671"/>
+                        </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入商户号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DVp-od-Qxa">
+                            <rect key="frame" x="50" y="12" width="220" height="19"/>
+                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="2LT-Pg-LKn" firstAttribute="leading" secondItem="rWG-wh-fcK" secondAttribute="leading" constant="15" id="5FW-xm-Ae9"/>
+                        <constraint firstAttribute="trailing" secondItem="DVp-od-Qxa" secondAttribute="trailing" constant="16" id="B8e-C3-Ib2"/>
+                        <constraint firstItem="DVp-od-Qxa" firstAttribute="centerY" secondItem="rWG-wh-fcK" secondAttribute="centerY" id="GPw-w3-ADE"/>
+                        <constraint firstAttribute="height" constant="43" id="fwJ-vZ-n4e"/>
+                        <constraint firstItem="2LT-Pg-LKn" firstAttribute="centerY" secondItem="rWG-wh-fcK" secondAttribute="centerY" id="lDa-UN-exp"/>
+                        <constraint firstItem="DVp-od-Qxa" firstAttribute="leading" secondItem="2LT-Pg-LKn" secondAttribute="trailing" constant="20" id="t14-Kp-xTD"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMQ-yK-PDU">
+                    <rect key="frame" x="19" y="210" width="286" height="43"/>
+                    <color key="backgroundColor" red="0.17254901959999999" green="0.72156862749999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="euu-gD-6BN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="16"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="登录">
+                        <color key="titleColor" red="0.95294117649999999" green="0.97254901959999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="loginAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="9Xy-35-ybe"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="PMQ-yK-PDU" secondAttribute="trailing" constant="19" id="HpI-cV-oLQ"/>
+                <constraint firstItem="iKO-Tr-TLP" firstAttribute="top" secondItem="MrG-s1-9MH" secondAttribute="bottom" constant="16" id="L1f-OV-VCd"/>
+                <constraint firstItem="iKO-Tr-TLP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="19" id="Osh-hb-axF"/>
+                <constraint firstItem="MrG-s1-9MH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="19" id="QA8-qa-AUx"/>
+                <constraint firstAttribute="trailing" secondItem="iKO-Tr-TLP" secondAttribute="trailing" constant="19" id="Rdo-W6-Re0"/>
+                <constraint firstItem="PMQ-yK-PDU" firstAttribute="top" secondItem="rWG-wh-fcK" secondAttribute="bottom" constant="33" id="ScV-7a-VcV"/>
+                <constraint firstAttribute="trailing" secondItem="rWG-wh-fcK" secondAttribute="trailing" constant="19" id="efu-53-OGc"/>
+                <constraint firstItem="PMQ-yK-PDU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="19" id="grk-E6-T9d"/>
+                <constraint firstItem="rWG-wh-fcK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="19" id="nrA-fr-j2S"/>
+                <constraint firstItem="rWG-wh-fcK" firstAttribute="top" secondItem="iKO-Tr-TLP" secondAttribute="bottom" constant="16" id="uBy-ri-Pew"/>
+                <constraint firstAttribute="trailing" secondItem="MrG-s1-9MH" secondAttribute="trailing" constant="19" id="uhR-YW-9Nz"/>
+                <constraint firstItem="MrG-s1-9MH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="yow-Cx-LDI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="accountTextField" destination="hqi-nl-i1O" id="nox-au-4NK"/>
+                <outlet property="accountView" destination="iKO-Tr-TLP" id="tuR-ND-WtV"/>
+                <outlet property="loginBtn" destination="PMQ-yK-PDU" id="zTV-wc-x7y"/>
+                <outlet property="passwordTextField" destination="DVp-od-Qxa" id="OAs-2v-FBv"/>
+                <outlet property="passwordView" destination="rWG-wh-fcK" id="0x7-l6-FSF"/>
+                <outlet property="storeTextField" destination="jcG-Gz-j9x" id="KcM-cd-qbw"/>
+                <outlet property="storeView" destination="MrG-s1-9MH" id="Jtl-m5-BEt"/>
+            </connections>
+            <point key="canvasLocation" x="-127" y="-311"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="员工工号" width="15.666666984558105" height="16.333333969116211"/>
+        <image name="商户号" width="16.333333969116211" height="16.333333969116211"/>
+        <image name="密码" width="15" height="17.666666030883789"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

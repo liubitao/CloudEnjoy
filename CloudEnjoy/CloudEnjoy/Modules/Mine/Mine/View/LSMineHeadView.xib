@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LSMineHeadView" customModule="CloudEnjoy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="476" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K3h-1g-BSR">
+                    <rect key="frame" x="0.0" y="0.0" width="476" height="200"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="156****0863" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YB0-hd-8ns">
+                    <rect key="frame" x="111" y="141" width="99.666666666666686" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李某某(8582)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vba-y0-m5k">
+                    <rect key="frame" x="110.99999999999999" y="108" width="142.66666666666663" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="kMf-z0-dBe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jh1-5d-IF7">
+                    <rect key="frame" x="421" y="122" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="FX0-m4-lYL"/>
+                        <constraint firstAttribute="height" constant="30" id="rrE-UF-QeU"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="矩形 copy 6" title=" "/>
+                    <connections>
+                        <action selector="jumpUserInfo:" destination="iN0-l3-epB" eventType="touchUpInside" id="jRy-Pe-PRk"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e8Y-ZW-h0v">
+                    <rect key="frame" x="28" y="102" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="Slm-Gi-yAw"/>
+                        <constraint firstAttribute="height" constant="70" id="hEv-16-nyV"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="35"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vba-y0-m5k" firstAttribute="leading" secondItem="e8Y-ZW-h0v" secondAttribute="trailing" constant="13" id="32q-8q-CIx"/>
+                <constraint firstAttribute="trailing" secondItem="K3h-1g-BSR" secondAttribute="trailing" id="3xg-Uv-dO3"/>
+                <constraint firstItem="K3h-1g-BSR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="50a-cn-TMi"/>
+                <constraint firstItem="YB0-hd-8ns" firstAttribute="top" secondItem="vba-y0-m5k" secondAttribute="bottom" id="Cuj-46-UKd"/>
+                <constraint firstAttribute="bottom" secondItem="K3h-1g-BSR" secondAttribute="bottom" id="RSK-9M-mW3"/>
+                <constraint firstAttribute="bottom" secondItem="e8Y-ZW-h0v" secondAttribute="bottom" constant="28" id="T17-P2-Bvl"/>
+                <constraint firstItem="e8Y-ZW-h0v" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="28" id="V6n-F7-tFe"/>
+                <constraint firstItem="vba-y0-m5k" firstAttribute="top" secondItem="e8Y-ZW-h0v" secondAttribute="top" constant="6" id="XHl-1O-VP5"/>
+                <constraint firstItem="Jh1-5d-IF7" firstAttribute="centerY" secondItem="e8Y-ZW-h0v" secondAttribute="centerY" id="ggY-Cb-5vF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Jh1-5d-IF7" secondAttribute="trailing" constant="25" id="hHB-VG-tfW"/>
+                <constraint firstItem="K3h-1g-BSR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mVw-Me-h6s"/>
+                <constraint firstItem="YB0-hd-8ns" firstAttribute="leading" secondItem="vba-y0-m5k" secondAttribute="leading" id="yNz-Yi-GC9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backImageView" destination="K3h-1g-BSR" id="JKg-PF-EXP"/>
+                <outlet property="phoneLabel" destination="YB0-hd-8ns" id="6ku-rj-zkG"/>
+                <outlet property="userIconImageView" destination="e8Y-ZW-h0v" id="58i-ae-gYt"/>
+                <outlet property="userNameLabel" destination="vba-y0-m5k" id="S9D-Mq-kAR"/>
+            </connections>
+            <point key="canvasLocation" x="-412" y="-443"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="矩形 copy 6" width="16" height="16"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
