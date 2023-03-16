@@ -86,7 +86,7 @@ extension LSUserInfoViewController: ImagePickerControllerDelegate {
             var userModel: LSUserModel = userModel()
             userModel.headimg = headimg
             LSLoginModel.shared.user = userModel
-            LoginDataCache.setItem(LSLoginModel.shared, forKey: "LoginInfo")
+            LoginDataCache.set(key: "LoginInfo", value: LSLoginModel.shared.toJSONString())
             Toast.show("头像已更新")
         } onError: {  error in
             Toast.show(error.localizedDescription)

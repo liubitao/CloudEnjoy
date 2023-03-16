@@ -39,6 +39,7 @@ class LSLoginViewController: LSBaseViewController {
             let agreePrivacyButton = UIButton(type: .custom)
             agreePrivacyButton.setImage(UIImage(named: "协议-未选中"), for: .normal)
             agreePrivacyButton.setImage(UIImage(named: "协议-选中"), for: .selected)
+            agreePrivacyButton.isSelected = true
             agreePrivacyButton.rx.tap.subscribe {[weak agreePrivacyButton] _ in
                 agreePrivacyButton?.isSelected = !agreePrivacyButton!.isSelected
             }.disposed(by: self.rx.disposeBag)

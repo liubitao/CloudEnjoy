@@ -19,6 +19,7 @@ class LSRoyaltiesItemTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
     }
     
     

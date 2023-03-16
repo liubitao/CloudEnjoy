@@ -8,7 +8,7 @@
 import Foundation
 import HandyJSON
 
-public struct LSLoginModel: HandyJSON, Codable {
+public struct LSLoginModel: HandyJSON {
     public var rabbitport: String = "" //消息端口
     public var rabbitaddress: String = "" //消息服地址
     public var diff: Int = 0   //有效天数 >=0 还可以用 不然不能用
@@ -21,10 +21,10 @@ public struct LSLoginModel: HandyJSON, Codable {
         
     }
     
-    public static var shared: LSLoginModel = LoginDataCache.getItem(LSLoginModel.self, forKey: "LoginInfo") ?? LSLoginModel()
+    public static var shared: LSLoginModel = LSLoginModel.deserialize(from: LoginDataCache.get(key: "LoginInfo") as? String) ?? LSLoginModel()
 }
 
-public enum LSSex:Int, HandyJSONEnum, Codable {
+public enum LSSex:Int, HandyJSONEnum {
     case woman = 0
     case man = 1
     
@@ -38,7 +38,7 @@ public enum LSSex:Int, HandyJSONEnum, Codable {
     }
 }
 
-public struct LSUserModel: HandyJSON, Codable{
+public struct LSUserModel: HandyJSON{
     public var headimg: String = ""    //头像
     public var userid: String = ""     //当前登录技师唯一标识
     public var branchname: String = "" //部门
@@ -51,7 +51,8 @@ public struct LSUserModel: HandyJSON, Codable{
     public init(){}
 }
 
-public struct LSStoreModel: HandyJSON, Codable {
+public struct LSStoreModel: HandyJSON {
+    public var id: String = ""
     public var starttime: String = ""  //营业开始时间
     public var account: String = ""    //商户号
     public var name: String = ""       //门店名称

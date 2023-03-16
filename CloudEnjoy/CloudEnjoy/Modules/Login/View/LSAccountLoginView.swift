@@ -41,6 +41,9 @@ class LSAccountLoginView:  UIView {
             view.cornerRadius = 3
         }
         
+        self.storeTextField.text = "80000001"
+        self.accountTextField.text = "1001"
+        self.passwordTextField.text = "12"
         self.loginBtn.setBackgroundImage(UIImage(color: UIColor(hexString: "#E4E7ED")!, size: CGSize(width: UI.SCREEN_WIDTH - 19*2, height: 43)), for: .disabled)
         self.loginBtn.setBackgroundImage(UIImage(color: UIColor(hexString: "#00AAB7")!, size: CGSize(width: UI.SCREEN_WIDTH - 19*2, height: 43)), for: .normal)
         self.loginBtn.cornerRadius = 5

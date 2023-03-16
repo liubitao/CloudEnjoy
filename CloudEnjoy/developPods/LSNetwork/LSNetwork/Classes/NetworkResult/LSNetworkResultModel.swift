@@ -52,6 +52,7 @@ public struct LSNetworkListModel<T>: HandyJSON {
     public var pageNum = 0 //当前页数
     public var list = [T]()
     public var isLastPage = 0
+    public var sumdata: Any?
     public init(){}
 }
 

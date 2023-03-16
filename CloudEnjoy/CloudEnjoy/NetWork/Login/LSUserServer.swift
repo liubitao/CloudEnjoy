@@ -9,6 +9,7 @@ import Foundation
 import LSNetwork
 import RxSwift
 import LSBaseModules
+import HandyJSON
 
 class LSUserServer {
     static let provider = LSProvider<LSUserAPI>()
@@ -21,7 +22,7 @@ class LSUserServer {
             guard let model = model else {
                 return
             }
-            LoginDataCache.setItem(model, forKey: "LoginInfo")
+            LoginDataCache.set(key: "LoginInfo", value: model.toJSONString())
             LSLoginModel.shared = model
         })
     }

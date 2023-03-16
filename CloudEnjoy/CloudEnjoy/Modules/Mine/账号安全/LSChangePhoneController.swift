@@ -100,7 +100,7 @@ class LSChangePhoneController: LSBaseViewController {
                 var userModel: LSUserModel = userModel()
                 userModel.mobile = phone
                 LSLoginModel.shared.user = userModel
-                LoginDataCache.setItem(LSLoginModel.shared, forKey: "LoginInfo")
+                LoginDataCache.set(key: "LoginInfo", value: LSLoginModel.shared.toJSONString())
                 self.navigationController?.popToRootViewController(animated: true)
                 Toast.show("已修改绑定手机成功")
             }

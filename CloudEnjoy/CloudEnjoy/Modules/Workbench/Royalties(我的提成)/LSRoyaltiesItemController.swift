@@ -11,45 +11,7 @@ import SwifterSwift
 import RxDataSources
 import RxSwift
 
-enum LSTimeSectionType: Int {
-    case today = 0
-    case yesterday = 1
-    case currentMonth = 2
-    case lastMonth = 3
-    case custom = 4
-    
-    var startdate: String {
-        switch self {
-        case .today:
-            return Date().beginning(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
-        case .yesterday:
-            return Date().adding(.day, value: -1).beginning(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
-        case .currentMonth:
-            return Date().beginning(of: .month)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
-        case .lastMonth:
-            return Date().adding(.month, value: -1).beginning(of: .month)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
-        case .custom:
-            return Date().beginning(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
-        }
-    }
-    
-    var endDate: String {
-        switch self {
-        case .today:
-            return Date().string(withFormat: "yyyy-MM-dd hh:mm:ss")
-        case .yesterday:
-            return Date().adding(.day, value: -1).end(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
-        case .currentMonth:
-            return Date().string(withFormat: "yyyy-MM-dd hh:mm:ss")
-        case .lastMonth:
-            return Date().adding(.month, value: -1).end(of: .month)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
-        case .custom:
-            return Date().string(withFormat: "yyyy-MM-dd hh:mm:ss")
-        }
-    }
-    
-    
-}
+
 class LSRoyaltiesItemController: LSBaseViewController {
 
     @IBOutlet weak var timeLab: UILabel!
@@ -63,9 +25,8 @@ class LSRoyaltiesItemController: LSBaseViewController {
     var items = PublishSubject<[SectionModel<String, LSRoyaltiesItemModel>]>()
     var royaltiesTotalModel: LSRoyaltiesTotalModel = LSRoyaltiesTotalModel()
     
-    convenience init(timeSection: Int) {
+    convenience init(timeSectionType: LSTimeSectionType) {
         self.init()
-        let timeSectionType = LSTimeSectionType.init(rawValue: timeSection) ?? .today
         self.timeSection = timeSectionType
         self.startdate = timeSectionType.startdate
         self.endDate = timeSectionType.endDate
@@ -142,15 +103,4 @@ extension LSRoyaltiesItemController: JXSegmentedListContainerViewListDelegate{
         return self.view
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        guard self.timeSection == .custom else {return}
-        let calendarViewController = LSCalendarViewController.creaeFromStoryboard()
-        calendarViewController.selectedClosure = {[weak self] startDate, endDate in
-            guard let self = self else {return}
-            self.startdate = startDate.beginning(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
-            self.endDate = endDate.end(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
-            self.netwerkData()
-        }
-        calendarViewController.presentedWith(self)
-    }
 }

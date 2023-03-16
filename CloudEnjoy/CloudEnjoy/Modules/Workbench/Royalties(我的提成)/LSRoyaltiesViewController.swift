@@ -57,10 +57,16 @@ class LSRoyaltiesViewController: LSBaseViewController {
                 make.top.equalTo(segmentedView.snp.bottom)
                 make.bottom.equalToSuperview()
             }
-            segmentedView.reloadData()
     
             return segmentedView
         }()
+    }
+    
+    override func setupData() {
+        for type in LSTimeSectionType.allCases {
+            self.subViewControllers.append(LSRoyaltiesItemController(timeSectionType: type))
+        }
+        self.segmentedView.reloadData()
     }
 
 }
@@ -71,11 +77,20 @@ extension LSRoyaltiesViewController: JXSegmentedViewDelegate, JXSegmentedListCon
     }
     
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
-        var subViewController =  self.subViewControllers[safe: index]
-        if subViewController == nil {
-            subViewController = LSRoyaltiesItemController(timeSection: index)
+        return self.subViewControllers[index]
+    }
+    
+    func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
+        guard index == 4 else { return }
+        let calendarViewController = LSCalendarViewController.creaeFromStoryboard()
+        calendarViewController.selectedClosure = {[weak self] startDate, endDate in
+            guard let self = self else {return}
+            let subVC = self.subViewControllers[4]
+            subVC.startdate = startDate.beginning(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
+            subVC.endDate = endDate.end(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
+            subVC.netwerkData()
         }
-        return subViewController!
+        calendarViewController.presentedWith(self)
     }
     
 }

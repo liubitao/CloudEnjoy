@@ -61,5 +61,7 @@ target 'CloudEnjoy' do
   # 刷新控件
   pod 'MJRefresh', '~> 3.7.5'
   
+  # PickerView
+  pod "PickerView"
 end
 

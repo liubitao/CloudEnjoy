@@ -117,7 +117,7 @@ extension LSRoyaltiesDetailsController: KyoRefreshControlDelegate{
         netwrokData(page: index + 1)
     }
     func kyoRefresh(_ refreshControl: KyoRefreshControl!, withNoDataShow kyoDataTipsView: KyoDataTipsView!, withCurrentKyoDataTipsModel kyoDataTipsModel: KyoDataTipsModel!, with kyoDataTipsViewType: KyoDataTipsViewType) -> KyoDataTipsModel! {
-        kyoDataTipsModel.img = UIImage(named: "无会员信息")
+        kyoDataTipsModel.img = UIImage(named: "无信息")
         kyoDataTipsModel.tip = NSAttributedString(string: "暂无提成数据", attributes: [.foregroundColor: UIColor(hexString: "#999999")!, .font: Font.pingFangRegular(14)])
         return kyoDataTipsModel
     }
