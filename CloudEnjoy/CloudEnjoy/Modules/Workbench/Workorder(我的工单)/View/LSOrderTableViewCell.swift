@@ -19,6 +19,7 @@ class LSOrderTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
         setupViews()
     }
     func setupViews() {

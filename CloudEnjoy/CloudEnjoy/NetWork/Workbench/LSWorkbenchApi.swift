@@ -23,6 +23,20 @@ extension LSWorkbenchAPI.APIPath {
     static let insertAppointment = "about/insert"
     
     static let userGetList = "sysuser/getList"
+
+    static let getRoomtypeList = "otherinfo/getRoomtypeList"
+    static let getRoominfoList = "roominfo/getList"
+    
+    static let getProjectypeList = "otherinfo/getProjecttypeList"
+    static let getProjectinfoList = "projectinfo/getList"
+    
+    static let getLevelList = "otherinfo/getTechnicianlevelList"
+    
+    static let findAboutMe = "about/findAboutMe"
+    static let findAboutCreateMe = "about/findAboutCreateMe"
+    
+    static let cancelYuyue = "about/updateStatus"
+    static let aboutUpdate = "about/updateStatus"
 }
 
 enum LSWorkbenchAPI: TargetType {
@@ -54,10 +68,41 @@ enum LSWorkbenchAPI: TargetType {
                            tostoretime: String,
                            reservemin: String,
                            remark: String,
-                           roomlist: [LSRoomModel],
-                           projectlist: [LSProjectModel])
+                           roomlist: String,
+                           projectlist: String)
     
-    case userGetList
+    case userGetList(projectid: String,
+                     tlid: String,
+                     sex: String)
+    
+    case getRoominfoList(cond: String,
+                         roomtypeid: String)
+    case getRoomtypeList(cond: String)
+    
+    case getProjectypeList(cond: String)
+    case getProjectinfoList(cond: String,
+                            projecttypeid: String)
+    
+    case getLevelList
+    
+    case findAboutMe
+    case findAboutCreateMe
+    
+    case cancelYuyue(billid: String)
+    case aboutUpdate(billid: String,
+                     name: String,
+                    mobile: String,
+                    custtype: LSCustomerType,
+                    qty: String,
+                    refid: String,
+                    tostoretime: String,
+                    reservemin: String,
+                    remark: String,
+                    roomlist: String,
+                    projectlist: String,
+                    status: String)
+    
+    
 }
 
 
@@ -78,6 +123,24 @@ extension LSWorkbenchAPI: LSTargetType{
             return APIPath.insertAppointment
         case .userGetList:
             return APIPath.userGetList
+        case .getRoominfoList:
+            return APIPath.getRoominfoList
+        case .getRoomtypeList:
+            return APIPath.getRoomtypeList
+        case .getProjectypeList:
+            return APIPath.getProjectypeList
+        case .getProjectinfoList:
+            return APIPath.getProjectinfoList
+        case .getLevelList:
+            return APIPath.getLevelList
+        case .findAboutMe:
+            return APIPath.findAboutMe
+        case .findAboutCreateMe:
+            return APIPath.findAboutCreateMe
+        case .cancelYuyue:
+            return APIPath.cancelYuyue
+        case .aboutUpdate:
+            return APIPath.aboutUpdate
         }
     }
     
@@ -122,14 +185,71 @@ extension LSWorkbenchAPI: LSTargetType{
                     "tostoretime": tostoretime,
                     "reservemin": reservemin,
                     "remark": remark,
-                    "roomlist": roomlist.toJSON(),
-                    "projectlist": projectlist.toJSON()]
+                    "roomlist": roomlist,
+                    "projectlist": projectlist]
             
-        case .userGetList:
-            return ["is_page": 0,
-                    "stopflag": 0,
-                    "storeid": storeModel().id]
+        case let .userGetList(projectid, tlid, sex):
+            var params = ["is_page": "0",
+                          "stopflag": "0",
+                          "storeid": storeModel().id]
+            if projectid.isEmpty == false { params["projectid"] = projectid }
+            if tlid.isEmpty == false { params["tlid"] = tlid }
+            if sex.isEmpty == false { params["sex"] = sex }
+            return params
+        case let .getRoominfoList(cond, roomtypeid):
+            var params = ["is_page": "0", "stopflag": "0"]
+            if cond.isEmpty == false {
+                params["cond"] = cond
+            }
+            if roomtypeid.isEmpty == false {
+                params["roomtypeid"] = roomtypeid
+            }
+            return params
+        case let .getRoomtypeList(cond):
+            var params = ["is_page": "0"]
+            if cond.isEmpty == false {
+                params["cond"] = cond
+            }
+            return params
+        case let .getProjectypeList(cond):
+            var params = ["is_page": "0"]
+            if cond.isEmpty == false {
+                params["cond"] = cond
+            }
+            return params
+        case let .getProjectinfoList(cond, projecttypeid):
+            var params = ["is_page": "0", "stopflag": "0"]
+            if cond.isEmpty == false {
+                params["cond"] = cond
+            }
+            if projecttypeid.isEmpty == false {
+                params["projecttypeid"] = projecttypeid
+            }
+            return params
+        case .getLevelList:
+            return ["is_page": "0"]
+        case .findAboutMe:
+            return ["userid": userModel().userid]
+        case .findAboutCreateMe:
+            return ["userid": userModel().userid]
+        case let .cancelYuyue(billid):
+            return ["billid": billid,
+                    "status": "2"]
+        case let .aboutUpdate(billid, name, mobile, custtype, qty, refid, tostoretime, reservemin, remark, roomlist, projectlist, status):
+            return ["billid": billid,
+                    "name": name,
+                     "mobile": mobile,
+                     "custtype": custtype.rawValue,
+                     "qty": qty,
+                     "refid": refid,
+                     "tostoretime": tostoretime,
+                     "reservemin": reservemin,
+                     "remark": remark,
+                     "roomlist": roomlist,
+                     "projectlist": projectlist,
+                        "status": status]
         }
+
     }
     
     

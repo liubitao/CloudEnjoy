@@ -201,6 +201,7 @@ CGFloat angleValue(CGFloat angle) {
         contentLable.tag = 1000;
         contentLable.textColor = _textColor;
         contentLable.font = _font;
+        contentLable.textAlignment = self.downTextAlignment;
         [cell addSubview:contentLable];
         
         UIView *lineView = [UIView new];
@@ -259,6 +260,17 @@ CGFloat angleValue(CGFloat angle) {
     _listArray = listArray;
     
     [self.listTableView reloadData];
+}
+
+- (void)setDownTextAlignment:(NSTextAlignment)downTextAlignment {
+    
+    _downTextAlignment = downTextAlignment;
+    
+    [self.listTableView reloadData];
+}
+
+- (void)setText:(NSString *)text {
+    self.contentLabel.text = text;
 }
 
 - (NSString *)text

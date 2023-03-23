@@ -3,7 +3,7 @@
 # source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
 # 定义当前pod支持的最低版本
-IosPlatform = '13.0'
+IosPlatform = '12.0'
 
 platform :ios, IosPlatform
 inhibit_all_warnings!
@@ -50,7 +50,7 @@ target 'CloudEnjoy' do
   pod 'JXSegmentedView', '~> 1.2.7'
   
   #图片选择器 
-  pod 'AnyImageKit'
+  pod 'AnyImageKit', '~> 0.15.0'
 
   # 高德地图
   pod 'AMapLocation-NO-IDFA', '~> 2.8.0'

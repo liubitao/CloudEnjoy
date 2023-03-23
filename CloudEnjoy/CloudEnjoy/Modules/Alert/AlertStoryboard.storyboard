@@ -918,7 +918,6 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="路径 656"/>
                                 <connections>
-                                    <action selector="closeAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5wQ-u3-uZg"/>
                                     <action selector="closeAction:" destination="zk8-ua-6cs" eventType="touchUpInside" id="FaT-FQ-TZz"/>
                                 </connections>
                             </button>
@@ -953,7 +952,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="cancelAction:" destination="zk8-ua-6cs" eventType="touchUpInside" id="H0H-Hs-htj"/>
-                                    <action selector="cancelAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="azO-Pf-HWf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9a-Db-k2j">
@@ -975,7 +973,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="confirmAction:" destination="zk8-ua-6cs" eventType="touchUpInside" id="6Oq-Cg-JZ0"/>
-                                    <action selector="confirmAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="K2k-jq-3Ru"/>
                                 </connections>
                             </button>
                         </subviews>

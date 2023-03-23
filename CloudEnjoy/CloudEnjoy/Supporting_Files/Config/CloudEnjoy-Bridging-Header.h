@@ -10,4 +10,5 @@
 #import "TransitionAnimationDelegate.h"
 #import "FSCalendar.h"
 #import "HWDownSelectedView.h"
+#import "UUMarqueeView.h"
 

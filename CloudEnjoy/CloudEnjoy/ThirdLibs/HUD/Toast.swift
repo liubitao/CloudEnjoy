@@ -103,7 +103,11 @@ extension Toast {
 //        view.backgroundImg = UIImage(color: UIColor.black.withAlphaComponent(0.7))?.byBlurLight()
 //        view.view_cornerRadius = 2
 //        let animateView = HPActivityIndicator(frame: CGRect(center: CGPoint(x: 39, y: 39), size: CGSize(width: 45, height: 45)))
-        let animateView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        var animateView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
+        if #available(iOS 13.0, *) {
+            animateView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        } else {
+        }
         animateView.center = CGPoint(x: 39, y: 39)
         animateView.color = .white
         animateView.startAnimating()

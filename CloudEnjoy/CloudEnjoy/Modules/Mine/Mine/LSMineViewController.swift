@@ -51,7 +51,10 @@ class LSMineViewController: LSBaseViewController {
         }()
         
         self.tableView = {
-            let tableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
+            var tableView = UITableView(frame: CGRect.zero, style: .grouped)
+            if #available(iOS 13.0, *) {
+                tableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
+            }
             tableView.tableFooterView = UIView()
             tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UI.SCREEN_WIDTH, height: 0.01))
             tableView.isScrollEnabled = false

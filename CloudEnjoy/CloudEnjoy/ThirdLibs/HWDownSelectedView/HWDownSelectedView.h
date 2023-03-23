@@ -25,9 +25,10 @@
 @property (nonatomic, strong) UIFont *font;
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, assign) NSTextAlignment textAlignment;
+@property (nonatomic, assign) NSTextAlignment downTextAlignment;
 @property (nonatomic, copy) NSString *placeholder;
 
-@property (nonatomic, copy, readonly) NSString *text;
+@property (nonatomic, copy) NSString *text;
 
 
 - (void)show;

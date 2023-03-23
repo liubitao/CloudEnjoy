@@ -242,9 +242,9 @@ enum LSClockType: Int, CaseIterable, HandyJSONEnum {
 }
 
 enum LSReserveTimeType: Int, CaseIterable, HandyJSONEnum {
-    case fifteen = 0
-    case thirty = 1
-    case sixty = 2
+    case fifteen = 15
+    case thirty = 30
+    case sixty = 60
     
     var timeString: String {
         switch self {
@@ -256,34 +256,107 @@ enum LSReserveTimeType: Int, CaseIterable, HandyJSONEnum {
             return "60分钟"
         }
     }
+    
+    var reserveString: String {
+        switch self {
+        case .fifteen:
+            return "15"
+        case .thirty:
+            return "30"
+        case .sixty:
+            return "60"
+        }
+    }
 }
-
-struct LSRoomModel: HandyJSON {
-    var roomid = ""
-    var roomname = ""
-}
-
-struct LSProjectModel: HandyJSON {
-    var projectid = ""
-    var projectname = ""
-    var tid = ""
-    var roomid = ""
-    var roomname = ""
-    var headcardid = ""
-    var headcardno = ""
-    var ctype = LSClockType.wheelClock
-    var tlid = ""
-    var sex = LSSex.woman
-    var refid = ""
-    var bedid = ""
-    var bedname = ""
-    var remark = ""
-}
-
 
 
 // 人员查询
 struct LSSysUserModel: HandyJSON {
     var userid = ""
     var name = ""
+    var imgurl = ""
+    var code = ""
+    var tlname = ""
+}
+
+
+// 房间类型
+struct LSRoomTypeModel: HandyJSON {
+    var name = ""
+    var roomtypeid = ""
+    var id = ""
+}
+
+struct LSOrderRoomModel: HandyJSON {
+    var roomtypename = ""
+//    var id = ""
+    var roomid = ""
+    var name = ""
+}
+
+struct LSProjectTypeModel: HandyJSON {
+    var name = ""
+    var projecttypeid = ""
+}
+
+struct LSOrderProjectModel: HandyJSON {
+    var name = ""
+    var projectid = ""
+    var smin = ""
+    var lprice: Double = 0
+}
+
+
+struct LSJSLevelModel: HandyJSON {
+    var name = ""
+    var tlid = ""
+}
+
+enum LSOrderStatus: Int, HandyJSONEnum {
+    case hadYuyue = 0
+    case waitYuyue = 1
+    case cancel = 2
+    case waitServer = 3
+    case finish = 4
+    
+    var backColor: UIColor {
+        switch self {
+        case .hadYuyue:
+            return Color.red
+        case .waitYuyue:
+            return Color(hexString: "#669AE6")!
+        case .cancel:
+            return Color(hexString: "#54C263")!
+        case .waitServer:
+            return Color(hexString: "#EC8A8A")!
+        case .finish:
+            return Color(hexString: "#2BC7AF")!
+        }
+    }
+}
+
+struct LSOrderModel: HandyJSON {
+    var billid = ""
+    var name = ""
+    var mobile = ""
+    var qty = ""
+    var custtype = LSCustomerType.common
+    var ctypename = ""
+    var tostoretime = ""
+    var reservemin = LSReserveTimeType.fifteen
+    var refid = ""
+    var refname = ""
+    var remark = ""
+    var roomname = ""
+    var roomid = ""
+    var projectid = ""
+    var projectname = ""
+    var statusname = ""
+    var status = LSOrderStatus.waitYuyue
+    var tid = ""
+    var sid = ""
+    var tlid = ""
+    var createname = ""
+    var ctype = LSClockType.wheelClock
+    var tname = ""
 }

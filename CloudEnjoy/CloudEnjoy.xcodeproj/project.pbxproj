@@ -96,6 +96,13 @@
 		0C23787629B87435003AC759 /* LSTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C23787529B87435003AC759 /* LSTextViewController.xib */; };
 		0C27885D29B1FC2E00C3B6F9 /* LSMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C27885C29B1FC2E00C3B6F9 /* LSMessageViewController.swift */; };
 		0C27885F29B2003300C3B6F9 /* LSWorkbenchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C27885E29B2003300C3B6F9 /* LSWorkbenchViewController.xib */; };
+		0C29C1E829C58DF50043109A /* LSSegmentedTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C29C1E729C58DF50043109A /* LSSegmentedTitleCell.swift */; };
+		0C29C1EA29C58E880043109A /* LSSegmentedTitleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C29C1E929C58E880043109A /* LSSegmentedTitleDataSource.swift */; };
+		0C29C1EC29C58EA80043109A /* LSSegmentedTitleItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C29C1EB29C58EA80043109A /* LSSegmentedTitleItemModel.swift */; };
+		0C29C1F029C597690043109A /* LSJSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C29C1EE29C597690043109A /* LSJSTableViewCell.swift */; };
+		0C29C1F129C597690043109A /* LSJSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C29C1EF29C597690043109A /* LSJSTableViewCell.xib */; };
+		0C29C1F329C59B0C0043109A /* LSHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C29C1F229C59B0C0043109A /* LSHomeViewController.xib */; };
+		0C29C1F829C5A3F00043109A /* UUMarqueeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C29C1F729C5A3F00043109A /* UUMarqueeView.m */; };
 		0C49D14A29B9BD7A0084C2F5 /* LSStoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C49D14829B9BD7A0084C2F5 /* LSStoreInfoViewController.swift */; };
 		0C49D14B29B9BD7A0084C2F5 /* LSStoreInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C49D14929B9BD7A0084C2F5 /* LSStoreInfoViewController.xib */; };
 		0C49D15029B9C2A60084C2F5 /* LSAccountSecureStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C49D14F29B9C2A60084C2F5 /* LSAccountSecureStoryboard.storyboard */; };
@@ -180,6 +187,11 @@
 		0CB765B929BF0B000048B1B3 /* LSWorkorderItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB765B829BF0B000048B1B3 /* LSWorkorderItemViewController.xib */; };
 		0CB765BC29BF0C900048B1B3 /* LSOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */; };
 		0CB765BD29BF0C900048B1B3 /* LSOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */; };
+		0CDD4C6A29CAE9A4003402DF /* LSOrderItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDD4C6929CAE9A4003402DF /* LSOrderItemViewController.swift */; };
+		0CDD4C6E29CB007E003402DF /* LSCreateOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDD4C6C29CB007E003402DF /* LSCreateOrderTableViewCell.swift */; };
+		0CDD4C6F29CB007E003402DF /* LSCreateOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CDD4C6D29CB007E003402DF /* LSCreateOrderTableViewCell.xib */; };
+		0CDD4C7229CB0B01003402DF /* LSOrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDD4C7029CB0B01003402DF /* LSOrderDetailsViewController.swift */; };
+		0CDD4C7329CB0B01003402DF /* LSOrderDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CDD4C7129CB0B01003402DF /* LSOrderDetailsViewController.xib */; };
 		0CE7F14829BF1692008FF8C5 /* LSOrderFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F14729BF1692008FF8C5 /* LSOrderFilterViewController.swift */; };
 		0CE7F14A29BF20A0008FF8C5 /* LSUserqueryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE7F14929BF20A0008FF8C5 /* LSUserqueryViewController.xib */; };
 		0CE7F15229BF24FD008FF8C5 /* LSVipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F15029BF24FD008FF8C5 /* LSVipTableViewCell.swift */; };
@@ -301,6 +313,14 @@
 		0C23787529B87435003AC759 /* LSTextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTextViewController.xib; sourceTree = "<group>"; };
 		0C27885C29B1FC2E00C3B6F9 /* LSMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMessageViewController.swift; sourceTree = "<group>"; };
 		0C27885E29B2003300C3B6F9 /* LSWorkbenchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSWorkbenchViewController.xib; sourceTree = "<group>"; };
+		0C29C1E729C58DF50043109A /* LSSegmentedTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSegmentedTitleCell.swift; sourceTree = "<group>"; };
+		0C29C1E929C58E880043109A /* LSSegmentedTitleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSegmentedTitleDataSource.swift; sourceTree = "<group>"; };
+		0C29C1EB29C58EA80043109A /* LSSegmentedTitleItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSegmentedTitleItemModel.swift; sourceTree = "<group>"; };
+		0C29C1EE29C597690043109A /* LSJSTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSJSTableViewCell.swift; sourceTree = "<group>"; };
+		0C29C1EF29C597690043109A /* LSJSTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSJSTableViewCell.xib; sourceTree = "<group>"; };
+		0C29C1F229C59B0C0043109A /* LSHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSHomeViewController.xib; sourceTree = "<group>"; };
+		0C29C1F629C5A3F00043109A /* UUMarqueeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUMarqueeView.h; sourceTree = "<group>"; };
+		0C29C1F729C5A3F00043109A /* UUMarqueeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUMarqueeView.m; sourceTree = "<group>"; };
 		0C49D14829B9BD7A0084C2F5 /* LSStoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSStoreInfoViewController.swift; sourceTree = "<group>"; };
 		0C49D14929B9BD7A0084C2F5 /* LSStoreInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSStoreInfoViewController.xib; sourceTree = "<group>"; };
 		0C49D14F29B9C2A60084C2F5 /* LSAccountSecureStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LSAccountSecureStoryboard.storyboard; sourceTree = "<group>"; };
@@ -404,6 +424,11 @@
 		0CB765B829BF0B000048B1B3 /* LSWorkorderItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSWorkorderItemViewController.xib; sourceTree = "<group>"; };
 		0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderTableViewCell.swift; sourceTree = "<group>"; };
 		0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSOrderTableViewCell.xib; sourceTree = "<group>"; };
+		0CDD4C6929CAE9A4003402DF /* LSOrderItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderItemViewController.swift; sourceTree = "<group>"; };
+		0CDD4C6C29CB007E003402DF /* LSCreateOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSCreateOrderTableViewCell.swift; sourceTree = "<group>"; };
+		0CDD4C6D29CB007E003402DF /* LSCreateOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSCreateOrderTableViewCell.xib; sourceTree = "<group>"; };
+		0CDD4C7029CB0B01003402DF /* LSOrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderDetailsViewController.swift; sourceTree = "<group>"; };
+		0CDD4C7129CB0B01003402DF /* LSOrderDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSOrderDetailsViewController.xib; sourceTree = "<group>"; };
 		0CE7F14729BF1692008FF8C5 /* LSOrderFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderFilterViewController.swift; sourceTree = "<group>"; };
 		0CE7F14929BF20A0008FF8C5 /* LSUserqueryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSUserqueryViewController.xib; sourceTree = "<group>"; };
 		0CE7F15029BF24FD008FF8C5 /* LSVipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSVipTableViewCell.swift; sourceTree = "<group>"; };
@@ -498,6 +523,8 @@
 		0C0CC84D29AF60D000CC3A6E /* ThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
+				0C29C1F529C5A3F00043109A /* UUMarqueeView */,
+				0C1D1D3829C58A8000255BDB /* SegmentControl */,
 				0C66266629C314F500AADCC7 /* HWDownSelectedView */,
 				0C66264F29C2CAF000AADCC7 /* DatePickerView */,
 				0CB7656029BC760D0048B1B3 /* FSCalendar */,
@@ -637,6 +664,7 @@
 			isa = PBXGroup;
 			children = (
 				0C0CC8B929B07E9E00CC3A6E /* LSHomeViewController.swift */,
+				0C29C1F229C59B0C0043109A /* LSHomeViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -657,6 +685,16 @@
 				0C0CC8BF29B07EE400CC3A6E /* LSMineViewController.swift */,
 			);
 			path = Mine;
+			sourceTree = "<group>";
+		};
+		0C1D1D3829C58A8000255BDB /* SegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				0C29C1E729C58DF50043109A /* LSSegmentedTitleCell.swift */,
+				0C29C1E929C58E880043109A /* LSSegmentedTitleDataSource.swift */,
+				0C29C1EB29C58EA80043109A /* LSSegmentedTitleItemModel.swift */,
+			);
+			path = SegmentControl;
 			sourceTree = "<group>";
 		};
 		0C23781F29B20AEB003AC759 /* Clocks(我的钟数) */ = {
@@ -709,7 +747,11 @@
 		0C23782C29B20B92003AC759 /* Order(预约查询) */ = {
 			isa = PBXGroup;
 			children = (
+				0CDD4C6B29CB0068003402DF /* View */,
 				0C23782D29B20BA9003AC759 /* LSOrderViewController.swift */,
+				0CDD4C6929CAE9A4003402DF /* LSOrderItemViewController.swift */,
+				0CDD4C7029CB0B01003402DF /* LSOrderDetailsViewController.swift */,
+				0CDD4C7129CB0B01003402DF /* LSOrderDetailsViewController.xib */,
 			);
 			path = "Order(预约查询)";
 			sourceTree = "<group>";
@@ -817,6 +859,31 @@
 			path = Message;
 			sourceTree = "<group>";
 		};
+		0C29C1ED29C597550043109A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C29C1EE29C597690043109A /* LSJSTableViewCell.swift */,
+				0C29C1EF29C597690043109A /* LSJSTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0C29C1F429C5A3750043109A /* Message */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		0C29C1F529C5A3F00043109A /* UUMarqueeView */ = {
+			isa = PBXGroup;
+			children = (
+				0C29C1F629C5A3F00043109A /* UUMarqueeView.h */,
+				0C29C1F729C5A3F00043109A /* UUMarqueeView.m */,
+			);
+			path = UUMarqueeView;
+			sourceTree = "<group>";
+		};
 		0C49D14729B9BD5D0084C2F5 /* StoreInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -883,6 +950,7 @@
 		0C50293229AF3433003977F0 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				0C29C1F429C5A3750043109A /* Message */,
 				0CB7655029BC26790048B1B3 /* Workbench */,
 				0CB7653729BB10820048B1B3 /* Upload */,
 				0C23786B29B86623003AC759 /* App */,
@@ -960,6 +1028,7 @@
 		0C66266529C3141100AADCC7 /* 预约房间 */ = {
 			isa = PBXGroup;
 			children = (
+				0C29C1ED29C597550043109A /* View */,
 				0C66266329C3131300AADCC7 /* LSChoiceRoomViewController.swift */,
 				0C66266D29C3158600AADCC7 /* LSChoiceRoomItemController.swift */,
 				0C66266E29C3158600AADCC7 /* LSChoiceRoomItemController.xib */,
@@ -975,8 +1044,8 @@
 			isa = PBXGroup;
 			children = (
 				0C66266729C314F500AADCC7 /* Resources */,
-				0C66266929C314F600AADCC7 /* HWDownSelectedView.m */,
 				0C66266A29C314F600AADCC7 /* HWDownSelectedView.h */,
+				0C66266929C314F600AADCC7 /* HWDownSelectedView.m */,
 			);
 			path = HWDownSelectedView;
 			sourceTree = "<group>";
@@ -1138,6 +1207,15 @@
 			children = (
 				0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */,
 				0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0CDD4C6B29CB0068003402DF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0CDD4C6C29CB007E003402DF /* LSCreateOrderTableViewCell.swift */,
+				0CDD4C6D29CB007E003402DF /* LSCreateOrderTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1324,6 +1402,7 @@
 				0C0CC8A229AF60E800CC3A6E /* button_249_47_58_selected@2x.png in Resources */,
 				0C0CC88D29AF60E800CC3A6E /* kyo_refresh_nodata_noerror@2x.png in Resources */,
 				0C0CC89429AF60E800CC3A6E /* refresh_warter_background@3x.png in Resources */,
+				0CDD4C6F29CB007E003402DF /* LSCreateOrderTableViewCell.xib in Resources */,
 				0C0CC89729AF60E800CC3A6E /* refresh_warter@1x.png in Resources */,
 				0C0CC8A429AF60E800CC3A6E /* kyo_refresh_default_icon@3x.png in Resources */,
 				0C0CC89F29AF60E800CC3A6E /* btn_blue_moren.png in Resources */,
@@ -1339,6 +1418,7 @@
 				0C0CC88E29AF60E800CC3A6E /* kyo_refresh_nodata_relogin@3x.png in Resources */,
 				0C0CC89329AF60E800CC3A6E /* refresh_warter_forground@2x.png in Resources */,
 				0CE8EE4F29AF3A93003DE097 /* Assets.xcassets in Resources */,
+				0CDD4C7329CB0B01003402DF /* LSOrderDetailsViewController.xib in Resources */,
 				0CE7F15329BF24FD008FF8C5 /* LSVipTableViewCell.xib in Resources */,
 				0C0CC88F29AF60E800CC3A6E /* kyo_refresh_nodata_relogin@2x.png in Resources */,
 				0C0CC88C29AF60E800CC3A6E /* kyo_refresh_nodata_hadnetworkerror@2x.png in Resources */,
@@ -1346,6 +1426,7 @@
 				0C0CC89D29AF60E800CC3A6E /* kyo_refresh_no_network@3x.png in Resources */,
 				0CB7654B29BB4E260048B1B3 /* LSRoyaltiesItemController.xib in Resources */,
 				0C23783C29B210AA003AC759 /* LSAboutViewController.xib in Resources */,
+				0C29C1F329C59B0C0043109A /* LSHomeViewController.xib in Resources */,
 				0C23784129B217D0003AC759 /* LSSystemViewController.xib in Resources */,
 				0C23787629B87435003AC759 /* LSTextViewController.xib in Resources */,
 				0C66263229C1C9A700AADCC7 /* LSAddOrderViewController.xib in Resources */,
@@ -1366,6 +1447,7 @@
 				0C49D15029B9C2A60084C2F5 /* LSAccountSecureStoryboard.storyboard in Resources */,
 				0C5A4F6929B1EA5900B8C032 /* LSMineSettingCell.xib in Resources */,
 				0C0CC8A529AF60E800CC3A6E /* kyo_refresh_default_icon@2x.png in Resources */,
+				0C29C1F129C597690043109A /* LSJSTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1437,10 +1519,12 @@
 				0C50292F29AF3331003977F0 /* AppDelegate+BaseModules.swift in Sources */,
 				0C0CC8B229AF60E900CC3A6E /* KyoRefreshControl.m in Sources */,
 				0C0C35CE29B98B3E0039C535 /* TransitionAnimationPosition.m in Sources */,
+				0CDD4C6E29CB007E003402DF /* LSCreateOrderTableViewCell.swift in Sources */,
 				0C23782B29B20B8F003AC759 /* LSUserqueryViewController.swift in Sources */,
 				0CB7653929BB10950048B1B3 /* LSUploadApi.swift in Sources */,
 				0C23783129B20BC0003AC759 /* LSAddOrderViewController.swift in Sources */,
 				0C0C35BF29B986CD0039C535 /* KyoTransitioningScale.swift in Sources */,
+				0C29C1EA29C58E880043109A /* LSSegmentedTitleDataSource.swift in Sources */,
 				0CE7F14829BF1692008FF8C5 /* LSOrderFilterViewController.swift in Sources */,
 				0C49D15629B9C3EC0084C2F5 /* LSChangePhoneController.swift in Sources */,
 				0CB765A929BECC500048B1B3 /* LSClocksItemViewController.swift in Sources */,
@@ -1470,6 +1554,7 @@
 				0C0CC8AD29AF60E900CC3A6E /* JMRefreshControlViewWave.m in Sources */,
 				0C66266C29C314F600AADCC7 /* HWDownSelectedView.m in Sources */,
 				0C0C35D929B98BB60039C535 /* UIView-WhenTappedBlocks.m in Sources */,
+				0CDD4C6A29CAE9A4003402DF /* LSOrderItemViewController.swift in Sources */,
 				0C66266029C2F07200AADCC7 /* LSReserveTimeViewController.swift in Sources */,
 				0C50293129AF3331003977F0 /* AppDelegate.swift in Sources */,
 				0CB7659329BC760D0048B1B3 /* FSCalendarCollectionView.m in Sources */,
@@ -1478,6 +1563,7 @@
 				0CB7659B29BC760D0048B1B3 /* FSCalendarSeparatorDecorationView.m in Sources */,
 				0CE7F15229BF24FD008FF8C5 /* LSVipTableViewCell.swift in Sources */,
 				0CB7655629BC26AA0048B1B3 /* LSWorkbenchModel.swift in Sources */,
+				0C29C1F829C5A3F00043109A /* UUMarqueeView.m in Sources */,
 				0C49D15229B9C2BF0084C2F5 /* LSAccountSecureController.swift in Sources */,
 				0C23782229B20B04003AC759 /* LSRoyaltiesViewController.swift in Sources */,
 				0C23786F29B86774003AC759 /* LSAppServer.swift in Sources */,
@@ -1503,8 +1589,11 @@
 				0C49D14A29B9BD7A0084C2F5 /* LSStoreInfoViewController.swift in Sources */,
 				0CB765A029BC760D0048B1B3 /* FSCalendarTransitionCoordinator.m in Sources */,
 				0CB765BC29BF0C900048B1B3 /* LSOrderTableViewCell.swift in Sources */,
+				0CDD4C7229CB0B01003402DF /* LSOrderDetailsViewController.swift in Sources */,
 				0CB7659A29BC760D0048B1B3 /* FSCalendarWeekdayView.m in Sources */,
+				0C29C1EC29C58EA80043109A /* LSSegmentedTitleItemModel.swift in Sources */,
 				0CB765A629BEC89B0048B1B3 /* LSLoginContentView.swift in Sources */,
+				0C29C1F029C597690043109A /* LSJSTableViewCell.swift in Sources */,
 				0C9128E029AF504600D6237E /* ThirdsConfig.swift in Sources */,
 				0C66263629C2BE5100AADCC7 /* LSArriveStoreViewController.swift in Sources */,
 				0C0C35D129B98B3E0039C535 /* TransitionAnimationDelegate.m in Sources */,
@@ -1524,6 +1613,7 @@
 				0C0C35BE29B986CD0039C535 /* KyoTransitioningAnimation.swift in Sources */,
 				0C0CC8A729AF60E800CC3A6E /* KyoDataTipsModel.m in Sources */,
 				0C0C35B329B8A1B60039C535 /* LSVoiceViewController.swift in Sources */,
+				0C29C1E829C58DF50043109A /* LSSegmentedTitleCell.swift in Sources */,
 				0CB7659D29BC760D0048B1B3 /* FSCalendarConstants.m in Sources */,
 				0C5A4F6829B1EA5900B8C032 /* LSMineSettingCell.swift in Sources */,
 				0C0CC8AA29AF60E900CC3A6E /* KyoCenterRefreshControl.swift in Sources */,
@@ -1696,7 +1786,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1735,7 +1825,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
