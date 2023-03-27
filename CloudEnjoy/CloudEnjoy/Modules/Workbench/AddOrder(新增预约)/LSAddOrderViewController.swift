@@ -293,7 +293,7 @@ class LSAddOrderViewController: LSBaseViewController {
         var serverSingle: Single<LSNetworkResultModel>?
         var toastString = ""
         if let orderModel = self.orderModel {
-            serverSingle = LSWorkbenchServer.updateYuyue(billid: orderModel.billid, name: name, mobile: moblie, custtype: self.customerType, qty: self.customerNumLab.text ?? "1", refid: self.referrerModel.userid, tostoretime: self.arriveDate.string(withFormat: "yyyy-MM-dd hh:mm"), reservemin: self.timeType.reserveString, remark: self.remarkTextField.text ?? "", roomlist: roomlist ?? "", projectlist: [project].ls_toJSONString() ?? "", status: orderModel.status.string)
+            serverSingle = LSWorkbenchServer.updateYuyue(billid: orderModel.billid, name: name, mobile: moblie, custtype: self.customerType, qty: self.customerNumLab.text ?? "1", refid: self.referrerModel.userid, tostoretime: self.arriveDate.string(withFormat: "yyyy-MM-dd hh:mm"), reservemin: self.timeType.reserveString, remark: self.remarkTextField.text ?? "", roomlist: roomlist ?? "", projectlist: [project].ls_toJSONString() ?? "", status: orderModel.status.rawValue.string)
             toastString = "预约修改成功"
         }else {
             serverSingle = LSWorkbenchServer.insertAppointment(name: name, mobile: moblie, custtype: self.customerType, qty: self.customerNumLab.text ?? "1", refid: self.referrerModel.userid, tostoretime: self.arriveDate.string(withFormat: "yyyy-MM-dd hh:mm"), reservemin: self.timeType.reserveString, remark: self.remarkTextField.text ?? "", roomlist: roomlist ?? "", projectlist: [project].ls_toJSONString() ?? "")

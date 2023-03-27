@@ -130,7 +130,7 @@ extension Toast {
             view.frame = CGRect(x: 37.5, y: (spView!.height - viewHeight) / 2, width: viewWidth, height: viewHeight)
 //            animateView.frame = CGRect(center: CGPoint(x: viewWidth / 2, y: 39), size: CGSize(width: 45, height: 45))
             animateView.center = CGPoint(x: viewWidth / 2, y: 39)
-            textLabel.frame = CGRect(center: CGPoint(x: viewWidth / 2, y: animateView.bottom + 16.5 + textSize.height / 2), size: textSize)
+            textLabel.frame = CGRect(center: CGPoint(x: viewWidth / 2, y: animateView.ls_bottom + 16.5 + textSize.height / 2), size: textSize)
             animateView.setNeedsLayout()
         }
         

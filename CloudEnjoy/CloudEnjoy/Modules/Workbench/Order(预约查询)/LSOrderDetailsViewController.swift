@@ -52,8 +52,8 @@ class LSOrderDetailsViewController: LSBaseViewController {
         self.createNameLab.text = orderModel.createname
         self.remarkLab.text = orderModel.remark
         
-        self.cancelBtn.isHidden = orderModel.status != .waitYuyue
-        self.confirmBtn.isHidden = orderModel.status != .waitYuyue
+        self.cancelBtn.isHidden = orderModel.status != .wait &&  orderModel.status != .hadYuyue
+        self.confirmBtn.isHidden = orderModel.status != .wait &&  orderModel.status != .hadYuyue
     }
 
     @IBAction func cancelBtn(_ sender: Any) {
@@ -62,6 +62,7 @@ class LSOrderDetailsViewController: LSBaseViewController {
             Toast.showHUD()
             LSWorkbenchServer.cancelYuyue(billid: self.orderModel.billid).subscribe { model in
                 Toast.show("该预约已取消")
+                self.navigationController?.popToRootViewController(animated: true)
             } onFailure: { error in
                 Toast.show(error.localizedDescription)
             } onDisposed: {

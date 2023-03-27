@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView{
     // MARK : 坐标尺寸
-    public var origin:CGPoint {
+    public var ls_origin:CGPoint {
          get { frame.origin }
          set {
              var rect = frame
@@ -18,7 +18,7 @@ extension UIView{
          }
      }
      
-    public var size:CGSize {
+    public var ls_size:CGSize {
          get { frame.size }
          set {
              var rect = frame
@@ -27,7 +27,7 @@ extension UIView{
          }
      }
      
-    public var left:CGFloat {
+    public var ls_left:CGFloat {
          get { frame.origin.x }
          set {
              var rect = self.frame
@@ -36,7 +36,7 @@ extension UIView{
          }
      }
      
-    public var top:CGFloat {
+    public var ls_top:CGFloat {
          get { frame.origin.y }
          set {
              var rect = frame
@@ -45,7 +45,7 @@ extension UIView{
          }
      }
      
-    public var right:CGFloat {
+    public var ls_right:CGFloat {
          get { frame.origin.x + frame.size.width }
          set {
              var rect = frame
@@ -54,7 +54,7 @@ extension UIView{
          }
      }
      
-    public var bottom:CGFloat {
+    public var ls_bottom:CGFloat {
          get { frame.origin.y + frame.size.height }
          set {
              var rect = frame
@@ -63,21 +63,21 @@ extension UIView{
          }
      }
     
-    public var centerX: CGFloat {
+    public var ls_centerX: CGFloat {
         get { frame.center.x }
         set {
-            self.center = CGPoint(x: newValue, y: centerY)
+            self.center = CGPoint(x: newValue, y: ls_centerY)
         }
     }
     
-    public var centerY: CGFloat {
+    public var ls_centerY: CGFloat {
         get { frame.center.y }
         set {
-            self.center = CGPoint(x: self.centerX, y: newValue)
+            self.center = CGPoint(x: self.ls_centerX, y: newValue)
         }
     }
     
-    public var width: CGFloat {
+    public var ls_width: CGFloat {
         get { frame.size.width }
         set {
             var rect = frame
@@ -86,7 +86,7 @@ extension UIView{
         }
     }
     
-    public var height: CGFloat {
+    public var ls_height: CGFloat {
         get { frame.size.height }
         set {
             var rect = frame

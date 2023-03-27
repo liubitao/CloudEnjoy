@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LSMessageViewController" customModule="CloudEnjoy" customModuleProvider="target">
+            <connections>
+                <outlet property="allSelectBtn" destination="lgZ-du-bsA" id="Pbl-x4-fWl"/>
+                <outlet property="bottomView" destination="o9x-1p-M4C" id="hyN-N8-VN4"/>
+                <outlet property="deleteBtn" destination="HUb-ZZ-KrZ" id="WKk-Kb-vpS"/>
+                <outlet property="hadReadBtn" destination="TFL-oU-nzE" id="t4Z-rj-KbI"/>
+                <outlet property="view" destination="iN0-l3-epB" id="6t6-mH-ZBP"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9x-1p-M4C">
+                    <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgZ-du-bsA">
+                            <rect key="frame" x="15" y="16" width="60" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="r2W-6N-Qh8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                            <state key="normal" title="全选" image="矩形 3158">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" title="全选" image="组 6896"/>
+                            <connections>
+                                <action selector="selectedAllAction:" destination="-1" eventType="touchUpInside" id="XMl-wK-HEc"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFL-oU-nzE">
+                            <rect key="frame" x="258" y="10" width="60" height="29"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="Z49-Gu-w92"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="标记已读">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="readAction:" destination="-1" eventType="touchUpInside" id="nAR-bz-Xmn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUb-ZZ-KrZ">
+                            <rect key="frame" x="323" y="10" width="50" height="29"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="aQG-K6-y6J"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="删除">
+                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="deleteAction:" destination="-1" eventType="touchUpInside" id="l7k-SV-gFU"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="lgZ-du-bsA" firstAttribute="centerY" secondItem="o9x-1p-M4C" secondAttribute="centerY" id="2cY-ze-lMo"/>
+                        <constraint firstItem="TFL-oU-nzE" firstAttribute="centerY" secondItem="o9x-1p-M4C" secondAttribute="centerY" id="CBp-Lv-MxC"/>
+                        <constraint firstItem="HUb-ZZ-KrZ" firstAttribute="leading" secondItem="TFL-oU-nzE" secondAttribute="trailing" constant="5" id="FW8-pN-1Pm"/>
+                        <constraint firstAttribute="trailing" secondItem="HUb-ZZ-KrZ" secondAttribute="trailing" constant="20" id="MX7-Fz-gAs"/>
+                        <constraint firstAttribute="height" constant="49" id="Ql0-NG-LUI"/>
+                        <constraint firstItem="HUb-ZZ-KrZ" firstAttribute="centerY" secondItem="o9x-1p-M4C" secondAttribute="centerY" id="kno-ec-dxP"/>
+                        <constraint firstItem="lgZ-du-bsA" firstAttribute="leading" secondItem="o9x-1p-M4C" secondAttribute="leading" constant="15" id="zbq-lO-Sa3"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="o9x-1p-M4C" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Hnx-Gq-Sml"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="o9x-1p-M4C" secondAttribute="trailing" id="Phb-PB-V9a"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="o9x-1p-M4C" secondAttribute="bottom" id="dQn-5d-zwA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-347.32824427480915" y="-1.4084507042253522"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="矩形 3158" width="15" height="15"/>
+        <image name="组 6896" width="15" height="15"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

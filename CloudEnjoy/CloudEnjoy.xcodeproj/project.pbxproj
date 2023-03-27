@@ -103,12 +103,22 @@
 		0C29C1F129C597690043109A /* LSJSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C29C1EF29C597690043109A /* LSJSTableViewCell.xib */; };
 		0C29C1F329C59B0C0043109A /* LSHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C29C1F229C59B0C0043109A /* LSHomeViewController.xib */; };
 		0C29C1F829C5A3F00043109A /* UUMarqueeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C29C1F729C5A3F00043109A /* UUMarqueeView.m */; };
+		0C440EDF29CDC16B004B8382 /* LSMessageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C440EDE29CDC16B004B8382 /* LSMessageApi.swift */; };
+		0C440EE129CDC177004B8382 /* LSMessageServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C440EE029CDC177004B8382 /* LSMessageServer.swift */; };
+		0C440EE329CDC181004B8382 /* LSMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C440EE229CDC181004B8382 /* LSMessageModel.swift */; };
 		0C49D14A29B9BD7A0084C2F5 /* LSStoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C49D14829B9BD7A0084C2F5 /* LSStoreInfoViewController.swift */; };
 		0C49D14B29B9BD7A0084C2F5 /* LSStoreInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C49D14929B9BD7A0084C2F5 /* LSStoreInfoViewController.xib */; };
 		0C49D15029B9C2A60084C2F5 /* LSAccountSecureStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C49D14F29B9C2A60084C2F5 /* LSAccountSecureStoryboard.storyboard */; };
 		0C49D15229B9C2BF0084C2F5 /* LSAccountSecureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C49D15129B9C2BF0084C2F5 /* LSAccountSecureController.swift */; };
 		0C49D15429B9C3DA0084C2F5 /* LSChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C49D15329B9C3DA0084C2F5 /* LSChangePasswordController.swift */; };
 		0C49D15629B9C3EC0084C2F5 /* LSChangePhoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C49D15529B9C3EB0084C2F5 /* LSChangePhoneController.swift */; };
+		0C4D060629D133FC00D30F95 /* LSMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C4D060529D133FC00D30F95 /* LSMessageViewController.xib */; };
+		0C4D060829D143FA00D30F95 /* LSMessageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D060729D143FA00D30F95 /* LSMessageItemViewController.swift */; };
+		0C4D060C29D148B800D30F95 /* LSMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D060A29D148B800D30F95 /* LSMessageTableViewCell.swift */; };
+		0C4D060D29D148B800D30F95 /* LSMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C4D060B29D148B800D30F95 /* LSMessageTableViewCell.xib */; };
+		0C4F3FA929CD83CC00A20F03 /* LSHomeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F3FA829CD83CC00A20F03 /* LSHomeApi.swift */; };
+		0C4F3FAB29CD83D800A20F03 /* LSHomeServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F3FAA29CD83D800A20F03 /* LSHomeServer.swift */; };
+		0C4F3FAD29CD83E100A20F03 /* LSHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F3FAC29CD83E100A20F03 /* LSHomeModel.swift */; };
 		0C50292F29AF3331003977F0 /* AppDelegate+BaseModules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C50292B29AF3331003977F0 /* AppDelegate+BaseModules.swift */; };
 		0C50293029AF3331003977F0 /* AppDelegate+ThirdPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C50292C29AF3331003977F0 /* AppDelegate+ThirdPlatform.swift */; };
 		0C50293129AF3331003977F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C50292D29AF3331003977F0 /* AppDelegate.swift */; };
@@ -321,12 +331,22 @@
 		0C29C1F229C59B0C0043109A /* LSHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSHomeViewController.xib; sourceTree = "<group>"; };
 		0C29C1F629C5A3F00043109A /* UUMarqueeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUMarqueeView.h; sourceTree = "<group>"; };
 		0C29C1F729C5A3F00043109A /* UUMarqueeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUMarqueeView.m; sourceTree = "<group>"; };
+		0C440EDE29CDC16B004B8382 /* LSMessageApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMessageApi.swift; sourceTree = "<group>"; };
+		0C440EE029CDC177004B8382 /* LSMessageServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMessageServer.swift; sourceTree = "<group>"; };
+		0C440EE229CDC181004B8382 /* LSMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMessageModel.swift; sourceTree = "<group>"; };
 		0C49D14829B9BD7A0084C2F5 /* LSStoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSStoreInfoViewController.swift; sourceTree = "<group>"; };
 		0C49D14929B9BD7A0084C2F5 /* LSStoreInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSStoreInfoViewController.xib; sourceTree = "<group>"; };
 		0C49D14F29B9C2A60084C2F5 /* LSAccountSecureStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LSAccountSecureStoryboard.storyboard; sourceTree = "<group>"; };
 		0C49D15129B9C2BF0084C2F5 /* LSAccountSecureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSAccountSecureController.swift; sourceTree = "<group>"; };
 		0C49D15329B9C3DA0084C2F5 /* LSChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSChangePasswordController.swift; sourceTree = "<group>"; };
 		0C49D15529B9C3EB0084C2F5 /* LSChangePhoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSChangePhoneController.swift; sourceTree = "<group>"; };
+		0C4D060529D133FC00D30F95 /* LSMessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSMessageViewController.xib; sourceTree = "<group>"; };
+		0C4D060729D143FA00D30F95 /* LSMessageItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMessageItemViewController.swift; sourceTree = "<group>"; };
+		0C4D060A29D148B800D30F95 /* LSMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMessageTableViewCell.swift; sourceTree = "<group>"; };
+		0C4D060B29D148B800D30F95 /* LSMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSMessageTableViewCell.xib; sourceTree = "<group>"; };
+		0C4F3FA829CD83CC00A20F03 /* LSHomeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSHomeApi.swift; sourceTree = "<group>"; };
+		0C4F3FAA29CD83D800A20F03 /* LSHomeServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSHomeServer.swift; sourceTree = "<group>"; };
+		0C4F3FAC29CD83E100A20F03 /* LSHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSHomeModel.swift; sourceTree = "<group>"; };
 		0C50291229AF1F3A003977F0 /* CloudEnjoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudEnjoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C50292B29AF3331003977F0 /* AppDelegate+BaseModules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+BaseModules.swift"; sourceTree = "<group>"; };
 		0C50292C29AF3331003977F0 /* AppDelegate+ThirdPlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+ThirdPlatform.swift"; sourceTree = "<group>"; };
@@ -854,7 +874,10 @@
 		0C27885B29B1FC0C00C3B6F9 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				0C4D060929D148A300D30F95 /* View */,
 				0C27885C29B1FC2E00C3B6F9 /* LSMessageViewController.swift */,
+				0C4D060529D133FC00D30F95 /* LSMessageViewController.xib */,
+				0C4D060729D143FA00D30F95 /* LSMessageItemViewController.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -871,6 +894,9 @@
 		0C29C1F429C5A3750043109A /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				0C440EDE29CDC16B004B8382 /* LSMessageApi.swift */,
+				0C440EE029CDC177004B8382 /* LSMessageServer.swift */,
+				0C440EE229CDC181004B8382 /* LSMessageModel.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -902,6 +928,25 @@
 				0C49D14F29B9C2A60084C2F5 /* LSAccountSecureStoryboard.storyboard */,
 			);
 			path = "账号安全";
+			sourceTree = "<group>";
+		};
+		0C4D060929D148A300D30F95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C4D060A29D148B800D30F95 /* LSMessageTableViewCell.swift */,
+				0C4D060B29D148B800D30F95 /* LSMessageTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0C4F3FA729CD83BB00A20F03 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0C4F3FA829CD83CC00A20F03 /* LSHomeApi.swift */,
+				0C4F3FAA29CD83D800A20F03 /* LSHomeServer.swift */,
+				0C4F3FAC29CD83E100A20F03 /* LSHomeModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		0C50290929AF1F3A003977F0 = {
@@ -950,6 +995,7 @@
 		0C50293229AF3433003977F0 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				0C4F3FA729CD83BB00A20F03 /* Home */,
 				0C29C1F429C5A3750043109A /* Message */,
 				0CB7655029BC26790048B1B3 /* Workbench */,
 				0CB7653729BB10820048B1B3 /* Upload */,
@@ -1438,6 +1484,8 @@
 				0CB7655B29BC4D7C0048B1B3 /* LSRoyaltiesItemTableCell.xib in Resources */,
 				0C66267029C3158600AADCC7 /* LSChoiceRoomItemController.xib in Resources */,
 				0C0CC89529AF60E800CC3A6E /* refresh_warter@3x.png in Resources */,
+				0C4D060D29D148B800D30F95 /* LSMessageTableViewCell.xib in Resources */,
+				0C4D060629D133FC00D30F95 /* LSMessageViewController.xib in Resources */,
 				0C0C35B129B8A1980039C535 /* AlertStoryboard.storyboard in Resources */,
 				0C66266B29C314F600AADCC7 /* arrow_up@2x.png in Resources */,
 				0C0CC89B29AF60E800CC3A6E /* com_refresh_icon@2x.png in Resources */,
@@ -1505,10 +1553,12 @@
 				0C9128F329AF50BF00D6237E /* LSBaseViewController.swift in Sources */,
 				0C66266429C3131300AADCC7 /* LSChoiceRoomViewController.swift in Sources */,
 				0CB7655A29BC4D7C0048B1B3 /* LSRoyaltiesItemTableCell.swift in Sources */,
+				0C440EE329CDC181004B8382 /* LSMessageModel.swift in Sources */,
 				0C23784D29B2F0CA003AC759 /* LSUserApi.swift in Sources */,
 				0CB7653B29BB110A0048B1B3 /* LSUploadServer.swift in Sources */,
 				0C0C35D229B98B3E0039C535 /* TransitionAnimationPresentationController.m in Sources */,
 				0C5A4F5B29B0B59800B8C032 /* LSMineHeadView.swift in Sources */,
+				0C4F3FAB29CD83D800A20F03 /* LSHomeServer.swift in Sources */,
 				0CB7659829BC760D0048B1B3 /* FSCalendar.m in Sources */,
 				0C23782529B20B53003AC759 /* LSClocksViewController.swift in Sources */,
 				0CB765AE29BED3070048B1B3 /* LSClockTableViewCell.swift in Sources */,
@@ -1528,10 +1578,12 @@
 				0CE7F14829BF1692008FF8C5 /* LSOrderFilterViewController.swift in Sources */,
 				0C49D15629B9C3EC0084C2F5 /* LSChangePhoneController.swift in Sources */,
 				0CB765A929BECC500048B1B3 /* LSClocksItemViewController.swift in Sources */,
+				0C440EDF29CDC16B004B8382 /* LSMessageApi.swift in Sources */,
 				0C66265E29C2CEB400AADCC7 /* LSDatePickerView.swift in Sources */,
 				0C0C35C229B986CD0039C535 /* KyoTransitioning.swift in Sources */,
 				0C50294629AF36C7003977F0 /* UIViewController+LSNavigation.swift in Sources */,
 				0C49D15429B9C3DA0084C2F5 /* LSChangePasswordController.swift in Sources */,
+				0C4F3FAD29CD83E100A20F03 /* LSHomeModel.swift in Sources */,
 				0C9128DA29AF504600D6237E /* FontGlobal.swift in Sources */,
 				0CB7659429BC760D0048B1B3 /* FSCalendarDelegationProxy.m in Sources */,
 				0C23782E29B20BA9003AC759 /* LSOrderViewController.swift in Sources */,
@@ -1578,6 +1630,7 @@
 				0C0CC8B129AF60E900CC3A6E /* KyoCircleLoadView.m in Sources */,
 				0C0C35CF29B98B3E0039C535 /* TransitionAnimationInteractive.m in Sources */,
 				0C50294729AF36C7003977F0 /* LSNavigationController.swift in Sources */,
+				0C440EE129CDC177004B8382 /* LSMessageServer.swift in Sources */,
 				0C0C358F29B892320039C535 /* CommonDefine.swift in Sources */,
 				0C23784829B2E055003AC759 /* LSPhoneLoginView.swift in Sources */,
 				0CB7654329BB2D170048B1B3 /* LSUserInfoViewController.swift in Sources */,
@@ -1596,6 +1649,7 @@
 				0C29C1F029C597690043109A /* LSJSTableViewCell.swift in Sources */,
 				0C9128E029AF504600D6237E /* ThirdsConfig.swift in Sources */,
 				0C66263629C2BE5100AADCC7 /* LSArriveStoreViewController.swift in Sources */,
+				0C4D060C29D148B800D30F95 /* LSMessageTableViewCell.swift in Sources */,
 				0C0C35D129B98B3E0039C535 /* TransitionAnimationDelegate.m in Sources */,
 				0C66267529C315AD00AADCC7 /* LSChioceProjectItemController.swift in Sources */,
 				0C23784F29B2F456003AC759 /* LSUserServer.swift in Sources */,
@@ -1609,9 +1663,11 @@
 				0C50294529AF36C7003977F0 /* RootViewController.swift in Sources */,
 				0CB7653629B9FAD10048B1B3 /* LSUserModel.swift in Sources */,
 				0C0CC8BD29B07EBD00CC3A6E /* LSWorkbenchViewController.swift in Sources */,
+				0C4D060829D143FA00D30F95 /* LSMessageItemViewController.swift in Sources */,
 				0CB7659529BC760D0048B1B3 /* FSCalendarDelegationFactory.m in Sources */,
 				0C0C35BE29B986CD0039C535 /* KyoTransitioningAnimation.swift in Sources */,
 				0C0CC8A729AF60E800CC3A6E /* KyoDataTipsModel.m in Sources */,
+				0C4F3FA929CD83CC00A20F03 /* LSHomeApi.swift in Sources */,
 				0C0C35B329B8A1B60039C535 /* LSVoiceViewController.swift in Sources */,
 				0C29C1E829C58DF50043109A /* LSSegmentedTitleCell.swift in Sources */,
 				0CB7659D29BC760D0048B1B3 /* FSCalendarConstants.m in Sources */,

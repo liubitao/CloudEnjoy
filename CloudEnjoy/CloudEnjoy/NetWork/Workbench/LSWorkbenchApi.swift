@@ -36,7 +36,7 @@ extension LSWorkbenchAPI.APIPath {
     static let findAboutCreateMe = "about/findAboutCreateMe"
     
     static let cancelYuyue = "about/updateStatus"
-    static let aboutUpdate = "about/updateStatus"
+    static let aboutUpdate = "about/update"
 }
 
 enum LSWorkbenchAPI: TargetType {

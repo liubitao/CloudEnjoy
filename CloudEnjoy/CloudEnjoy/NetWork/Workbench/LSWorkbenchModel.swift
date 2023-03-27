@@ -314,7 +314,7 @@ struct LSJSLevelModel: HandyJSON {
 
 enum LSOrderStatus: Int, HandyJSONEnum {
     case hadYuyue = 0
-    case waitYuyue = 1
+    case wait = 1
     case cancel = 2
     case waitServer = 3
     case finish = 4
@@ -323,7 +323,7 @@ enum LSOrderStatus: Int, HandyJSONEnum {
         switch self {
         case .hadYuyue:
             return Color.red
-        case .waitYuyue:
+        case .wait:
             return Color(hexString: "#669AE6")!
         case .cancel:
             return Color(hexString: "#54C263")!
@@ -352,7 +352,7 @@ struct LSOrderModel: HandyJSON {
     var projectid = ""
     var projectname = ""
     var statusname = ""
-    var status = LSOrderStatus.waitYuyue
+    var status = LSOrderStatus.hadYuyue
     var tid = ""
     var sid = ""
     var tlid = ""
