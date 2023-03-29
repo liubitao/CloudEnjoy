@@ -19,3 +19,12 @@ struct LSJSHomeModel: HandyJSON {
     var userid = ""
     var overtimesaleductamt = ""
 }
+
+
+struct LSRankModel: HandyJSON {
+    var headimg = ""
+    var tlname = ""
+    var sumqty = ""
+    var usercode = ""
+    var username = ""
+}

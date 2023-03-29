@@ -134,6 +134,7 @@ struct LSOrderServerModel: HandyJSON {
     var amt = ""
     var commission = ""
     var createtime = ""
+    var billid = ""
 }
 
 // 会员
@@ -359,4 +360,74 @@ struct LSOrderModel: HandyJSON {
     var createname = ""
     var ctype = LSClockType.wheelClock
     var tname = ""
+}
+
+
+struct LSOrderDetailsModel: HandyJSON {
+    var cashname = ""
+    var bedid = ""
+    var amt: Double = 0
+    var starttime = ""
+    var workoverflag = ""
+    var startname = ""
+    var spid = ""
+    var tid = ""
+    var sid = ""
+    var roomname = ""
+    var min = ""
+    var createid = ""
+    var price: Double = 0
+    var billid = ""
+    var cancelname = ""
+    var endname = ""
+    var commission: Double = 0
+    var id = ""
+    var refid = ""
+    var projectid = ""
+    var projectname = ""
+    var createtime = ""
+    var dispatchtime = ""
+    var canceltime = ""
+    var endtime = ""
+    var tname = ""
+    var handcardid = ""
+    var roomid = ""
+    var refname = ""
+    var createname = ""
+    var handcardno = ""
+    var cashid = ""
+    var rramt: Double = 0
+    var ctype = LSClockType.wheelClock
+    var clockup = ""
+    var qty = ""
+    var billdate = ""
+    var bedname = ""
+    var updatetime = ""
+    var billno = ""
+    var status = LSOrderStatus.hadYuyue
+    var rprice: Double = 0
+    var payway = ""
+}
+
+
+struct LSLeaveModel: HandyJSON {
+    var statusname = ""
+    var leavetypename = ""
+    var starttime = ""
+    var endtime = ""
+    var hours = ""
+    var remark = ""
+    var createtime = ""
+    var status = ""
+    var cstatus = ""
+    var canceltime = ""
+    var updatename = ""
+    var cencelremark = ""
+    var billid = ""
+}
+
+
+struct LSLeaveTypeModel: HandyJSON {
+    var leavetypeid = ""
+    var name = ""
 }

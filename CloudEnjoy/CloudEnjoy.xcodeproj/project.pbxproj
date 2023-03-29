@@ -116,6 +116,11 @@
 		0C4D060829D143FA00D30F95 /* LSMessageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D060729D143FA00D30F95 /* LSMessageItemViewController.swift */; };
 		0C4D060C29D148B800D30F95 /* LSMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D060A29D148B800D30F95 /* LSMessageTableViewCell.swift */; };
 		0C4D060D29D148B800D30F95 /* LSMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C4D060B29D148B800D30F95 /* LSMessageTableViewCell.xib */; };
+		0C4D061029D1830000D30F95 /* LSWorkOrderDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D060E29D1830000D30F95 /* LSWorkOrderDetailsController.swift */; };
+		0C4D061129D1830000D30F95 /* LSWorkOrderDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C4D060F29D1830000D30F95 /* LSWorkOrderDetailsController.xib */; };
+		0C4D061429D19D0F00D30F95 /* LSRankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D061329D19D0F00D30F95 /* LSRankViewController.swift */; };
+		0C4D061829D19D4400D30F95 /* LSRankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D061629D19D4400D30F95 /* LSRankTableViewCell.swift */; };
+		0C4D061929D19D4400D30F95 /* LSRankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C4D061729D19D4400D30F95 /* LSRankTableViewCell.xib */; };
 		0C4F3FA929CD83CC00A20F03 /* LSHomeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F3FA829CD83CC00A20F03 /* LSHomeApi.swift */; };
 		0C4F3FAB29CD83D800A20F03 /* LSHomeServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F3FAA29CD83D800A20F03 /* LSHomeServer.swift */; };
 		0C4F3FAD29CD83E100A20F03 /* LSHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F3FAC29CD83E100A20F03 /* LSHomeModel.swift */; };
@@ -147,6 +152,16 @@
 		0C66267629C315AD00AADCC7 /* LSChioceProjectItemController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C66267429C315AD00AADCC7 /* LSChioceProjectItemController.xib */; };
 		0C66267929C315DE00AADCC7 /* LSChioceTechnicianItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66267729C315DE00AADCC7 /* LSChioceTechnicianItemController.swift */; };
 		0C66267A29C315DE00AADCC7 /* LSChioceTechnicianItemController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C66267829C315DE00AADCC7 /* LSChioceTechnicianItemController.xib */; };
+		0C7E4C8329D2D0B000CDE80A /* LSLeaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E4C8229D2D0B000CDE80A /* LSLeaveViewController.xib */; };
+		0C7E4C8629D2D11E00CDE80A /* LSAddLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4C8429D2D11E00CDE80A /* LSAddLeaveViewController.swift */; };
+		0C7E4C8729D2D11E00CDE80A /* LSAddLeaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E4C8529D2D11E00CDE80A /* LSAddLeaveViewController.xib */; };
+		0C7E4C8B29D2D36D00CDE80A /* LSLeaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4C8929D2D36D00CDE80A /* LSLeaveTableViewCell.swift */; };
+		0C7E4C8C29D2D36D00CDE80A /* LSLeaveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E4C8A29D2D36D00CDE80A /* LSLeaveTableViewCell.xib */; };
+		0C7E4C8F29D2DECF00CDE80A /* LSLeaveDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4C8D29D2DECF00CDE80A /* LSLeaveDetailsViewController.swift */; };
+		0C7E4C9029D2DECF00CDE80A /* LSLeaveDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E4C8E29D2DECF00CDE80A /* LSLeaveDetailsViewController.xib */; };
+		0C7E4C9229D2F91500CDE80A /* LSCancelLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4C9129D2F91500CDE80A /* LSCancelLeaveViewController.swift */; };
+		0C7E4C9429D4236900CDE80A /* LSChoiceLeaveTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4C9329D4236900CDE80A /* LSChoiceLeaveTypeController.swift */; };
+		0C7E4C9629D4289B00CDE80A /* LSChoiceTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4C9529D4289B00CDE80A /* LSChoiceTimeViewController.swift */; };
 		0C9128D929AF504600D6237E /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9128CE29AF504600D6237E /* NotificationName.swift */; };
 		0C9128DA29AF504600D6237E /* FontGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9128CF29AF504600D6237E /* FontGlobal.swift */; };
 		0C9128DC29AF504600D6237E /* UIGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9128D129AF504600D6237E /* UIGlobal.swift */; };
@@ -344,6 +359,11 @@
 		0C4D060729D143FA00D30F95 /* LSMessageItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMessageItemViewController.swift; sourceTree = "<group>"; };
 		0C4D060A29D148B800D30F95 /* LSMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMessageTableViewCell.swift; sourceTree = "<group>"; };
 		0C4D060B29D148B800D30F95 /* LSMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSMessageTableViewCell.xib; sourceTree = "<group>"; };
+		0C4D060E29D1830000D30F95 /* LSWorkOrderDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSWorkOrderDetailsController.swift; sourceTree = "<group>"; };
+		0C4D060F29D1830000D30F95 /* LSWorkOrderDetailsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSWorkOrderDetailsController.xib; sourceTree = "<group>"; };
+		0C4D061329D19D0F00D30F95 /* LSRankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSRankViewController.swift; sourceTree = "<group>"; };
+		0C4D061629D19D4400D30F95 /* LSRankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSRankTableViewCell.swift; sourceTree = "<group>"; };
+		0C4D061729D19D4400D30F95 /* LSRankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSRankTableViewCell.xib; sourceTree = "<group>"; };
 		0C4F3FA829CD83CC00A20F03 /* LSHomeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSHomeApi.swift; sourceTree = "<group>"; };
 		0C4F3FAA29CD83D800A20F03 /* LSHomeServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSHomeServer.swift; sourceTree = "<group>"; };
 		0C4F3FAC29CD83E100A20F03 /* LSHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSHomeModel.swift; sourceTree = "<group>"; };
@@ -377,6 +397,16 @@
 		0C66267429C315AD00AADCC7 /* LSChioceProjectItemController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSChioceProjectItemController.xib; sourceTree = "<group>"; };
 		0C66267729C315DE00AADCC7 /* LSChioceTechnicianItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSChioceTechnicianItemController.swift; sourceTree = "<group>"; };
 		0C66267829C315DE00AADCC7 /* LSChioceTechnicianItemController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSChioceTechnicianItemController.xib; sourceTree = "<group>"; };
+		0C7E4C8229D2D0B000CDE80A /* LSLeaveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSLeaveViewController.xib; sourceTree = "<group>"; };
+		0C7E4C8429D2D11E00CDE80A /* LSAddLeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSAddLeaveViewController.swift; sourceTree = "<group>"; };
+		0C7E4C8529D2D11E00CDE80A /* LSAddLeaveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSAddLeaveViewController.xib; sourceTree = "<group>"; };
+		0C7E4C8929D2D36D00CDE80A /* LSLeaveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLeaveTableViewCell.swift; sourceTree = "<group>"; };
+		0C7E4C8A29D2D36D00CDE80A /* LSLeaveTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSLeaveTableViewCell.xib; sourceTree = "<group>"; };
+		0C7E4C8D29D2DECF00CDE80A /* LSLeaveDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLeaveDetailsViewController.swift; sourceTree = "<group>"; };
+		0C7E4C8E29D2DECF00CDE80A /* LSLeaveDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSLeaveDetailsViewController.xib; sourceTree = "<group>"; };
+		0C7E4C9129D2F91500CDE80A /* LSCancelLeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSCancelLeaveViewController.swift; sourceTree = "<group>"; };
+		0C7E4C9329D4236900CDE80A /* LSChoiceLeaveTypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSChoiceLeaveTypeController.swift; sourceTree = "<group>"; };
+		0C7E4C9529D4289B00CDE80A /* LSChoiceTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSChoiceTimeViewController.swift; sourceTree = "<group>"; };
 		0C9128CE29AF504600D6237E /* NotificationName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		0C9128CF29AF504600D6237E /* FontGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontGlobal.swift; sourceTree = "<group>"; };
 		0C9128D129AF504600D6237E /* UIGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGlobal.swift; sourceTree = "<group>"; };
@@ -485,6 +515,9 @@
 				0C66263529C2BE5100AADCC7 /* LSArriveStoreViewController.swift */,
 				0C66265F29C2F07200AADCC7 /* LSReserveTimeViewController.swift */,
 				0C66266129C2F5B200AADCC7 /* LSReferrerViewController.swift */,
+				0C7E4C9129D2F91500CDE80A /* LSCancelLeaveViewController.swift */,
+				0C7E4C9329D4236900CDE80A /* LSChoiceLeaveTypeController.swift */,
+				0C7E4C9529D4289B00CDE80A /* LSChoiceTimeViewController.swift */,
 				0C66266529C3141100AADCC7 /* 预约房间 */,
 				0C0C35B029B8A1980039C535 /* AlertStoryboard.storyboard */,
 			);
@@ -748,6 +781,8 @@
 				0C23782729B20B6F003AC759 /* LSWorkorderViewController.swift */,
 				0CB765B429BF0AE00048B1B3 /* LSWorkorderItemViewController.swift */,
 				0CB765B829BF0B000048B1B3 /* LSWorkorderItemViewController.xib */,
+				0C4D060E29D1830000D30F95 /* LSWorkOrderDetailsController.swift */,
+				0C4D060F29D1830000D30F95 /* LSWorkOrderDetailsController.xib */,
 			);
 			path = "Workorder(我的工单)";
 			sourceTree = "<group>";
@@ -796,7 +831,13 @@
 		0C23783529B20BE1003AC759 /* Leave(员工请假) */ = {
 			isa = PBXGroup;
 			children = (
+				0C7E4C8829D2D33C00CDE80A /* View */,
 				0C23783629B20BEF003AC759 /* LSLeaveViewController.swift */,
+				0C7E4C8229D2D0B000CDE80A /* LSLeaveViewController.xib */,
+				0C7E4C8429D2D11E00CDE80A /* LSAddLeaveViewController.swift */,
+				0C7E4C8529D2D11E00CDE80A /* LSAddLeaveViewController.xib */,
+				0C7E4C8D29D2DECF00CDE80A /* LSLeaveDetailsViewController.swift */,
+				0C7E4C8E29D2DECF00CDE80A /* LSLeaveDetailsViewController.xib */,
 			);
 			path = "Leave(员工请假)";
 			sourceTree = "<group>";
@@ -935,6 +976,24 @@
 			children = (
 				0C4D060A29D148B800D30F95 /* LSMessageTableViewCell.swift */,
 				0C4D060B29D148B800D30F95 /* LSMessageTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0C4D061229D19CEE00D30F95 /* 今日排名 */ = {
+			isa = PBXGroup;
+			children = (
+				0C4D061529D19D2F00D30F95 /* View */,
+				0C4D061329D19D0F00D30F95 /* LSRankViewController.swift */,
+			);
+			path = "今日排名";
+			sourceTree = "<group>";
+		};
+		0C4D061529D19D2F00D30F95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C4D061629D19D4400D30F95 /* LSRankTableViewCell.swift */,
+				0C4D061729D19D4400D30F95 /* LSRankTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1102,6 +1161,15 @@
 				0C66266829C314F600AADCC7 /* arrow_up@2x.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		0C7E4C8829D2D33C00CDE80A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C7E4C8929D2D36D00CDE80A /* LSLeaveTableViewCell.swift */,
+				0C7E4C8A29D2D36D00CDE80A /* LSLeaveTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		0C9128CB29AF504600D6237E /* Defines */ = {
@@ -1288,6 +1356,7 @@
 		0CE8EE4329AF3871003DE097 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0C4D061229D19CEE00D30F95 /* 今日排名 */,
 				0C0CC8B729B07E6900CC3A6E /* Home */,
 			);
 			path = Home;
@@ -1432,6 +1501,7 @@
 			files = (
 				0C0CC89929AF60E800CC3A6E /* refresh_warter_background@1x.png in Resources */,
 				0C0CC89229AF60E800CC3A6E /* refresh_warter_forground@3x.png in Resources */,
+				0C4D061929D19D4400D30F95 /* LSRankTableViewCell.xib in Resources */,
 				0CB7654429BB2D170048B1B3 /* LSUserInfoViewController.xib in Resources */,
 				0C5A4F5A29B0B59800B8C032 /* LSMineHeadView.xib in Resources */,
 				0C66267629C315AD00AADCC7 /* LSChioceProjectItemController.xib in Resources */,
@@ -1447,6 +1517,7 @@
 				0C0CC89E29AF60E800CC3A6E /* com_refresh_icon@3x.png in Resources */,
 				0C0CC8A229AF60E800CC3A6E /* button_249_47_58_selected@2x.png in Resources */,
 				0C0CC88D29AF60E800CC3A6E /* kyo_refresh_nodata_noerror@2x.png in Resources */,
+				0C7E4C8329D2D0B000CDE80A /* LSLeaveViewController.xib in Resources */,
 				0C0CC89429AF60E800CC3A6E /* refresh_warter_background@3x.png in Resources */,
 				0CDD4C6F29CB007E003402DF /* LSCreateOrderTableViewCell.xib in Resources */,
 				0C0CC89729AF60E800CC3A6E /* refresh_warter@1x.png in Resources */,
@@ -1480,10 +1551,13 @@
 				0C0CC89629AF60E800CC3A6E /* refresh_warter@2x.png in Resources */,
 				0C0CC89029AF60E800CC3A6E /* kyo_refresh_nodata_noerror@3x.png in Resources */,
 				0C49D14B29B9BD7A0084C2F5 /* LSStoreInfoViewController.xib in Resources */,
+				0C7E4C9029D2DECF00CDE80A /* LSLeaveDetailsViewController.xib in Resources */,
+				0C7E4C8C29D2D36D00CDE80A /* LSLeaveTableViewCell.xib in Resources */,
 				0C0CC89129AF60E800CC3A6E /* refresh_warter_background@2x.png in Resources */,
 				0CB7655B29BC4D7C0048B1B3 /* LSRoyaltiesItemTableCell.xib in Resources */,
 				0C66267029C3158600AADCC7 /* LSChoiceRoomItemController.xib in Resources */,
 				0C0CC89529AF60E800CC3A6E /* refresh_warter@3x.png in Resources */,
+				0C4D061129D1830000D30F95 /* LSWorkOrderDetailsController.xib in Resources */,
 				0C4D060D29D148B800D30F95 /* LSMessageTableViewCell.xib in Resources */,
 				0C4D060629D133FC00D30F95 /* LSMessageViewController.xib in Resources */,
 				0C0C35B129B8A1980039C535 /* AlertStoryboard.storyboard in Resources */,
@@ -1494,6 +1568,7 @@
 				0C0CC89829AF60E800CC3A6E /* refresh_warter_forground@1x.png in Resources */,
 				0C49D15029B9C2A60084C2F5 /* LSAccountSecureStoryboard.storyboard in Resources */,
 				0C5A4F6929B1EA5900B8C032 /* LSMineSettingCell.xib in Resources */,
+				0C7E4C8729D2D11E00CDE80A /* LSAddLeaveViewController.xib in Resources */,
 				0C0CC8A529AF60E800CC3A6E /* kyo_refresh_default_icon@2x.png in Resources */,
 				0C29C1F129C597690043109A /* LSJSTableViewCell.xib in Resources */,
 			);
@@ -1548,12 +1623,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C4D061429D19D0F00D30F95 /* LSRankViewController.swift in Sources */,
 				0C23787429B87400003AC759 /* LSTextViewController.swift in Sources */,
 				0C0CC8A829AF60E800CC3A6E /* KyoDataTipsView.m in Sources */,
 				0C9128F329AF50BF00D6237E /* LSBaseViewController.swift in Sources */,
 				0C66266429C3131300AADCC7 /* LSChoiceRoomViewController.swift in Sources */,
 				0CB7655A29BC4D7C0048B1B3 /* LSRoyaltiesItemTableCell.swift in Sources */,
 				0C440EE329CDC181004B8382 /* LSMessageModel.swift in Sources */,
+				0C7E4C9429D4236900CDE80A /* LSChoiceLeaveTypeController.swift in Sources */,
 				0C23784D29B2F0CA003AC759 /* LSUserApi.swift in Sources */,
 				0CB7653B29BB110A0048B1B3 /* LSUploadServer.swift in Sources */,
 				0C0C35D229B98B3E0039C535 /* TransitionAnimationPresentationController.m in Sources */,
@@ -1577,6 +1654,7 @@
 				0C29C1EA29C58E880043109A /* LSSegmentedTitleDataSource.swift in Sources */,
 				0CE7F14829BF1692008FF8C5 /* LSOrderFilterViewController.swift in Sources */,
 				0C49D15629B9C3EC0084C2F5 /* LSChangePhoneController.swift in Sources */,
+				0C7E4C8629D2D11E00CDE80A /* LSAddLeaveViewController.swift in Sources */,
 				0CB765A929BECC500048B1B3 /* LSClocksItemViewController.swift in Sources */,
 				0C440EDF29CDC16B004B8382 /* LSMessageApi.swift in Sources */,
 				0C66265E29C2CEB400AADCC7 /* LSDatePickerView.swift in Sources */,
@@ -1595,12 +1673,14 @@
 				0CB7659729BC760D0048B1B3 /* FSCalendarStickyHeader.m in Sources */,
 				0CF5C1A129C0210B00960506 /* LSVipDetailsViewController.swift in Sources */,
 				0C23786029B5D496003AC759 /* Toast.swift in Sources */,
+				0C7E4C9629D4289B00CDE80A /* LSChoiceTimeViewController.swift in Sources */,
 				0C9128D929AF504600D6237E /* NotificationName.swift in Sources */,
 				0C0C35C129B986CD0039C535 /* KyoTransitioningInteractive.swift in Sources */,
 				0C23783B29B210AA003AC759 /* LSAboutViewController.swift in Sources */,
 				0C66263429C1D1E100AADCC7 /* LSChoiceCustomerViewController.swift in Sources */,
 				0CB7654A29BB4E260048B1B3 /* LSRoyaltiesItemController.swift in Sources */,
 				0C0C35D029B98B3E0039C535 /* TransitionAnimationChangeAlpha.m in Sources */,
+				0C7E4C9229D2F91500CDE80A /* LSCancelLeaveViewController.swift in Sources */,
 				0C0CC8AC29AF60E900CC3A6E /* RHRefreshControlViewSequenceImages.m in Sources */,
 				0CB765B129BED70F0048B1B3 /* LSClockHeaderView.swift in Sources */,
 				0C0CC8AD29AF60E900CC3A6E /* JMRefreshControlViewWave.m in Sources */,
@@ -1609,6 +1689,7 @@
 				0CDD4C6A29CAE9A4003402DF /* LSOrderItemViewController.swift in Sources */,
 				0C66266029C2F07200AADCC7 /* LSReserveTimeViewController.swift in Sources */,
 				0C50293129AF3331003977F0 /* AppDelegate.swift in Sources */,
+				0C4D061829D19D4400D30F95 /* LSRankTableViewCell.swift in Sources */,
 				0CB7659329BC760D0048B1B3 /* FSCalendarCollectionView.m in Sources */,
 				0C0CC88B29AF60E800CC3A6E /* KyoLoadMoreControl.m in Sources */,
 				0CB7659929BC760D0048B1B3 /* FSCalendarCollectionViewLayout.m in Sources */,
@@ -1631,6 +1712,7 @@
 				0C0C35CF29B98B3E0039C535 /* TransitionAnimationInteractive.m in Sources */,
 				0C50294729AF36C7003977F0 /* LSNavigationController.swift in Sources */,
 				0C440EE129CDC177004B8382 /* LSMessageServer.swift in Sources */,
+				0C4D061029D1830000D30F95 /* LSWorkOrderDetailsController.swift in Sources */,
 				0C0C358F29B892320039C535 /* CommonDefine.swift in Sources */,
 				0C23784829B2E055003AC759 /* LSPhoneLoginView.swift in Sources */,
 				0CB7654329BB2D170048B1B3 /* LSUserInfoViewController.swift in Sources */,
@@ -1668,6 +1750,7 @@
 				0C0C35BE29B986CD0039C535 /* KyoTransitioningAnimation.swift in Sources */,
 				0C0CC8A729AF60E800CC3A6E /* KyoDataTipsModel.m in Sources */,
 				0C4F3FA929CD83CC00A20F03 /* LSHomeApi.swift in Sources */,
+				0C7E4C8B29D2D36D00CDE80A /* LSLeaveTableViewCell.swift in Sources */,
 				0C0C35B329B8A1B60039C535 /* LSVoiceViewController.swift in Sources */,
 				0C29C1E829C58DF50043109A /* LSSegmentedTitleCell.swift in Sources */,
 				0CB7659D29BC760D0048B1B3 /* FSCalendarConstants.m in Sources */,
@@ -1685,6 +1768,7 @@
 				0C0CC8C229B07F1700CC3A6E /* LSLoginViewController.swift in Sources */,
 				0C0CC8C029B07EE400CC3A6E /* LSMineViewController.swift in Sources */,
 				0C0CC8AE29AF60E900CC3A6E /* RHRefreshControlViewPinterest.m in Sources */,
+				0C7E4C8F29D2DECF00CDE80A /* LSLeaveDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

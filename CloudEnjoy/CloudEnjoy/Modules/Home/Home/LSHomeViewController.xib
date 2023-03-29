@@ -14,6 +14,7 @@
                 <outlet property="backImageView" destination="wBw-eW-TEd" id="Ach-jh-zbw"/>
                 <outlet property="clockNumLab" destination="3C3-5e-G9D" id="ZiS-m0-K3x"/>
                 <outlet property="headerViewHeight" destination="4Yy-XB-yXr" id="qMu-RK-gAT"/>
+                <outlet property="infoView" destination="vM2-nb-aB7" id="Jco-Eq-EiF"/>
                 <outlet property="marqueeView" destination="tjB-3b-3cz" id="gFC-qM-XL2"/>
                 <outlet property="nameNoLab" destination="Nel-oN-Qar" id="RZz-9b-bbt"/>
                 <outlet property="rankLab" destination="oOx-Nf-lH9" id="LD3-kk-BI2"/>

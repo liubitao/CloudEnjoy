@@ -12,11 +12,15 @@ import LSBaseModules
 
 extension LSHomeAPI.APIPath {
     static let findJsHomeData = "daysum/findJsHomeData"
+    static let findProjectRanking = "daysum/findProjectRanking"
 }
 enum LSHomeAPI: TargetType {
     struct APIPath {}
     
     case findJsHomeData
+    
+    case findProjectRanking
+    
     
 }
 
@@ -25,6 +29,8 @@ extension LSHomeAPI: LSTargetType{
         switch self {
         case .findJsHomeData:
             return APIPath.findJsHomeData
+        case .findProjectRanking:
+            return APIPath.findProjectRanking
         }
     }
     
@@ -36,6 +42,9 @@ extension LSHomeAPI: LSTargetType{
         switch self {
         case .findJsHomeData:
             return ["userid": userModel().userid]
+        case .findProjectRanking:
+            return ["startdate": Date().string(withFormat: "yyyy-MM-dd"),
+                    "enddate": Date().string(withFormat: "yyyy-MM-dd")]
         }
 
     }

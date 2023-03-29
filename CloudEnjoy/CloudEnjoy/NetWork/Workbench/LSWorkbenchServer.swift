@@ -81,4 +81,32 @@ class LSWorkbenchServer {
         return provider.lsRequest(.aboutUpdate(billid: billid, name: name, mobile: mobile, custtype: custtype, qty: qty, refid: refid, tostoretime: tostoretime, reservemin: reservemin, remark: remark, roomlist: roomlist, projectlist: projectlist, status: status))
     }
     
+    static func projectDetails(billid: String) -> Single<LSOrderDetailsModel?>{
+        return provider.lsRequest(.projectDetails(billid: billid)).mapHandyModel(type: LSOrderDetailsModel.self)
+    }
+    
+    static func getLeaveList(page: Int) -> Single<LSNetworkListModel<LSLeaveModel>?> {
+        return provider.lsRequest(.getLeaveList(page: page)).mapHandyModel(type: LSNetworkListModel<LSLeaveModel>.self)
+    }
+    
+    static func insertLeave(leavetypeid: String,
+                            leavetypename: String,
+                            starttime: String,
+                            endtime: String,
+                            hours: String,
+                            remark: String,
+                            name: String,
+                            branchname: String) -> Single<LSNetworkResultModel> {
+        return provider.lsRequest(.insertLeave(leavetypeid: leavetypeid, leavetypename: leavetypename, starttime: starttime, endtime: endtime, hours: hours, remark: remark, name: name, branchname: branchname))
+    }
+    
+    static func cancelLeave(billid: String, cencelremark: String) -> Single<LSNetworkResultModel> {
+        return provider.lsRequest(.cancelLeave(billid: billid, cencelremark: cencelremark))
+    }
+    
+    
+    static func getLeaveTypeList() -> Single<LSNetworkListModel<LSLeaveTypeModel>?> {
+        return provider.lsRequest(.getLeaveTypeList).mapHandyModel(type: LSNetworkListModel<LSLeaveTypeModel>.self)
+    }
+    
 }

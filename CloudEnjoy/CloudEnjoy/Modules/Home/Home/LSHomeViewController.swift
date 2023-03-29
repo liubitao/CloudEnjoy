@@ -24,6 +24,8 @@ class LSHomeViewController: LSBaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var marqueeView: UUMarqueeView!
     
+    @IBOutlet weak var infoView: UIView!
+    
     var homeModel: LSJSHomeModel?
     
     var items = PublishSubject<[SectionModel<String, LSOrderServerModel>]>()
@@ -56,6 +58,23 @@ class LSHomeViewController: LSBaseViewController {
         self.backImageView.image = UIImage.createGradientImage(startColor: Color(hexString: "#00AAB7")!, endColor: Color(hexString: "#00C294")!, width: UI.SCREEN_WIDTH, height: 208 + UI.STATUS_NAV_BAR_HEIGHT, isTopToBottom: false)
         self.headerViewHeight.constant = 208 + UI.STATUS_NAV_BAR_HEIGHT
         self.nameNoLab.text = "\(userModel().name)(\(userModel().code))"
+        
+        
+        self.infoView.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
+            self?.navigationController?.pushViewController(LSUserInfoViewController(), animated: true)
+        }.disposed(by: self.rx.disposeBag)
+        
+        self.clockNumLab.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
+            self?.navigationController?.pushViewController(LSClocksViewController(), animated: true)
+        }.disposed(by: self.rx.disposeBag)
+        
+        self.royaltyLab.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
+            self?.navigationController?.pushViewController(LSRoyaltiesViewController(), animated: true)
+        }.disposed(by: self.rx.disposeBag)
+        
+        self.rankLab.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
+            self?.navigationController?.pushViewController(LSRankViewController(), animated: true)
+        }.disposed(by: self.rx.disposeBag)
         
         do {
             tableView.tableFooterView = UIView()

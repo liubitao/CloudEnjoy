@@ -37,6 +37,14 @@ extension LSWorkbenchAPI.APIPath {
     
     static let cancelYuyue = "about/updateStatus"
     static let aboutUpdate = "about/update"
+    
+    static let projectDetails = "sysuser/getSaleUserProjectMeDetail"
+    
+    
+    static let getLeaveList = "leave/getList"
+    static let insertLeave = "leave/insert"
+    static let cancelLeave = "leave/updatestatus"
+    static let getLeaveTypeList = "otherinfo/getLeavetypeList"
 }
 
 enum LSWorkbenchAPI: TargetType {
@@ -102,7 +110,20 @@ enum LSWorkbenchAPI: TargetType {
                     projectlist: String,
                     status: String)
     
+    case projectDetails(billid: String)
     
+    case getLeaveList(page: Int)
+    case insertLeave(leavetypeid: String,
+                     leavetypename: String,
+                     starttime: String,
+                     endtime: String,
+                     hours: String,
+                     remark: String,
+                     name: String,
+                     branchname: String)
+    case cancelLeave(billid: String,
+                     cencelremark: String)
+    case getLeaveTypeList
 }
 
 
@@ -141,6 +162,16 @@ extension LSWorkbenchAPI: LSTargetType{
             return APIPath.cancelYuyue
         case .aboutUpdate:
             return APIPath.aboutUpdate
+        case .projectDetails:
+            return APIPath.projectDetails
+        case .getLeaveList:
+            return APIPath.getLeaveList
+        case .insertLeave:
+            return APIPath.insertLeave
+        case .cancelLeave:
+            return APIPath.cancelLeave
+        case .getLeaveTypeList:
+            return APIPath.getLeaveTypeList
         }
     }
     
@@ -248,6 +279,30 @@ extension LSWorkbenchAPI: LSTargetType{
                      "roomlist": roomlist,
                      "projectlist": projectlist,
                         "status": status]
+        case let .projectDetails(billid):
+            return ["billid": billid]
+        case let .getLeaveList(page):
+            return ["is_page": 1,
+                    "page": page,
+                    "pagesize": 10,
+                    "userid": userModel().userid]
+        case let .insertLeave(leavetypeid, leavetypename, starttime, endtime, hours, remark, name, branchname):
+            return ["userid": userModel().userid,
+                    "leavetypeid": leavetypeid,
+                    "leavetypename": leavetypename,
+                    "starttime": starttime,
+                    "endtime": endtime,
+                    "hours": hours,
+                    "remark": remark,
+                    "name": name,
+                    "branchname": branchname]
+        case let .cancelLeave(billid, cencelremark):
+            return ["billid": billid,
+                    "userid": userModel().userid,
+                    "cencelremark": cencelremark,
+                    "status": "0"]
+        case .getLeaveTypeList:
+            return ["is_page": "0"]
         }
 
     }

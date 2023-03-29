@@ -70,6 +70,10 @@ class LSWorkorderItemViewController: LSBaseViewController {
                 return cell
             }
             items.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: self.rx.disposeBag)
+            tableView.rx.modelSelected(LSOrderServerModel.self).subscribe(onNext: {[weak self] model in
+                guard let self = self else {return}
+                self.navigationController?.pushViewController(LSWorkOrderDetailsController(billid: model.billid), animated: true)
+            }).disposed(by: self.rx.disposeBag)
             return tableView
         }()
         
