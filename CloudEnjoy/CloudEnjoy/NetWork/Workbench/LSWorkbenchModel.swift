@@ -278,6 +278,8 @@ struct LSSysUserModel: HandyJSON {
     var imgurl = ""
     var code = ""
     var tlname = ""
+    var jobid = ""
+    var tlid = ""
 }
 
 
@@ -305,6 +307,7 @@ struct LSOrderProjectModel: HandyJSON {
     var projectid = ""
     var smin = ""
     var lprice: Double = 0
+    var images = ""
 }
 
 
@@ -431,3 +434,38 @@ struct LSLeaveTypeModel: HandyJSON {
     var leavetypeid = ""
     var name = ""
 }
+
+struct LSPlaceModel: HandyJSON {
+    var range = 0
+    var lat: Double = 0
+    var lng: Double = 0
+    var name = ""
+}
+
+struct LSPlacePunchinModel: HandyJSON {
+    var msg = ""
+    var sbstatus = ""
+    var xbstatus = ""
+    var onclockintime = ""
+    var offclockintime = ""
+    var adr = ""
+    var pbflag = ""
+    var workshift = ""
+    var closingtime = ""
+    var userclocklist = [LSPlaceClockModel]()
+}
+
+struct LSPlaceClockModel: HandyJSON {
+    var adr = ""
+    var clockintime = ""
+    var ctype = ""
+    var status = ""
+}
+
+struct LSPlacePunchinItemModel: HandyJSON {
+    
+}
+
+
+
+

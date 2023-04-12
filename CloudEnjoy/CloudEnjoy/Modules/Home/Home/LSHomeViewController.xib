@@ -156,9 +156,9 @@
                         <constraint firstAttribute="height" constant="41" id="SPl-eL-WvP"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CJk-sZ-QG8">
-                    <rect key="frame" x="0.0" y="313" width="393" height="505"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="6" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CJk-sZ-QG8">
+                    <rect key="frame" x="0.0" y="319" width="393" height="499"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -167,7 +167,7 @@
                 <constraint firstItem="CJk-sZ-QG8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="BFT-a5-xwK"/>
                 <constraint firstItem="tjB-3b-3cz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="CZS-zS-K3s"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ch8-KB-bZz" secondAttribute="trailing" id="Ebu-6S-Jwi"/>
-                <constraint firstItem="CJk-sZ-QG8" firstAttribute="top" secondItem="tjB-3b-3cz" secondAttribute="bottom" id="QSo-Kz-U7w"/>
+                <constraint firstItem="CJk-sZ-QG8" firstAttribute="top" secondItem="tjB-3b-3cz" secondAttribute="bottom" constant="6" id="QSo-Kz-U7w"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="tjB-3b-3cz" secondAttribute="trailing" id="RPe-5T-Ycc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CJk-sZ-QG8" secondAttribute="trailing" id="UVm-gL-STk"/>
                 <constraint firstItem="ch8-KB-bZz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="XZF-U8-5d9"/>

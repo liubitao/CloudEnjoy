@@ -52,6 +52,8 @@ public struct LSUserModel: HandyJSON{
 }
 
 public struct LSStoreModel: HandyJSON {
+    public var spid = 0
+    public var sid = 0
     public var id: String = ""
     public var starttime: String = ""  //营业开始时间
     public var account: String = ""    //商户号
@@ -60,6 +62,8 @@ public struct LSStoreModel: HandyJSON {
     public var linkman: String = ""    //负责人
     public var linkmobile: String = "" //联系电话
     public var code: String = ""       //门店编号
+    public var lat: Double = 0          //纬度
+    public var lng: Double = 0          //经度
     public init(){}
 }
 

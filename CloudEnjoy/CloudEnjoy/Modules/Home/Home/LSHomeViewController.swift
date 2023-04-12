@@ -25,12 +25,14 @@ class LSHomeViewController: LSBaseViewController {
     @IBOutlet weak var marqueeView: UUMarqueeView!
     
     @IBOutlet weak var infoView: UIView!
+    var userStatusView: LSHomeUserStatusView!
     
     var homeModel: LSJSHomeModel?
     
-    var items = PublishSubject<[SectionModel<String, LSOrderServerModel>]>()
-    var models = [LSOrderServerModel]()
+    var items = PublishSubject<[SectionModel<String, LSHomeProjectModel>]>()
+    var models = [LSHomeProjectModel]()
     var messageModels =  [LSMessageModel]()
+    var userStatusModel: LSUserStatusModel?
     
     var refreshControl: KyoRefreshControl!
     
@@ -44,6 +46,7 @@ class LSHomeViewController: LSBaseViewController {
         self.vhl_navBarTitleColor = Color(hexString: "#FFFFFF")!
         self.networkHomeData()
         self.marqueeView.start()
+        self.netwrokData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -79,25 +82,40 @@ class LSHomeViewController: LSBaseViewController {
         do {
             tableView.tableFooterView = UIView()
             tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UI.SCREEN_WIDTH, height: 0.01))
-            tableView.isScrollEnabled = false
             tableView.rowHeight = 73
             if #available(iOS 15.0, *) {
                 tableView.sectionHeaderTopPadding = 0
             }
-            tableView.register(nibWithCellClass: LSJSTableViewCell.self)
+            tableView.register(nibWithCellClass: LSHomeProjectCell.self)
             
-            let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSOrderServerModel>> { dataSource, tableView, indexPath, element in
-                let cell: LSJSTableViewCell = tableView.dequeueReusableCell(withClass: LSJSTableViewCell.self)
-                
+            let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSHomeProjectModel>> { dataSource, tableView, indexPath, element in
+                let cell: LSHomeProjectCell = tableView.dequeueReusableCell(withClass: LSHomeProjectCell.self)
+                cell.timeLab.text = element.createtime.split(separator: " ").last?.split(separator: ":")[0..<2].joined(separator: ":")
+                cell.statusView.backgroundColor = element.status.backColor
+                cell.statusLab.text = element.status.statusString
+                cell.roomNameLab.text = "房间：" + element.roomname
+                cell.projectNameLab.text = element.projectname
+                cell.durationLab.text = element.min + "分钟"
+                cell.typeLab.text = element.ctype.clockString
                 return cell
             }
             items.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: self.rx.disposeBag)
             
             tableView.rx.itemSelected.subscribe { [weak self] indexPath in
                 guard let self = self else {return}
+                self.navigationController?.pushViewController(LSProjectDetailsViewController.init(self.models[indexPath.section]), animated: true)
             }.disposed(by: self.rx.disposeBag)
         }
         
+        self.userStatusView = {
+            let userStatusView = LSHomeUserStatusView.createFromXib()
+            self.statusView.addSubview(userStatusView)
+            userStatusView.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+            return userStatusView
+        }()
+       
         do {
             marqueeView.direction = .upward
             marqueeView.delegate = self
@@ -108,7 +126,7 @@ class LSHomeViewController: LSBaseViewController {
             marqueeView.reloadData()
         }
         
-        
+
         self.refreshControl = {
             let refreshControl = KyoRefreshControl(scrollView: self.tableView, with: self)
             refreshControl?.kyoRefreshOperation(withDelay: 0, with: KyoManualRefreshType.center)
@@ -142,7 +160,7 @@ class LSHomeViewController: LSBaseViewController {
             Toast.hiddenHUD()
         }.disposed(by: self.rx.disposeBag)
         
-        LSMessageServer.getMessageList(ispage: "0", see: "", msgtype: LSMsgType.all.rawValue).subscribe { listModel in
+        LSMessageServer.getMessageList(ispage: "1", see: "0", msgtype: LSMsgType.all.rawValue, page: "1").subscribe { listModel in
             self.messageModels = listModel?.list ?? []
             self.marqueeView.reloadData()
         } onFailure: { error in
@@ -151,36 +169,38 @@ class LSHomeViewController: LSBaseViewController {
             Toast.hiddenHUD()
         }.disposed(by: self.rx.disposeBag)
         
-        LSMessageServer.getSeeCount().subscribe { resultModel in
-            
+//        LSMessageServer.getSeeCount().subscribe { resultModel in
+//
+//        } onFailure: { error in
+//            Toast.show(error.localizedDescription)
+//        } onDisposed: {
+//            Toast.hiddenHUD()
+//        }.disposed(by: self.rx.disposeBag)
+        
+        LSHomeServer.getUserStatus().subscribe { userStatusModel in
+            self.userStatusModel = userStatusModel
+            self.userStatusView.refreshUI(self.userStatusModel)
         } onFailure: { error in
             Toast.show(error.localizedDescription)
         } onDisposed: {
             Toast.hiddenHUD()
         }.disposed(by: self.rx.disposeBag)
-
     }
     
-    func netwrokData(page: Int) {
+    func netwrokData() {
         var networkError: Error? = nil
-//        LSHomeServer.findJsHomeData().subscribe(onSuccess: { listModel in
-//            guard let listModel = listModel else{return}
-//            if page == 1 { self.models.removeAll() }
-//            self.refreshControl.numberOfPage = listModels.pages
-//            self.models.append(contentsOf: listModels.list)
-//            self.refreshUI()
-//        }, onFailure: { error in
-//            networkError = error
-//        }, onDisposed: {
-//            let hadData: Bool = !self.models.isEmpty
-//            self.refreshControl.kyoRefreshDoneRefreshOrLoadMore(page == 1 ? true : false,
-//                                                          withHadData: hadData,
-//                                                          withError: networkError)
-//        }).disposed(by: self.rx.disposeBag)
-        let hadData: Bool = !self.models.isEmpty
-        self.refreshControl.kyoRefreshDoneRefreshOrLoadMore(page == 1 ? true : false,
-                                                      withHadData: hadData,
-                                                      withError: networkError)
+        LSHomeServer.getSaleProject().subscribe(onSuccess: { models in
+            self.refreshControl.numberOfPage = 1
+            self.models = models ?? []
+            self.refreshUI()
+        }, onFailure: { error in
+            networkError = error
+        }, onDisposed: {
+            let hadData: Bool = !self.models.isEmpty
+            self.refreshControl.kyoRefreshDoneRefreshOrLoadMore(true,
+                                                          withHadData: hadData,
+                                                          withError: networkError)
+        }).disposed(by: self.rx.disposeBag)
     }
     
     func refreshUI() {
@@ -230,12 +250,9 @@ extension LSHomeViewController: UUMarqueeViewDelegate{
 
 extension LSHomeViewController: KyoRefreshControlDelegate{
     func kyoRefreshDidTriggerRefresh(_ refreshControl: KyoRefreshControl!) {
-        netwrokData(page: 1)
+        netwrokData()
     }
     
-    func kyoRefreshLoadMore(_ refreshControl: KyoRefreshControl!, loadPage index: Int) {
-        netwrokData(page: index + 1)
-    }
     func kyoRefresh(_ refreshControl: KyoRefreshControl!, withNoDataShow kyoDataTipsView: KyoDataTipsView!, withCurrentKyoDataTipsModel kyoDataTipsModel: KyoDataTipsModel!, with kyoDataTipsViewType: KyoDataTipsViewType) -> KyoDataTipsModel! {
         kyoDataTipsModel.img = UIImage(named: "组 5794")
         kyoDataTipsModel.tip = NSAttributedString(string: "您暂无派工信息，请耐心等待…", attributes: [.foregroundColor: UIColor(hexString: "#999999")!, .font: Font.pingFangRegular(14)])

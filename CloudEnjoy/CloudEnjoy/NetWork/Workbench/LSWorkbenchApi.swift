@@ -45,6 +45,11 @@ extension LSWorkbenchAPI.APIPath {
     static let insertLeave = "leave/insert"
     static let cancelLeave = "leave/updatestatus"
     static let getLeaveTypeList = "otherinfo/getLeavetypeList"
+    
+    static let getPlaceList = "place/getList"
+    static let getPlacePunchin = "place/getPunchin"
+    static let getPlacePunchinList = "place/getPunchinList"
+    static let placePunchin = "place/punchin"
 }
 
 enum LSWorkbenchAPI: TargetType {
@@ -124,6 +129,11 @@ enum LSWorkbenchAPI: TargetType {
     case cancelLeave(billid: String,
                      cencelremark: String)
     case getLeaveTypeList
+    
+    case getPlaceList
+    case getPlacePunchin(datetime: String)
+    case getPlacePunchinList(datetime: String)
+    case placePunchin(adr: String)
 }
 
 
@@ -172,6 +182,14 @@ extension LSWorkbenchAPI: LSTargetType{
             return APIPath.cancelLeave
         case .getLeaveTypeList:
             return APIPath.getLeaveTypeList
+        case .getPlaceList:
+            return APIPath.getPlaceList
+        case .getPlacePunchin:
+            return APIPath.getPlacePunchin
+        case .getPlacePunchinList:
+            return APIPath.getPlacePunchinList
+        case .placePunchin:
+            return APIPath.placePunchin
         }
     }
     
@@ -303,6 +321,17 @@ extension LSWorkbenchAPI: LSTargetType{
                     "status": "0"]
         case .getLeaveTypeList:
             return ["is_page": "0"]
+        case .getPlaceList:
+            return ["is_page": "0"]
+        case let .getPlacePunchin(datetime):
+            return ["userid": userModel().userid,
+                    "datetime": datetime]
+        case let .getPlacePunchinList(datetime):
+            return ["userid": userModel().userid,
+                    "datetime": datetime]
+        case let .placePunchin(adr):
+            return ["userid": userModel().userid,
+                    "adr": adr]
         }
 
     }

@@ -25,7 +25,7 @@ class LSReferrerViewController: LSBaseViewController {
         let sb = UIStoryboard.init(name: "AlertStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "LSReferrerViewController") as! Self
         vc.referrerModel = referrerModel
-        return vc as! Self
+        return vc
     }
     
     func presentedWith(_ presentingViewController: LSBaseViewController) {
@@ -59,10 +59,10 @@ class LSReferrerViewController: LSBaseViewController {
     override func setupData() {
         Toast.showHUD()
         LSWorkbenchServer.userGetList().subscribe { model in
-            guard let list = model?.list,
-                  let row = list.firstIndex(where: { $0.userid == self.referrerModel.userid }) else {
+            guard let list = model?.list else {
                 return
             }
+            let row = list.firstIndex(where: { $0.userid == self.referrerModel.userid }) ?? 0
             self.dataSource = list
             self.pickerView.reloadPickerView()
             self.pickerView.selectRow(row, animated: false)

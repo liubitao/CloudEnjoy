@@ -7,11 +7,39 @@
     {
       "filename" : "分组 5@2x.png",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 14,
+          "left" : 299,
+          "right" : 307,
+          "top" : 130
+        },
+        "center" : {
+          "height" : 5,
+          "mode" : "tile",
+          "width" : 84
+        },
+        "mode" : "9-part"
+      },
       "scale" : "2x"
     },
     {
       "filename" : "分组 5@3x.png",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 11,
+          "left" : 350,
+          "right" : 477,
+          "top" : 198
+        },
+        "center" : {
+          "height" : 15,
+          "mode" : "tile",
+          "width" : 208
+        },
+        "mode" : "9-part"
+      },
       "scale" : "3x"
     }
   ],

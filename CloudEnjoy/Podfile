@@ -51,9 +51,6 @@ target 'CloudEnjoy' do
   
   #图片选择器 
   pod 'AnyImageKit', '~> 0.15.0'
-
-  # 高德地图
-  pod 'AMapLocation-NO-IDFA', '~> 2.8.0'
   
   # 富文本
   pod 'AttributedString' , '~> 3.3.4'
