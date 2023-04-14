@@ -41,7 +41,7 @@ class LSRankViewController: LSBaseViewController {
             tableView.snp.makeConstraints { make in
                 make.left.right.equalToSuperview()
                 make.top.equalToSuperview().offset(UI.STATUS_NAV_BAR_HEIGHT + 10)
-                make.bottom.equalToSuperview().offset(-UI.BOTTOM_HEIGHT)
+                make.bottom.equalToSuperview()
             }
             
             let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSRankModel>> { dataSource, tableView, indexPath, element in
