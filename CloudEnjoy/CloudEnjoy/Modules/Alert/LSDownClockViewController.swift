@@ -11,7 +11,7 @@ class LSDownClockViewController: LSBaseViewController {
 
     @IBOutlet weak var roomNameLab: UILabel!
     
-    @IBOutlet weak var bedNoLab: UILabel!
+    @IBOutlet weak var serviceDurationLab: UILabel!
     
     @IBOutlet weak var projectNameLab: UILabel!
     
@@ -57,7 +57,7 @@ class LSDownClockViewController: LSBaseViewController {
         self.view.frame = CGRectMake((UI.SCREEN_WIDTH - 290)/2.0, (UI.SCREEN_HEIGHT - 360)/2.0, 290, 360);
         
         self.roomNameLab.text = projectModel.roomname
-        self.bedNoLab.text = projectModel.bedname
+        self.serviceDurationLab.text = Date().minutesSince(projectModel.starttime.date(withFormat: "yyyy-MM-dd hh:mm:ss") ?? Date()).int.string + "分钟"
         self.projectNameLab.text = projectModel.projectname
         self.clockTypeLab.text = projectModel.ctype.clockString
         self.upClockLab.text = projectModel.starttime

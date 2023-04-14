@@ -12,6 +12,7 @@ import RxSwift
 import LSNetwork
 import LSBaseModules
 import MapKit
+import RxDataSources
 
 class LSViewClockInItemController: LSBaseViewController {
     @IBOutlet weak var contentView: UIView!
@@ -22,13 +23,9 @@ class LSViewClockInItemController: LSBaseViewController {
     @IBOutlet weak var timeLab: UILabel!
     @IBOutlet weak var clockStatusLab: UILabel!
     @IBOutlet weak var clockTipLab: UILabel!
-    @IBOutlet weak var clockDetailsView: UIView!
-    @IBOutlet weak var upClockView: UIView!
-    @IBOutlet weak var upTimeLab: UILabel!
-    @IBOutlet weak var upAddressLab: UILabel!
-    @IBOutlet weak var downClockView: UIView!
-    @IBOutlet weak var downClockLab: UILabel!
-    
+  
+    @IBOutlet weak var tableView: UITableView!
+    var items = PublishSubject<[SectionModel<String, LSPlaceClockModel>]>()
     
     private var locationManager: CLLocationManager!
     private var geocoder: CLGeocoder = CLGeocoder()
@@ -54,24 +51,38 @@ class LSViewClockInItemController: LSBaseViewController {
         self.clockBtn.setBackgroundImage(UIImage.createGradientImage(startColor: Color(hexString: "#00AAB7")!, endColor: Color(hexString: "#00C294")!, width: 200, height: 70), for: .normal)
         self.clockBtn.setBackgroundImage(UIImage.createGradientImage(startColor: Color(hexString: "#00AAB7")!, endColor: Color(hexString: "#00C294")!, width: 200, height: 70), for: .highlighted)
         
-        self.upClockView.cornerRadius = 4
-        self.upClockView.borderWidth = 1
-        self.upClockView.borderColor = Color(hexString: "#EF9C00")
-        self.downClockView.cornerRadius = 4
-        self.downClockView.borderWidth = 1
-        self.downClockView.borderColor = Color(hexString: "#EF9C00")
-        
         self.timeLab.text = Date().string(withFormat: "hh:mm:ss")
-        self.timer.subscribe(onNext: { _ in
+        self.timer.subscribe(onNext: { [weak self]_ in
+            guard let self = self else {return}
             self.timeLab.text = Date().string(withFormat: "hh:mm:ss")
-            self.clockStatusLab.text = "上班打卡"
         }).disposed(by: self.rx.disposeBag)
         
+        do {
+            tableView.tableFooterView = UIView()
+            tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UI.SCREEN_WIDTH, height: 0.01))
+            tableView.rowHeight = 100
+            if #available(iOS 15.0, *) {
+                tableView.sectionHeaderTopPadding = 0
+            }
+            tableView.register(nibWithCellClass: LSClockInTableViewCell.self)
+            
+            let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSPlaceClockModel>> { dataSource, tableView, indexPath, element in
+                let cell: LSClockInTableViewCell = tableView.dequeueReusableCell(withClass: LSClockInTableViewCell.self)
+                cell.upLineView.isHidden = indexPath.row == 0
+                cell.downLineView.isHidden = indexPath.row == ((self.placePunchinModel?.userclocklist.count ?? 0) - 1)
+                cell.titleLab.text = element.ctype.clockinString
+                cell.clockTimeLab.text = element.clockintime
+                cell.clockAddressLab.text = element.adr
+                return cell
+            }
+            items.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: self.rx.disposeBag)
+        }
     }
 
     override func setupData() {
         networkData()
     }
+    
     func networkData() {
         Toast.showHUD()
         let placeListSingle = LSWorkbenchServer.getPlaceList()
@@ -110,24 +121,29 @@ class LSViewClockInItemController: LSBaseViewController {
     }
     
     func refreshUI() {
+        guard let model = self.placePunchinModel else {return}
+        self.clockTipLab.text = model.sbstatus == 0 ? "请在\(model.workshift.split(separator: ":")[0..<2].joined(separator: ":"))之前上班打卡" : "请在\(model.closingtime.split(separator: ":")[0..<2].joined(separator: ":"))之后下班打卡"
+        self.clockStatusLab.text = model.sbstatus == 0 ? "上班打卡" : "下班打卡"
         
+        items.onNext([SectionModel(model: "", items: self.placePunchinModel?.userclocklist ?? [])])
     }
     
     @IBAction func clockAction(_ sender: Any) {
-        guard let lastLocation = self.lastLocation else {
-            Toast.show("gps定位信号弱，请稍后再试")
-            return
-        }
-        let firstModel = self.punchinModels.first { placeModel in
-            let distance = CLLocation.init(latitude: placeModel.lat, longitude: placeModel.lng).distance(from: lastLocation)
-            return Int(distance) < placeModel.range
-        }
-        guard let punchinModel = firstModel else {
-            Toast.show("不在打卡范围内，请靠近再打卡")
-            return
-        }
+//        guard let lastLocation = self.lastLocation else {
+//            Toast.show("gps定位信号弱，请稍后再试")
+//            return
+//        }
+//        let firstModel = self.punchinModels.first { placeModel in
+//            let distance = CLLocation.init(latitude: placeModel.lat, longitude: placeModel.lng).distance(from: lastLocation)
+//            return Int(distance) < placeModel.range
+//        }
+//        guard let punchinModel = firstModel else {
+//            Toast.show("不在打卡范围内，请靠近再打卡")
+//            return
+//        }
         Toast.showHUD()
-        LSWorkbenchServer.placePunchin(adr: punchinModel.name).subscribe { _ in
+//        LSWorkbenchServer.placePunchin(adr: punchinModel.name).subscribe { _ in
+            LSWorkbenchServer.placePunchin(adr: "上班打卡").subscribe { _ in
             Toast.show("打卡成功")
             self.networkData()
         } onFailure: { error in

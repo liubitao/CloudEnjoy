@@ -282,7 +282,8 @@ class LSAddOrderViewController: LSBaseViewController {
                             "projectname": selectProjectModel.name,
                             "roomid": selectRoomModel.roomid,
                             "roomname": selectRoomModel.name,
-                            "ctype": clockSelectModel.rawValue]
+                            "ctype": clockSelectModel.rawValue,
+                            "min": selectProjectModel.smin]
         if let jsModel = self.selectJSModel {
             project["tid"] = jsModel.userid
         }else {

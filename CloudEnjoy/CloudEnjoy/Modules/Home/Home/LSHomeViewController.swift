@@ -90,7 +90,16 @@ class LSHomeViewController: LSBaseViewController {
             
             let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSHomeProjectModel>> { dataSource, tableView, indexPath, element in
                 let cell: LSHomeProjectCell = tableView.dequeueReusableCell(withClass: LSHomeProjectCell.self)
-                cell.timeLab.text = element.createtime.split(separator: " ").last?.split(separator: ":")[0..<2].joined(separator: ":")
+                switch element.status {
+                case .wait:
+                    cell.timeLab.text = element.dispatchtime.split(separator: " ").last?.split(separator: ":")[0..<2].joined(separator: ":")
+                case .subscribe:
+                    cell.timeLab.text = element.tostoretime
+                case .servicing:
+                    cell.timeLab.text = element.starttime
+                default:
+                    cell.timeLab.text = element.createtime
+                }
                 cell.statusView.backgroundColor = element.status.backColor
                 cell.statusLab.text = element.status.statusString
                 cell.roomNameLab.text = "房间：" + element.roomname
@@ -101,10 +110,15 @@ class LSHomeViewController: LSBaseViewController {
             }
             items.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: self.rx.disposeBag)
             
-            tableView.rx.itemSelected.subscribe { [weak self] indexPath in
+            tableView.rx.modelSelected(LSHomeProjectModel.self).subscribe(onNext: {[weak self] model in
                 guard let self = self else {return}
-                self.navigationController?.pushViewController(LSProjectDetailsViewController.init(self.models[indexPath.section]), animated: true)
-            }.disposed(by: self.rx.disposeBag)
+                if model.status == .subscribe {
+                    let orderModel = LSOrderModel(with: model)
+                    self.navigationController?.pushViewController(LSOrderDetailsViewController.init(orderModel: orderModel), animated: true)
+                }else {
+                    self.navigationController?.pushViewController(LSProjectDetailsViewController.init(model), animated: true)
+                }
+            }).disposed(by: self.rx.disposeBag)
         }
         
         self.userStatusView = {

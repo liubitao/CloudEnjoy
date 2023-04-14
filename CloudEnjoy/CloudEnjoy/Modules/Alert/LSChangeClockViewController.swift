@@ -117,7 +117,7 @@ class LSChangeClockViewController: LSBaseViewController {
             return
         }
         Toast.showHUD()
-        LSHomeServer.updateProject(billid: self.projectModel.billid, roomid: self.projectModel.roomid, roomname: self.projectModel.roomname, handcardid: self.projectModel.handcardid, handcardno: self.projectModel.handcardno, bedid: self.projectModel.bedid, bedname: self.projectModel.bedname, projectid: orderProjectModel.projectid, projectname: orderProjectModel.name, min: orderProjectModel.smin, refid: self.referrerModel.userid, refname: self.referrerModel.name, refjobid: self.referrerModel.jobid, reftlid: self.referrerModel.tlid)
+        LSHomeServer.updateProject(billid: self.projectModel.billid, roomid: self.projectModel.roomid, roomname: self.projectModel.roomname, handcardid: self.projectModel.handcardid, handcardno: self.projectModel.handcardno, bedid: self.projectModel.bedid, bedname: self.projectModel.bedname, projectid: orderProjectModel.projectid, projectname: orderProjectModel.name, min: orderProjectModel.smin, refid: self.referrerModel.userid, refname: self.referrerModel.name, refjobid: self.referrerModel.jobid)
             .subscribe { _ in
                 Toast.show("项目已更换成功")
                 self.dismiss(animated: true)

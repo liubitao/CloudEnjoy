@@ -230,9 +230,9 @@ enum LSClockType: Int, CaseIterable, HandyJSONEnum {
         switch self {
         case .wheelClock:
             return "轮钟"
-        case .oClock:
-            return "选钟"
         case .optionClock:
+            return "选钟"
+        case .oClock:
             return "点钟"
         case .callClock:
             return "call钟"
@@ -340,6 +340,9 @@ enum LSOrderStatus: Int, HandyJSONEnum {
 }
 
 struct LSOrderModel: HandyJSON {
+    init() {
+    }
+    
     var billid = ""
     var name = ""
     var mobile = ""
@@ -363,6 +366,34 @@ struct LSOrderModel: HandyJSON {
     var createname = ""
     var ctype = LSClockType.wheelClock
     var tname = ""
+    var createtime = ""
+    
+    init(with homeProjectModel: LSHomeProjectModel) {
+        self.billid = homeProjectModel.billid
+        self.name = homeProjectModel.name
+        self.mobile = homeProjectModel.mobile
+        self.qty = homeProjectModel.qty.string
+        self.custtype = homeProjectModel.custtype
+        self.tostoretime = homeProjectModel.tostoretime
+        self.reservemin = homeProjectModel.reservemin
+        self.refid = homeProjectModel.refid
+        self.refname = homeProjectModel.refname
+        self.remark = homeProjectModel.remark
+        self.roomname = homeProjectModel.roomname
+        self.roomid = homeProjectModel.roomid
+        self.projectid = homeProjectModel.projectid
+        self.projectname = homeProjectModel.projectname
+        self.statusname = homeProjectModel.status.statusString
+        self.status = homeProjectModel.status == .subscribe ? .wait : .finish
+        self.tid = homeProjectModel.tid
+        self.sid = homeProjectModel.sid
+        self.tlid = homeProjectModel.tlid
+        self.createname = homeProjectModel.createname
+        self.createtime = homeProjectModel.createtime
+        self.ctype = homeProjectModel.ctype
+        self.ctypename = homeProjectModel.ctype.clockString
+        self.tname = userModel().name
+    }
 }
 
 
@@ -444,8 +475,8 @@ struct LSPlaceModel: HandyJSON {
 
 struct LSPlacePunchinModel: HandyJSON {
     var msg = ""
-    var sbstatus = ""
-    var xbstatus = ""
+    var sbstatus = 0
+    var xbstatus = 0
     var onclockintime = ""
     var offclockintime = ""
     var adr = ""
@@ -455,10 +486,24 @@ struct LSPlacePunchinModel: HandyJSON {
     var userclocklist = [LSPlaceClockModel]()
 }
 
+
+enum LSClockInType: Int, HandyJSONEnum {
+    case upClock = 1
+    case downClock = 2
+    
+    var clockinString: String {
+        switch self {
+        case .upClock:
+            return "上班打卡"
+        case .downClock:
+            return "下班打卡"
+        }
+    }
+}
 struct LSPlaceClockModel: HandyJSON {
     var adr = ""
     var clockintime = ""
-    var ctype = ""
+    var ctype = LSClockInType.upClock
     var status = ""
 }
 

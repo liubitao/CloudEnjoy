@@ -191,6 +191,8 @@
 		0C7E4CCD29E173F700CDE80A /* LSChioceProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4CCC29E173F700CDE80A /* LSChioceProjectViewController.swift */; };
 		0C7E4CD029E6A73D00CDE80A /* LSRejectProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4CCE29E6A73D00CDE80A /* LSRejectProjectViewController.swift */; };
 		0C7E4CD129E6A73D00CDE80A /* LSRejectProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E4CCF29E6A73D00CDE80A /* LSRejectProjectViewController.xib */; };
+		0C7E4CD529E9516900CDE80A /* LSClockInTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4CD329E9516900CDE80A /* LSClockInTableViewCell.swift */; };
+		0C7E4CD629E9516900CDE80A /* LSClockInTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E4CD429E9516900CDE80A /* LSClockInTableViewCell.xib */; };
 		0C9128D929AF504600D6237E /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9128CE29AF504600D6237E /* NotificationName.swift */; };
 		0C9128DA29AF504600D6237E /* FontGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9128CF29AF504600D6237E /* FontGlobal.swift */; };
 		0C9128DC29AF504600D6237E /* UIGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9128D129AF504600D6237E /* UIGlobal.swift */; };
@@ -465,6 +467,8 @@
 		0C7E4CCC29E173F700CDE80A /* LSChioceProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSChioceProjectViewController.swift; sourceTree = "<group>"; };
 		0C7E4CCE29E6A73D00CDE80A /* LSRejectProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSRejectProjectViewController.swift; sourceTree = "<group>"; };
 		0C7E4CCF29E6A73D00CDE80A /* LSRejectProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSRejectProjectViewController.xib; sourceTree = "<group>"; };
+		0C7E4CD329E9516900CDE80A /* LSClockInTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSClockInTableViewCell.swift; sourceTree = "<group>"; };
+		0C7E4CD429E9516900CDE80A /* LSClockInTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSClockInTableViewCell.xib; sourceTree = "<group>"; };
 		0C9128CE29AF504600D6237E /* NotificationName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		0C9128CF29AF504600D6237E /* FontGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontGlobal.swift; sourceTree = "<group>"; };
 		0C9128D129AF504600D6237E /* UIGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGlobal.swift; sourceTree = "<group>"; };
@@ -895,6 +899,7 @@
 		0C23783229B20BC7003AC759 /* Clockin(员工打卡) */ = {
 			isa = PBXGroup;
 			children = (
+				0C7E4CD229E9514600CDE80A /* View */,
 				0C23783329B20BD8003AC759 /* LSClockinViewController.swift */,
 				0C7E4C9729D59CBE00CDE80A /* LSViewClockInItemController.swift */,
 				0C7E4C9829D59CBE00CDE80A /* LSViewClockInItemController.xib */,
@@ -1267,6 +1272,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0C7E4CD229E9514600CDE80A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C7E4CD329E9516900CDE80A /* LSClockInTableViewCell.swift */,
+				0C7E4CD429E9516900CDE80A /* LSClockInTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0C9128CB29AF504600D6237E /* Defines */ = {
 			isa = PBXGroup;
 			children = (
@@ -1613,6 +1627,7 @@
 				0C0CC8A429AF60E800CC3A6E /* kyo_refresh_default_icon@3x.png in Resources */,
 				0C0CC89F29AF60E800CC3A6E /* btn_blue_moren.png in Resources */,
 				0C0CC8A629AF60E800CC3A6E /* kyo_refresh_nodata_haderror@2x.png in Resources */,
+				0C7E4CD629E9516900CDE80A /* LSClockInTableViewCell.xib in Resources */,
 				0CF5C1A229C0210B00960506 /* LSVipDetailsViewController.xib in Resources */,
 				0CB765BD29BF0C900048B1B3 /* LSOrderTableViewCell.xib in Resources */,
 				0CB765AF29BED3070048B1B3 /* LSClockTableViewCell.xib in Resources */,
@@ -1801,6 +1816,7 @@
 				0C7E4CAF29DFB7E400CDE80A /* LSUpClockViewController.swift in Sources */,
 				0C7E4CC929E15D9700CDE80A /* LSAddClockViewController.swift in Sources */,
 				0CB7655629BC26AA0048B1B3 /* LSWorkbenchModel.swift in Sources */,
+				0C7E4CD529E9516900CDE80A /* LSClockInTableViewCell.swift in Sources */,
 				0C29C1F829C5A3F00043109A /* UUMarqueeView.m in Sources */,
 				0C7E4CAD29DED56B00CDE80A /* LSDownClockViewController.swift in Sources */,
 				0C49D15229B9C2BF0084C2F5 /* LSAccountSecureController.swift in Sources */,

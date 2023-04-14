@@ -44,7 +44,7 @@ class LSOrderDetailsViewController: LSBaseViewController {
         self.customerTypeLab.text = orderModel.custtype.cutomerString
         self.mobileLab.text = orderModel.mobile
         self.arriveTimeLab.text = orderModel.tostoretime
-        self.createTimeLab.text = orderModel.createname
+        self.createTimeLab.text = orderModel.createtime
         self.roomNameLab.text = orderModel.roomname
         self.projectNameLab.text = orderModel.projectname
         self.jsLab.text = orderModel.tname

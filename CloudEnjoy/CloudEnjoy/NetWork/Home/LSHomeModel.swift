@@ -39,12 +39,13 @@ enum LSUserStatus: Int, HandyJSONEnum {
     case orderReceiving = 4 //接单中
     case waitClock = 5 //待上钟
     case servicing  = 6 //服务中
+    case subscribe = 7 // 预约中
 }
 struct LSUserStatusModel: HandyJSON {
     var statusname = ""
     var status = LSUserStatus.rest
     var leavetypename = ""
-    var hours = ""
+    var hours: Double = 0
     var starttime = ""
     var endtime = ""
     var shiftname = ""
@@ -53,6 +54,7 @@ struct LSUserStatusModel: HandyJSON {
     var dispatchtime = ""
     var min = 0
     var billid = ""
+    var tostoretime = ""
 }
 
 
@@ -60,6 +62,7 @@ enum LSHomeProjectStatus: Int, HandyJSONEnum {
     case wait = 0
     case servicing = 1
     case finish = 2
+    case subscribe = 7
     
     var backColor: UIColor {
         switch self {
@@ -69,6 +72,8 @@ enum LSHomeProjectStatus: Int, HandyJSONEnum {
             return Color(hexString: "#00AAB7")!
         case .finish:
             return Color(hexString: "#5BC8B6")!
+        case .subscribe:
+            return Color(hexString: "#669AE6")!
         }
     }
     
@@ -80,6 +85,8 @@ enum LSHomeProjectStatus: Int, HandyJSONEnum {
             return "服务中"
         case .finish:
             return "已完成"
+        case .subscribe:
+            return "预约中"
         }
     }
     
@@ -90,6 +97,8 @@ enum LSHomeProjectStatus: Int, HandyJSONEnum {
         case .servicing:
             return UIImage(named: "组 119")
         case .finish:
+            return UIImage(named: "组 119")
+        case .subscribe:
             return UIImage(named: "组 119")
         }
     }
@@ -124,7 +133,14 @@ struct LSHomeProjectModel: HandyJSON {
     var jmin = ""
     var images = ""
     var reftlid = ""
-    
+    var tostoretime = ""
+    var name = ""
+    var mobile = ""
+    var custtype = LSCustomerType.common
+    var reservemin = LSReserveTimeType.fifteen
+    var remark = ""
+    var sid = ""
+    var tlid = ""
 }
 
 class LSGoodsTypeModel: HandyJSON {

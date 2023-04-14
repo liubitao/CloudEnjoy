@@ -61,6 +61,7 @@ class LSClockinViewController: LSBaseViewController {
             segmentedView.indicators = [indicator]
             
             listContainerView = JXSegmentedListContainerView.init(dataSource: self)
+            listContainerView.scrollView.isScrollEnabled = false
             segmentedView.listContainer = listContainerView
             self.view.addSubview(listContainerView)
             listContainerView.snp.makeConstraints { make in

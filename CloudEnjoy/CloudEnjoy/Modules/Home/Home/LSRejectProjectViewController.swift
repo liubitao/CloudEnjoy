@@ -12,26 +12,14 @@ import SwifterSwift
 class LSRejectProjectViewController: LSBaseViewController {
 
     @IBOutlet weak var roomNameLab: UILabel!
-    
     @IBOutlet weak var bedNameLab: UILabel!
-    
-    
     @IBOutlet weak var projectNameLab: UILabel!
-    
     @IBOutlet weak var jsNameLab: UILabel!
-    
     @IBOutlet weak var clockTypeLab: UILabel!
-    
     @IBOutlet weak var serviceStatusLab: UILabel!
-    
-    
     @IBOutlet weak var upClockTimeLab: UILabel!
-    
     @IBOutlet weak var clockDurationLab: UILabel!
-    
-    
     @IBOutlet weak var rejectMarkTextField: UITextField!
-    
     
     @IBOutlet weak var upClockView: UIView!
     @IBOutlet weak var clockDurationView: UIView!
@@ -61,7 +49,7 @@ class LSRejectProjectViewController: LSBaseViewController {
         self.clockDurationView.isHidden = projectModel.status != .servicing
         if projectModel.status == .servicing {
         self.upClockTimeLab.text = projectModel.starttime
-        self.clockDurationLab.text = Date().minutesSince(projectModel.starttime.date(withFormat: "yyyy-MM-dd hh:mm:ss") ?? Date()) + "分钟"
+            self.clockDurationLab.text = Date().minutesSince(projectModel.starttime.date(withFormat: "yyyy-MM-dd hh:mm:ss") ?? Date()).int.string + "分钟"
         }
     }
 

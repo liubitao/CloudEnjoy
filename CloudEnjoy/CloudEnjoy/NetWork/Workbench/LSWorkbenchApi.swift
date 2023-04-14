@@ -50,6 +50,8 @@ extension LSWorkbenchAPI.APIPath {
     static let getPlacePunchin = "place/getPunchin"
     static let getPlacePunchinList = "place/getPunchinList"
     static let placePunchin = "place/punchin"
+    
+    static let getOrderInfo = "about/getInfo"
 }
 
 enum LSWorkbenchAPI: TargetType {
@@ -134,6 +136,8 @@ enum LSWorkbenchAPI: TargetType {
     case getPlacePunchin(datetime: String)
     case getPlacePunchinList(datetime: String)
     case placePunchin(adr: String)
+    
+    case getOrderInfo(billid: String)
 }
 
 
@@ -190,6 +194,8 @@ extension LSWorkbenchAPI: LSTargetType{
             return APIPath.getPlacePunchinList
         case .placePunchin:
             return APIPath.placePunchin
+        case .getOrderInfo:
+            return APIPath.getOrderInfo
         }
     }
     
@@ -332,6 +338,9 @@ extension LSWorkbenchAPI: LSTargetType{
         case let .placePunchin(adr):
             return ["userid": userModel().userid,
                     "adr": adr]
+            
+        case let .getOrderInfo(billid):
+            return ["billid": billid]
         }
 
     }

@@ -72,8 +72,8 @@ class LSProjectDetailsViewController: LSBaseViewController {
         self.upClockTimeLab.text = projectModel.starttime
         self.downClockTimeLab.text = projectModel.endtime
         
-        self.createTimeView.isHidden = projectModel.status != .wait
-        self.dispatchTimeView.isHidden = projectModel.status != .servicing
+        self.createTimeView.isHidden = projectModel.status != .subscribe
+        self.dispatchTimeView.isHidden = !(projectModel.status == .servicing || projectModel.status == .wait)
         self.upClockTimeView.isHidden = projectModel.status != .servicing
         self.downClockTimeView.isHidden = projectModel.status != .servicing
         
@@ -94,7 +94,7 @@ class LSProjectDetailsViewController: LSBaseViewController {
             make.height.equalTo(102)
             make.bottom.equalToSuperview().offset(-UI.BOTTOM_HEIGHT)
         }
-        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, OpeartionModel>> { [weak self] dataSource, collectionView, indexPath, model in
+        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, OpeartionModel>> { dataSource, collectionView, indexPath, model in
             let cell = collectionView.dequeueReusableCell(withClass: LSProjectOpeartionCell.self, for: indexPath)
             cell.iconImage.image = UIImage(named: model.iconImage)
             cell.titleLab.text = model.title

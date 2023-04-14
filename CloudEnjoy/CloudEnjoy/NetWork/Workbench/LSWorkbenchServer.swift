@@ -125,4 +125,8 @@ class LSWorkbenchServer {
     static func placePunchin(adr: String) -> Single<LSNetworkResultModel> {
         return provider.lsRequest(.placePunchin(adr: adr))
     }
+    
+    static func getOrderInfo(billid: String) -> Single<LSOrderModel?> {
+        return provider.lsRequest(.getOrderInfo(billid: billid)).mapHandyModel(type: LSOrderModel.self)
+    }
 }

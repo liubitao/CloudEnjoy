@@ -51,6 +51,7 @@ class LSUpClockViewController: LSBaseViewController {
         self.view.cornerRadius = 5
         self.view.frame = CGRectMake((UI.SCREEN_WIDTH - 290)/2.0, (UI.SCREEN_HEIGHT - 270)/2.0, 290, 270);
         
+        self.roomNameLab.text = projectModel.roomname
         self.projectNameLab.text = projectModel.projectname
         self.waitTimeLab.text = Date().minutesSince(projectModel.dispatchtime.date(withFormat: "yyyy-MM-dd hh:mm:ss") ?? Date()).stringValue(retain: 0) + "分钟"
         self.projectNameLab.text = projectModel.projectname
