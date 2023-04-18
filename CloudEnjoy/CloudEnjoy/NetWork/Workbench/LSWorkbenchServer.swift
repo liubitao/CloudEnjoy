@@ -117,8 +117,8 @@ class LSWorkbenchServer {
         return provider.lsRequest(.getPlacePunchin(datetime: datetime)).mapHandyModel(type: LSPlacePunchinModel.self)
     }
     
-    static func getPlacePunchinList(datetime: String) -> Single<LSNetworkListModel<LSPlacePunchinItemModel>?> {
-        return provider.lsRequest(.getPlacePunchinList(datetime: datetime)).mapHandyModel(type: LSNetworkListModel<LSPlacePunchinItemModel>.self)
+    static func getPlacePunchinList(datetime: String) -> Single<[LSPlacePunchinItemModel]?> {
+        return provider.lsRequest(.getPlacePunchinList(datetime: datetime)).mapHandyModelArray(type: LSPlacePunchinItemModel.self)
     }
     
     

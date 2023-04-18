@@ -129,21 +129,21 @@ class LSViewClockInItemController: LSBaseViewController {
     }
     
     @IBAction func clockAction(_ sender: Any) {
-//        guard let lastLocation = self.lastLocation else {
-//            Toast.show("gps定位信号弱，请稍后再试")
-//            return
-//        }
-//        let firstModel = self.punchinModels.first { placeModel in
-//            let distance = CLLocation.init(latitude: placeModel.lat, longitude: placeModel.lng).distance(from: lastLocation)
-//            return Int(distance) < placeModel.range
-//        }
-//        guard let punchinModel = firstModel else {
-//            Toast.show("不在打卡范围内，请靠近再打卡")
-//            return
-//        }
+        guard let lastLocation = self.lastLocation else {
+            Toast.show("gps定位信号弱，请稍后再试")
+            return
+        }
+        let firstModel = self.punchinModels.first { placeModel in
+            let distance = CLLocation.init(latitude: placeModel.lat, longitude: placeModel.lng).distance(from: lastLocation)
+            return Int(distance) < placeModel.range
+        }
+        guard let punchinModel = firstModel else {
+            Toast.show("不在打卡范围内，请靠近再打卡")
+            return
+        }
         Toast.showHUD()
-//        LSWorkbenchServer.placePunchin(adr: punchinModel.name).subscribe { _ in
-            LSWorkbenchServer.placePunchin(adr: "上班打卡").subscribe { _ in
+        LSWorkbenchServer.placePunchin(adr: punchinModel.name).subscribe { _ in
+//            LSWorkbenchServer.placePunchin(adr: "上班打卡").subscribe { _ in
             Toast.show("打卡成功")
             self.networkData()
         } onFailure: { error in

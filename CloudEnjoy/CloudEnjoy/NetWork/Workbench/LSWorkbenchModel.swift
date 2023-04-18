@@ -482,6 +482,7 @@ struct LSPlacePunchinModel: HandyJSON {
     var adr = ""
     var pbflag = ""
     var workshift = ""
+    var shiftname = ""
     var closingtime = ""
     var userclocklist = [LSPlaceClockModel]()
 }
@@ -508,7 +509,9 @@ struct LSPlaceClockModel: HandyJSON {
 }
 
 struct LSPlacePunchinItemModel: HandyJSON {
-    
+    var datetime = ""
+    var sbstatus = 0
+    var xbstatus = 0
 }
 
 

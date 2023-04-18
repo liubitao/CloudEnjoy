@@ -68,7 +68,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="WI9-DC-dvl" secondAttribute="bottom" id="1DC-AZ-3pQ"/>
                     <constraint firstItem="Um1-9E-bLh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="6h7-ll-7fZ"/>
@@ -91,7 +91,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="clockAddressLab" destination="Gjy-ie-8PK" id="xJc-of-y0m"/>
                 <outlet property="clockLeftView" destination="9fT-eb-ygT" id="uI1-BD-ppG"/>
