@@ -27,12 +27,12 @@ public final class LSCodePlugin: PluginType {
     }
     
     public func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType){
-        switch result {
-        case .success(let response):
-                LSPrintLog("success-----\n\(response.lsDebugDescription)\n")
-        case let .failure(error):
-                LSPrintLog("fail--------\(error)>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-        }
+//        switch result {
+//        case .success(let response):
+//                LSPrintLog("success-----\n\(response.lsDebugDescription)\n")
+//        case let .failure(error):
+//                LSPrintLog("fail--------\(error)>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+//        }
     }
 
     public func process(_ result: Result<Moya.Response, MoyaError>, target: TargetType) -> Result<Moya.Response, MoyaError> {

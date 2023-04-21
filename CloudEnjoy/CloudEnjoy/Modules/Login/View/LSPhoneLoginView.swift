@@ -8,8 +8,9 @@
 import UIKit
 import JXSegmentedView
 import RxSwift
+import LSBaseModules
 
-class LSPhoneLoginView:  UIView {
+class LSPhoneLoginView: UIView {
     
     @IBOutlet weak var phoneView: UIView!
     @IBOutlet weak var passwordView: UIView!
@@ -38,6 +39,11 @@ class LSPhoneLoginView:  UIView {
             view.borderWidth = 1
             view.borderColor = UIColor(hexString: "#D2D2D2")
             view.cornerRadius = 3
+        }
+        
+        if let loginAccountString = LoginAccountCache.get(key: "loginAccount") as? String,
+           let loginModel = LSLoginAccountModel.deserialize(from: loginAccountString) {
+            self.phoneTextField.text = loginModel.mobile
         }
         
         self.loginBtn.setBackgroundImage(UIImage(color: UIColor(hexString: "#E4E7ED")!, size: CGSize(width: UI.SCREEN_WIDTH - 19*2, height: 43)), for: .disabled)

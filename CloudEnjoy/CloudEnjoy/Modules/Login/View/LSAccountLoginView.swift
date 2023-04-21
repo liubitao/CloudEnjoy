@@ -8,6 +8,7 @@
 import UIKit
 import JXSegmentedView
 import RxSwift
+import LSBaseModules
 
 class LSAccountLoginView:  UIView {
     
@@ -40,10 +41,12 @@ class LSAccountLoginView:  UIView {
             view.borderColor = UIColor(hexString: "#D2D2D2")
             view.cornerRadius = 3
         }
+        if let loginAccountString = LoginAccountCache.get(key: "loginAccount") as? String,
+           let loginModel = LSLoginAccountModel.deserialize(from: loginAccountString) {
+            self.storeTextField.text = loginModel.account
+            self.accountTextField.text = loginModel.code
+        }
         
-        self.storeTextField.text = "80000001"
-        self.accountTextField.text = "1001"
-        self.passwordTextField.text = "12"
         self.loginBtn.setBackgroundImage(UIImage(color: UIColor(hexString: "#E4E7ED")!, size: CGSize(width: UI.SCREEN_WIDTH - 19*2, height: 43)), for: .disabled)
         self.loginBtn.setBackgroundImage(UIImage(color: UIColor(hexString: "#00AAB7")!, size: CGSize(width: UI.SCREEN_WIDTH - 19*2, height: 43)), for: .normal)
         self.loginBtn.cornerRadius = 5

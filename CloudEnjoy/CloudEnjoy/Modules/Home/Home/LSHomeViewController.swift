@@ -38,6 +38,7 @@ class LSHomeViewController: LSBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LSRMQClient.install(rabbitaddress: LSLoginModel.shared.rabbitaddress, rabbitport: LSLoginModel.shared.rabbitport)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -155,11 +156,21 @@ class LSHomeViewController: LSBaseViewController {
         self.navigationItem.rightBarButtonItem = rightBarBtn
     }
     
+    override func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(networkHomeData), name: LSMessageType.dispatchOrder.notification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(networkHomeData), name: LSMessageType.updateYuyueStatus.notification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(networkHomeData), name: LSMessageType.upClock.notification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(networkHomeData), name: LSMessageType.downClock.notification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(networkHomeData), name: LSMessageType.updateUserStatus.notification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(networkHomeData), name: LSMessageType.changeProject.notification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(networkHomeData), name: LSMessageType.returnProject.notification, object: nil)
+    }
+    
     @objc func jumpMessage() {
         self.navigationController?.pushViewController(LSMessageViewController(), animated: true)
     }
     
-    func networkHomeData() {
+    @objc func networkHomeData() {
         LSHomeServer.findJsHomeData().subscribe { homeModel in
             guard let homeModel = homeModel else {
                 return

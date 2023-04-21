@@ -16,6 +16,7 @@ public struct LSLoginModel: HandyJSON {
     
     public var user: LSUserModel = LSUserModel()
     public var store: LSStoreModel = LSStoreModel()
+    public var mach: LSMachModel = LSMachModel()
     
     public init(){
         
@@ -36,6 +37,12 @@ public enum LSSex:Int, HandyJSONEnum {
             return "男"
         }
     }
+}
+
+public struct LSMachModel: HandyJSON {
+    public var code: String = ""
+    
+    public init(){}
 }
 
 public struct LSUserModel: HandyJSON{
@@ -74,6 +81,10 @@ public func userModel() -> LSUserModel {
 
 public func storeModel() -> LSStoreModel {
     return LSLoginModel.shared.store
+}
+
+public func machModel() -> LSMachModel {
+    return LSLoginModel.shared.mach
 }
 
 public func appIsLogin() -> Bool {

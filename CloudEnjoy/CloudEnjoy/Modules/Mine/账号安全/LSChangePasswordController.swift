@@ -52,7 +52,7 @@ class LSChangePasswordController: LSBaseViewController {
         Toast.showHUD()
         LSUserServer.updatePwd(userid: userModel().userid, pwd: original, newpwd: new, newpwd2: again)
             .subscribe { resultModel in
-                self.navigationController?.popToRootViewController(animated: true)
+                NotificationCenter.default.post(name: Notification.Name("LSNetwork.RELOGIN"), object: nil)
                 Toast.show("密码修改成功")
             } onFailure: { error in
                 Toast.show(error.localizedDescription)

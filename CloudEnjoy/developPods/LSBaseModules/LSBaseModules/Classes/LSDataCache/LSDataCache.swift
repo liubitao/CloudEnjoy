@@ -12,6 +12,7 @@ import RxSwift
 enum LSDataCacheType {
     case loginAccountInfo //当前登录账号信息
     case appInfo     //当前app的协议
+    case loginAccount
     
     var mainCachePath: String {
         switch self {
@@ -19,13 +20,16 @@ enum LSDataCacheType {
             return "loginAccountInfo"
         case .appInfo:
             return "appInfo"
+        case .loginAccount:
+            return "loginAccount"
         }
     }
 }
 
-
 public let LoginDataCache  = LSDataCache.init(cacheType: .loginAccountInfo)
 public let AppDataCache = LSDataCache.init(cacheType: .appInfo)
+public let LoginAccountCache = LSDataCache.init(cacheType: .loginAccount)
+
 
 public struct LSDataCache {
     var cacheType: LSDataCacheType!

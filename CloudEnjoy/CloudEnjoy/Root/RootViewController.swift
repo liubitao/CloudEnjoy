@@ -24,7 +24,7 @@ class RootViewController: LSBaseViewController {
     }
 
     override func setupNotifications() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(refreshTokenDB), name: .refreshToken, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(logout), name: LSMessageType.otherLogin.notification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(logout), name: .reLogin, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(logout), name: .logout, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setupTabBarViewController), name: .login, object: nil)

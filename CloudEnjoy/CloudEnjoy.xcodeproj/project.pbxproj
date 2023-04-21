@@ -248,6 +248,7 @@
 		0CDD4C6F29CB007E003402DF /* LSCreateOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CDD4C6D29CB007E003402DF /* LSCreateOrderTableViewCell.xib */; };
 		0CDD4C7229CB0B01003402DF /* LSOrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDD4C7029CB0B01003402DF /* LSOrderDetailsViewController.swift */; };
 		0CDD4C7329CB0B01003402DF /* LSOrderDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CDD4C7129CB0B01003402DF /* LSOrderDetailsViewController.xib */; };
+		0CE435E229F11867009A5141 /* LSRMQClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE435E129F11867009A5141 /* LSRMQClient.swift */; };
 		0CE7F14829BF1692008FF8C5 /* LSOrderFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F14729BF1692008FF8C5 /* LSOrderFilterViewController.swift */; };
 		0CE7F14A29BF20A0008FF8C5 /* LSUserqueryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE7F14929BF20A0008FF8C5 /* LSUserqueryViewController.xib */; };
 		0CE7F15229BF24FD008FF8C5 /* LSVipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7F15029BF24FD008FF8C5 /* LSVipTableViewCell.swift */; };
@@ -541,6 +542,7 @@
 		0CDD4C6D29CB007E003402DF /* LSCreateOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSCreateOrderTableViewCell.xib; sourceTree = "<group>"; };
 		0CDD4C7029CB0B01003402DF /* LSOrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderDetailsViewController.swift; sourceTree = "<group>"; };
 		0CDD4C7129CB0B01003402DF /* LSOrderDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSOrderDetailsViewController.xib; sourceTree = "<group>"; };
+		0CE435E129F11867009A5141 /* LSRMQClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSRMQClient.swift; sourceTree = "<group>"; };
 		0CE7F14729BF1692008FF8C5 /* LSOrderFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderFilterViewController.swift; sourceTree = "<group>"; };
 		0CE7F14929BF20A0008FF8C5 /* LSUserqueryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSUserqueryViewController.xib; sourceTree = "<group>"; };
 		0CE7F15029BF24FD008FF8C5 /* LSVipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSVipTableViewCell.swift; sourceTree = "<group>"; };
@@ -643,6 +645,7 @@
 		0C0CC84D29AF60D000CC3A6E /* ThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
+				0CE435E029F1181B009A5141 /* RMQClient */,
 				0C29C1F529C5A3F00043109A /* UUMarqueeView */,
 				0C1D1D3829C58A8000255BDB /* SegmentControl */,
 				0C66266629C314F500AADCC7 /* HWDownSelectedView */,
@@ -1436,6 +1439,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0CE435E029F1181B009A5141 /* RMQClient */ = {
+			isa = PBXGroup;
+			children = (
+				0CE435E129F11867009A5141 /* LSRMQClient.swift */,
+			);
+			path = RMQClient;
+			sourceTree = "<group>";
+		};
 		0CE7F14B29BF2326008FF8C5 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1808,6 +1819,7 @@
 				0C66266029C2F07200AADCC7 /* LSReserveTimeViewController.swift in Sources */,
 				0C50293129AF3331003977F0 /* AppDelegate.swift in Sources */,
 				0C4D061829D19D4400D30F95 /* LSRankTableViewCell.swift in Sources */,
+				0CE435E229F11867009A5141 /* LSRMQClient.swift in Sources */,
 				0CB7659329BC760D0048B1B3 /* FSCalendarCollectionView.m in Sources */,
 				0C0CC88B29AF60E800CC3A6E /* KyoLoadMoreControl.m in Sources */,
 				0CB7659929BC760D0048B1B3 /* FSCalendarCollectionViewLayout.m in Sources */,

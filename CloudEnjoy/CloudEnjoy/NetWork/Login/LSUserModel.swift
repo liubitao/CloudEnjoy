@@ -8,6 +8,12 @@
 import Foundation
 import HandyJSON
 
+struct LSLoginAccountModel: HandyJSON {
+    var account: String?
+    var mobile: String?
+    var code: String?
+}
+
 struct LSPhotoModel: HandyJSON {
     var imgid = ""
     var img = ""

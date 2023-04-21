@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import AttributedString
 import SwifterSwift
+import LSBaseModules
 
 class LSLoginViewController: LSBaseViewController {
 
@@ -81,7 +82,10 @@ class LSLoginViewController: LSBaseViewController {
                 Toast.showHUD()
                 LSUserServer.login(account: store, mobile: phone, code: account, pwd: password)
                     .subscribe { _ in
+                        let loginModel = LSLoginAccountModel(account: store, mobile: phone, code: account)
+                        LoginAccountCache.set(key: "loginAccount", value: loginModel.toJSONString())
                         NotificationCenter.default.post(name: .login, object: nil)
+                        LSRMQClient.install(rabbitaddress: LSLoginModel.shared.rabbitaddress, rabbitport: LSLoginModel.shared.rabbitport)
                     } onFailure: { error in
                         Toast.show(error.localizedDescription)
                     } onDisposed: {
