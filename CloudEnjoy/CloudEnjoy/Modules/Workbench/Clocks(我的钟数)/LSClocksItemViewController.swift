@@ -102,7 +102,7 @@ class LSClocksItemViewController: LSBaseViewController {
         LSWorkbenchServer.findMeClockNum(startdate: self.startdate, enddate: self.endDate).subscribe { royaltiesTotalModel in
             guard let totalModel = royaltiesTotalModel else { return }
             self.clockNumModel = totalModel
-            let sectionModels = [SectionModel.init(model: "", items: self.clockNumModel.list)]
+            let sectionModels = [SectionModel.init(model: "", items: self.clockNumModel.list.filter{$0.ptype == 0})]
             self.items.onNext(sectionModels)
             self.refreshUI()
         } onFailure: { error in
@@ -146,12 +146,16 @@ class LSClocksItemViewController: LSBaseViewController {
     
     @IBAction func mainClockAction(_ sender: Any) {
         self.isShowMain = true
+        let sectionModels = [SectionModel.init(model: "", items: self.clockNumModel.list.filter{$0.ptype == 0})]
+        self.items.onNext(sectionModels)
         self.refreshUI()
     }
     
     
     @IBAction func smallClockAction(_ sender: Any) {
         self.isShowMain = false
+        let sectionModels = [SectionModel.init(model: "", items: self.clockNumModel.list.filter{$0.ptype == 1})]
+        self.items.onNext(sectionModels)
         self.refreshUI()
     }
     

@@ -13,6 +13,7 @@ class LSVipDetailsViewController: LSBaseViewController {
 
     @IBOutlet weak var vipNoLab: UILabel!
     
+    @IBOutlet weak var vipTypeLab: UILabel!
     
     @IBOutlet weak var nameLab: UILabel!
     
@@ -69,8 +70,10 @@ class LSVipDetailsViewController: LSBaseViewController {
     
     override func setupViews() {
         self.vipNoLab.text = "NO.\(self.vipModel.vipno)"
+        self.vipTypeLab.text = self.vipModel.typename
         self.nameLab.text = "会员姓名：\(self.vipModel.name)"
         self.sexLab.text = "会员性别：\(self.vipModel.sex == 0 ? "女": "男")"
+        self.mobileLab.text = "手机号码：\(self.vipModel.mobile)"
         let a: ASAttributedString = "\("金额", .font(Font.pingFangRegular(13)), .foreground(Color(hexString: "#666666")!))"
         let b: ASAttributedString = "\("￥"+self.vipModel.nowmoney, .font(Font.pingFangRegular(18)), .foreground(Color(hexString:"#FF0000")!))"
         self.balanceLab.attributed.text = a + b

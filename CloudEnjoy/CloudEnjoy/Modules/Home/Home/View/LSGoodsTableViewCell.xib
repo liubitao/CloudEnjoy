@@ -78,33 +78,8 @@
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" backgroundImage="减"/>
                     </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UWN-wp-H2c">
-                        <rect key="frame" x="389.33333333333331" y="2" width="15.666666666666686" height="16"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGh-Tj-GPR">
-                                <rect key="frame" x="5" y="0.66666666666666607" width="5.6666666666666679" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="zGh-Tj-GPR" firstAttribute="centerY" secondItem="UWN-wp-H2c" secondAttribute="centerY" id="0Vm-ke-JFw"/>
-                            <constraint firstAttribute="height" constant="16" id="Nvv-0c-l5g"/>
-                            <constraint firstItem="zGh-Tj-GPR" firstAttribute="leading" secondItem="UWN-wp-H2c" secondAttribute="leading" constant="5" id="Owl-Au-xTi"/>
-                            <constraint firstAttribute="trailing" secondItem="zGh-Tj-GPR" secondAttribute="trailing" constant="5" id="YU2-XD-7eX"/>
-                        </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="8"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="UWN-wp-H2c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="0Kf-iE-Ffh"/>
                     <constraint firstItem="aMn-Q4-qeC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="8qf-Ey-5Uv"/>
                     <constraint firstItem="aMn-Q4-qeC" firstAttribute="leading" secondItem="hck-ry-feG" secondAttribute="trailing" constant="9" id="Icl-PP-QNl"/>
                     <constraint firstAttribute="bottom" secondItem="SXr-xL-Wdx" secondAttribute="bottom" constant="8" id="NO1-9t-X3z"/>
@@ -114,7 +89,6 @@
                     <constraint firstItem="3EM-aL-RWF" firstAttribute="leading" secondItem="afb-tT-954" secondAttribute="trailing" constant="3" id="Txx-1n-DfA"/>
                     <constraint firstItem="hck-ry-feG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hFj-Bq-LNS"/>
                     <constraint firstItem="hck-ry-feG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="hKO-KY-ccD"/>
-                    <constraint firstAttribute="trailing" secondItem="UWN-wp-H2c" secondAttribute="trailing" constant="4" id="ljl-RQ-JyL"/>
                     <constraint firstAttribute="trailing" secondItem="3EM-aL-RWF" secondAttribute="trailing" constant="7" id="mKF-qv-hy0"/>
                     <constraint firstItem="3EM-aL-RWF" firstAttribute="centerY" secondItem="jzf-WN-dDK" secondAttribute="centerY" id="nzp-g9-XG0"/>
                     <constraint firstAttribute="trailing" secondItem="aMn-Q4-qeC" secondAttribute="trailing" constant="30" id="tiV-ye-Z0A"/>
@@ -130,8 +104,6 @@
                 <outlet property="goodsPicImageView" destination="hck-ry-feG" id="nDc-If-RQJ"/>
                 <outlet property="goodsPriceLab" destination="SXr-xL-Wdx" id="ZDk-WC-cFr"/>
                 <outlet property="goodsStockLab" destination="Wbj-zs-y42" id="6TO-ia-qDc"/>
-                <outlet property="numberLab" destination="zGh-Tj-GPR" id="UnA-ZE-LKE"/>
-                <outlet property="numberView" destination="UWN-wp-H2c" id="f2m-YZ-MVF"/>
                 <outlet property="plusBtn" destination="3EM-aL-RWF" id="nFe-fm-AIS"/>
                 <outlet property="subtractBtn" destination="jzf-WN-dDK" id="1yb-6J-cqE"/>
             </connections>

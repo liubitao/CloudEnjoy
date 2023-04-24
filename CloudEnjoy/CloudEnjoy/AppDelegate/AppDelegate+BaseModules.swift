@@ -24,7 +24,7 @@ extension AppDelegate {
     
     private func setApp() {
         if appIsLogin() == true {
-            let screenBool = AppDataCache.get(key: "screenSwitch") as? Bool ?? true
+            let screenBool = AppDataCache.get(key: "screenSwitch") as? Bool ?? false
             UIApplication.shared.isIdleTimerDisabled = screenBool
         }
         UIApplication.shared.addObserver(self, forKeyPath: "idletimerdisabled", context: nil)
@@ -34,7 +34,7 @@ extension AppDelegate {
 
 extension AppDelegate {
     override func addObserver(_ observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutableRawPointer?) {
-        let screenBool = AppDataCache.get(key: "screenSwitch") as? Bool ?? true
+        let screenBool = AppDataCache.get(key: "screenSwitch") as? Bool ?? false
         UIApplication.shared.isIdleTimerDisabled = screenBool
     }
 }

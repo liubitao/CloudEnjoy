@@ -63,7 +63,7 @@ class LSOrderItemViewController: LSBaseViewController {
                 cell.statusView.backgroundColor = element.status.backColor
                 cell.nameLab.text = "客户姓名：" + element.name
                 cell.arriveTimeLab.text = "抵达时间：" + element.tostoretime
-                cell.createTimeLab.text = "创建时间：" + element.createname
+                cell.createTimeLab.text = "创建时间：" + element.createtime
                 cell.refnameLab.text = "推荐人：" + element.refname
                 return cell
             }

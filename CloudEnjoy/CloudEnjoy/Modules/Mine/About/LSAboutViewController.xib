@@ -28,8 +28,8 @@
                         <constraint firstAttribute="height" constant="80" id="9VJ-Ui-ecd"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="博优聚客云休闲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgZ-au-gQz">
-                    <rect key="frame" x="126.66666666666669" y="184" width="140" height="30"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="聚客云休闲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgZ-au-gQz">
+                    <rect key="frame" x="146.66666666666666" y="184" width="100" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="luo-MV-TrY"/>
                     </constraints>
@@ -37,8 +37,8 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="员工的好帮手，工作得心应手" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="639-Ji-fAb">
-                    <rect key="frame" x="112" y="215" width="169" height="19"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="639-Ji-fAb">
+                    <rect key="frame" x="196.66666666666666" y="215" width="0.0" height="19"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="19" id="D2P-pp-NOj"/>
                     </constraints>

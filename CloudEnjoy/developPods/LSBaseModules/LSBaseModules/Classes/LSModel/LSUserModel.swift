@@ -46,6 +46,8 @@ public struct LSMachModel: HandyJSON {
 }
 
 public struct LSUserModel: HandyJSON{
+    public var spid = 0
+    public var sid = 0
     public var headimg: String = ""    //头像
     public var userid: String = ""     //当前登录技师唯一标识
     public var branchname: String = "" //部门

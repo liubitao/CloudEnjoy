@@ -70,7 +70,7 @@ class LSProjectDetailsViewController: LSBaseViewController {
         self.opeartionNameLab.text = projectModel.createname
         self.refNameLab.text = projectModel.refname
         self.upClockTimeLab.text = projectModel.starttime
-        self.downClockTimeLab.text = projectModel.endtime
+        self.downClockTimeLab.text = "预计 " + (projectModel.starttime.date(withFormat: "yyyy-MM-dd hh:mm:ss")?.adding(.minute, value: projectModel.min.int ?? 0).string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? "")
         
         self.createTimeView.isHidden = projectModel.status != .subscribe
         self.dispatchTimeView.isHidden = !(projectModel.status == .servicing || projectModel.status == .wait)

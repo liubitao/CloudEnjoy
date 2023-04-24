@@ -73,9 +73,9 @@ class LSWorkOrderDetailsController: LSBaseViewController {
         downClockNameLab.text = orderModel.endname
         
         orderNoLab.text = orderModel.billno
-        unitPriceLab.text = "￥" + orderModel.rprice.stringValue(retain: 2) + "/1"
-        priceLab.text = "￥" + orderModel.rramt.stringValue(retain: 2)
-        discountPriceLab.text = "￥" + orderModel.amt.stringValue(retain: 2)
+        unitPriceLab.text = "￥" + orderModel.price.stringValue(retain: 2) + "/" + (orderModel.qty.int?.string ?? "1")
+        priceLab.text = "￥" + orderModel.amt.stringValue(retain: 2)
+        discountPriceLab.text = "￥" + (orderModel.yprice - orderModel.amt).stringValue(retain: 2)
         payTypeLab.text = orderModel.payway
         cashierNameLab.text = orderModel.cashname
         cashierTimeLab.text = orderModel.billdate

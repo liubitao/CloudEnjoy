@@ -44,8 +44,8 @@ extension LSUploadAPI: LSTargetType{
             let imgData = image.compressedData() ?? Data()
             let formData = MultipartFormData(provider: .data(imgData), name: "data", fileName: "image_\(Date()).png", mimeType: "image/png")
             
-            var parameters = ["spid": "1",
-                              "sid": "1",
+            var parameters = ["spid": userModel().spid.string,
+                              "sid": userModel().sid.string,
                               "userid": userModel().userid]
             if !LSLoginModel.shared.token.isEmpty {
                 parameters["token"] = LSLoginModel.shared.token

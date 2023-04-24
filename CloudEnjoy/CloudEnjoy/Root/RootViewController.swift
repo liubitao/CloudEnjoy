@@ -52,7 +52,7 @@ class RootViewController: LSBaseViewController {
         }
         
 //        self.getUserInfo()
-        
+        LSRMQClient.install(rabbitaddress: LSLoginModel.shared.rabbitaddress, rabbitport: LSLoginModel.shared.rabbitport)
         self.setupTabBarViewController()
     }
     
@@ -93,6 +93,7 @@ class RootViewController: LSBaseViewController {
     
     //退出登录，删除所有信息
     @objc func logout() {
+        LSRMQClient.unInstall()
         LoginDataCache.removeAll()
         AppDataCache.removeAll()
         self.setupLoginViewController()

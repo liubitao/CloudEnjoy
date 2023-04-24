@@ -80,7 +80,7 @@ enum LSHomeProjectStatus: Int, HandyJSONEnum {
     var statusString: String {
         switch self {
         case .wait:
-            return "等待中"
+            return "待服务"
         case .servicing:
             return "服务中"
         case .finish:

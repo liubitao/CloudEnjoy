@@ -92,7 +92,7 @@ class LSAddOrderViewController: LSBaseViewController {
             self.roomLab.text = orderModel.roomname
             self.selectRoomModel = LSOrderRoomModel(roomid: orderModel.roomid, name: orderModel.roomname)
             self.projectLab.text = orderModel.projectname
-            self.selectProjectModel = LSOrderProjectModel(name: orderModel.projectname, projectid: orderModel.projectid)
+            self.selectProjectModel = LSOrderProjectModel(name: orderModel.projectname, projectid: orderModel.projectid, smin: orderModel.smin)
             if orderModel.ctype == .wheelClock {
                 self.jsPlaceholderLab.isHidden = true
                 self.jsLab1.text = orderModel.ctypename

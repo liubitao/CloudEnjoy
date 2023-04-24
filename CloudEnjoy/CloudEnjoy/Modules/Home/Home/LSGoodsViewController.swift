@@ -158,7 +158,9 @@ class LSGoodsViewController: LSBaseViewController {
         
         self.goodsTableView = {
             var goodsTableView = UITableView(frame: CGRect.zero, style: .grouped)
+            var leftSpace = 16
             if #available(iOS 13.0, *) {
+                leftSpace = 0
                 goodsTableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
             }
             goodsTableView.backgroundColor = Color.clear
@@ -175,8 +177,8 @@ class LSGoodsViewController: LSBaseViewController {
             goodsTableView.register(nibWithCellClass: LSGoodsTableViewCell.self)
             view.addSubview(goodsTableView)
             goodsTableView.snp.makeConstraints { make in
-                make.left.equalToSuperview().offset(92)
-                make.right.equalToSuperview()
+                make.left.equalToSuperview().offset(92 + leftSpace)
+                make.right.equalToSuperview().offset(-leftSpace)
                 make.top.equalTo(self.collectionView.snp.bottom).offset(3)
                 make.bottom.equalToSuperview().offset(-UI.BOTTOM_HEIGHT - 200 - 10)
             }
@@ -190,9 +192,6 @@ class LSGoodsViewController: LSBaseViewController {
                 cell.goodsNumberLab.text = element.number.string
                 cell.goodsNumberLab.isHidden = element.number == 0
                 cell.subtractBtn.isHidden = element.number == 0
-                cell.numberView.isHidden = element.number == 0
-                cell.numberLab.text = element.number.string
-                
                 cell.subtractBtn.rx.tap.subscribe { [weak self, weak cell] _ in
                     guard let self = self,
                           let cell = cell else {return}

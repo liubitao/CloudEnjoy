@@ -38,7 +38,6 @@ class LSHomeViewController: LSBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LSRMQClient.install(rabbitaddress: LSLoginModel.shared.rabbitaddress, rabbitport: LSLoginModel.shared.rabbitport)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,11 +94,11 @@ class LSHomeViewController: LSBaseViewController {
                 case .wait:
                     cell.timeLab.text = element.dispatchtime.split(separator: " ").last?.split(separator: ":")[0..<2].joined(separator: ":")
                 case .subscribe:
-                    cell.timeLab.text = element.tostoretime
+                    cell.timeLab.text = element.tostoretime.split(separator: ":")[0..<2].joined(separator: ":")
                 case .servicing:
-                    cell.timeLab.text = element.starttime
+                    cell.timeLab.text =  element.starttime.split(separator: " ").last?.split(separator: ":")[0..<2].joined(separator: ":")
                 default:
-                    cell.timeLab.text = element.createtime
+                    cell.timeLab.text = element.createtime.split(separator: ":")[0..<2].joined(separator: ":")
                 }
                 cell.statusView.backgroundColor = element.status.backColor
                 cell.statusLab.text = element.status.statusString
@@ -186,7 +185,13 @@ class LSHomeViewController: LSBaseViewController {
         }.disposed(by: self.rx.disposeBag)
         
         LSMessageServer.getMessageList(ispage: "1", see: "0", msgtype: LSMsgType.all.rawValue, page: "1").subscribe { listModel in
-            self.messageModels = listModel?.list ?? []
+            guard let list = listModel?.list,
+                  list.isEmpty == true else {
+                self.marqueeView.isHidden = true
+                return
+            }
+            self.marqueeView.isHidden = false
+            self.messageModels = list
             self.marqueeView.reloadData()
         } onFailure: { error in
             Toast.show(error.localizedDescription)

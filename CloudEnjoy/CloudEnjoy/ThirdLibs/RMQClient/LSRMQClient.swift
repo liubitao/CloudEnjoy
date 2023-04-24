@@ -20,6 +20,7 @@ class LSRMQClient {
     var delegate: RMQConnectionDelegateLogger!
     
     class func install(rabbitaddress: String, rabbitport: String) {
+        self.unInstall()
         let url = "amqp://byyzm:byyzm@\(rabbitaddress):\(rabbitport)"
         client.conn = RMQConnection(uri: url, delegate: RMQConnectionDelegateLogger())
         
@@ -30,7 +31,9 @@ class LSRMQClient {
         let ch = client.conn?.createChannel()
         ch?.queue(queueName)
         ch?.queueBind(queueName, exchange: exchangeName, routingKey: "yxx")
-        ch?.queueBind(queueName, exchange: exchangeName, routingKey: "yxx." + storeModel().account + "." + userModel().userid + "." + storeModel().code)
+        ch?.queueBind(queueName, exchange: exchangeName, routingKey: "yxx" + storeModel().account)
+        ch?.queueBind(queueName, exchange: exchangeName, routingKey: "yxx" + storeModel().account + "." + userModel().userid)
+        ch?.queueBind(queueName, exchange: exchangeName, routingKey: "yxx" + storeModel().account + "." + userModel().userid + "." + machModel().code)
         ch?.basicConsume(queueName, handler: { message in
             self.handerMessage(LSMQMessageModel.deserialize(from: message.body.string(encoding: .utf8)))
         })
@@ -40,7 +43,9 @@ class LSRMQClient {
         guard let notification = message?.retcode.notification else {
             return
         }
-        NotificationCenter.default.post(name: notification, object: nil)
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: notification, object: nil)
+        }
     }
 
     class func unInstall() {

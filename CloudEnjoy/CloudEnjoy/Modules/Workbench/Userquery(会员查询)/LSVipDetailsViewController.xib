@@ -29,6 +29,7 @@
                 <outlet property="validDateLab" destination="I4v-uI-hPr" id="ytH-iy-gGC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="vipNoLab" destination="h4H-bd-mpb" id="7qt-56-cgG"/>
+                <outlet property="vipTypeLab" destination="m5k-Po-Hhd" id="g9O-sP-hob"/>
                 <outlet property="viptypeLab" destination="frY-rx-Gp2" id="wbd-5y-KF3"/>
                 <outlet property="writteFlagLab" destination="MOj-KU-Hxs" id="dpT-Mm-zDm"/>
                 <outlet property="writteNamtLab" destination="Ngo-i2-wK0" id="ppe-BM-PAR"/>
@@ -51,6 +52,30 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层 14" translatesAutoresizingMaskIntoConstraints="NO" id="nZK-eG-lwW">
                                             <rect key="frame" x="0.0" y="0.0" width="373" height="107"/>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nrG-0e-NwP">
+                                            <rect key="frame" x="148" y="9.6666666666666714" width="68" height="28"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="普通会员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5k-Po-Hhd">
+                                                    <rect key="frame" x="8" y="4.6666666666666572" width="52" height="18.333333333333332"/>
+                                                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.21176470589999999" green="0.1960784314" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="m5k-Po-Hhd" secondAttribute="trailing" constant="8" id="0Pw-lh-ITR"/>
+                                                <constraint firstItem="m5k-Po-Hhd" firstAttribute="leading" secondItem="nrG-0e-NwP" secondAttribute="leading" constant="8" id="2AX-s4-KY5"/>
+                                                <constraint firstItem="m5k-Po-Hhd" firstAttribute="centerY" secondItem="nrG-0e-NwP" secondAttribute="centerY" id="oRR-tr-ZK8"/>
+                                                <constraint firstAttribute="height" constant="28" id="uic-7G-5G9"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO.8596858" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4H-bd-mpb">
                                             <rect key="frame" x="20" y="10" width="108" height="27"/>
                                             <constraints>
@@ -92,6 +117,7 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="nZK-eG-lwW" secondAttribute="trailing" id="4jT-bS-6Vb"/>
                                         <constraint firstItem="WDO-Rk-7hT" firstAttribute="leading" secondItem="ZZM-fj-n54" secondAttribute="leading" constant="20" id="5Fu-gm-NY6"/>
+                                        <constraint firstItem="nrG-0e-NwP" firstAttribute="centerY" secondItem="h4H-bd-mpb" secondAttribute="centerY" id="5i3-uX-Tgt"/>
                                         <constraint firstItem="WDO-Rk-7hT" firstAttribute="top" secondItem="ncJ-uj-Mzq" secondAttribute="bottom" constant="2" id="7fx-hf-MY2"/>
                                         <constraint firstItem="h4H-bd-mpb" firstAttribute="leading" secondItem="ZZM-fj-n54" secondAttribute="leading" constant="20" id="8ga-no-0sR"/>
                                         <constraint firstAttribute="bottom" secondItem="nZK-eG-lwW" secondAttribute="bottom" id="Ckv-sd-vhx"/>
@@ -100,6 +126,7 @@
                                         <constraint firstItem="hIA-VS-4Ro" firstAttribute="centerY" secondItem="ncJ-uj-Mzq" secondAttribute="centerY" id="JmO-jT-Y41"/>
                                         <constraint firstItem="nZK-eG-lwW" firstAttribute="top" secondItem="ZZM-fj-n54" secondAttribute="top" id="KlH-xP-VGe"/>
                                         <constraint firstAttribute="height" constant="107" id="RAV-jh-9O4"/>
+                                        <constraint firstItem="nrG-0e-NwP" firstAttribute="leading" secondItem="h4H-bd-mpb" secondAttribute="trailing" constant="20" id="Z0l-9O-PdI"/>
                                         <constraint firstItem="nZK-eG-lwW" firstAttribute="leading" secondItem="ZZM-fj-n54" secondAttribute="leading" id="nkC-2v-3pw"/>
                                         <constraint firstItem="hIA-VS-4Ro" firstAttribute="leading" secondItem="ZZM-fj-n54" secondAttribute="leading" constant="225" id="ruY-qk-kZ0"/>
                                         <constraint firstItem="h4H-bd-mpb" firstAttribute="top" secondItem="ZZM-fj-n54" secondAttribute="top" constant="10" id="usS-JA-t7K"/>

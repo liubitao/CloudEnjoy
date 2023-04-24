@@ -15,8 +15,6 @@ class LSGoodsTableViewCell: UITableViewCell {
     @IBOutlet weak var goodsNumberLab: UILabel!
     @IBOutlet weak var subtractBtn: UIButton!
     @IBOutlet weak var plusBtn: UIButton!
-    @IBOutlet weak var numberView: UIView!
-    @IBOutlet weak var numberLab: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none

@@ -98,6 +98,7 @@ struct LSFindMeClockNumItemModel: HandyJSON {
     var sumcqty = 0     //call钟合计
     var sumxqty = 0     //选钟合计
     var sumjqty = 0     //加钟合计
+    var ptype = 0
 }
 
 
@@ -140,18 +141,18 @@ struct LSOrderServerModel: HandyJSON {
 // 会员
 
 enum LSCardstatus: Int, HandyJSONEnum {
-    case normal = 0
-    case stop = 1
+    case stop = 0
+    case normal = 1
     case lose = 2
     case obsolete = 3
     case overdue = 4
     
     var statusString: String {
         switch self {
-        case .normal:
-            return "正常"
         case .stop:
             return "停用"
+        case .normal:
+            return "正常"
         case .lose:
             return "挂失"
         case .obsolete:
@@ -360,6 +361,7 @@ struct LSOrderModel: HandyJSON {
     var projectname = ""
     var statusname = ""
     var status = LSOrderStatus.hadYuyue
+    var smin = ""
     var tid = ""
     var sid = ""
     var tlid = ""
@@ -411,6 +413,7 @@ struct LSOrderDetailsModel: HandyJSON {
     var min = ""
     var createid = ""
     var price: Double = 0
+    var yprice: Double = 0
     var billid = ""
     var cancelname = ""
     var endname = ""
