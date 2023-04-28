@@ -11,7 +11,7 @@ import UIKit
 import LSBaseModules
 
 public struct LSNetworkConfig {
-    public static var development: Bool = true
+    public static var development: Bool = false
     
     public static var baseUrl: String = development ? "https://test.bypos.net/YxxSvr" : "https://yun.bypos.net/YxxSvr"
 //    public static var baseUrl: String = development ? "http://192.168.8.43:9094/YxxSvr" : "https://yun.bypos.net/YxxSvr"

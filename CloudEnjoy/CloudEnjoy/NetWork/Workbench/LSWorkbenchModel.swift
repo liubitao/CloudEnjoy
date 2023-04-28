@@ -483,7 +483,7 @@ struct LSPlacePunchinModel: HandyJSON {
     var onclockintime = ""
     var offclockintime = ""
     var adr = ""
-    var pbflag = ""
+    var pbflag = 0
     var workshift = ""
     var shiftname = ""
     var closingtime = ""
