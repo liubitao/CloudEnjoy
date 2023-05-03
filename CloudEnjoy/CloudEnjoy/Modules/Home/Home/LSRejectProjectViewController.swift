@@ -12,6 +12,7 @@ import SwifterSwift
 class LSRejectProjectViewController: LSBaseViewController {
 
     @IBOutlet weak var roomNameLab: UILabel!
+    @IBOutlet weak var bedTitle: UILabel!
     @IBOutlet weak var bedNameLab: UILabel!
     @IBOutlet weak var projectNameLab: UILabel!
     @IBOutlet weak var jsNameLab: UILabel!
@@ -34,8 +35,8 @@ class LSRejectProjectViewController: LSBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.title = "退钟"
+        
     }
     
     override func setupViews() {
@@ -59,11 +60,7 @@ class LSRejectProjectViewController: LSBaseViewController {
     }
     
     @IBAction func confirmAction(_ sender: Any) {
-        guard let remark = self.rejectMarkTextField.text,
-              remark.isEmpty == false else {
-            Toast.show("请输入您退钟的备注")
-            return
-        }
+        let remark = self.rejectMarkTextField.text ?? ""
         Toast.showHUD()
         LSHomeServer.returnClock(billid: self.projectModel.billid, remark: remark).subscribe { _ in
             self.navigationController?.popToRootViewController(animated: true)

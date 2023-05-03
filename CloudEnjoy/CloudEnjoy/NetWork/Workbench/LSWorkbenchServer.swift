@@ -35,6 +35,11 @@ class LSWorkbenchServer {
         return provider.lsRequest(.getVipList(page: page, cond: cond)).mapHandyModel(type: LSNetworkListModel<LSVipModel>.self)
     }
     
+    
+    static func getVipInfo(spid: String, sid: String, vipid: String) -> Single<[LSVipModel]?>{
+        return provider.lsRequest(.getVipInfo(spid: spid, sid: sid, vipid: vipid)).mapHandyModelArray(type: LSVipModel.self)
+    }
+    
     static func insertAppointment(name: String, mobile: String, custtype: LSCustomerType, qty: String, refid: String, tostoretime: String, reservemin: String, remark: String, roomlist: String, projectlist: String) -> Single<LSNetworkResultModel>{
         return provider.lsRequest(.insertAppointment(name: name, mobile: mobile, custtype: custtype, qty: qty, refid: refid, tostoretime: tostoretime, reservemin: reservemin, remark: remark, roomlist: roomlist, projectlist: projectlist))
     }

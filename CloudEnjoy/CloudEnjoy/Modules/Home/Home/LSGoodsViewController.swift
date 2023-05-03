@@ -18,7 +18,8 @@ class LSGoodsViewController: LSBaseViewController {
     @IBOutlet weak var bedNoLab: UILabel!
     @IBOutlet weak var refNameLab: UILabel!
     @IBOutlet weak var refNameView: UIView!
-
+    @IBOutlet weak var remarkTextField: UITextField!
+    
     var tableView: UITableView!
     var goodsTypeItems = PublishSubject<[SectionModel<String, LSGoodsTypeModel>]>()
     var collectionView: UICollectionView!
@@ -84,7 +85,7 @@ class LSGoodsViewController: LSBaseViewController {
                 make.left.equalToSuperview().offset(10)
                 make.width.equalTo(85)
                 make.top.equalToSuperview().offset(UI.STATUS_NAV_BAR_HEIGHT + 48 + 5)
-                make.bottom.equalToSuperview().offset(-UI.BOTTOM_HEIGHT - 243 - 25)
+                make.bottom.equalToSuperview().offset(-UI.BOTTOM_HEIGHT - 245 - 25)
             }
             
             let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSGoodsTypeModel>> { dataSource, tableView, indexPath, element in
@@ -180,7 +181,7 @@ class LSGoodsViewController: LSBaseViewController {
                 make.left.equalToSuperview().offset(92 + leftSpace)
                 make.right.equalToSuperview().offset(-leftSpace)
                 make.top.equalTo(self.collectionView.snp.bottom).offset(3)
-                make.bottom.equalToSuperview().offset(-UI.BOTTOM_HEIGHT - 200 - 10)
+                make.bottom.equalToSuperview().offset(-UI.BOTTOM_HEIGHT - 245 - 10)
             }
 
             let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSGoodsModel>> { dataSource, tableView, indexPath, element in
@@ -304,9 +305,17 @@ class LSGoodsViewController: LSBaseViewController {
             Toast.show("请选择推荐人")
             return
         }
-        let productlist = goodsModels.map{["productid": $0.productid, "qty": $0.number]}.ls_toJSONString() ?? ""
+//        guard let remark = remarkTextField.text else {
+//
+//        }
+        let productlist = goodsModels.map{["productid": $0.productid,
+                                           "qty": $0.number,
+                                           "amt": ($0.sellprice.double() ?? 0) * $0.number.double,
+                                           "price": $0.sellprice,
+                                           "productname": $0.name,
+                                           "rprice": $0.sellprice]}.ls_toJSONString() ?? ""
         Toast.showHUD()
-        LSHomeServer.addProduct(billid: self.projectModel.billid, roomid: self.projectModel.roomid, bedid: self.projectModel.bedid, refid: self.referrerModel.userid, refname: self.referrerModel.name, refjobid: self.referrerModel.jobid, productlist: productlist).subscribe { _ in
+        LSHomeServer.addProduct(billid: self.projectModel.billid, roomid: self.projectModel.roomid, bedid: self.projectModel.bedid, refid: self.referrerModel.userid, refname: self.referrerModel.name, refjobid: self.referrerModel.jobid, productlist: productlist, remark: remarkTextField.text ?? "").subscribe { _ in
             Toast.show("商品已下单成功")
             self.navigationController?.popViewController(animated: true)
         } onFailure: { error in

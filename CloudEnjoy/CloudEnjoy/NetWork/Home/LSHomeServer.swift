@@ -48,8 +48,9 @@ class LSHomeServer {
                            refid: String,
                            refname: String,
                            refjobid: String,
-                           productlist: String) -> Single<LSNetworkResultModel>{
-        return provider.lsRequest(.addProduct(billid: billid, roomid: roomid, bedid: bedid, refid: refid, refname: refname, refjobid: refjobid, productlist: productlist))
+                           productlist: String,
+                           remark: String) -> Single<LSNetworkResultModel>{
+        return provider.lsRequest(.addProduct(billid: billid, roomid: roomid, bedid: bedid, refid: refid, refname: refname, refjobid: refjobid, productlist: productlist, remark: remark))
     }
     
     static func addService(billid: String,

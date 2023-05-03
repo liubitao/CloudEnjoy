@@ -28,7 +28,7 @@ class LSNavigationController: UINavigationController {
         self.modalPresentationStyle = .fullScreen
         self.interactivePopGestureRecognizer?.delegate = self
     }
-    
+   
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -106,13 +106,6 @@ class LSNavigationController: UINavigationController {
         return super.popToRootViewController(animated: animated)
         
     }
-    
-//    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-//        if gestureRecognizer == self.interactivePopGestureRecognizer {
-//            return self.children.count > 1
-//        }
-//        return false
-//    }
 }
 
 
@@ -141,9 +134,9 @@ extension LSNavigationController {
     
 }
 
-extension UIViewController: UIGestureRecognizerDelegate {
+extension LSNavigationController: UIGestureRecognizerDelegate {
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if self.navigationController?.viewControllers.count == 1, gestureRecognizer == navigationController?.interactivePopGestureRecognizer {
+        if self.viewControllers.count <= 1 {
             return false
         }
         return true

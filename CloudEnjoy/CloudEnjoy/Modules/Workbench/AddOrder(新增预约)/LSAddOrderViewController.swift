@@ -12,6 +12,16 @@ import SwifterSwift
 import LSBaseModules
 import HandyJSON
 import LSNetwork
+import RxDataSources
+
+var selectRoomModel: LSOrderRoomModel?
+var selectProjectModel: LSOrderProjectModel?
+var selectJSModel: LSSysUserModel?
+var clockSelectModel: LSClockType?
+var levelSelectModel: LSJSLevelModel?
+var sexSelectModel: (String, String)?
+
+typealias ItemModel = (selectRoomModel: LSOrderRoomModel?, selectProjectModel: LSOrderProjectModel?, selectJSModel: LSSysUserModel?, clockSelectModel: LSClockType?, levelSelectModel: LSJSLevelModel?, sexSelectModel: (String, String)?)
 
 class LSAddOrderViewController: LSBaseViewController {
     @IBOutlet weak var nameTextField: UITextField!
@@ -49,12 +59,20 @@ class LSAddOrderViewController: LSBaseViewController {
     @IBOutlet weak var jsLabView1: UIView!
     @IBOutlet weak var jsLabView2: UIView!
     @IBOutlet weak var jsLabView3: UIView!
-
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    
+    var items = PublishSubject<[SectionModel<String, ItemModel>]>()
+    var models = [ItemModel]()
     
     var customerType: LSCustomerType = .common
     var arriveDate: Date = Date().adding(.hour, value: 1)
     var timeType: LSReserveTimeType = .fifteen
     var referrerModel = LSSysUserModel(userid: userModel().userid, name: userModel().name)
+    
     var selectRoomModel: LSOrderRoomModel?
     var selectProjectModel: LSOrderProjectModel?
     var selectJSModel: LSSysUserModel?
@@ -180,6 +198,119 @@ class LSAddOrderViewController: LSBaseViewController {
             }
             self.chioceDesc(selectedIndex: 2)
         }.disposed(by: self.rx.disposeBag)
+        
+        
+        tableView.backgroundColor = Color.clear
+        tableView.tableFooterView = UIView()
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UI.SCREEN_WIDTH, height: 0.01))
+        tableView.sectionHeaderHeight = 7
+        tableView.sectionFooterHeight = 0
+        tableView.rowHeight = 135
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        }
+        tableView.register(nibWithCellClass: LSAddOrderTableViewCell.self)
+        
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, ItemModel>> { dataSource, tableView, indexPath, element in
+            let cell: LSAddOrderTableViewCell = tableView.dequeueReusableCell(withClass: LSAddOrderTableViewCell.self)
+            var model = element
+            cell.roomLab.text = element.selectRoomModel?.name
+            cell.projectLab.text = element.selectProjectModel?.name
+            if element.clockSelectModel == .wheelClock {
+                cell.jsLab1.superview?.isHidden = false
+                cell.jsLab2.superview?.isHidden = false
+                cell.jsLab3.superview?.isHidden = false
+                cell.jsLab1.text = element.clockSelectModel?.clockString
+                cell.jsLab2.text = element.levelSelectModel?.name
+                cell.jsLab3.text = element.sexSelectModel?.0
+            }else if element.selectJSModel != nil {
+                cell.jsLab1.superview?.isHidden = false
+                cell.jsLab2.superview?.isHidden = false
+                cell.jsLab3.superview?.isHidden = true
+                cell.jsLab1.text = element.clockSelectModel?.clockString
+                cell.jsLab2.text = element.selectJSModel?.name
+            }else {
+                cell.jsLab1.superview?.isHidden = true
+                cell.jsLab2.superview?.isHidden = true
+                cell.jsLab3.superview?.isHidden = true
+            }
+            
+            cell.jsPlaceholderLab.isHidden = element.clockSelectModel != nil
+            
+            func chioceCellDesc(selectedIndex: Int) {
+                let choiceRoomVC = LSChoiceRoomViewController.creaeFromStoryboard(selectRoomModel: element.selectRoomModel, selectProjectModel: element.selectProjectModel, selectJSModel: element.selectJSModel, selectedIndex: selectedIndex, clockSelectModel: element.clockSelectModel, levelSelectModel: element.levelSelectModel, sexSelectModel: element.sexSelectModel)
+                choiceRoomVC.selectedClosure = { (selectRoomModel, selectProjectModel, selectJSModel, clockSelectModel, levelSelectModel, sexSelectModel) in
+                    if let roomModel = selectRoomModel {
+                        model.selectRoomModel = roomModel
+                        cell.roomLab.text = "\(roomModel.name)"
+                    }
+                    
+                    if let projectModel = selectProjectModel {
+                        model.selectProjectModel = projectModel
+                        cell.projectLab.text = "\(projectModel.name)-￥\(projectModel.lprice.stringValue(retain: 2))/\(projectModel.smin)分钟"
+                    }
+                    
+                    if  let _ = selectProjectModel {
+                        let clockSelectModel = clockSelectModel ?? .wheelClock
+                        let levelSelectModel = levelSelectModel ?? .init(name: "不限", tlid: "")
+                        let sexSelectModel = sexSelectModel ?? ("不限", "")
+                        
+                        model.selectJSModel = selectJSModel
+                        model.clockSelectModel = clockSelectModel
+                        model.levelSelectModel = levelSelectModel
+                        model.sexSelectModel = sexSelectModel
+                        cell.jsPlaceholderLab.isHidden = true
+                        
+                        if model.clockSelectModel == .wheelClock {
+                            cell.jsLab1.superview?.isHidden = false
+                            cell.jsLab2.superview?.isHidden = false
+                            cell.jsLab3.superview?.isHidden = false
+                            cell.jsLab1.text = clockSelectModel.clockString
+                            cell.jsLab2.text = levelSelectModel.name
+                            cell.jsLab3.text = sexSelectModel.0
+                        }else if let jSModel = selectJSModel {
+                            cell.jsLab1.superview?.isHidden = false
+                            cell.jsLab2.superview?.isHidden = false
+                            cell.jsLab3.superview?.isHidden = true
+                            cell.jsLab1.text = clockSelectModel.clockString
+                            cell.jsLab2.text = jSModel.name
+                        }else {
+                            cell.jsLab1.superview?.isHidden = true
+                            cell.jsLab2.superview?.isHidden = true
+                            cell.jsLab3.superview?.isHidden = true
+                        }
+                    }
+                    
+                    self.models[indexPath.section] = model
+                    let sectionModels = self.models.map{ SectionModel(model: "", items: [$0])}
+                    self.items.onNext(sectionModels)
+                }
+                choiceRoomVC.presentedWith(self)
+
+            }
+            
+            cell.roomView.rx.tapGesture().when(.recognized).subscribe {  _ in
+                chioceCellDesc(selectedIndex: 0)
+            }.disposed(by: cell.rx.reuseBag)
+            
+            cell.projectView.rx.tapGesture().when(.recognized).subscribe { _ in
+                chioceCellDesc(selectedIndex: 1)
+            }.disposed(by: cell.rx.reuseBag)
+            
+            cell.jsView.rx.tapGesture().when(.recognized).subscribe { _ in
+                guard let _ = element.selectProjectModel else {
+                    Toast.show("请先选择项目")
+                    return
+                }
+                chioceCellDesc(selectedIndex: 2)
+            }.disposed(by: cell.rx.reuseBag)
+            
+            
+            
+            return cell
+        }
+        items.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: self.rx.disposeBag)
+        
     }
     
     func chioceDesc(selectedIndex: Int) {
@@ -235,6 +366,15 @@ class LSAddOrderViewController: LSBaseViewController {
             return
         }
         customerNumLab.text = "\(customerNum - 1)"
+        
+        guard self.models.count > 0 else {
+            return
+        }
+        self.models.removeLast()
+        let sectionModels = self.models.map{ SectionModel(model: "", items: [$0])}
+        items.onNext(sectionModels)
+        tableView.layoutIfNeeded()
+        self.tableViewHeight.constant = tableView.contentSize.height
     }
     
     @IBAction func addAction(_ sender: Any) {
@@ -242,6 +382,12 @@ class LSAddOrderViewController: LSBaseViewController {
             return
         }
         customerNumLab.text = "\(customerNum + 1)"
+        
+        self.models.append((nil, nil, nil, nil, nil, nil))
+        let sectionModels = self.models.map{ SectionModel(model: "", items: [$0])}
+        items.onNext(sectionModels)
+        tableView.layoutIfNeeded()
+        self.tableViewHeight.constant = tableView.contentSize.height
     }
     
     @IBAction func submitAction(_ sender: Any) {
@@ -252,19 +398,22 @@ class LSAddOrderViewController: LSBaseViewController {
             return
         }
         guard let moblie = self.mobildTextField.text,
-              moblie.isEmpty == false else {
-            Toast.show("请输入信息")
+              moblie.isValidateMobile == true else {
+            Toast.show("请输入正确的联系电话")
             return
         }
-        guard let selectRoomModel = self.selectRoomModel else {
+        guard let selectRoomModel = self.selectRoomModel,
+              self.models.filter({ $0.selectRoomModel == nil }).count == 0 else {
             Toast.show("请选择预约房间")
             return
         }
-        guard let selectProjectModel = self.selectProjectModel else {
+        guard let selectProjectModel = self.selectProjectModel,
+              self.models.filter({ $0.selectProjectModel == nil }).count == 0 else {
             Toast.show("请选择服务项目")
             return
         }
-        guard let clockSelectModel = self.clockSelectModel else {
+        guard let clockSelectModel = self.clockSelectModel,
+              self.models.filter({ $0.clockSelectModel == nil }).count == 0 else {
             Toast.show("请选择预约技师")
             return
         }
@@ -272,12 +421,20 @@ class LSAddOrderViewController: LSBaseViewController {
               nil != self.levelSelectModel &&
                nil != self.sexSelectModel) || (
                 clockSelectModel != .wheelClock &&
-                nil != self.selectJSModel) else {
+                nil != self.selectJSModel),
+              self.models.filter({
+                  ($0.clockSelectModel == .wheelClock &&
+                        nil != $0.levelSelectModel &&
+                         nil != $0.sexSelectModel) || (
+                            $0.clockSelectModel != .wheelClock &&
+                          nil != $0.selectJSModel) == false
+              }).count == 0 else {
             Toast.show("请选择预约技师")
             return
         }
-        let roomlist = [["roomid": selectRoomModel.roomid,
-                         "roomname": selectRoomModel.name]].ls_toJSONString()
+        var roomlist: [[String : Any]] = [["roomid": selectRoomModel.roomid,
+                                         "roomname": selectRoomModel.name]]
+        
         var project: [String : Any] = ["projectid": selectProjectModel.projectid,
                             "projectname": selectProjectModel.name,
                             "roomid": selectRoomModel.roomid,
@@ -290,14 +447,37 @@ class LSAddOrderViewController: LSBaseViewController {
             project["tlid"] = levelSelectModel!.tlid
             project["sex"] = sexSelectModel!.1
         }
+        
+        var projectList = [project]
+        
+        let addItems: [([String : Any], [String : Any])] = self.models.map { (selectRoomModel, selectProjectModel, selectJSModel, clockSelectModel, levelSelectModel, sexSelectModel) in
+            let roomItem: [String : Any] = ["roomid": selectRoomModel!.roomid, "roomname": selectRoomModel!.name]
+            var projectItem: [String : Any] = ["projectid": selectProjectModel!.projectid,
+                                               "projectname": selectProjectModel!.name,
+                                               "roomid": selectRoomModel!.roomid,
+                                               "roomname": selectRoomModel!.name,
+                                               "ctype": clockSelectModel!.rawValue,
+                                               "min": selectProjectModel!.smin]
+            if let jsModel = selectJSModel {
+                projectItem["tid"] = jsModel.userid
+            }else {
+                projectItem["tlid"] = levelSelectModel!.tlid
+                projectItem["sex"] = sexSelectModel!.1
+            }
+            
+            return (roomItem, projectItem)
+        }
+        roomlist.append(contentsOf: addItems.map{$0.0})
+        projectList.append(contentsOf: addItems.map{$0.1})
+      
         Toast.showHUD()
         var serverSingle: Single<LSNetworkResultModel>?
         var toastString = ""
         if let orderModel = self.orderModel {
-            serverSingle = LSWorkbenchServer.updateYuyue(billid: orderModel.billid, name: name, mobile: moblie, custtype: self.customerType, qty: self.customerNumLab.text ?? "1", refid: self.referrerModel.userid, tostoretime: self.arriveDate.string(withFormat: "yyyy-MM-dd hh:mm"), reservemin: self.timeType.reserveString, remark: self.remarkTextField.text ?? "", roomlist: roomlist ?? "", projectlist: [project].ls_toJSONString() ?? "", status: orderModel.status.rawValue.string)
+            serverSingle = LSWorkbenchServer.updateYuyue(billid: orderModel.billid, name: name, mobile: moblie, custtype: self.customerType, qty: self.customerNumLab.text ?? "1", refid: self.referrerModel.userid, tostoretime: self.arriveDate.string(withFormat: "yyyy-MM-dd hh:mm"), reservemin: self.timeType.reserveString, remark: self.remarkTextField.text ?? "", roomlist: roomlist.ls_toJSONString() ?? "", projectlist: projectList.ls_toJSONString() ?? "", status: orderModel.status.rawValue.string)
             toastString = "预约修改成功"
         }else {
-            serverSingle = LSWorkbenchServer.insertAppointment(name: name, mobile: moblie, custtype: self.customerType, qty: self.customerNumLab.text ?? "1", refid: self.referrerModel.userid, tostoretime: self.arriveDate.string(withFormat: "yyyy-MM-dd hh:mm"), reservemin: self.timeType.reserveString, remark: self.remarkTextField.text ?? "", roomlist: roomlist ?? "", projectlist: [project].ls_toJSONString() ?? "")
+            serverSingle = LSWorkbenchServer.insertAppointment(name: name, mobile: moblie, custtype: self.customerType, qty: self.customerNumLab.text ?? "1", refid: self.referrerModel.userid, tostoretime: self.arriveDate.string(withFormat: "yyyy-MM-dd hh:mm"), reservemin: self.timeType.reserveString, remark: self.remarkTextField.text ?? "", roomlist: roomlist.ls_toJSONString() ?? "", projectlist: projectList.ls_toJSONString() ?? "")
             toastString = "预约创建成功"
         }
         serverSingle?.subscribe { _ in

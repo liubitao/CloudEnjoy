@@ -120,7 +120,9 @@ class LSServiceViewController: LSBaseViewController {
             return
         }
        
-        let servicelist = serviceModels.map{["serviceid": $0.serviceid, "qty": $0.number]}.ls_toJSONString() ?? ""
+        let servicelist = serviceModels.map{["serviceid": $0.serviceid,
+                                             "qty": $0.number,
+                                             "content": $0.content]}.ls_toJSONString() ?? ""
         Toast.showHUD()
         LSHomeServer.addService(billid: self.projectModel.billid, roomid: self.projectModel.roomid, bedid: self.projectModel.bedid, remark: self.remarkTrxtField.text ?? "", servicelist: servicelist).subscribe { _ in
             Toast.show("服务已呼叫成功")

@@ -115,7 +115,7 @@ extension String {
         return regexPassword.evaluate(with: self)
     }
     
-    var isValidateMobile: Bool {
+    public var isValidateMobile: Bool {
         let phoneRegex: String = "^(13|15|17|16|19|18|14)[0-9]{9}$"
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
         return phoneTest.evaluate(with: self)

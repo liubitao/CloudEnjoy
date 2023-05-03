@@ -19,6 +19,7 @@ extension LSWorkbenchAPI.APIPath {
     static let getSaleUserProjectMe = "sysuser/getSaleUserProjectMe"
     
     static let getVipList = "vipInfo/getList"
+    static let getVipInfo = "vipInfo/getVipInfoList"
     
     static let insertAppointment = "about/insert"
     
@@ -74,6 +75,9 @@ enum LSWorkbenchAPI: TargetType {
     
     case getVipList(page: Int,
                         cond: String)
+    case getVipInfo(spid: String,
+                    sid: String,
+                    vipid: String)
     
     case insertAppointment(name: String,
                            mobile: String,
@@ -154,6 +158,8 @@ extension LSWorkbenchAPI: LSTargetType{
             return APIPath.getSaleUserProjectMe
         case .getVipList:
             return APIPath.getVipList
+        case .getVipInfo:
+            return APIPath.getVipInfo
         case .insertAppointment:
             return APIPath.insertAppointment
         case .userGetList:
@@ -230,7 +236,15 @@ extension LSWorkbenchAPI: LSTargetType{
         case let .getVipList(page, cond):
             return ["page": page,
                     "pagesize": 10,
-                    "cond": cond]
+                    "cond": cond,
+                    "searchtype": 1]
+        case let .getVipInfo(spid, sid, vipid):
+            return ["spid": spid,
+                    "sid": sid,
+                    "vipid": vipid,
+                    "searchtype": 2,
+                    "storeid": storeModel().id,
+                    "userid": userModel().userid]
         case let .insertAppointment(name, mobile, custtype, qty, refid, tostoretime, reservemin, remark, roomlist, projectlist):
             return ["name": name,
                     "mobile": mobile,

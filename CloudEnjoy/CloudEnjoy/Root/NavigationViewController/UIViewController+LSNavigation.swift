@@ -21,14 +21,4 @@ extension UIViewController {
             return obj ?? ""
         }
     }
-    
-    var isHiddenBackItem: Bool {
-        set {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "", style: .plain, target: nil, action: nil)
-            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        }
-        get {
-            return false
-        }
-    }
 }

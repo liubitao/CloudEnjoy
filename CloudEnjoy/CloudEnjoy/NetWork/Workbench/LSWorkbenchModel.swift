@@ -163,6 +163,9 @@ enum LSCardstatus: Int, HandyJSONEnum {
     }
 }
 struct LSVipModel: HandyJSON {
+    var vipid = ""
+    var spid = ""
+    var sid = ""
     var name = ""   //会员姓名
     var vipno = ""  //会员卡号
     var typeid = "" //会员类别
@@ -170,6 +173,7 @@ struct LSVipModel: HandyJSON {
     var mobile = "" //会员手机号
     var sex = 0    //会员性别
     var bsid = ""   //会员发卡门店
+    var bsname = ""   //会员发卡门店
     var rfcode = "" //会员内码
     var password = ""//会员密码
     var writtenflag = false //会员签单选项 0 不允许 1允许

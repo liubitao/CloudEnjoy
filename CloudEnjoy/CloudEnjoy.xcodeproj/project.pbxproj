@@ -66,6 +66,8 @@
 		0C0CC8BD29B07EBD00CC3A6E /* LSWorkbenchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0CC8BC29B07EBD00CC3A6E /* LSWorkbenchViewController.swift */; };
 		0C0CC8C029B07EE400CC3A6E /* LSMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0CC8BF29B07EE400CC3A6E /* LSMineViewController.swift */; };
 		0C0CC8C229B07F1700CC3A6E /* LSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0CC8C129B07F1700CC3A6E /* LSLoginViewController.swift */; };
+		0C1187B329FE5DFC004BA940 /* LSAddOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1187B129FE5DFC004BA940 /* LSAddOrderTableViewCell.swift */; };
+		0C1187B429FE5DFC004BA940 /* LSAddOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C1187B229FE5DFC004BA940 /* LSAddOrderTableViewCell.xib */; };
 		0C23782229B20B04003AC759 /* LSRoyaltiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C23782129B20B04003AC759 /* LSRoyaltiesViewController.swift */; };
 		0C23782529B20B53003AC759 /* LSClocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C23782429B20B53003AC759 /* LSClocksViewController.swift */; };
 		0C23782829B20B6F003AC759 /* LSWorkorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C23782729B20B6F003AC759 /* LSWorkorderViewController.swift */; };
@@ -243,6 +245,14 @@
 		0CB765B929BF0B000048B1B3 /* LSWorkorderItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB765B829BF0B000048B1B3 /* LSWorkorderItemViewController.xib */; };
 		0CB765BC29BF0C900048B1B3 /* LSOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */; };
 		0CB765BD29BF0C900048B1B3 /* LSOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */; };
+		0CDC77482A025C1B00E992D3 /* LSAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDC77472A025C1B00E992D3 /* LSAudioManager.swift */; };
+		0CDC77512A02600300E992D3 /* 本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0CDC774A2A02600200E992D3 /* 本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).mp3 */; };
+		0CDC77522A02600300E992D3 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0CDC774B2A02600200E992D3 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).mp3 */; };
+		0CDC77532A02600300E992D3 /* 本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0CDC774C2A02600200E992D3 /* 本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟).mp3 */; };
+		0CDC77542A02600300E992D3 /* 你有新的派工消息（收银端派工后，对应技师员工端收到提醒）.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0CDC774D2A02600200E992D3 /* 你有新的派工消息（收银端派工后，对应技师员工端收到提醒）.mp3 */; };
+		0CDC77552A02600300E992D3 /* 您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0CDC774E2A02600300E992D3 /* 您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）.mp3 */; };
+		0CDC77562A02600300E992D3 /* 你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0CDC774F2A02600300E992D3 /* 你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟).mp3 */; };
+		0CDC77572A02600300E992D3 /* 本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0CDC77502A02600300E992D3 /* 本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）.mp3 */; };
 		0CDD4C6A29CAE9A4003402DF /* LSOrderItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDD4C6929CAE9A4003402DF /* LSOrderItemViewController.swift */; };
 		0CDD4C6E29CB007E003402DF /* LSCreateOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDD4C6C29CB007E003402DF /* LSCreateOrderTableViewCell.swift */; };
 		0CDD4C6F29CB007E003402DF /* LSCreateOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CDD4C6D29CB007E003402DF /* LSCreateOrderTableViewCell.xib */; };
@@ -339,6 +349,8 @@
 		0C0CC8BC29B07EBD00CC3A6E /* LSWorkbenchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSWorkbenchViewController.swift; sourceTree = "<group>"; };
 		0C0CC8BF29B07EE400CC3A6E /* LSMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMineViewController.swift; sourceTree = "<group>"; };
 		0C0CC8C129B07F1700CC3A6E /* LSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLoginViewController.swift; sourceTree = "<group>"; };
+		0C1187B129FE5DFC004BA940 /* LSAddOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSAddOrderTableViewCell.swift; sourceTree = "<group>"; };
+		0C1187B229FE5DFC004BA940 /* LSAddOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSAddOrderTableViewCell.xib; sourceTree = "<group>"; };
 		0C23782129B20B04003AC759 /* LSRoyaltiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSRoyaltiesViewController.swift; sourceTree = "<group>"; };
 		0C23782429B20B53003AC759 /* LSClocksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSClocksViewController.swift; sourceTree = "<group>"; };
 		0C23782729B20B6F003AC759 /* LSWorkorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSWorkorderViewController.swift; sourceTree = "<group>"; };
@@ -537,6 +549,14 @@
 		0CB765B829BF0B000048B1B3 /* LSWorkorderItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSWorkorderItemViewController.xib; sourceTree = "<group>"; };
 		0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderTableViewCell.swift; sourceTree = "<group>"; };
 		0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSOrderTableViewCell.xib; sourceTree = "<group>"; };
+		0CDC77472A025C1B00E992D3 /* LSAudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSAudioManager.swift; sourceTree = "<group>"; };
+		0CDC774A2A02600200E992D3 /* 本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).mp3"; sourceTree = "<group>"; };
+		0CDC774B2A02600200E992D3 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).mp3"; sourceTree = "<group>"; };
+		0CDC774C2A02600200E992D3 /* 本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟).mp3"; sourceTree = "<group>"; };
+		0CDC774D2A02600200E992D3 /* 你有新的派工消息（收银端派工后，对应技师员工端收到提醒）.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "你有新的派工消息（收银端派工后，对应技师员工端收到提醒）.mp3"; sourceTree = "<group>"; };
+		0CDC774E2A02600300E992D3 /* 您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）.mp3"; sourceTree = "<group>"; };
+		0CDC774F2A02600300E992D3 /* 你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟).mp3"; sourceTree = "<group>"; };
+		0CDC77502A02600300E992D3 /* 本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）.mp3"; sourceTree = "<group>"; };
 		0CDD4C6929CAE9A4003402DF /* LSOrderItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderItemViewController.swift; sourceTree = "<group>"; };
 		0CDD4C6C29CB007E003402DF /* LSCreateOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSCreateOrderTableViewCell.swift; sourceTree = "<group>"; };
 		0CDD4C6D29CB007E003402DF /* LSCreateOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSCreateOrderTableViewCell.xib; sourceTree = "<group>"; };
@@ -645,6 +665,7 @@
 		0C0CC84D29AF60D000CC3A6E /* ThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
+				0CDC77462A025B7500E992D3 /* LSAudioManager */,
 				0CE435E029F1181B009A5141 /* RMQClient */,
 				0C29C1F529C5A3F00043109A /* UUMarqueeView */,
 				0C1D1D3829C58A8000255BDB /* SegmentControl */,
@@ -819,6 +840,15 @@
 			path = Mine;
 			sourceTree = "<group>";
 		};
+		0C1187B029FE5DE5004BA940 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C1187B129FE5DFC004BA940 /* LSAddOrderTableViewCell.swift */,
+				0C1187B229FE5DFC004BA940 /* LSAddOrderTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0C1D1D3829C58A8000255BDB /* SegmentControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -893,6 +923,7 @@
 		0C23782F29B20BAC003AC759 /* AddOrder(新增预约) */ = {
 			isa = PBXGroup;
 			children = (
+				0C1187B029FE5DE5004BA940 /* View */,
 				0C23783029B20BC0003AC759 /* LSAddOrderViewController.swift */,
 				0C66263129C1C9A700AADCC7 /* LSAddOrderViewController.xib */,
 			);
@@ -1430,6 +1461,28 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0CDC77462A025B7500E992D3 /* LSAudioManager */ = {
+			isa = PBXGroup;
+			children = (
+				0CDC77472A025C1B00E992D3 /* LSAudioManager.swift */,
+			);
+			path = LSAudioManager;
+			sourceTree = "<group>";
+		};
+		0CDC77492A025FE700E992D3 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				0CDC774B2A02600200E992D3 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).mp3 */,
+				0CDC774C2A02600200E992D3 /* 本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟).mp3 */,
+				0CDC77502A02600300E992D3 /* 本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）.mp3 */,
+				0CDC774A2A02600200E992D3 /* 本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).mp3 */,
+				0CDC774F2A02600300E992D3 /* 你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟).mp3 */,
+				0CDC774D2A02600200E992D3 /* 你有新的派工消息（收银端派工后，对应技师员工端收到提醒）.mp3 */,
+				0CDC774E2A02600300E992D3 /* 您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）.mp3 */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
 		0CDD4C6B29CB0068003402DF /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1528,6 +1581,7 @@
 		0CE8EE4B29AF3A93003DE097 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0CDC77492A025FE700E992D3 /* audio */,
 				0CE8EE4C29AF3A93003DE097 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -1614,6 +1668,7 @@
 				0C0CC89929AF60E800CC3A6E /* refresh_warter_background@1x.png in Resources */,
 				0C0CC89229AF60E800CC3A6E /* refresh_warter_forground@3x.png in Resources */,
 				0C7E4CBF29E108DC00CDE80A /* LSGoodsTableViewCell.xib in Resources */,
+				0C1187B429FE5DFC004BA940 /* LSAddOrderTableViewCell.xib in Resources */,
 				0C4D061929D19D4400D30F95 /* LSRankTableViewCell.xib in Resources */,
 				0CB7654429BB2D170048B1B3 /* LSUserInfoViewController.xib in Resources */,
 				0C5A4F5A29B0B59800B8C032 /* LSMineHeadView.xib in Resources */,
@@ -1621,6 +1676,7 @@
 				0C23784329B2DD93003AC759 /* LSLoginViewController.xib in Resources */,
 				0CE8EE4D29AF3A93003DE097 /* LaunchScreen.storyboard in Resources */,
 				0CB7654F29BB57B60048B1B3 /* LSRoyaltiesDetailsController.xib in Resources */,
+				0CDC77522A02600300E992D3 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).mp3 in Resources */,
 				0C66267A29C315DE00AADCC7 /* LSChioceTechnicianItemController.xib in Resources */,
 				0C0CC89A29AF60E800CC3A6E /* kyo_refresh_nodata_hadnetworkerror@3x.png in Resources */,
 				0CE7F14A29BF20A0008FF8C5 /* LSUserqueryViewController.xib in Resources */,
@@ -1630,12 +1686,14 @@
 				0C0CC89E29AF60E800CC3A6E /* com_refresh_icon@3x.png in Resources */,
 				0C0CC8A229AF60E800CC3A6E /* button_249_47_58_selected@2x.png in Resources */,
 				0C7E4CA729DC214C00CDE80A /* LSHomeProjectCell.xib in Resources */,
+				0CDC77572A02600300E992D3 /* 本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）.mp3 in Resources */,
 				0C0CC88D29AF60E800CC3A6E /* kyo_refresh_nodata_noerror@2x.png in Resources */,
 				0C7E4C8329D2D0B000CDE80A /* LSLeaveViewController.xib in Resources */,
 				0C0CC89429AF60E800CC3A6E /* refresh_warter_background@3x.png in Resources */,
 				0CDD4C6F29CB007E003402DF /* LSCreateOrderTableViewCell.xib in Resources */,
 				0C0CC89729AF60E800CC3A6E /* refresh_warter@1x.png in Resources */,
 				0C0CC8A429AF60E800CC3A6E /* kyo_refresh_default_icon@3x.png in Resources */,
+				0CDC77552A02600300E992D3 /* 您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）.mp3 in Resources */,
 				0C0CC89F29AF60E800CC3A6E /* btn_blue_moren.png in Resources */,
 				0C0CC8A629AF60E800CC3A6E /* kyo_refresh_nodata_haderror@2x.png in Resources */,
 				0C7E4CD629E9516900CDE80A /* LSClockInTableViewCell.xib in Resources */,
@@ -1660,6 +1718,7 @@
 				0C0CC88C29AF60E800CC3A6E /* kyo_refresh_nodata_hadnetworkerror@2x.png in Resources */,
 				0C23785829B59189003AC759 /* LSPhoneLoginView.xib in Resources */,
 				0C0CC89D29AF60E800CC3A6E /* kyo_refresh_no_network@3x.png in Resources */,
+				0CDC77512A02600300E992D3 /* 本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).mp3 in Resources */,
 				0CB7654B29BB4E260048B1B3 /* LSRoyaltiesItemController.xib in Resources */,
 				0C23783C29B210AA003AC759 /* LSAboutViewController.xib in Resources */,
 				0C29C1F329C59B0C0043109A /* LSHomeViewController.xib in Resources */,
@@ -1668,10 +1727,12 @@
 				0C66263229C1C9A700AADCC7 /* LSAddOrderViewController.xib in Resources */,
 				0CB765B329BED71D0048B1B3 /* LSClockHeaderView.xib in Resources */,
 				0C0CC89629AF60E800CC3A6E /* refresh_warter@2x.png in Resources */,
+				0CDC77562A02600300E992D3 /* 你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟).mp3 in Resources */,
 				0C7E4CAB29DE76CD00CDE80A /* LSProjectDetailsViewController.xib in Resources */,
 				0C0CC89029AF60E800CC3A6E /* kyo_refresh_nodata_noerror@3x.png in Resources */,
 				0C49D14B29B9BD7A0084C2F5 /* LSStoreInfoViewController.xib in Resources */,
 				0C7E4C9029D2DECF00CDE80A /* LSLeaveDetailsViewController.xib in Resources */,
+				0CDC77542A02600300E992D3 /* 你有新的派工消息（收银端派工后，对应技师员工端收到提醒）.mp3 in Resources */,
 				0C7E4C8C29D2D36D00CDE80A /* LSLeaveTableViewCell.xib in Resources */,
 				0C0CC89129AF60E800CC3A6E /* refresh_warter_background@2x.png in Resources */,
 				0CB7655B29BC4D7C0048B1B3 /* LSRoyaltiesItemTableCell.xib in Resources */,
@@ -1682,6 +1743,7 @@
 				0C4D060D29D148B800D30F95 /* LSMessageTableViewCell.xib in Resources */,
 				0C7E4CBB29E0246000CDE80A /* LSGoodsTypeCollectionViewCell.xib in Resources */,
 				0C4D060629D133FC00D30F95 /* LSMessageViewController.xib in Resources */,
+				0CDC77532A02600300E992D3 /* 本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟).mp3 in Resources */,
 				0C0C35B129B8A1980039C535 /* AlertStoryboard.storyboard in Resources */,
 				0C66266B29C314F600AADCC7 /* arrow_up@2x.png in Resources */,
 				0C7E4CC329E152DB00CDE80A /* LSServiceViewController.xib in Resources */,
@@ -1751,6 +1813,7 @@
 				0C4D061429D19D0F00D30F95 /* LSRankViewController.swift in Sources */,
 				0C23787429B87400003AC759 /* LSTextViewController.swift in Sources */,
 				0C0CC8A829AF60E800CC3A6E /* KyoDataTipsView.m in Sources */,
+				0CDC77482A025C1B00E992D3 /* LSAudioManager.swift in Sources */,
 				0C9128F329AF50BF00D6237E /* LSBaseViewController.swift in Sources */,
 				0C66266429C3131300AADCC7 /* LSChoiceRoomViewController.swift in Sources */,
 				0CB7655A29BC4D7C0048B1B3 /* LSRoyaltiesItemTableCell.swift in Sources */,
@@ -1801,6 +1864,7 @@
 				0C23786029B5D496003AC759 /* Toast.swift in Sources */,
 				0C7E4C9629D4289B00CDE80A /* LSChoiceTimeViewController.swift in Sources */,
 				0C9128D929AF504600D6237E /* NotificationName.swift in Sources */,
+				0C1187B329FE5DFC004BA940 /* LSAddOrderTableViewCell.swift in Sources */,
 				0C0C35C129B986CD0039C535 /* KyoTransitioningInteractive.swift in Sources */,
 				0C23783B29B210AA003AC759 /* LSAboutViewController.swift in Sources */,
 				0C66263429C1D1E100AADCC7 /* LSChoiceCustomerViewController.swift in Sources */,
@@ -2063,7 +2127,7 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "云休闲需要您的同意去打开麦克风";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "云休闲需要您的同意读取媒体资料库，帮助您分享本地相册";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "云休闲需要您的同意读取媒体资料库，帮助您分享本地相册";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2107,7 +2171,7 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "云休闲需要您的同意去打开麦克风";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "云休闲需要您的同意读取媒体资料库，帮助您分享本地相册";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "云休闲需要您的同意读取媒体资料库，帮助您分享本地相册";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

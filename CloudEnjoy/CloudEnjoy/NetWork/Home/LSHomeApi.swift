@@ -51,7 +51,8 @@ enum LSHomeAPI: TargetType {
                     refid: String,
                     refname: String,
                     refjobid: String,
-                    productlist: String)
+                    productlist: String,
+                    remark: String)
     case addService(billid: String,
                     roomid: String,
                     bedid: String,
@@ -141,14 +142,15 @@ extension LSHomeAPI: LSTargetType{
             return ["billid": billid,
                     "projectid": projectid,
                     "qty": qty]
-        case let .addProduct(billid, roomid, bedid, refid, refname, refjobid, productlist):
+        case let .addProduct(billid, roomid, bedid, refid, refname, refjobid, productlist, remark):
             return ["billid": billid,
                     "roomid": roomid,
                     "bedid": bedid,
                     "refid": refid,
                     "refname": refname,
                     "refjobid": refjobid,
-                    "productlist": productlist]
+                    "productlist": productlist,
+                    "remark": remark]
         case let .addService(billid, roomid, bedid, remark, servicelist):
             return ["billid": billid,
                     "roomid": roomid,

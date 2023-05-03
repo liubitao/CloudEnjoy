@@ -36,6 +36,7 @@ class LSBaseViewController: UIViewController, BaseControllerInit{
         
         self.vhl_navBarBackgroundColor = Color(hexString: "#FFFFFF")!
         self.vhl_navBarShadowImageHide = true
+        self.vhl_interactivePopEnable = true
         
         setupNavigation()
         setupViews()
@@ -43,8 +44,6 @@ class LSBaseViewController: UIViewController, BaseControllerInit{
         setupNotifications()
     }
     func setupNavigation() {
-        self.navigationController?.delegate = self
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     func setupViews() {}
@@ -120,12 +119,6 @@ extension LSBaseViewController{
         return .portrait
     }
     
-}
-
-extension LSBaseViewController: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        navigationController.interactivePopGestureRecognizer?.isEnabled = false
-    }
 }
 
 

@@ -265,19 +265,14 @@ extension UIViewController{
     
     func customNavigationBack(_ backImg: String = "icon-return") {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "icon-return"), style: .plain, target: self, action: #selector(clickBack))
-//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     @objc func clickBack() {
         self.navigationController?.popViewController(animated: true)
-        if self.navigationController?.viewControllers.count ?? 0 > 0 {
-//            self.navigationController?.interactivePopGestureRecognizer?.delegate = self.navigationController?.viewControllers.last
-        }
     }
     
     func hiddenBackItem() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "", style: .plain, target: nil, action: nil)
-//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     

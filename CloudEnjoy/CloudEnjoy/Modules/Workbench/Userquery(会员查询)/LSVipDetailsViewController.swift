@@ -67,8 +67,25 @@ class LSVipDetailsViewController: LSBaseViewController {
         self.title = "会员详情"
     }
     
+    override func setupData() {
+        LSWorkbenchServer.getVipInfo(spid: vipModel.spid, sid: vipModel.sid, vipid: vipModel.vipid).subscribe { vipModels in
+            guard let vipModel = vipModels?.last else {
+                return
+            }
+            self.vipModel = vipModel
+            self.refreshUI()
+        } onFailure: { error in
+            Toast.show(error.localizedDescription)
+        } onDisposed: {
+            
+        }.disposed(by: self.rx.disposeBag)
+    }
     
     override func setupViews() {
+        refreshUI()
+    }
+    
+    func refreshUI() {
         self.vipNoLab.text = "NO.\(self.vipModel.vipno)"
         self.vipTypeLab.text = self.vipModel.typename
         self.nameLab.text = "会员姓名：\(self.vipModel.name)"
@@ -92,7 +109,7 @@ class LSVipDetailsViewController: LSBaseViewController {
         self.viptypeLab.text = self.vipModel.typename
         self.rfcodeLab.text = self.vipModel.rfcode
         self.cardStatusLab.text = self.vipModel.cardstatus.statusString
-        self.publishCardLab.text = self.vipModel.bsid
+        self.publishCardLab.text = self.vipModel.bsname
         self.publishCardTimeLab.text = self.vipModel.createtime
         self.validDateLab.text = self.vipModel.validdate.isEmpty ? "永久" : self.vipModel.validdate
         self.birthdayLab.text = self.vipModel.birthday.components(separatedBy: " ").first?.slicing(from: 5, length: 5)
