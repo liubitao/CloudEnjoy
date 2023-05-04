@@ -56,7 +56,7 @@ class LSUserqueryViewController: LSBaseViewController {
         self.tableView = {
             var tableView = UITableView(frame: CGRect.zero, style: .grouped)
             if #available(iOS 13.0, *) {
-                let tableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
+                tableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
             }
             tableView.backgroundColor = Color.clear
             tableView.tableFooterView = UIView()
@@ -79,8 +79,8 @@ class LSUserqueryViewController: LSBaseViewController {
                 let expireTime = element.validdate.isEmpty ? "永久" : element.validdate
                 cell.expireLab.text =  "有效期：\(expireTime)"
                 cell.nameLab.text = "会员姓名：\(element.name)"
-                cell.integralLab.text = "会员积分：\(element.nowpoint)"
-                cell.balanceLab.text = "会员余额：\(element.nowmoney)"
+                cell.integralLab.text = "会员积分：\(element.nowpoint.stringValue(retain: 2))"
+                cell.balanceLab.text = "会员余额：\(element.nowmoney.stringValue(retain: 2))"
                 cell.vipLab.text = element.typename
                 return cell
             }
@@ -150,7 +150,7 @@ extension LSUserqueryViewController: KyoRefreshControlDelegate{
     }
     func kyoRefresh(_ refreshControl: KyoRefreshControl!, withNoDataShow kyoDataTipsView: KyoDataTipsView!, withCurrentKyoDataTipsModel kyoDataTipsModel: KyoDataTipsModel!, with kyoDataTipsViewType: KyoDataTipsViewType) -> KyoDataTipsModel! {
         kyoDataTipsModel.img = UIImage(named: "无信息")
-        kyoDataTipsModel.tip = NSAttributedString(string: "暂无提成数据", attributes: [.foregroundColor: UIColor(hexString: "#999999")!, .font: Font.pingFangRegular(14)])
+        kyoDataTipsModel.tip = NSAttributedString(string: "未搜索到相关会员", attributes: [.foregroundColor: UIColor(hexString: "#999999")!, .font: Font.pingFangRegular(14)])
         return kyoDataTipsModel
     }
 }

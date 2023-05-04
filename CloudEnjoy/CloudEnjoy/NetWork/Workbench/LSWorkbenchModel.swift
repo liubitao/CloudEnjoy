@@ -183,10 +183,10 @@ struct LSVipModel: HandyJSON {
     var birthday = ""//会员生日
     var remark = ""//备注
     var jscardname = ""//介绍人
-    var nowmoney = ""//当前余额
-    var nowpoint = ""//当前积分
-    var alladdmoney = ""//累计充值金额
-    var allsalemoney = ""//累计消费金额
+    var nowmoney: Double = 0//当前余额
+    var nowpoint: Double = 0//当前积分
+    var alladdmoney: Double = 0//累计充值金额
+    var allsalemoney: Double = 0//累计消费金额
     var createtime = ""//创建时间
     var updatetime = ""// 更新时间
     var operid = ""//创建人
@@ -195,9 +195,9 @@ struct LSVipModel: HandyJSON {
     var usesid = ""//使用门店
     var lastsaledate = ""//会员最后使用日期
     var status = ""//状态 0删除 1正常
-    var capitalmoney = ""//本金
-    var givemoney = ""//赠送金额
-    var arrearages = ""//欠款金额
+    var capitalmoney: Double = 0//本金
+    var givemoney: Double = 0//赠送金额
+    var arrearages: Double = 0//欠款金额
     var wxopenid = ""//绑定的微信openid
 }
 

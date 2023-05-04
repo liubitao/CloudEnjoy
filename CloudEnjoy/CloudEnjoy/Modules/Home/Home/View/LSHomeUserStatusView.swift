@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import SwifterSwift
+import LSBaseModules
 
 class LSHomeUserStatusView: UIView {
     
@@ -75,12 +76,15 @@ class LSHomeUserStatusView: UIView {
             signTypeBtn.isHidden = model.shiftname.isEmpty
             signTimeLab.text = model.workshift + "-" + model.closingtime
             signTypeBtn.setTitle(model.shiftname, for: .normal)
+            
             case .circleCard: view = circleCardView
+            
             case .orderReceiving: view = orderReceivingView
             workTimeLab.isHidden = model.workshift.isEmpty
             workTypeBtn.isHidden = model.shiftname.isEmpty
             workTimeLab.text = model.workshift + "-" + model.closingtime
             workTypeBtn.setTitle(model.shiftname, for: .normal)
+            
             case .waitClock: view = waitClockView
             let dispatchDate = model.dispatchtime.date(withFormat: "yyyy-MM-dd hh:mm:ss") ?? Date()
             let hadOverTime = dispatchDate.compare(Date()) == .orderedAscending
@@ -90,22 +94,37 @@ class LSHomeUserStatusView: UIView {
                 self.dispose = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.asyncInstance).subscribe(onNext: { _ in
                     let secondsSince = Date().timeIntervalSince(dispatchDate).int
                     self.hadWaitLab.text = "已等待：" + String(format: "%02d", secondsSince/3600) + ":" + String(format: "%02d", secondsSince/60%60) + ":" + String(format: "%02d", secondsSince%60)
+                    let makeAppointmentReminder = (parametersModel().MakeAppointmentReminder == 0 ? 5 : parametersModel().MakeAppointmentReminder) * 60
+                    if secondsSince % makeAppointmentReminder == 0 {
+                        LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟)"))
+                    }
                 })
             }else {
                 waitTimeLab.text = model.dispatchtime
             }
+            
             case .servicing: view = servicingView
             self.dispose = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.asyncInstance).subscribe(onNext: { _ in
                 let endDate = model.starttime.date(withFormat: "yyyy-MM-dd hh:mm:ss")?.adding(.minute, value: model.min)
                 let secondsSince = endDate?.timeIntervalSince(Date()).int ?? 0
                 if secondsSince > 0 {
                     self.timeRemainingLab.text = "剩余时长：" + String(format: "%02d", secondsSince/3600) + ":" + String(format: "%02d", secondsSince/60%60) + ":" + String(format: "%02d", secondsSince%60)
+                    let nextBellReminder = (parametersModel().NextBellReminder == 0 ? 5 : parametersModel().NextBellReminder) * 60
+                    if secondsSince == nextBellReminder {
+                        LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟)"))
+                    }
                 }else {
+                    let timeoutReminder = (parametersModel().TimeoutReminder == 0 ? 5 : parametersModel().TimeoutReminder) * 60
+                    if secondsSince % timeoutReminder == 0 {
+                        LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟)"))
+                    }
                     self.timeRemainingLab.text = "剩余时长：00:00:00"
                 }
             })
+            
         case .subscribe: view = subscribeView
             subscribeTimeLab.text = "到店时间：" + model.tostoretime
+            
         }
         self.addSubview(view!)
         view?.snp.makeConstraints({ make in

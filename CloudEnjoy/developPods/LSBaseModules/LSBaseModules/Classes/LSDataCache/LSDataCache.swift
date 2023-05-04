@@ -12,7 +12,7 @@ import RxSwift
 enum LSDataCacheType {
     case loginAccountInfo //当前登录账号信息
     case appInfo     //当前app的协议
-    case loginAccount
+    case loginAccount   //缓存登录的账号
     
     var mainCachePath: String {
         switch self {

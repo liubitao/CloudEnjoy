@@ -17,6 +17,7 @@ public struct LSLoginModel: HandyJSON {
     public var user: LSUserModel = LSUserModel()
     public var store: LSStoreModel = LSStoreModel()
     public var mach: LSMachModel = LSMachModel()
+    public var parameters: LSParametersModel = LSParametersModel()
     
     public init(){
         
@@ -76,6 +77,13 @@ public struct LSStoreModel: HandyJSON {
     public init(){}
 }
 
+public struct LSParametersModel: HandyJSON {
+    public var NextBellReminder = 0 //项目服务中还剩多少分钟的时候提示
+    public var TimeoutReminder = 0  //超时每隔几分钟提醒
+    public var MakeAppointmentReminder = 0 //项目未上钟每多少分钟的提示一次，根据派工时间和当前时间校验
+    public init(){}
+}
+
 
 public func userModel() -> LSUserModel {
     return LSLoginModel.shared.user
@@ -87,6 +95,10 @@ public func storeModel() -> LSStoreModel {
 
 public func machModel() -> LSMachModel {
     return LSLoginModel.shared.mach
+}
+
+public func parametersModel() -> LSParametersModel {
+    return LSLoginModel.shared.parameters
 }
 
 public func appIsLogin() -> Bool {

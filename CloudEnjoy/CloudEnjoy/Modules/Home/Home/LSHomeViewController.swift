@@ -38,18 +38,6 @@ class LSHomeViewController: LSBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-//            LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟)"))
-//            LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟)"))
-//            LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）"))
-//            LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒)"))
-//            LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟)"))
-//            LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "你有新的派工消息（收银端派工后，对应技师员工端收到提醒）"))
-//            LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）"))
-//        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +46,6 @@ class LSHomeViewController: LSBaseViewController {
         self.vhl_navBarTitleColor = Color(hexString: "#FFFFFF")!
         self.networkHomeData()
         self.marqueeView.start()
-        self.netwrokData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -152,10 +139,9 @@ class LSHomeViewController: LSBaseViewController {
             marqueeView.reloadData()
         }
         
-
         self.refreshControl = {
             let refreshControl = KyoRefreshControl(scrollView: self.tableView, with: self)
-            refreshControl?.kyoRefreshOperation(withDelay: 0, with: KyoManualRefreshType.center)
+//            refreshControl?.kyoRefreshOperation(withDelay: 0, with: KyoManualRefreshType.center)
             return refreshControl
         }()
         
@@ -198,7 +184,7 @@ class LSHomeViewController: LSBaseViewController {
         
         LSMessageServer.getMessageList(ispage: "1", see: "0", msgtype: LSMsgType.all.rawValue, page: "1").subscribe { listModel in
             guard let list = listModel?.list,
-                  list.isEmpty == true else {
+                  list.isEmpty == false else {
                 self.marqueeView.isHidden = true
                 return
             }
@@ -227,6 +213,8 @@ class LSHomeViewController: LSBaseViewController {
         } onDisposed: {
             Toast.hiddenHUD()
         }.disposed(by: self.rx.disposeBag)
+        
+        netwrokData()
     }
     
     func netwrokData() {
@@ -292,7 +280,7 @@ extension LSHomeViewController: UUMarqueeViewDelegate{
 
 extension LSHomeViewController: KyoRefreshControlDelegate{
     func kyoRefreshDidTriggerRefresh(_ refreshControl: KyoRefreshControl!) {
-        netwrokData()
+        networkHomeData()
     }
     
     func kyoRefresh(_ refreshControl: KyoRefreshControl!, withNoDataShow kyoDataTipsView: KyoDataTipsView!, withCurrentKyoDataTipsModel kyoDataTipsModel: KyoDataTipsModel!, with kyoDataTipsViewType: KyoDataTipsViewType) -> KyoDataTipsModel! {

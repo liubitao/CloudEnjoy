@@ -76,6 +76,7 @@ class LSDownClockViewController: LSBaseViewController {
             .subscribe { _ in
                 self.dismiss(animated: true) {
                     self.presentingController?.navigationController?.popViewController(animated: true)
+                    LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒)"))
                 }
             } onFailure: { error in
                 Toast.show(error.localizedDescription)

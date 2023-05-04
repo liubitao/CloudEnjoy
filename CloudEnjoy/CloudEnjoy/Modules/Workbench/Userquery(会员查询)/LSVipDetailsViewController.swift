@@ -91,19 +91,19 @@ class LSVipDetailsViewController: LSBaseViewController {
         self.nameLab.text = "会员姓名：\(self.vipModel.name)"
         self.sexLab.text = "会员性别：\(self.vipModel.sex == 0 ? "女": "男")"
         self.mobileLab.text = "手机号码：\(self.vipModel.mobile)"
-        let a: ASAttributedString = "\("金额", .font(Font.pingFangRegular(13)), .foreground(Color(hexString: "#666666")!))"
-        let b: ASAttributedString = "\("￥"+self.vipModel.nowmoney, .font(Font.pingFangRegular(18)), .foreground(Color(hexString:"#FF0000")!))"
+        let a: ASAttributedString = "\("余额", .font(Font.pingFangRegular(13)), .foreground(Color(hexString: "#666666")!))"
+        let b: ASAttributedString = "\("￥"+self.vipModel.nowmoney.stringValue(retain: 2), .font(Font.pingFangRegular(18)), .foreground(Color(hexString:"#FF0000")!))"
         self.balanceLab.attributed.text = a + b
         
-        self.capitalmoneyLab.attributed.text = "本金：￥\(self.vipModel.capitalmoney)"
-        self.givemoneyLab.attributed.text = "本金：￥\(self.vipModel.givemoney)"
+        self.capitalmoneyLab.attributed.text = "本金：￥\(self.vipModel.capitalmoney.stringValue(retain: 2))"
+        self.givemoneyLab.attributed.text = "赠金：￥\(self.vipModel.givemoney.stringValue(retain: 2))"
         
         let c: ASAttributedString = "\("积分 ", .font(Font.pingFangRegular(13)), .foreground(Color(hexString: "#666666")!))"
-        let d: ASAttributedString = "\(self.vipModel.nowpoint, .font(Font.pingFangRegular(18)), .foreground(Color(hexString:"#000000")!))"
+        let d: ASAttributedString = "\(self.vipModel.nowpoint.stringValue(retain: 2), .font(Font.pingFangRegular(18)), .foreground(Color(hexString:"#000000")!))"
         self.nowpointLab.attributed.text = c + d
         
         let e: ASAttributedString = "\("欠款 ", .font(Font.pingFangRegular(13)), .foreground(Color(hexString: "#666666")!))"
-        let f: ASAttributedString = "\(self.vipModel.arrearages, .font(Font.pingFangRegular(18)), .foreground(Color(hexString:"#000000")!))"
+        let f: ASAttributedString = "\(self.vipModel.arrearages.stringValue(retain: 2), .font(Font.pingFangRegular(18)), .foreground(Color(hexString:"#000000")!))"
         self.arrearagesLab.attributed.text = e + f
 
         self.viptypeLab.text = self.vipModel.typename

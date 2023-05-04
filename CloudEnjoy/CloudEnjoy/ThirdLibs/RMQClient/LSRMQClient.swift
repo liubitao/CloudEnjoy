@@ -29,21 +29,23 @@ class LSRMQClient {
         
         client.conn?.start()
         let ch = client.conn?.createChannel()
-        ch?.queue(queueName)
+        
+        ch?.queue(queueName, options: .autoDelete)
         ch?.queueBind(queueName, exchange: exchangeName, routingKey: "yxx")
-        ch?.queueBind(queueName, exchange: exchangeName, routingKey: "yxx" + storeModel().account)
-        ch?.queueBind(queueName, exchange: exchangeName, routingKey: "yxx" + storeModel().account + "." + userModel().userid)
-        ch?.queueBind(queueName, exchange: exchangeName, routingKey: "yxx" + storeModel().account + "." + userModel().userid + "." + machModel().code)
+        ch?.queueBind(queueName, exchange: exchangeName, routingKey: "yxx." + storeModel().account + "." + userModel().userid + "." + machModel().code)
         ch?.basicConsume(queueName, handler: { message in
             self.handerMessage(LSMQMessageModel.deserialize(from: message.body.string(encoding: .utf8)))
         })
     }
     
     class func handerMessage(_ message: LSMQMessageModel?) {
-        guard let notification = message?.retcode.notification else {
+        guard let notification = message?.retcode.notification else{
             return
         }
         DispatchQueue.main.async {
+            if let audioName = message?.retcode.audioName {
+                LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: audioName))
+            }
             NotificationCenter.default.post(name: notification, object: nil)
         }
     }
@@ -85,6 +87,28 @@ enum LSMessageType: Int, HandyJSONEnum {
             return LSRMQNotification.returnProject
         case .otherLogin:
             return LSRMQNotification.otherLogin
+        default: return nil
+        }
+    }
+    
+    var audioName: String? {
+        switch self {
+        case .dispatchOrder:
+            return "你有新的派工消息（收银端派工后，对应技师员工端收到提醒）"
+        case .updateYuyueStatus:
+            return "您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）"
+        case .upClock:
+            return "本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）"
+        case .downClock:
+            return "本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒)"
+        case .updateUserStatus:
+            return nil
+        case .changeProject:
+            return nil
+        case .returnProject:
+            return nil
+        case .otherLogin:
+            return nil
         default: return nil
         }
     }

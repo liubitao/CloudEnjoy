@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFAudio
+import LSBaseModules
 
 public final class LSAudioOperation: NSObject {
     var audioName: String = ""
@@ -55,14 +56,9 @@ extension LSAudioOperation: AVAudioPlayerDelegate {
     public func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         self.finish()
     }
-    
-    public func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
-        
-    }
 }
 
 // MARK: - QueueManager
-
 public final class LSAudioQueueManager {
     public static let shared = LSAudioQueueManager()
     private var pendingRequests = [LSAudioOperation]()
@@ -77,7 +73,22 @@ public final class LSAudioQueueManager {
     }
 
     func enqueueToQueue(_ operation: LSAudioOperation) {
+        guard operation.audioName.isEmpty == false else {
+            return
+        }
+        
+        let voiceSettingModel = AppDataCache.getItem(LSVoiceSettingModel.self, forKey: "voiceSetting") ?? LSVoiceSettingModel(isOpenVoice: true, voiceTimes: "1")
+        guard voiceSettingModel.isOpenVoice == true else {
+            return
+        }
         lock.lock()
+        let voicedTimes = AppDataCache.get(key: "voicedTimes") as? Int ?? 0
+        guard let voiceTimes = voiceSettingModel.voiceTimes.int,
+            voicedTimes <= voiceTimes else {
+            lock.unlock()
+            return
+        }
+        AppDataCache.set(key: "voicedTimes", value: voicedTimes + 1)
         pendingRequests.append(operation)
         runNextRequestIfNeeded()
         lock.unlock()

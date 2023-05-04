@@ -38,7 +38,10 @@ class LSSystemViewController: LSBaseViewController {
         }.disposed(by: self.rx.disposeBag)
         
         versionView.rx.tapGesture().when(.recognized).subscribe { _ in
-            Toast.show("暂未上架，后期填充")
+            guard let url = URL(string: "itms-apps://itunes.apple.com/app/id6448248234") else {
+                return
+            }
+            UIApplication.shared.open(url)
         }.disposed(by: self.rx.disposeBag)
         
         aboutView.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
