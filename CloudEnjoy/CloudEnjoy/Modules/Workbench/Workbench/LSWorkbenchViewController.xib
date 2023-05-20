@@ -12,13 +12,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LSWorkbenchViewController" customModule="CloudEnjoy" customModuleProvider="target">
             <connections>
                 <outlet property="btn1" destination="AcR-9Y-UIW" id="buT-IT-Ao2"/>
+                <outlet property="btn10" destination="IqP-be-45g" id="wGe-vp-fhL"/>
                 <outlet property="btn2" destination="udG-46-NVq" id="DQm-sP-5C5"/>
                 <outlet property="btn3" destination="Gc2-B4-VNq" id="Ucw-3o-wgI"/>
-                <outlet property="btn4" destination="5bu-zF-job" id="WRb-Fr-kFK"/>
+                <outlet property="btn4" destination="5bu-zF-job" id="YEd-xL-u26"/>
                 <outlet property="btn5" destination="3Vk-Cy-F9E" id="Qix-mw-Uwj"/>
                 <outlet property="btn6" destination="ID1-32-KCc" id="EB6-xb-yxI"/>
                 <outlet property="btn7" destination="392-MO-IgA" id="JN4-EH-LsF"/>
                 <outlet property="btn8" destination="F3k-3i-IwB" id="iJy-c8-ljP"/>
+                <outlet property="btn9" destination="yut-hf-uw4" id="8zW-fl-I1u"/>
                 <outlet property="headBackHeight" destination="2iP-wn-l8r" id="HEw-6O-qh0"/>
                 <outlet property="headBackImageView" destination="z6O-VD-Gcl" id="4AV-4B-hWa"/>
                 <outlet property="view" destination="iN0-l3-epB" id="H7W-8e-jMK"/>
@@ -39,7 +41,7 @@
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0iT-ZT-KJS">
-                            <rect key="frame" x="10" y="138" width="373" height="129"/>
+                            <rect key="frame" x="10" y="138" width="373" height="195.33333333333337"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdV-Ea-h94">
                                     <rect key="frame" x="10" y="11" width="2" height="13"/>
@@ -56,7 +58,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcR-9Y-UIW">
-                                    <rect key="frame" x="0.0" y="35.33333333333335" width="93.333333333333329" height="79.666666666666686"/>
+                                    <rect key="frame" x="0.0" y="35.333333333333343" width="93.333333333333329" height="80"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="我的提成" imagePlacement="top" imagePadding="5">
                                         <attributedString key="attributedTitle">
@@ -73,7 +75,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udG-46-NVq">
-                                    <rect key="frame" x="93.333333333333343" y="35.33333333333335" width="93.333333333333343" height="79.666666666666686"/>
+                                    <rect key="frame" x="93.333333333333343" y="35.666666666666664" width="93.333333333333343" height="79.666666666666686"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="我的钟数" imagePlacement="top" imagePadding="5">
                                         <attributedString key="attributedTitle">
@@ -90,7 +92,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gc2-B4-VNq">
-                                    <rect key="frame" x="186.66666666666666" y="35.33333333333335" width="92.999999999999972" height="79.666666666666686"/>
+                                    <rect key="frame" x="186.66666666666666" y="35.666666666666664" width="92.999999999999972" height="79.666666666666686"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="我的工单" imagePlacement="top" imagePadding="5">
                                         <attributedString key="attributedTitle">
@@ -107,7 +109,43 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bu-zF-job">
-                                    <rect key="frame" x="279.66666666666669" y="35.33333333333335" width="93.333333333333314" height="79.666666666666686"/>
+                                    <rect key="frame" x="279.66666666666669" y="35.333333333333343" width="93.333333333333314" height="80"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="工单汇总" imagePlacement="top" imagePadding="5">
+                                        <attributedString key="attributedTitle">
+                                            <fragment content="工单汇总">
+                                                <attributes>
+                                                    <font key="NSFont" size="14" name="PingFangSC-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <color key="baseForegroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="jumpOrderSummary:" destination="-1" eventType="touchUpInside" id="GtB-ne-4pj"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqP-be-45g">
+                                    <rect key="frame" x="0.0" y="115.33333333333334" width="93.333333333333329" height="80"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="技师排位" imagePlacement="top" imagePadding="5">
+                                        <attributedString key="attributedTitle">
+                                            <fragment content="技师排位">
+                                                <attributes>
+                                                    <font key="NSFont" size="14" name="PingFangSC-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <color key="baseForegroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="jumpJsRank:" destination="-1" eventType="touchUpInside" id="2oB-iy-gtj"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yut-hf-uw4">
+                                    <rect key="frame" x="93.333333333333343" y="115.33333333333334" width="93.333333333333343" height="80"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="会员查询" imagePlacement="top" imagePadding="5">
                                         <attributedString key="attributedTitle">
@@ -120,29 +158,37 @@
                                         <color key="baseForegroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </buttonConfiguration>
                                     <connections>
-                                        <action selector="jumpUserquery:" destination="-1" eventType="touchUpInside" id="mQX-HF-YJx"/>
+                                        <action selector="jumpUserquery:" destination="-1" eventType="touchUpInside" id="1Jt-42-zHz"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
+                                <constraint firstItem="IqP-be-45g" firstAttribute="height" secondItem="AcR-9Y-UIW" secondAttribute="height" id="0yB-Jp-mLf"/>
                                 <constraint firstItem="zhu-ps-yM3" firstAttribute="centerY" secondItem="kdV-Ea-h94" secondAttribute="centerY" id="5nd-dY-frp"/>
                                 <constraint firstItem="kdV-Ea-h94" firstAttribute="leading" secondItem="0iT-ZT-KJS" secondAttribute="leading" constant="10" id="E1X-5d-kwh"/>
                                 <constraint firstItem="5bu-zF-job" firstAttribute="width" secondItem="AcR-9Y-UIW" secondAttribute="width" id="En1-AB-faE"/>
+                                <constraint firstItem="IqP-be-45g" firstAttribute="centerX" secondItem="AcR-9Y-UIW" secondAttribute="centerX" id="FcY-xf-Bzl"/>
+                                <constraint firstItem="IqP-be-45g" firstAttribute="width" secondItem="AcR-9Y-UIW" secondAttribute="width" id="Ih0-fv-wP5"/>
                                 <constraint firstItem="udG-46-NVq" firstAttribute="leading" secondItem="AcR-9Y-UIW" secondAttribute="trailing" id="J25-cL-PHO"/>
                                 <constraint firstItem="5bu-zF-job" firstAttribute="leading" secondItem="Gc2-B4-VNq" secondAttribute="trailing" id="MxZ-62-jQa"/>
                                 <constraint firstItem="AcR-9Y-UIW" firstAttribute="leading" secondItem="0iT-ZT-KJS" secondAttribute="leading" id="P1f-sU-ebE"/>
                                 <constraint firstItem="zhu-ps-yM3" firstAttribute="leading" secondItem="kdV-Ea-h94" secondAttribute="trailing" constant="2" id="PWV-uZ-lIj"/>
+                                <constraint firstItem="yut-hf-uw4" firstAttribute="height" secondItem="AcR-9Y-UIW" secondAttribute="height" id="QQk-ox-o3Z"/>
                                 <constraint firstItem="Gc2-B4-VNq" firstAttribute="centerY" secondItem="AcR-9Y-UIW" secondAttribute="centerY" id="WJa-Yh-YtQ"/>
                                 <constraint firstItem="udG-46-NVq" firstAttribute="width" secondItem="AcR-9Y-UIW" secondAttribute="width" id="Ynp-Di-wnQ"/>
                                 <constraint firstItem="udG-46-NVq" firstAttribute="centerY" secondItem="AcR-9Y-UIW" secondAttribute="centerY" id="ZBI-Z0-iWK"/>
+                                <constraint firstItem="yut-hf-uw4" firstAttribute="width" secondItem="AcR-9Y-UIW" secondAttribute="width" id="ZHz-1O-cTE"/>
                                 <constraint firstItem="Gc2-B4-VNq" firstAttribute="width" secondItem="AcR-9Y-UIW" secondAttribute="width" id="a0c-Wh-rT8"/>
                                 <constraint firstAttribute="trailing" secondItem="5bu-zF-job" secondAttribute="trailing" id="cg9-dj-wN5"/>
+                                <constraint firstItem="yut-hf-uw4" firstAttribute="centerY" secondItem="IqP-be-45g" secondAttribute="centerY" id="f7Z-2s-n4B"/>
+                                <constraint firstItem="yut-hf-uw4" firstAttribute="centerX" secondItem="udG-46-NVq" secondAttribute="centerX" id="gSi-sF-Zjj"/>
                                 <constraint firstItem="AcR-9Y-UIW" firstAttribute="top" secondItem="zhu-ps-yM3" secondAttribute="bottom" constant="10" id="lvE-f5-Yf9"/>
                                 <constraint firstItem="Gc2-B4-VNq" firstAttribute="leading" secondItem="udG-46-NVq" secondAttribute="trailing" id="ovz-Ob-dWJ"/>
+                                <constraint firstAttribute="bottom" secondItem="IqP-be-45g" secondAttribute="bottom" id="sSW-O7-hQE"/>
                                 <constraint firstItem="kdV-Ea-h94" firstAttribute="top" secondItem="0iT-ZT-KJS" secondAttribute="top" constant="11" id="t64-rc-ach"/>
                                 <constraint firstItem="5bu-zF-job" firstAttribute="centerY" secondItem="AcR-9Y-UIW" secondAttribute="centerY" id="xJk-uA-b96"/>
-                                <constraint firstAttribute="bottom" secondItem="AcR-9Y-UIW" secondAttribute="bottom" constant="14" id="xmq-wZ-CmN"/>
+                                <constraint firstItem="IqP-be-45g" firstAttribute="top" secondItem="AcR-9Y-UIW" secondAttribute="bottom" id="xdi-PT-EHt"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -160,7 +206,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3T-O6-zBu">
-                            <rect key="frame" x="10" y="277" width="373" height="125"/>
+                            <rect key="frame" x="10" y="343.33333333333331" width="373" height="125"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EyG-KW-1F0">
                                     <rect key="frame" x="10" y="11" width="2" height="13"/>
@@ -177,7 +223,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vk-Cy-F9E">
-                                    <rect key="frame" x="0.0" y="35.333333333333321" width="93.333333333333329" height="79.666666666666686"/>
+                                    <rect key="frame" x="0.0" y="35.333333333333378" width="93.333333333333329" height="79.666666666666686"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="预约查询" imagePlacement="top" imagePadding="5">
                                         <attributedString key="attributedTitle">
@@ -194,7 +240,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID1-32-KCc">
-                                    <rect key="frame" x="93.333333333333343" y="35.333333333333321" width="93.333333333333343" height="79.666666666666686"/>
+                                    <rect key="frame" x="93.333333333333343" y="35.333333333333378" width="93.333333333333343" height="79.666666666666686"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="新增预约" imagePlacement="top" imagePadding="5">
                                         <attributedString key="attributedTitle">
@@ -241,7 +287,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pta-8b-l6W">
-                            <rect key="frame" x="10" y="412" width="373" height="125"/>
+                            <rect key="frame" x="10" y="478.33333333333326" width="373" height="125"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFE-mo-HGR">
                                     <rect key="frame" x="10" y="11" width="2" height="13"/>
@@ -364,9 +410,11 @@
         <image name="会员查询" width="41" height="41"/>
         <image name="员工打卡" width="41" height="41"/>
         <image name="员工请假" width="41" height="41"/>
+        <image name="工单汇总" width="41" height="41"/>
         <image name="我的工单" width="41" height="41"/>
         <image name="我的提成" width="41" height="41"/>
         <image name="我的钟数" width="41" height="41"/>
+        <image name="技师排位" width="41" height="41"/>
         <image name="新增预约" width="41" height="41"/>
         <image name="预约查询" width="41" height="41"/>
         <systemColor name="systemBackgroundColor">

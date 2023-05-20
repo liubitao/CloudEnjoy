@@ -21,6 +21,8 @@ class LSWorkbenchViewController: LSBaseViewController {
     @IBOutlet weak var btn6: UIButton!
     @IBOutlet weak var btn7: UIButton!
     @IBOutlet weak var btn8: UIButton!
+    @IBOutlet weak var btn9: UIButton!
+    @IBOutlet weak var btn10: UIButton!
 
     
     
@@ -58,6 +60,14 @@ class LSWorkbenchViewController: LSBaseViewController {
     
     @IBAction func jumpWorkorder(_ sender: Any) {
         self.navigationController?.pushViewController(LSWorkorderViewController(), animated: true)
+    }
+    
+    @IBAction func jumpOrderSummary(_ sender: Any) {
+        
+    }
+    
+    @IBAction func jumpJsRank(_ sender: Any) {
+        
     }
     
     @IBAction func jumpUserquery(_ sender: Any) {
