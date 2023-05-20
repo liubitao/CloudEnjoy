@@ -8,7 +8,7 @@
 import Foundation
 import HandyJSON
 
-public struct LSLoginModel: HandyJSON {
+public class LSLoginModel: HandyJSON {
     public var rabbitport: String = "" //消息端口
     public var rabbitaddress: String = "" //消息服地址
     public var diff: Int = 0   //有效天数 >=0 还可以用 不然不能用
@@ -19,7 +19,7 @@ public struct LSLoginModel: HandyJSON {
     public var mach: LSMachModel = LSMachModel()
     public var parameters: LSParametersModel = LSParametersModel()
     
-    public init(){
+    required public init(){
         
     }
     
@@ -40,13 +40,13 @@ public enum LSSex:Int, HandyJSONEnum {
     }
 }
 
-public struct LSMachModel: HandyJSON {
+public class LSMachModel: HandyJSON {
     public var code: String = ""
     
-    public init(){}
+    required public init(){}
 }
 
-public struct LSUserModel: HandyJSON{
+public class LSUserModel: HandyJSON{
     public var spid = 0
     public var sid = 0
     public var headimg: String = ""    //头像
@@ -58,10 +58,10 @@ public struct LSUserModel: HandyJSON{
     public var mobile: String = ""     //手机号码
     public var sex: LSSex = .woman     //性别
     public var tlname: String = ""      //技师等级
-    public init(){}
+    required public init(){}
 }
 
-public struct LSStoreModel: HandyJSON {
+public class LSStoreModel: HandyJSON {
     public var spid = 0
     public var sid = 0
     public var id: String = ""
@@ -74,14 +74,15 @@ public struct LSStoreModel: HandyJSON {
     public var code: String = ""       //门店编号
     public var lat: Double = 0          //纬度
     public var lng: Double = 0          //经度
-    public init(){}
+    required public init(){}
 }
 
-public struct LSParametersModel: HandyJSON {
+public class LSParametersModel: HandyJSON {
     public var NextBellReminder = 0 //项目服务中还剩多少分钟的时候提示
     public var TimeoutReminder = 0  //超时每隔几分钟提醒
     public var MakeAppointmentReminder = 0 //项目未上钟每多少分钟的提示一次，根据派工时间和当前时间校验
-    public init(){}
+    public var OperationMode = 0 //0房间模式 1手牌模式
+    required public init(){}
 }
 
 

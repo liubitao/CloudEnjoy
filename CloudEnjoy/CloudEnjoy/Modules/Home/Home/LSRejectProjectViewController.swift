@@ -41,7 +41,8 @@ class LSRejectProjectViewController: LSBaseViewController {
     
     override func setupViews() {
         self.roomNameLab.text = projectModel.roomname
-        self.bedNameLab.text = projectModel.bedname
+        self.bedTitle.text = parametersModel().OperationMode == 0 ? "床位号" : "手牌号"
+        self.bedNameLab.text =  parametersModel().OperationMode == 0 ? projectModel.bedname : projectModel.handcardno
         self.projectNameLab.text = projectModel.projectname
         self.jsNameLab.text = userModel().name
         self.clockTypeLab.text = projectModel.ctype.clockString

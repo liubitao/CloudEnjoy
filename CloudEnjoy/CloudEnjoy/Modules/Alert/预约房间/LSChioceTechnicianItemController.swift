@@ -91,7 +91,9 @@ class LSChioceTechnicianItemController: LSBaseViewController {
             clockSegmentedDataSource.backgroundSelectedColor = Color(hexString: "#2BB8C2")!
             clockSegmentedView.dataSource = clockSegmentedDataSource
 
+            let index = self.clockModels.firstIndex(of: self.clockSelectModel) ?? 0
             clockSegmentedView.reloadData()
+            clockSegmentedView.selectItemAt(index: index)
             return clockSegmentedView
         }()
         
@@ -126,6 +128,7 @@ class LSChioceTechnicianItemController: LSBaseViewController {
             levelSegmentedDataSource.backgroundSelectedColor = Color(hexString: "#2BB8C2")!
             levelSegmentedView.dataSource = levelSegmentedDataSource
 
+            levelSegmentedView.reloadData()
             return levelSegmentedView
         }()
         
@@ -158,7 +161,9 @@ class LSChioceTechnicianItemController: LSBaseViewController {
             sexSegmentedDataSource.backgroundSelectedColor = Color(hexString: "#2BB8C2")!
             sexSegmentedView.dataSource = sexSegmentedDataSource
 
+            let index = self.sexModels.map{$0.0}.firstIndex(of: self.sexSelectModel.0) ?? 0
             sexSegmentedView.reloadData()
+            sexSegmentedView.selectItemAt(index: index)
             return sexSegmentedView
         }()
         
@@ -179,7 +184,6 @@ class LSChioceTechnicianItemController: LSBaseViewController {
             tableView.tableFooterView = UIView()
             tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UI.SCREEN_WIDTH, height: 0.01))
             tableView.rowHeight = 100
-//            tableView.separatorInset = 
             if #available(iOS 15.0, *) {
                 tableView.sectionHeaderTopPadding = 0
             }
@@ -202,6 +206,15 @@ class LSChioceTechnicianItemController: LSBaseViewController {
                 self.items.onNext([SectionModel.init(model: "", items: self.jsModels)])
             }.disposed(by: self.rx.disposeBag)
         }()
+        
+        let isSelectedWheel = self.clockSelectModel == .wheelClock
+        if isSelectedWheel { self.networkJS() }
+        self.levelContainView.isHidden = !isSelectedWheel
+        self.sexContainView.isHidden = !isSelectedWheel
+        self.levelSelectedView.isHidden = isSelectedWheel
+        self.sexSelectedView.isHidden = isSelectedWheel
+        self.tableView.isHidden = isSelectedWheel
+    
     }
     
     override func setupData() {
@@ -243,7 +256,8 @@ class LSChioceTechnicianItemController: LSBaseViewController {
         levelSegmentedView.snp.updateConstraints { make in
             make.height.equalTo(contentHeight)
         }
-        
+        let index = self.levelModels.firstIndex(where: {$0.name == self.levelSelectModel.name}) ?? 0
+        levelSegmentedView.selectItemAt(index: index)
     }
 }
 
@@ -261,7 +275,6 @@ extension LSChioceTechnicianItemController: JXSegmentedListContainerViewListDele
 
 extension LSChioceTechnicianItemController: JXSegmentedViewDelegate {
     func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int){
-        self.clockSelectModel = self.clockModels[index]
         guard segmentedView == self.clockSegmentedView else {
             if segmentedView == levelSegmentedView {
                 self.levelSelectModel = self.levelModels[index]
@@ -273,18 +286,18 @@ extension LSChioceTechnicianItemController: JXSegmentedViewDelegate {
             return
         }
         
-        if index != 0 { self.networkJS() }
+        self.clockSelectModel = self.clockModels[index]
         let isSelectedWheel = index == 0
+        if index != 0 { self.networkJS() }
         
-        selectJSModel = nil
-        
+        self.selectJSModel = nil
         self.levelContainView.isHidden = !isSelectedWheel
         self.sexContainView.isHidden = !isSelectedWheel
         self.levelSelectedView.isHidden = isSelectedWheel
         self.sexSelectedView.isHidden = isSelectedWheel
         self.tableView.isHidden = isSelectedWheel
-        
-        
+        self.levelSegmentedView.selectItemAt(index: 0)
+        self.sexSegmentedView.selectItemAt(index: 0)
     }
 }
 

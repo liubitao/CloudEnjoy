@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LSBaseModules
 
 class LSWorkOrderDetailsController: LSBaseViewController {
 
@@ -26,7 +27,6 @@ class LSWorkOrderDetailsController: LSBaseViewController {
     @IBOutlet weak var unitPriceLab: UILabel!
     @IBOutlet weak var priceLab: UILabel!
     @IBOutlet weak var discountPriceLab: UILabel!
-    @IBOutlet weak var payTypeLab: UILabel!
     @IBOutlet weak var cashierNameLab: UILabel!
     @IBOutlet weak var cashierTimeLab: UILabel!
     
@@ -60,7 +60,7 @@ class LSWorkOrderDetailsController: LSBaseViewController {
             return
         }
         jsLab.text = orderModel.tname
-        roomLab.text = orderModel.roomname
+        roomLab.text = orderModel.roomname + (parametersModel().OperationMode == 0 ? "(床位：\(orderModel.bedname))" : "(手牌：\(orderModel.handcardno))")
         clockTypeLab.text = orderModel.ctype.clockString
         projectNameLab.text = orderModel.projectname
         createNameLab.text = orderModel.createname
@@ -76,7 +76,6 @@ class LSWorkOrderDetailsController: LSBaseViewController {
         unitPriceLab.text = "￥" + orderModel.price.stringValue(retain: 2) + "/" + (orderModel.qty.int?.string ?? "1")
         priceLab.text = "￥" + orderModel.amt.stringValue(retain: 2)
         discountPriceLab.text = "￥" + (orderModel.yprice - orderModel.amt).stringValue(retain: 2)
-        payTypeLab.text = orderModel.payway
         cashierNameLab.text = orderModel.cashname
         cashierTimeLab.text = orderModel.billdate
         

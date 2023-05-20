@@ -9,11 +9,13 @@ import UIKit
 import RxSwift
 import RxDataSources
 import SwifterSwift
+import LSBaseModules
 
 class LSServiceViewController: LSBaseViewController {
     
     @IBOutlet weak var searchGoodsTextField: UITextField!
     @IBOutlet weak var roomNameLab: UILabel!
+    @IBOutlet weak var bedTitleLab: UILabel!
     @IBOutlet weak var bedNoLab: UILabel!
     @IBOutlet weak var remarkTrxtField: UITextField!
 
@@ -38,7 +40,8 @@ class LSServiceViewController: LSBaseViewController {
     
     override func setupViews() {
         self.roomNameLab.text = projectModel.roomname
-        self.bedNoLab.text = projectModel.bedname
+        self.bedTitleLab.text = parametersModel().OperationMode == 0 ? "床位号" : "手牌号"
+        self.bedNoLab.text =  parametersModel().OperationMode == 0 ? projectModel.bedname : projectModel.handcardno
         
         self.tableView = {
             var tableView = UITableView(frame: CGRect.zero, style: .grouped)

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LSBaseModules
 
 class LSAddClockViewController: LSBaseViewController {
 
@@ -19,6 +20,7 @@ class LSAddClockViewController: LSBaseViewController {
     
     @IBOutlet weak var roomNameLab: UILabel!
     
+    @IBOutlet weak var bedNoTitleLab: UILabel!
     @IBOutlet weak var bedNoLab: UILabel!
     
     @IBOutlet weak var numberLab: UILabel!
@@ -62,7 +64,8 @@ class LSAddClockViewController: LSBaseViewController {
         self.projectPriceLab.text = "￥" + self.projectModel.jprice.stringValue(retain: 2)
         self.projectDurationLab.text = "/" + self.projectModel.jmin + "分钟"
         self.roomNameLab.text = self.projectModel.roomname
-        self.bedNoLab.text = self.projectModel.bedname
+        self.bedNoTitleLab.text = parametersModel().OperationMode == 0 ? "床位号" : "手牌号"
+        self.bedNoLab.text = parametersModel().OperationMode == 0 ? "\(projectModel.bedname)" : "\(projectModel.handcardno)"
     }
     
     @IBAction func subtractAction(_ sender: Any) {

@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LSServiceViewController" customModule="CloudEnjoy" customModuleProvider="target">
             <connections>
                 <outlet property="bedNoLab" destination="XeM-Ha-7ih" id="Y5A-lC-Yo1"/>
+                <outlet property="bedTitleLab" destination="MgZ-AJ-N2I" id="4D8-b3-M30"/>
                 <outlet property="remarkTrxtField" destination="MlE-RU-e6y" id="ylQ-eS-gBq"/>
                 <outlet property="roomNameLab" destination="ron-mv-q1h" id="Iql-gj-D06"/>
                 <outlet property="searchGoodsTextField" destination="ZBb-Zy-d3o" id="JTB-Xj-vDS"/>

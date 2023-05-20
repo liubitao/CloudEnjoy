@@ -9,7 +9,7 @@ import UIKit
 import SwifterSwift
 import RxSwift
 import RxDataSources
-
+import LSBaseModules
 
 typealias OpeartionModel = (iconImage:String, title: String)
 
@@ -59,7 +59,7 @@ class LSProjectDetailsViewController: LSBaseViewController {
         self.statusImageView.image = projectModel.status.statusImage
         self.statusTitleLab.text = projectModel.status.statusString
         
-        self.roomNameLab.text = projectModel.roomname
+        self.roomNameLab.text = projectModel.roomname + (parametersModel().OperationMode == 0 ? "(床位：\(projectModel.bedname))" : "(手牌：\(projectModel.handcardno))")
         self.projectNameLab.text = projectModel.projectname
         self.numberLab.text = projectModel.qty.string
         self.projectMoneyLab.text = "￥" + projectModel.amt.stringValue(retain: 2)

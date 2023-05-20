@@ -15,6 +15,7 @@ class LSGoodsViewController: LSBaseViewController {
         
     @IBOutlet weak var searchGoodsTextField: UITextField!
     @IBOutlet weak var roomNameLab: UILabel!
+    @IBOutlet weak var bedTitleLab: UILabel!
     @IBOutlet weak var bedNoLab: UILabel!
     @IBOutlet weak var refNameLab: UILabel!
     @IBOutlet weak var refNameView: UIView!
@@ -53,7 +54,8 @@ class LSGoodsViewController: LSBaseViewController {
     
     override func setupViews() {
         self.roomNameLab.text = projectModel.roomname
-        self.bedNoLab.text = projectModel.bedname
+        self.bedTitleLab.text = parametersModel().OperationMode == 0 ? "床位号" : "手牌号"
+        self.bedNoLab.text =  parametersModel().OperationMode == 0 ? projectModel.bedname : projectModel.handcardno
         self.refNameLab.text = projectModel.refname
         
         self.refNameView.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
@@ -313,9 +315,10 @@ class LSGoodsViewController: LSBaseViewController {
                                            "amt": ($0.sellprice.double() ?? 0) * $0.number.double,
                                            "price": $0.sellprice,
                                            "productname": $0.name,
-                                           "rprice": $0.sellprice]}.ls_toJSONString() ?? ""
+                                           "rprice": $0.sellprice,
+                                           "remark": remarkTextField.text ?? ""]}.ls_toJSONString() ?? ""
         Toast.showHUD()
-        LSHomeServer.addProduct(billid: self.projectModel.billid, roomid: self.projectModel.roomid, bedid: self.projectModel.bedid, refid: self.referrerModel.userid, refname: self.referrerModel.name, refjobid: self.referrerModel.jobid, productlist: productlist, remark: remarkTextField.text ?? "").subscribe { _ in
+        LSHomeServer.addProduct(billid: self.projectModel.billid, roomid: self.projectModel.roomid, bedid: self.projectModel.bedid, refid: self.referrerModel.userid, refname: self.referrerModel.name, refjobid: self.referrerModel.jobid, productlist: productlist).subscribe { _ in
             Toast.show("商品已下单成功")
             self.navigationController?.popViewController(animated: true)
         } onFailure: { error in

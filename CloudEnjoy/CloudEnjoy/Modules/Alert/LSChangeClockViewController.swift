@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxGesture
+import LSBaseModules
 
 class LSChangeClockViewController: LSBaseViewController {
     @IBOutlet weak var oldProjectPicIamgeView: UIImageView!
@@ -20,6 +21,7 @@ class LSChangeClockViewController: LSBaseViewController {
     @IBOutlet weak var newProjectDurationLab: UILabel!
     @IBOutlet weak var addTipLab: UILabel!
     @IBOutlet weak var roomNameLab: UILabel!
+    @IBOutlet weak var bedNoTitleLab: UILabel!
     @IBOutlet weak var bedNoLab: UILabel!
     @IBOutlet weak var refNameLab: UILabel!
     @IBOutlet weak var selectedProjectView: UIView!
@@ -64,7 +66,8 @@ class LSChangeClockViewController: LSBaseViewController {
         self.oldProjectDurationLab.text = "/" + self.projectModel.jmin + "分钟"
         
         self.roomNameLab.text = self.projectModel.roomname
-        self.bedNoLab.text = self.projectModel.bedname
+        self.bedNoTitleLab.text = parametersModel().OperationMode == 0 ? "床位号" : "手牌号"
+        self.bedNoLab.text = parametersModel().OperationMode == 0 ? "\(projectModel.bedname)" : "\(projectModel.handcardno)"
         self.refNameLab.text = self.referrerModel.name
         
         self.selectedProjectView.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in

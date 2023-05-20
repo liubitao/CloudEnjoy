@@ -2165,6 +2165,7 @@
                     <size key="freeformSize" width="365" height="370"/>
                     <connections>
                         <outlet property="bedNoLab" destination="8AO-k4-TQd" id="KzX-kh-p4I"/>
+                        <outlet property="bedNoTitleLab" destination="7n8-OO-GGi" id="AWa-PL-iCe"/>
                         <outlet property="numberLab" destination="VF6-fN-a2s" id="2nk-bw-oQG"/>
                         <outlet property="plusBtn" destination="drD-lo-Khb" id="Dc6-Ca-DN4"/>
                         <outlet property="projectDurationLab" destination="AQi-nP-ZVS" id="lCX-gw-54k"/>
@@ -2567,6 +2568,7 @@
                     <connections>
                         <outlet property="addTipLab" destination="ZyM-3j-DJG" id="16W-oj-i8N"/>
                         <outlet property="bedNoLab" destination="eGt-rj-vHe" id="2Qf-km-Gb1"/>
+                        <outlet property="bedNoTitleLab" destination="h4b-4O-8HP" id="gq5-hH-hSg"/>
                         <outlet property="newProjectDurationLab" destination="BFv-9Z-7Ud" id="ESd-Df-OEn"/>
                         <outlet property="newProjectNameLab" destination="gmx-C4-IPe" id="eAR-q9-ngo"/>
                         <outlet property="newProjectPicIamgeView" destination="iiG-Vf-S47" id="6JU-ID-ygd"/>

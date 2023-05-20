@@ -27,13 +27,13 @@ extension AppDelegate {
             let screenBool = AppDataCache.get(key: "screenSwitch") as? Bool ?? false
             UIApplication.shared.isIdleTimerDisabled = screenBool
         }
-        UIApplication.shared.addObserver(self, forKeyPath: "idletimerdisabled", context: nil)
+        UIApplication.shared.addObserver(self, forKeyPath: "idleTimerDisabled", options: [.new, .old], context: nil)
     }
     
 }
 
 extension AppDelegate {
-    override func addObserver(_ observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutableRawPointer?) {
+    override class func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         let screenBool = AppDataCache.get(key: "screenSwitch") as? Bool ?? false
         UIApplication.shared.isIdleTimerDisabled = screenBool
     }

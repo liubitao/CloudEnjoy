@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LSGoodsViewController" customModule="CloudEnjoy" customModuleProvider="target">
             <connections>
                 <outlet property="bedNoLab" destination="98J-Em-rCZ" id="HDt-ac-h3M"/>
+                <outlet property="bedTitleLab" destination="oK1-MS-ej9" id="647-Yn-jGC"/>
                 <outlet property="refNameLab" destination="KP4-c1-WHw" id="87B-8O-I1O"/>
                 <outlet property="refNameView" destination="Oa2-5c-2WM" id="7gh-pT-z13"/>
                 <outlet property="remarkTextField" destination="Hhm-Zc-h0c" id="MVD-IB-Gun"/>
