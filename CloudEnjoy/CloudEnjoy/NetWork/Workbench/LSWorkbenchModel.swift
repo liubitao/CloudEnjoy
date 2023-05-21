@@ -521,6 +521,30 @@ struct LSPlacePunchinItemModel: HandyJSON {
     var xbstatus = 0
 }
 
+// 工单汇总
+struct LSOrderSummaryItemModel: HandyJSON {
+    var projectname = ""
+    var qty = 0
+    var amt: Double = 0
+    var projectid = ""
+}
+
+struct LSOrderSummaryTotalModel: HandyJSON {
+    var qty = 0
+    var amt: Double = 0
+}
+
+
+struct LSOrderSummaryDetailsModel: HandyJSON {
+    var id = ""
+    var projectname = ""
+    var amt = ""
+    var ctypename = ""
+    var commission = ""
+    var roomname = ""
+    var createtime = ""
+}
+
 
 
 

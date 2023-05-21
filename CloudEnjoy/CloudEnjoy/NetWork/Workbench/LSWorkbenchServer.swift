@@ -134,4 +134,9 @@ class LSWorkbenchServer {
     static func getOrderInfo(billid: String) -> Single<LSOrderModel?> {
         return provider.lsRequest(.getOrderInfo(billid: billid)).mapHandyModel(type: LSOrderModel.self)
     }
+    
+    static func getSaleUserProjectMeSum(startdate: String, enddate: String, status: String = "") -> Single<LSNetworkListModel<LSOrderSummaryItemModel>?>{
+        return provider.lsRequest(.getSaleUserProjectMeSum(startdate: startdate, enddate: enddate, status: status)).mapHandyModel(type: LSNetworkListModel<LSOrderSummaryItemModel>.self)
+    }
+  
 }

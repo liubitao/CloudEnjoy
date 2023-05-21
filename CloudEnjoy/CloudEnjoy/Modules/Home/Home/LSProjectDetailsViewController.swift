@@ -117,7 +117,7 @@ class LSProjectDetailsViewController: LSBaseViewController {
             case "呼叫服务":
                 self.navigationController?.pushViewController(LSServiceViewController(with: self.projectModel), animated: true)
             case "项目加钟":
-                LSAddClockViewController.creaeFromStoryboard(with: self.projectModel).presentedWith(self)
+                self.navigationController?.pushViewController(LSAddClockViewController(with: self.projectModel), animated: true)
             case "更换项目":
                 LSChangeClockViewController.creaeFromStoryboard(with: self.projectModel).presentedWith(self)
             case "退钟":

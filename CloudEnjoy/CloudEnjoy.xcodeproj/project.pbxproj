@@ -188,7 +188,6 @@
 		0C7E4CC329E152DB00CDE80A /* LSServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E4CC129E152DB00CDE80A /* LSServiceViewController.xib */; };
 		0C7E4CC629E1552600CDE80A /* LSServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4CC429E1552600CDE80A /* LSServiceTableViewCell.swift */; };
 		0C7E4CC729E1552600CDE80A /* LSServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E4CC529E1552600CDE80A /* LSServiceTableViewCell.xib */; };
-		0C7E4CC929E15D9700CDE80A /* LSAddClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4CC829E15D9700CDE80A /* LSAddClockViewController.swift */; };
 		0C7E4CCB29E1666000CDE80A /* LSChangeClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4CCA29E1666000CDE80A /* LSChangeClockViewController.swift */; };
 		0C7E4CCD29E173F700CDE80A /* LSChioceProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4CCC29E173F700CDE80A /* LSChioceProjectViewController.swift */; };
 		0C7E4CD029E6A73D00CDE80A /* LSRejectProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4CCE29E6A73D00CDE80A /* LSRejectProjectViewController.swift */; };
@@ -245,6 +244,20 @@
 		0CB765B929BF0B000048B1B3 /* LSWorkorderItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB765B829BF0B000048B1B3 /* LSWorkorderItemViewController.xib */; };
 		0CB765BC29BF0C900048B1B3 /* LSOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */; };
 		0CB765BD29BF0C900048B1B3 /* LSOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */; };
+		0CD97C052A19C42700A79D9E /* LSOrderSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD97C042A19C42700A79D9E /* LSOrderSummaryViewController.swift */; };
+		0CD97C082A19C44A00A79D9E /* LSOrderSummaryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD97C062A19C44A00A79D9E /* LSOrderSummaryItemViewController.swift */; };
+		0CD97C0C2A19C45C00A79D9E /* LSOrderSummaryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD97C0A2A19C45C00A79D9E /* LSOrderSummaryDetailsController.swift */; };
+		0CD97C102A19C53000A79D9E /* LSOrderSummaryItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD97C0F2A19C53000A79D9E /* LSOrderSummaryItemViewController.xib */; };
+		0CD97C132A19C60000A79D9E /* LSOrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD97C112A19C60000A79D9E /* LSOrderSummaryCell.swift */; };
+		0CD97C142A19C60000A79D9E /* LSOrderSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD97C122A19C60000A79D9E /* LSOrderSummaryCell.xib */; };
+		0CD97C172A19CFBC00A79D9E /* LSOrderSummaryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD97C152A19CFBC00A79D9E /* LSOrderSummaryItemCell.swift */; };
+		0CD97C182A19CFBC00A79D9E /* LSOrderSummaryItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD97C162A19CFBC00A79D9E /* LSOrderSummaryItemCell.xib */; };
+		0CD97C1B2A19E6F500A79D9E /* LSJsRankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD97C192A19E6F500A79D9E /* LSJsRankViewController.swift */; };
+		0CD97C1C2A19E6F500A79D9E /* LSJsRankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD97C1A2A19E6F500A79D9E /* LSJsRankViewController.xib */; };
+		0CD97C1F2A19E70900A79D9E /* LSJsRankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD97C1D2A19E70900A79D9E /* LSJsRankTableViewCell.swift */; };
+		0CD97C202A19E70900A79D9E /* LSJsRankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD97C1E2A19E70900A79D9E /* LSJsRankTableViewCell.xib */; };
+		0CD97C242A19E83200A79D9E /* LSAddClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD97C222A19E83200A79D9E /* LSAddClockViewController.swift */; };
+		0CD97C252A19E83200A79D9E /* LSAddClockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD97C232A19E83200A79D9E /* LSAddClockViewController.xib */; };
 		0CDC77482A025C1B00E992D3 /* LSAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDC77472A025C1B00E992D3 /* LSAudioManager.swift */; };
 		0CDC77512A02600300E992D3 /* 本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0CDC774A2A02600200E992D3 /* 本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).mp3 */; };
 		0CDC77522A02600300E992D3 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0CDC774B2A02600200E992D3 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).mp3 */; };
@@ -475,7 +488,6 @@
 		0C7E4CC129E152DB00CDE80A /* LSServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSServiceViewController.xib; sourceTree = "<group>"; };
 		0C7E4CC429E1552600CDE80A /* LSServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSServiceTableViewCell.swift; sourceTree = "<group>"; };
 		0C7E4CC529E1552600CDE80A /* LSServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSServiceTableViewCell.xib; sourceTree = "<group>"; };
-		0C7E4CC829E15D9700CDE80A /* LSAddClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSAddClockViewController.swift; sourceTree = "<group>"; };
 		0C7E4CCA29E1666000CDE80A /* LSChangeClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSChangeClockViewController.swift; sourceTree = "<group>"; };
 		0C7E4CCC29E173F700CDE80A /* LSChioceProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSChioceProjectViewController.swift; sourceTree = "<group>"; };
 		0C7E4CCE29E6A73D00CDE80A /* LSRejectProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSRejectProjectViewController.swift; sourceTree = "<group>"; };
@@ -549,6 +561,20 @@
 		0CB765B829BF0B000048B1B3 /* LSWorkorderItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSWorkorderItemViewController.xib; sourceTree = "<group>"; };
 		0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderTableViewCell.swift; sourceTree = "<group>"; };
 		0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSOrderTableViewCell.xib; sourceTree = "<group>"; };
+		0CD97C042A19C42700A79D9E /* LSOrderSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderSummaryViewController.swift; sourceTree = "<group>"; };
+		0CD97C062A19C44A00A79D9E /* LSOrderSummaryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderSummaryItemViewController.swift; sourceTree = "<group>"; };
+		0CD97C0A2A19C45C00A79D9E /* LSOrderSummaryDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderSummaryDetailsController.swift; sourceTree = "<group>"; };
+		0CD97C0F2A19C53000A79D9E /* LSOrderSummaryItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSOrderSummaryItemViewController.xib; sourceTree = "<group>"; };
+		0CD97C112A19C60000A79D9E /* LSOrderSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderSummaryCell.swift; sourceTree = "<group>"; };
+		0CD97C122A19C60000A79D9E /* LSOrderSummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSOrderSummaryCell.xib; sourceTree = "<group>"; };
+		0CD97C152A19CFBC00A79D9E /* LSOrderSummaryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderSummaryItemCell.swift; sourceTree = "<group>"; };
+		0CD97C162A19CFBC00A79D9E /* LSOrderSummaryItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSOrderSummaryItemCell.xib; sourceTree = "<group>"; };
+		0CD97C192A19E6F500A79D9E /* LSJsRankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSJsRankViewController.swift; sourceTree = "<group>"; };
+		0CD97C1A2A19E6F500A79D9E /* LSJsRankViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSJsRankViewController.xib; sourceTree = "<group>"; };
+		0CD97C1D2A19E70900A79D9E /* LSJsRankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSJsRankTableViewCell.swift; sourceTree = "<group>"; };
+		0CD97C1E2A19E70900A79D9E /* LSJsRankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSJsRankTableViewCell.xib; sourceTree = "<group>"; };
+		0CD97C222A19E83200A79D9E /* LSAddClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSAddClockViewController.swift; sourceTree = "<group>"; };
+		0CD97C232A19E83200A79D9E /* LSAddClockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSAddClockViewController.xib; sourceTree = "<group>"; };
 		0CDC77472A025C1B00E992D3 /* LSAudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSAudioManager.swift; sourceTree = "<group>"; };
 		0CDC774A2A02600200E992D3 /* 本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).mp3"; sourceTree = "<group>"; };
 		0CDC774B2A02600200E992D3 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).mp3"; sourceTree = "<group>"; };
@@ -604,7 +630,6 @@
 				0C7E4C9529D4289B00CDE80A /* LSChoiceTimeViewController.swift */,
 				0C7E4CAC29DED56B00CDE80A /* LSDownClockViewController.swift */,
 				0C7E4CAE29DFB7E400CDE80A /* LSUpClockViewController.swift */,
-				0C7E4CC829E15D9700CDE80A /* LSAddClockViewController.swift */,
 				0C7E4CCA29E1666000CDE80A /* LSChangeClockViewController.swift */,
 				0C7E4CCC29E173F700CDE80A /* LSChioceProjectViewController.swift */,
 				0C66266529C3141100AADCC7 /* 预约房间 */,
@@ -818,6 +843,8 @@
 				0C7E4CC129E152DB00CDE80A /* LSServiceViewController.xib */,
 				0C7E4CCE29E6A73D00CDE80A /* LSRejectProjectViewController.swift */,
 				0C7E4CCF29E6A73D00CDE80A /* LSRejectProjectViewController.xib */,
+				0CD97C222A19E83200A79D9E /* LSAddClockViewController.swift */,
+				0CD97C232A19E83200A79D9E /* LSAddClockViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1461,6 +1488,48 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0CD97BFF2A19C3C800A79D9E /* OrderSummary(工单汇总) */ = {
+			isa = PBXGroup;
+			children = (
+				0CD97C0E2A19C46400A79D9E /* View */,
+				0CD97C042A19C42700A79D9E /* LSOrderSummaryViewController.swift */,
+				0CD97C062A19C44A00A79D9E /* LSOrderSummaryItemViewController.swift */,
+				0CD97C0F2A19C53000A79D9E /* LSOrderSummaryItemViewController.xib */,
+				0CD97C0A2A19C45C00A79D9E /* LSOrderSummaryDetailsController.swift */,
+			);
+			path = "OrderSummary(工单汇总)";
+			sourceTree = "<group>";
+		};
+		0CD97C002A19C3D600A79D9E /* JsRank(技师排位) */ = {
+			isa = PBXGroup;
+			children = (
+				0CD97C212A19E70D00A79D9E /* View */,
+				0CD97C192A19E6F500A79D9E /* LSJsRankViewController.swift */,
+				0CD97C1A2A19E6F500A79D9E /* LSJsRankViewController.xib */,
+			);
+			path = "JsRank(技师排位)";
+			sourceTree = "<group>";
+		};
+		0CD97C0E2A19C46400A79D9E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0CD97C152A19CFBC00A79D9E /* LSOrderSummaryItemCell.swift */,
+				0CD97C162A19CFBC00A79D9E /* LSOrderSummaryItemCell.xib */,
+				0CD97C112A19C60000A79D9E /* LSOrderSummaryCell.swift */,
+				0CD97C122A19C60000A79D9E /* LSOrderSummaryCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0CD97C212A19E70D00A79D9E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0CD97C1D2A19E70900A79D9E /* LSJsRankTableViewCell.swift */,
+				0CD97C1E2A19E70900A79D9E /* LSJsRankTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0CDC77462A025B7500E992D3 /* LSAudioManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1546,6 +1615,8 @@
 		0CE8EE4529AF3892003DE097 /* Workbench */ = {
 			isa = PBXGroup;
 			children = (
+				0CD97C002A19C3D600A79D9E /* JsRank(技师排位) */,
+				0CD97BFF2A19C3C800A79D9E /* OrderSummary(工单汇总) */,
 				0C23783529B20BE1003AC759 /* Leave(员工请假) */,
 				0C23783229B20BC7003AC759 /* Clockin(员工打卡) */,
 				0C23782F29B20BAC003AC759 /* AddOrder(新增预约) */,
@@ -1668,6 +1739,7 @@
 				0C0CC89929AF60E800CC3A6E /* refresh_warter_background@1x.png in Resources */,
 				0C0CC89229AF60E800CC3A6E /* refresh_warter_forground@3x.png in Resources */,
 				0C7E4CBF29E108DC00CDE80A /* LSGoodsTableViewCell.xib in Resources */,
+				0CD97C182A19CFBC00A79D9E /* LSOrderSummaryItemCell.xib in Resources */,
 				0C1187B429FE5DFC004BA940 /* LSAddOrderTableViewCell.xib in Resources */,
 				0C4D061929D19D4400D30F95 /* LSRankTableViewCell.xib in Resources */,
 				0CB7654429BB2D170048B1B3 /* LSUserInfoViewController.xib in Resources */,
@@ -1742,16 +1814,21 @@
 				0C4D061129D1830000D30F95 /* LSWorkOrderDetailsController.xib in Resources */,
 				0C4D060D29D148B800D30F95 /* LSMessageTableViewCell.xib in Resources */,
 				0C7E4CBB29E0246000CDE80A /* LSGoodsTypeCollectionViewCell.xib in Resources */,
+				0CD97C102A19C53000A79D9E /* LSOrderSummaryItemViewController.xib in Resources */,
 				0C4D060629D133FC00D30F95 /* LSMessageViewController.xib in Resources */,
+				0CD97C142A19C60000A79D9E /* LSOrderSummaryCell.xib in Resources */,
+				0CD97C252A19E83200A79D9E /* LSAddClockViewController.xib in Resources */,
 				0CDC77532A02600300E992D3 /* 本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟).mp3 in Resources */,
 				0C0C35B129B8A1980039C535 /* AlertStoryboard.storyboard in Resources */,
 				0C66266B29C314F600AADCC7 /* arrow_up@2x.png in Resources */,
 				0C7E4CC329E152DB00CDE80A /* LSServiceViewController.xib in Resources */,
+				0CD97C1C2A19E6F500A79D9E /* LSJsRankViewController.xib in Resources */,
 				0C7E4CC729E1552600CDE80A /* LSServiceTableViewCell.xib in Resources */,
 				0C0CC89B29AF60E800CC3A6E /* com_refresh_icon@2x.png in Resources */,
 				0C0CC8A329AF60E800CC3A6E /* kyo_refresh_nodata_haderror@3x.png in Resources */,
 				0CB765AA29BECC500048B1B3 /* LSClocksItemViewController.xib in Resources */,
 				0C0CC89829AF60E800CC3A6E /* refresh_warter_forground@1x.png in Resources */,
+				0CD97C202A19E70900A79D9E /* LSJsRankTableViewCell.xib in Resources */,
 				0C49D15029B9C2A60084C2F5 /* LSAccountSecureStoryboard.storyboard in Resources */,
 				0C5A4F6929B1EA5900B8C032 /* LSMineSettingCell.xib in Resources */,
 				0C7E4CA329DA836900CDE80A /* LSHomeUserStatusView.xib in Resources */,
@@ -1841,6 +1918,7 @@
 				0C0C35BF29B986CD0039C535 /* KyoTransitioningScale.swift in Sources */,
 				0C29C1EA29C58E880043109A /* LSSegmentedTitleDataSource.swift in Sources */,
 				0CE7F14829BF1692008FF8C5 /* LSOrderFilterViewController.swift in Sources */,
+				0CD97C082A19C44A00A79D9E /* LSOrderSummaryItemViewController.swift in Sources */,
 				0C49D15629B9C3EC0084C2F5 /* LSChangePhoneController.swift in Sources */,
 				0C7E4C8629D2D11E00CDE80A /* LSAddLeaveViewController.swift in Sources */,
 				0CB765A929BECC500048B1B3 /* LSClocksItemViewController.swift in Sources */,
@@ -1852,6 +1930,7 @@
 				0C49D15429B9C3DA0084C2F5 /* LSChangePasswordController.swift in Sources */,
 				0C4F3FAD29CD83E100A20F03 /* LSHomeModel.swift in Sources */,
 				0C9128DA29AF504600D6237E /* FontGlobal.swift in Sources */,
+				0CD97C0C2A19C45C00A79D9E /* LSOrderSummaryDetailsController.swift in Sources */,
 				0CB7659429BC760D0048B1B3 /* FSCalendarDelegationProxy.m in Sources */,
 				0C23782E29B20BA9003AC759 /* LSOrderViewController.swift in Sources */,
 				0C23784629B2E03A003AC759 /* LSAccountLoginView.swift in Sources */,
@@ -1890,7 +1969,6 @@
 				0CB7659B29BC760D0048B1B3 /* FSCalendarSeparatorDecorationView.m in Sources */,
 				0CE7F15229BF24FD008FF8C5 /* LSVipTableViewCell.swift in Sources */,
 				0C7E4CAF29DFB7E400CDE80A /* LSUpClockViewController.swift in Sources */,
-				0C7E4CC929E15D9700CDE80A /* LSAddClockViewController.swift in Sources */,
 				0CB7655629BC26AA0048B1B3 /* LSWorkbenchModel.swift in Sources */,
 				0C7E4CD529E9516900CDE80A /* LSClockInTableViewCell.swift in Sources */,
 				0C29C1F829C5A3F00043109A /* UUMarqueeView.m in Sources */,
@@ -1904,9 +1982,11 @@
 				0C23783F29B2177B003AC759 /* LSSystemViewController.swift in Sources */,
 				0C23785F29B5D496003AC759 /* HPActivityIndicator.swift in Sources */,
 				0C0CC8BA29B07E9E00CC3A6E /* LSHomeViewController.swift in Sources */,
+				0CD97C1B2A19E6F500A79D9E /* LSJsRankViewController.swift in Sources */,
 				0CB7659629BC760D0048B1B3 /* FSCalendarCell.m in Sources */,
 				0CB7659C29BC760D0048B1B3 /* FSCalendarExtensions.m in Sources */,
 				0C0CC8AB29AF60E900CC3A6E /* RHRefreshControlConfiguration.m in Sources */,
+				0CD97C172A19CFBC00A79D9E /* LSOrderSummaryItemCell.swift in Sources */,
 				0C7E4C9D29D59CCD00CDE80A /* LSClockListViewController.swift in Sources */,
 				0C7E4CD029E6A73D00CDE80A /* LSRejectProjectViewController.swift in Sources */,
 				0C23783729B20BEF003AC759 /* LSLeaveViewController.swift in Sources */,
@@ -1915,6 +1995,7 @@
 				0C0C35CF29B98B3E0039C535 /* TransitionAnimationInteractive.m in Sources */,
 				0C50294729AF36C7003977F0 /* LSNavigationController.swift in Sources */,
 				0C440EE129CDC177004B8382 /* LSMessageServer.swift in Sources */,
+				0CD97C1F2A19E70900A79D9E /* LSJsRankTableViewCell.swift in Sources */,
 				0C4D061029D1830000D30F95 /* LSWorkOrderDetailsController.swift in Sources */,
 				0C0C358F29B892320039C535 /* CommonDefine.swift in Sources */,
 				0C23784829B2E055003AC759 /* LSPhoneLoginView.swift in Sources */,
@@ -1947,9 +2028,11 @@
 				0CB765B529BF0AE00048B1B3 /* LSWorkorderItemViewController.swift in Sources */,
 				0C66267929C315DE00AADCC7 /* LSChioceTechnicianItemController.swift in Sources */,
 				0C50294529AF36C7003977F0 /* RootViewController.swift in Sources */,
+				0CD97C052A19C42700A79D9E /* LSOrderSummaryViewController.swift in Sources */,
 				0CB7653629B9FAD10048B1B3 /* LSUserModel.swift in Sources */,
 				0C0CC8BD29B07EBD00CC3A6E /* LSWorkbenchViewController.swift in Sources */,
 				0C4D060829D143FA00D30F95 /* LSMessageItemViewController.swift in Sources */,
+				0CD97C242A19E83200A79D9E /* LSAddClockViewController.swift in Sources */,
 				0CB7659529BC760D0048B1B3 /* FSCalendarDelegationFactory.m in Sources */,
 				0C0C35BE29B986CD0039C535 /* KyoTransitioningAnimation.swift in Sources */,
 				0C0CC8A729AF60E800CC3A6E /* KyoDataTipsModel.m in Sources */,
@@ -1965,6 +2048,7 @@
 				0C23782829B20B6F003AC759 /* LSWorkorderViewController.swift in Sources */,
 				0CB7653429B9E6EF0048B1B3 /* LSPhotosViewController.swift in Sources */,
 				0C50293029AF3331003977F0 /* AppDelegate+ThirdPlatform.swift in Sources */,
+				0CD97C132A19C60000A79D9E /* LSOrderSummaryCell.swift in Sources */,
 				0C5A4F6529B1A0DB00B8C032 /* VHLNavigation.swift in Sources */,
 				0CB7653D29BB1C520048B1B3 /* LSUploadModel.swift in Sources */,
 				0C23787129B86850003AC759 /* LSAppModel.swift in Sources */,

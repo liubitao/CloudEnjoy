@@ -53,6 +53,10 @@ extension LSWorkbenchAPI.APIPath {
     static let placePunchin = "place/punchin"
     
     static let getOrderInfo = "about/getInfo"
+    
+    
+    static let getSaleUserProjectMeSum = "sysuser/getSaleUserProjectMeSum"
+    static let getProjectRanking = "daysum/findProjectRanking"
 }
 
 enum LSWorkbenchAPI: TargetType {
@@ -142,6 +146,13 @@ enum LSWorkbenchAPI: TargetType {
     case placePunchin(adr: String)
     
     case getOrderInfo(billid: String)
+    
+    case getSaleUserProjectMeSum(startdate: String,
+                                 enddate: String,
+                                 status: String)
+    
+    case getProjectRanking(startdate: String,
+                           enddate: String)
 }
 
 
@@ -202,6 +213,10 @@ extension LSWorkbenchAPI: LSTargetType{
             return APIPath.placePunchin
         case .getOrderInfo:
             return APIPath.getOrderInfo
+        case .getSaleUserProjectMeSum:
+            return APIPath.getSaleUserProjectMeSum
+        case .getProjectRanking:
+            return APIPath.getProjectRanking
         }
     }
     
@@ -355,6 +370,14 @@ extension LSWorkbenchAPI: LSTargetType{
             
         case let .getOrderInfo(billid):
             return ["billid": billid]
+        case let .getSaleUserProjectMeSum(startdate, enddate, status):
+            return ["userid": userModel().userid,
+                    "startdate":startdate,
+                    "enddate": enddate,
+                    "status": status]
+        case let .getProjectRanking(startdate, enddate):
+            return ["startdate": startdate,
+                    "enddate": enddate]
         }
 
     }

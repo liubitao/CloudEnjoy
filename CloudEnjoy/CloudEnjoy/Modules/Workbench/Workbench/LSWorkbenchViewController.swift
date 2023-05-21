@@ -63,11 +63,11 @@ class LSWorkbenchViewController: LSBaseViewController {
     }
     
     @IBAction func jumpOrderSummary(_ sender: Any) {
-        
+        self.navigationController?.pushViewController(LSOrderSummaryViewController(), animated: true)
     }
     
     @IBAction func jumpJsRank(_ sender: Any) {
-        
+        self.navigationController?.pushViewController(LSJsRankViewController(), animated: true)
     }
     
     @IBAction func jumpUserquery(_ sender: Any) {
