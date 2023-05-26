@@ -21,30 +21,30 @@ enum LSTimeSectionType: Int, CaseIterable {
     var startdate: String {
         switch self {
         case .today:
-            return Date().beginning(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
+            return Date().beginning(of: .day)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
         case .yesterday:
-            return Date().adding(.day, value: -1).beginning(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
+            return Date().adding(.day, value: -1).beginning(of: .day)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
         case .currentMonth:
-            return Date().beginning(of: .month)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
+            return Date().beginning(of: .month)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
         case .lastMonth:
-            return Date().adding(.month, value: -1).beginning(of: .month)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
+            return Date().adding(.month, value: -1).beginning(of: .month)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
         case .custom:
-            return Date().beginning(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
+            return Date().beginning(of: .day)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
         }
     }
     
     var endDate: String {
         switch self {
         case .today:
-            return Date().string(withFormat: "yyyy-MM-dd hh:mm:ss")
+            return Date().stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss")
         case .yesterday:
-            return Date().adding(.day, value: -1).end(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
+            return Date().adding(.day, value: -1).end(of: .day)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
         case .currentMonth:
-            return Date().string(withFormat: "yyyy-MM-dd hh:mm:ss")
+            return Date().stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss")
         case .lastMonth:
-            return Date().adding(.month, value: -1).end(of: .month)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
+            return Date().adding(.month, value: -1).end(of: .month)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
         case .custom:
-            return Date().string(withFormat: "yyyy-MM-dd hh:mm:ss")
+            return Date().stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss")
         }
     }
 }

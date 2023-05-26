@@ -52,7 +52,7 @@ class LSAddLeaveViewController: LSBaseViewController {
             choiceTimeVC.selectedDate = self.startTime ?? Date()
             choiceTimeVC.selectedClosure = { startTime in
                 self.startTime = startTime
-                self.startTimeTextField.text = startTime.string(withFormat: "yyyy-MM-dd hh:mm")
+                self.startTimeTextField.text = startTime.stringTime24(withFormat: "yyyy-MM-dd HH:mm")
                 self.endTime = nil
                 self.endTimeTextField.text = ""
             }
@@ -67,7 +67,7 @@ class LSAddLeaveViewController: LSBaseViewController {
             choiceTimeVC.limitMinDate = startTime
             choiceTimeVC.selectedClosure = { endTime in
                 self.endTime = endTime
-                self.endTimeTextField.text = endTime.string(withFormat: "yyyy-MM-dd hh:mm")
+                self.endTimeTextField.text = endTime.stringTime24(withFormat: "yyyy-MM-dd HH:mm")
                 self.durationLab.text = endTime.hoursSince(startTime).roundString(retain: 0)
             }
             choiceTimeVC.presentedWith(self)
@@ -76,8 +76,8 @@ class LSAddLeaveViewController: LSBaseViewController {
 
     @IBAction func submitAction(_ sender: Any) {
         guard let leaveTypeModel = self.leaveTypeModel,
-              let startTime = self.startTime?.string(withFormat: "yyyy-MM-dd hh:mm"),
-              let endTime = self.endTime?.string(withFormat: "yyyy-MM-dd hh:mm"),
+              let startTime = self.startTime?.stringTime24(withFormat: "yyyy-MM-dd HH:mm"),
+              let endTime = self.endTime?.stringTime24(withFormat: "yyyy-MM-dd HH:mm"),
               let hours = self.durationLab.text,
               hours.isEmpty == false,
               let reason = self.reasonTextField.text,

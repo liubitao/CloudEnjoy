@@ -76,20 +76,14 @@ public final class LSAudioQueueManager {
         guard operation.audioName.isEmpty == false else {
             return
         }
-        
+
         let voiceSettingModel = AppDataCache.getItem(LSVoiceSettingModel.self, forKey: "voiceSetting") ?? LSVoiceSettingModel(isOpenVoice: true, voiceTimes: "1")
-        guard voiceSettingModel.isOpenVoice == true else {
+        guard voiceSettingModel.isOpenVoice == true,
+              let voiceTimes = voiceSettingModel.voiceTimes.int else {
             return
         }
         lock.lock()
-        let voicedTimes = AppDataCache.get(key: "voicedTimes") as? Int ?? 0
-        guard let voiceTimes = voiceSettingModel.voiceTimes.int,
-            voicedTimes <= voiceTimes else {
-            lock.unlock()
-            return
-        }
-        AppDataCache.set(key: "voicedTimes", value: voicedTimes + 1)
-        pendingRequests.append(operation)
+        Array(0..<voiceTimes).forEach{_ in pendingRequests.append(operation)}
         runNextRequestIfNeeded()
         lock.unlock()
     }

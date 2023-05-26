@@ -86,7 +86,7 @@ class LSHomeUserStatusView: UIView {
             workTypeBtn.setTitle(model.shiftname, for: .normal)
             
             case .waitClock: view = waitClockView
-            let dispatchDate = model.dispatchtime.date(withFormat: "yyyy-MM-dd hh:mm:ss") ?? Date()
+            let dispatchDate = model.dispatchtime.date(withFormat: "yyyy-MM-dd HH:mm:ss") ?? Date()
             let hadOverTime = dispatchDate.compare(Date()) == .orderedAscending
             waitTimeLab.isHidden = hadOverTime
             hadWaitLab.isHidden = !hadOverTime
@@ -105,7 +105,7 @@ class LSHomeUserStatusView: UIView {
             
             case .servicing: view = servicingView
             self.dispose = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.asyncInstance).subscribe(onNext: { _ in
-                let endDate = model.starttime.date(withFormat: "yyyy-MM-dd hh:mm:ss")?.adding(.minute, value: model.min)
+                let endDate = model.starttime.date(withFormat: "yyyy-MM-dd HH:mm:ss")?.adding(.minute, value: model.min)
                 let secondsSince = endDate?.timeIntervalSince(Date()).int ?? 0
                 if secondsSince > 0 {
                     self.timeRemainingLab.text = "剩余时长：" + String(format: "%02d", secondsSince/3600) + ":" + String(format: "%02d", secondsSince/60%60) + ":" + String(format: "%02d", secondsSince%60)

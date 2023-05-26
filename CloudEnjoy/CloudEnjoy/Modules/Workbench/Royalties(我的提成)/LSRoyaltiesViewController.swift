@@ -86,8 +86,8 @@ extension LSRoyaltiesViewController: JXSegmentedViewDelegate, JXSegmentedListCon
         calendarViewController.selectedClosure = {[weak self] startDate, endDate in
             guard let self = self else {return}
             let subVC = self.subViewControllers[4]
-            subVC.startdate = startDate.beginning(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
-            subVC.endDate = endDate.end(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
+            subVC.startdate = startDate.beginning(of: .day)?.stringTime24(withFormat: "yyyy-MM-dd HH:mm:ss") ?? ""
+            subVC.endDate = endDate.end(of: .day)?.stringTime24(withFormat: "yyyy-MM-dd HH:mm:ss") ?? ""
             subVC.netwerkData()
         }
         calendarViewController.presentedWith(self)

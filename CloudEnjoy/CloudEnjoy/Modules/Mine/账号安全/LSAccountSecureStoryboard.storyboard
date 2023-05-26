@@ -316,7 +316,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="comnfirmAction:" destination="C3e-ZL-k0C" eventType="touchUpInside" id="ACR-iy-PpX"/>
+                                    <action selector="confirmAction:" destination="qxO-Tb-dqB" eventType="touchUpInside" id="u4M-eP-pch"/>
                                 </connections>
                             </button>
                         </subviews>

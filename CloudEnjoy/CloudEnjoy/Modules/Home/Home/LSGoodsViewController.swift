@@ -307,18 +307,14 @@ class LSGoodsViewController: LSBaseViewController {
             Toast.show("请选择推荐人")
             return
         }
-//        guard let remark = remarkTextField.text else {
-//
-//        }
         let productlist = goodsModels.map{["productid": $0.productid,
                                            "qty": $0.number,
                                            "amt": ($0.sellprice.double() ?? 0) * $0.number.double,
                                            "price": $0.sellprice,
                                            "productname": $0.name,
-                                           "rprice": $0.sellprice,
-                                           "remark": remarkTextField.text ?? ""]}.ls_toJSONString() ?? ""
+                                           "rprice": $0.sellprice]}.ls_toJSONString() ?? ""
         Toast.showHUD()
-        LSHomeServer.addProduct(billid: self.projectModel.billid, roomid: self.projectModel.roomid, bedid: self.projectModel.bedid, refid: self.referrerModel.userid, refname: self.referrerModel.name, refjobid: self.referrerModel.jobid, productlist: productlist).subscribe { _ in
+        LSHomeServer.addProduct(billid: self.projectModel.billid, roomid: self.projectModel.roomid, bedid: self.projectModel.bedid, refid: self.referrerModel.userid, refname: self.referrerModel.name, refjobid: self.referrerModel.jobid, productlist: productlist, remark: remarkTextField.text ?? "").subscribe { _ in
             Toast.show("商品已下单成功")
             self.navigationController?.popViewController(animated: true)
         } onFailure: { error in

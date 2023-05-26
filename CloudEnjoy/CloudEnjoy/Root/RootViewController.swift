@@ -95,7 +95,6 @@ class RootViewController: LSBaseViewController {
     @objc func logout() {
         LSRMQClient.unInstall()
         LoginDataCache.removeAll()
-        AppDataCache.removeAll()
         self.setupLoginViewController()
     }
 }

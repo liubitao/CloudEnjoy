@@ -51,10 +51,10 @@ class LSViewClockInItemController: LSBaseViewController {
         self.clockBtn.setBackgroundImage(UIImage.createGradientImage(startColor: Color(hexString: "#00AAB7")!, endColor: Color(hexString: "#00C294")!, width: 200, height: 70), for: .normal)
         self.clockBtn.setBackgroundImage(UIImage.createGradientImage(startColor: Color(hexString: "#00AAB7")!, endColor: Color(hexString: "#00C294")!, width: 200, height: 70), for: .highlighted)
         
-        self.timeLab.text = Date().string(withFormat: "hh:mm:ss")
+        self.timeLab.text = Date().stringTime24(withFormat: "HH:mm:ss")
         self.timer.subscribe(onNext: { [weak self]_ in
             guard let self = self else {return}
-            self.timeLab.text = Date().string(withFormat: "hh:mm:ss")
+            self.timeLab.text = Date().stringTime24(withFormat: "HH:mm:ss")
         }).disposed(by: self.rx.disposeBag)
         
         do {
@@ -86,7 +86,7 @@ class LSViewClockInItemController: LSBaseViewController {
     func networkData() {
         Toast.showHUD()
         let placeListSingle = LSWorkbenchServer.getPlaceList()
-        let dayPlaceSingle = LSWorkbenchServer.getPlacePunchin(datetime: Date().string(withFormat: "yyyy-MM-dd"))
+        let dayPlaceSingle = LSWorkbenchServer.getPlacePunchin(datetime: Date().stringTime24(withFormat: "yyyy-MM-dd"))
         Observable.zip(placeListSingle.asObservable(), dayPlaceSingle.asObservable()).subscribe { listModel, model in
             self.punchinModels = listModel?.list ?? []
             self.placePunchinModel = model
@@ -122,14 +122,14 @@ class LSViewClockInItemController: LSBaseViewController {
     
     func refreshUI() {
         guard let model = self.placePunchinModel else { return }
-        self.clockStatusLab.text = model.sbstatus == 0 ? "上班打卡" : "下班打卡"
+        self.clockStatusLab.text = model.sbstatus == model.xbstatus ? "上班打卡" : "下班打卡"
         items.onNext([SectionModel(model: "", items: self.placePunchinModel?.userclocklist ?? [])])
 
         guard model.pbflag == 1 else {
             self.clockTipLab.text = ""
             return
         }
-        self.clockTipLab.text = model.sbstatus == 0 ? "请在\(model.workshift.split(separator: ":")[0..<2].joined(separator: ":"))之前上班打卡" : "请在\(model.closingtime.split(separator: ":")[0..<2].joined(separator: ":"))之后下班打卡"
+        self.clockTipLab.text = model.sbstatus == model.xbstatus ? "请在\(model.workshift.split(separator: ":")[0..<2].joined(separator: ":"))之前上班打卡" : "请在\(model.closingtime.split(separator: ":")[0..<2].joined(separator: ":"))之后下班打卡"
     }
     
     @IBAction func clockAction(_ sender: Any) {

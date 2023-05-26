@@ -71,7 +71,7 @@ class LSChoiceTimeViewController: LSBaseViewController {
         let currentDate = self.datePicker!.currentDate
         if let limitMinDate = self.limitMinDate,
               currentDate.compare(limitMinDate) != .orderedDescending {
-            Toast.show("请选择大于" + (limitMinDate.string(withFormat: "yyyy-MM-dd hh:mm")) + "时间")
+            Toast.show("请选择大于" + (limitMinDate.stringTime24(withFormat:"yyyy-MM-dd HH:mm")) + "时间")
             return
         }
         self.selectedClosure?(self.datePicker!.currentDate)

@@ -74,7 +74,7 @@ class LSChangePhoneController: LSBaseViewController {
             return
         }
         Toast.showHUD()
-        LSUserServer.getCode(phone: phone, smstype: "6").subscribe { _ in
+        LSUserServer.getCode(phone: phone, smstype: "3").subscribe { _ in
             self.startTimer()
         } onFailure: { error in
             Toast.show(error.localizedDescription)
@@ -97,7 +97,7 @@ class LSChangePhoneController: LSBaseViewController {
             if self.type == .old {
                 self.navigationController?.pushViewController(LSChangePhoneController.creaeFromStoryboard(.new), animated: true)
             }else {
-                var userModel: LSUserModel = userModel()
+                let userModel: LSUserModel = userModel()
                 userModel.mobile = phone
                 LSLoginModel.shared.user = userModel
                 LoginDataCache.set(key: "LoginInfo", value: LSLoginModel.shared.toJSONString())

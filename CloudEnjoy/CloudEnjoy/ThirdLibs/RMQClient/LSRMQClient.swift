@@ -68,6 +68,7 @@ enum LSMessageType: Int, HandyJSONEnum {
     case changeProject = 680
     case returnProject = 679
     case otherLogin = 660
+    case autoCancelOrder = 681
     
     var notification: NSNotification.Name? {
         switch self {
@@ -87,6 +88,8 @@ enum LSMessageType: Int, HandyJSONEnum {
             return LSRMQNotification.returnProject
         case .otherLogin:
             return LSRMQNotification.otherLogin
+        case .autoCancelOrder:
+            return LSRMQNotification.autoCancelOrder
         default: return nil
         }
     }
@@ -124,6 +127,7 @@ struct LSRMQNotification{
     static let changeProject = Notification.Name("LSRMQ.changeProject")
     static let returnProject = Notification.Name("LSRMQ.returnProject")
     static let otherLogin = Notification.Name("LSRMQ.otherLogin")
+    static let autoCancelOrder = Notification.Name("LSRMQ.autoCancelOrder")
 }
 
 struct LSMQMessageModel: HandyJSON {

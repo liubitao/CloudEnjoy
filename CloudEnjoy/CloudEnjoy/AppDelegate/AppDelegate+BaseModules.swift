@@ -27,7 +27,7 @@ extension AppDelegate {
             let screenBool = AppDataCache.get(key: "screenSwitch") as? Bool ?? false
             UIApplication.shared.isIdleTimerDisabled = screenBool
         }
-        UIApplication.shared.addObserver(self, forKeyPath: "idleTimerDisabled", options: [.new, .old], context: nil)
+//        UIApplication.shared.addObserver(self, forKeyPath: "idleTimerDisabled", options: [.new, .old], context: nil)
     }
     
 }

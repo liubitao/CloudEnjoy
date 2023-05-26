@@ -13,7 +13,7 @@ import LSBaseModules
 extension LSUserAPI.APIPath {
     static let login = "yxxlogin"
     static let updatepwd = "sysuser/updatepwd"
-    static let getCode = "web/getcode"
+    static let getCode = "getcode"
     static let jcMobileCode = "sysuser/jcMobileCode"
     static let updateMobile = "sysuser/updateMobile"
     

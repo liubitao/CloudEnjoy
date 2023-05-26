@@ -167,11 +167,11 @@ class LSClockListViewController: LSBaseViewController {
         }()
     }
     override func setupData() {
-        let placeListSingle = LSWorkbenchServer.getPlacePunchinList(datetime: Date().beginning(of: .month)!.string(withFormat: "yyyy-MM-dd"))
-        let dayPlaceSingle = LSWorkbenchServer.getPlacePunchin(datetime: Date().string(withFormat: "yyyy-MM-dd"))
+        let placeListSingle = LSWorkbenchServer.getPlacePunchinList(datetime: Date().beginning(of: .month)!.stringTime24(withFormat: "yyyy-MM-dd"))
+        let dayPlaceSingle = LSWorkbenchServer.getPlacePunchin(datetime: Date().stringTime24(withFormat: "yyyy-MM-dd"))
         Observable.zip(placeListSingle.asObservable(), dayPlaceSingle.asObservable()).subscribe { listModel, model in
             listModel?.forEach({ model in
-                if let date = model.datetime.date(withFormat: "yyyy-MM-dd hh:mm:ss") {
+                if let date = model.datetime.date(withFormat: "yyyy-MM-dd HH:mm:ss") {
                     self.punchinDic[date] = model.xbstatus == 1 && model.sbstatus == 1
                 }
             })
@@ -187,9 +187,9 @@ class LSClockListViewController: LSBaseViewController {
     }
     
     func workData(curretnDate: Date) {
-        LSWorkbenchServer.getPlacePunchinList(datetime: curretnDate.beginning(of: .month)!.string(withFormat: "yyyy-MM-dd")).subscribe { listModel in
+        LSWorkbenchServer.getPlacePunchinList(datetime: curretnDate.beginning(of: .month)!.stringTime24(withFormat: "yyyy-MM-dd")).subscribe { listModel in
             listModel?.forEach({ model in
-                if let date = model.datetime.date(withFormat: "yyyy-MM-dd hh:mm:ss") {
+                if let date = model.datetime.date(withFormat: "yyyy-MM-dd HH:mm:ss") {
                     self.punchinDic[date] = model.xbstatus == 1 && model.sbstatus == 1
                 }
             })
@@ -205,7 +205,7 @@ class LSClockListViewController: LSBaseViewController {
         guard let model = self.placePunchinModel else {return}
         self.workTypeLab.text = "班次：" + model.shiftname
         self.workTimeLab.text = model.workshift + "-" + model.closingtime
-        self.workDurationLab.text = "工作时长：" + (model.offclockintime.date(withFormat: "yyyy-MM-dd hh:mm:ss")?.hoursSince(model.onclockintime.date(withFormat: "yyyy-MM-dd hh:mm:ss") ?? Date()).int.string ?? "0")  + "h"
+        self.workDurationLab.text = "工作时长：" + (model.offclockintime.date(withFormat: "yyyy-MM-dd HH:mm:ss")?.hoursSince(model.onclockintime.date(withFormat: "yyyy-MM-dd HH:mm:ss") ?? Date()).int.string ?? "0")  + "h"
         items.onNext([SectionModel(model: "", items: model.userclocklist)])
     }
 }
@@ -217,7 +217,7 @@ extension LSClockListViewController: FSCalendarDataSource, FSCalendarDelegate, F
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         Toast.showHUD()
-        LSWorkbenchServer.getPlacePunchin(datetime: date.string(withFormat: "yyyy-MM-dd")).subscribe { model in
+        LSWorkbenchServer.getPlacePunchin(datetime: date.stringTime24(withFormat: "yyyy-MM-dd")).subscribe { model in
             self.placePunchinModel = model
             self.refreshUI()
         } onFailure: { error in

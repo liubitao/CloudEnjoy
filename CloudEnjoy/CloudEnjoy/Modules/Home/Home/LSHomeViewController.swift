@@ -161,6 +161,8 @@ class LSHomeViewController: LSBaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(networkHomeData), name: LSMessageType.updateUserStatus.notification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(networkHomeData), name: LSMessageType.changeProject.notification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(networkHomeData), name: LSMessageType.returnProject.notification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(networkHomeData), name: LSMessageType.autoCancelOrder.notification, object: nil)
+
     }
     
     @objc func jumpMessage() {

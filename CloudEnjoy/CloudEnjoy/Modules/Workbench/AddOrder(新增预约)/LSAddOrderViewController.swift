@@ -100,7 +100,7 @@ class LSAddOrderViewController: LSBaseViewController {
             self.customerTypeTextField.text = orderModel.custtype.cutomerString
             self.mobildTextField.text = orderModel.mobile
             self.arriveTimeTextField.text = orderModel.tostoretime
-            self.arriveDate = orderModel.tostoretime.date(withFormat: "yyyy-MM-dd HH:mm") ?? Date()
+            self.arriveDate = orderModel.tostoretime.dateTime24(withFormat: "yyyy-MM-dd HH:mm") ?? Date()
             self.timeType = orderModel.reservemin
             self.reserveTimeTextField.text = orderModel.reservemin.timeString
             self.customerNumLab.text = orderModel.qty
@@ -124,7 +124,7 @@ class LSAddOrderViewController: LSBaseViewController {
             }
         }else {
             self.customerTypeTextField.text = self.customerType.cutomerString
-            self.arriveTimeTextField.text = self.arriveDate.string(withFormat: "yyyy-MM-dd HH:mm")
+            self.arriveTimeTextField.text = self.arriveDate.stringTime24(withFormat: "yyyy-MM-dd HH:mm")
             self.reserveTimeTextField.text = timeType.timeString
             self.referrerLab.text = self.referrerModel.name
         }
@@ -153,7 +153,7 @@ class LSAddOrderViewController: LSBaseViewController {
             arriveStoreVC.arriveDate = self.arriveDate
             arriveStoreVC.selectedClosure = { arriveDate in
                 self.arriveDate = arriveDate
-                self.arriveTimeTextField.text = self.arriveDate.string(withFormat: "yyyy-MM-dd HH:mm")
+                self.arriveTimeTextField.text = self.arriveDate.stringTime24(withFormat: "yyyy-MM-dd HH:mm")
             }
             arriveStoreVC.presentedWith(self)
         }.disposed(by: self.rx.disposeBag)
@@ -443,6 +443,7 @@ class LSAddOrderViewController: LSBaseViewController {
                             "min": selectProjectModel.smin]
         if let jsModel = self.selectJSModel {
             project["tid"] = jsModel.userid
+            project["tname"] = jsModel.name
         }else {
             project["tlid"] = levelSelectModel!.tlid
             project["sex"] = sexSelectModel!.1
@@ -460,6 +461,7 @@ class LSAddOrderViewController: LSBaseViewController {
                                                "min": selectProjectModel!.smin]
             if let jsModel = selectJSModel {
                 projectItem["tid"] = jsModel.userid
+                projectItem["tname"] = jsModel.name
             }else {
                 projectItem["tlid"] = levelSelectModel!.tlid
                 projectItem["sex"] = sexSelectModel!.1
@@ -474,10 +476,10 @@ class LSAddOrderViewController: LSBaseViewController {
         var serverSingle: Single<LSNetworkResultModel>?
         var toastString = ""
         if let orderModel = self.orderModel {
-            serverSingle = LSWorkbenchServer.updateYuyue(billid: orderModel.billid, name: name, mobile: moblie, custtype: self.customerType, qty: self.customerNumLab.text ?? "1", refid: self.referrerModel.userid, tostoretime: self.arriveDate.string(withFormat: "yyyy-MM-dd hh:mm"), reservemin: self.timeType.reserveString, remark: self.remarkTextField.text ?? "", roomlist: roomlist.ls_toJSONString() ?? "", projectlist: projectList.ls_toJSONString() ?? "", status: orderModel.status.rawValue.string)
+            serverSingle = LSWorkbenchServer.updateYuyue(billid: orderModel.billid, name: name, mobile: moblie, custtype: self.customerType, qty: self.customerNumLab.text ?? "1", refid: self.referrerModel.userid, tostoretime: self.arriveDate.stringTime24(withFormat: "yyyy-MM-dd HH:mm"), reservemin: self.timeType.reserveString, remark: self.remarkTextField.text ?? "", roomlist: roomlist.ls_toJSONString() ?? "", projectlist: projectList.ls_toJSONString() ?? "", status: orderModel.status.rawValue.string)
             toastString = "预约修改成功"
         }else {
-            serverSingle = LSWorkbenchServer.insertAppointment(name: name, mobile: moblie, custtype: self.customerType, qty: self.customerNumLab.text ?? "1", refid: self.referrerModel.userid, tostoretime: self.arriveDate.string(withFormat: "yyyy-MM-dd hh:mm"), reservemin: self.timeType.reserveString, remark: self.remarkTextField.text ?? "", roomlist: roomlist.ls_toJSONString() ?? "", projectlist: projectList.ls_toJSONString() ?? "")
+            serverSingle = LSWorkbenchServer.insertAppointment(name: name, mobile: moblie, custtype: self.customerType, qty: self.customerNumLab.text ?? "1", refid: self.referrerModel.userid, tostoretime: self.arriveDate.stringTime24(withFormat: "yyyy-MM-dd HH:mm"), reservemin: self.timeType.reserveString, remark: self.remarkTextField.text ?? "", roomlist: roomlist.ls_toJSONString() ?? "", projectlist: projectList.ls_toJSONString() ?? "")
             toastString = "预约创建成功"
         }
         serverSingle?.subscribe { _ in

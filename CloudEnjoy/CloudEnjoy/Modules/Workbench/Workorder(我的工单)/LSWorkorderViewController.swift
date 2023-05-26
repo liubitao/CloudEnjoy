@@ -103,8 +103,8 @@ extension LSWorkorderViewController: JXSegmentedViewDelegate, JXSegmentedListCon
         calendarViewController.selectedClosure = {[weak self] startDate, endDate in
             guard let self = self else {return}
             let vc = self.subViewControllers[4]
-            vc.startdate = startDate.beginning(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
-            vc.enddate = endDate.end(of: .day)?.string(withFormat: "yyyy-MM-dd hh:mm:ss") ?? ""
+            vc.startdate = startDate.beginning(of: .day)?.stringTime24(withFormat: "yyyy-MM-dd HH:mm:ss") ?? ""
+            vc.enddate = endDate.end(of: .day)?.stringTime24(withFormat: "yyyy-MM-dd HH:mm:ss") ?? ""
             vc.timeLab.text = "\(vc.startdate.components(separatedBy: " ").first.unwrapped(or: "")) 至 \(vc.enddate.components(separatedBy: " ").first.unwrapped(or: ""))"
             vc.netwrokData(page: 1)
         }

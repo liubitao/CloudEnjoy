@@ -33,7 +33,7 @@ private func LSPrint(_ items: Any..., file:String = #file,funcName:String = #fun
     
     let file = (file as NSString).lastPathComponent;
     
-    let date = Date().string(withFormat: "HH:mm:ss")
+    let date = Date().stringTime24(withFormat: "HH:mm:ss")
     let itemsDes = items.reduce("") { partialResult, result in
         var temp = "\(result)"
         if let resultArray = result as? [Any] {
@@ -59,7 +59,7 @@ private func saveLog(original: String, fileName: String? = nil) {
         return
     }
     
-    let today = Date().string(withFormat: "yyyy-MM-dd")
+    let today = Date().stringTime24(withFormat: "yyyy-MM-dd")
     
     let logURL = cachePath.appendingPathComponent("\(fileName!)-\(today).txt")
     
@@ -97,7 +97,7 @@ private func appendText(fileURL: URL, string: String) {
 private func removeLogFile(days: Int) {
     
     let preDate = Date().adding(.day, value: -days)
-    let preDateStr = preDate.string(withFormat: "yyyy-MM-dd")
+    let preDateStr = preDate.stringTime24(withFormat: "yyyy-MM-dd")
     
     let cachePath = FileManager.default.urls(for: .cachesDirectory,
                                                 in: .userDomainMask)[0]

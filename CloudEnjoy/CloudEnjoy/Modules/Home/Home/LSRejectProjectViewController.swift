@@ -51,7 +51,7 @@ class LSRejectProjectViewController: LSBaseViewController {
         self.clockDurationView.isHidden = projectModel.status != .servicing
         if projectModel.status == .servicing {
         self.upClockTimeLab.text = projectModel.starttime
-            self.clockDurationLab.text = Date().minutesSince(projectModel.starttime.date(withFormat: "yyyy-MM-dd hh:mm:ss") ?? Date()).int.string + "分钟"
+            self.clockDurationLab.text = Date().minutesSince(projectModel.starttime.date(withFormat: "yyyy-MM-dd HH:mm:ss") ?? Date()).int.string + "分钟"
         }
     }
 

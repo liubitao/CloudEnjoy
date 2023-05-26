@@ -71,13 +71,13 @@ class LSDatePickerView: UIView {
                 return dateStr.date(withFormat: "yyyy-MM-dd") ?? Date()
             case .KDatePickerTime:
                 let dateStr = "\(selectedYear)-\(selectedMonthFormat)-\(selectedDayFormat) \(selectedHourFormat):\(selectedMinuteFormat)"
-                return dateStr.date(withFormat: "yyyy-MM-dd hh:mm") ?? Date()
+                return dateStr.date(withFormat: "yyyy-MM-dd HH:mm") ?? Date()
             case .KDatePickerSecond:
                 let dateStr = "\(selectedYear)-\(selectedMonthFormat)-\(selectedDayFormat) \(selectedHourFormat):\(selectedMinuteFormat):\(selectedSecondFormat)"
-                return dateStr.date(withFormat: "yyyy-MM-dd hh:mm:ss") ?? Date()
+                return dateStr.date(withFormat: "yyyy-MM-dd HH:mm:ss") ?? Date()
             default:
                 let dateStr = "\(selectedYear)-\(selectedMonthFormat)-\(selectedDayFormat) \(selectedHourFormat):\(selectedMinuteFormat)"
-                return dateStr.date(withFormat: "yyyy-MM-dd hh:mm") ?? Date()
+                return dateStr.date(withFormat: "yyyy-MM-dd HH:mm") ?? Date()
             }
         }
     }
