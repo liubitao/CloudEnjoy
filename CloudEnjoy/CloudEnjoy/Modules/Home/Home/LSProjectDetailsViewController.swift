@@ -61,7 +61,7 @@ class LSProjectDetailsViewController: LSBaseViewController {
         
         self.roomNameLab.text = projectModel.roomname + (parametersModel().OperationMode == 0 ? "(床位：\(projectModel.bedname))" : "(手牌：\(projectModel.handcardno))")
         self.projectNameLab.text = projectModel.projectname
-        self.numberLab.text = projectModel.qty.string
+        self.numberLab.text = projectModel.qty.stringValue(retain: 2)
         self.projectMoneyLab.text = "￥" + projectModel.amt.stringValue(retain: 2)
         self.projectDurationLab.text = projectModel.min + "分钟"
         self.clockLab.text = projectModel.ctype.clockString

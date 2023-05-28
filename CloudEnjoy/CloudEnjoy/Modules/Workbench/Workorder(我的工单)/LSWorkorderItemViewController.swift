@@ -10,6 +10,7 @@ import JXSegmentedView
 import SwifterSwift
 import RxDataSources
 import RxSwift
+import LSBaseModules
 
 class LSWorkorderItemViewController: LSBaseViewController {
     @IBOutlet weak var timeLab: UILabel!
@@ -64,8 +65,8 @@ class LSWorkorderItemViewController: LSBaseViewController {
                 cell.titleLab.text = "\(element.roomname)房--\(element.projectname)/\(element.ctypename)"
                 cell.statusLab.text = element.statusname
                 cell.statusView.backgroundColor = element.status.backColor
-                cell.amtLab.text = "项目金额：￥\(element.amt)"
-                cell.royaltyLab.text = "项目提成：￥\(element.commission)"
+                cell.amtLab.text = "项目金额：￥\(element.amt.stringValue(retain: 2))"
+                cell.royaltyLab.text = "项目提成：￥\(element.commission.stringValue(retain: 2))"
                 cell.createTimeLab.text = "下单时间：\(element.createtime)"
                 return cell
             }

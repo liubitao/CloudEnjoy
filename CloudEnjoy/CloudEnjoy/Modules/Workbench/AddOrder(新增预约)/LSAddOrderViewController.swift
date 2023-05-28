@@ -80,8 +80,8 @@ class LSAddOrderViewController: LSBaseViewController {
     var levelSelectModel: LSJSLevelModel?
     var sexSelectModel: (String, String)?
     
-    var orderModel: LSOrderModel?
-    convenience init(orderModel: LSOrderModel) {
+    var orderModel: LSYuyueOrderDetailsModel?
+    convenience init(orderModel: LSYuyueOrderDetailsModel) {
         self.init()
         self.orderModel = orderModel
     }
@@ -107,20 +107,41 @@ class LSAddOrderViewController: LSBaseViewController {
             self.referrerLab.text = orderModel.refname
             self.referrerModel = LSSysUserModel(userid: orderModel.refid, name: orderModel.refname)
             self.remarkTextField.text = orderModel.remark
-            self.roomLab.text = orderModel.roomname
-            self.selectRoomModel = LSOrderRoomModel(roomid: orderModel.roomid, name: orderModel.roomname)
-            self.projectLab.text = orderModel.projectname
-            self.selectProjectModel = LSOrderProjectModel(name: orderModel.projectname, projectid: orderModel.projectid, smin: orderModel.smin)
-            if orderModel.ctype == .wheelClock {
-                self.jsPlaceholderLab.isHidden = true
-                self.jsLab1.text = orderModel.ctypename
-                self.jsLabView1.isHidden = false
-            }else {
-                self.jsPlaceholderLab.isHidden = true
-                self.jsLab1.text = orderModel.ctypename
-                self.jsLabView1.isHidden = false
-                self.jsLab2.text = orderModel.tname
-                self.jsLabView2.isHidden = false
+            let sexs = [("不限", ""), ("女", "0"), ("男", "1")]
+            if let projectModel = orderModel.projectlist.first {
+                self.roomLab.text = projectModel.roomname
+                self.selectRoomModel = LSOrderRoomModel(roomid: projectModel.roomid, name: projectModel.roomname)
+                self.projectLab.text = projectModel.projectname
+                self.selectProjectModel = LSOrderProjectModel(name: projectModel.projectname, projectid: projectModel.projectid, smin: projectModel.smin)
+                self.clockSelectModel = projectModel.ctype
+                if projectModel.ctype == .wheelClock {
+                    self.jsPlaceholderLab.isHidden = true
+                    self.jsLab1.text = projectModel.ctype.clockString
+                    self.jsLabView1.isHidden = false
+                    self.levelSelectModel = LSJSLevelModel(name: projectModel.tlname, tlid: projectModel.tlid)
+                    self.jsLabView2.isHidden = false
+                    self.jsLab2.text = levelSelectModel?.name
+                    self.sexSelectModel = sexs.first{$0.1 == projectModel.sex}
+                    self.jsLabView3.isHidden = false
+                    self.jsLab3.text = sexSelectModel?.0
+                }else {
+                    self.selectJSModel = LSSysUserModel(userid: projectModel.tid, name: projectModel.tname)
+                    self.jsPlaceholderLab.isHidden = true
+                    self.jsLab1.text = projectModel.ctype.clockString
+                    self.jsLabView1.isHidden = false
+                    self.jsLab2.text = projectModel.tname
+                    self.jsLabView2.isHidden = false
+                    self.jsLabView3.isHidden = true
+                }
+            }
+            orderModel.projectlist[1..<orderModel.projectlist.count].forEach { projectModel in
+                let roomModel = LSOrderRoomModel(roomid: projectModel.roomid, name: projectModel.roomname)
+                let project = LSOrderProjectModel(name: projectModel.projectname, projectid: projectModel.projectid, smin: projectModel.smin)
+                let clockModel = projectModel.ctype
+                let levelModel = LSJSLevelModel(name: projectModel.tlname, tlid: projectModel.tlid)
+                let sexModel = sexs.first{$0.1 == projectModel.sex}
+                let jsModel = LSSysUserModel(userid: projectModel.tid, name: projectModel.tname)
+                self.models.append((roomModel, project, jsModel, clockModel, levelModel, sexModel))
             }
         }else {
             self.customerTypeTextField.text = self.customerType.cutomerString
@@ -311,6 +332,10 @@ class LSAddOrderViewController: LSBaseViewController {
         }
         items.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: self.rx.disposeBag)
         
+        let sectionModels = self.models.map{ SectionModel(model: "", items: [$0])}
+        self.items.onNext(sectionModels)
+        tableView.layoutIfNeeded()
+        self.tableViewHeight.constant = tableView.contentSize.height
     }
     
     func chioceDesc(selectedIndex: Int) {
@@ -427,8 +452,8 @@ class LSAddOrderViewController: LSBaseViewController {
                         nil != $0.levelSelectModel &&
                          nil != $0.sexSelectModel) || (
                             $0.clockSelectModel != .wheelClock &&
-                          nil != $0.selectJSModel) == false
-              }).count == 0 else {
+                          nil != $0.selectJSModel)
+              }).count == self.models.count else {
             Toast.show("请选择预约技师")
             return
         }
@@ -446,6 +471,7 @@ class LSAddOrderViewController: LSBaseViewController {
             project["tname"] = jsModel.name
         }else {
             project["tlid"] = levelSelectModel!.tlid
+            project["tlname"] = levelSelectModel!.name
             project["sex"] = sexSelectModel!.1
         }
         
@@ -464,6 +490,7 @@ class LSAddOrderViewController: LSBaseViewController {
                 projectItem["tname"] = jsModel.name
             }else {
                 projectItem["tlid"] = levelSelectModel!.tlid
+                projectItem["tlname"] = levelSelectModel!.name
                 projectItem["sex"] = sexSelectModel!.1
             }
             

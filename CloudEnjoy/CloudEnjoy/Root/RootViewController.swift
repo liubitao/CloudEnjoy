@@ -10,6 +10,7 @@ import IQKeyboardManagerSwift
 import LSNetwork
 import LSBaseModules
 import SnapKit
+import SwifterSwift
 
 class RootViewController: LSBaseViewController {
     
@@ -24,7 +25,7 @@ class RootViewController: LSBaseViewController {
     }
 
     override func setupNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(logout), name: LSMessageType.otherLogin.notification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(otherLogin), name: LSMessageType.otherLogin.notification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(logout), name: .reLogin, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(logout), name: .logout, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setupTabBarViewController), name: .login, object: nil)
@@ -96,6 +97,14 @@ class RootViewController: LSBaseViewController {
         LSRMQClient.unInstall()
         LoginDataCache.removeAll()
         self.setupLoginViewController()
+    }
+    
+    @objc func otherLogin() {
+        let alertVC = UIAlertController.init(title: "", message: "该账号已被其他账号登录!", defaultActionButtonTitle: "取消", tintColor: Color(hexString: "#2BB8C2"))
+        alertVC.addAction(title: "确定", style: .destructive, isEnabled: true) { _ in
+        }
+        alertVC.show()
+        self.logout()
     }
 }
 

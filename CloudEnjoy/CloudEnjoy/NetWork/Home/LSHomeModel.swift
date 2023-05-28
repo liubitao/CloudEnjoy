@@ -127,7 +127,7 @@ struct LSHomeProjectModel: HandyJSON {
     var updatetime = ""
     var status: LSHomeProjectStatus = .wait
     var amt:Double = 0
-    var qty = 0
+    var qty: Double = 0
     var jobid = ""
     var jprice: Double = 0
     var jmin = ""
@@ -162,7 +162,7 @@ class LSGoodsModel: HandyJSON {
     var typeid = ""
     var typename = ""
     var unit = ""
-    var sellprice = ""
+    var sellprice: Double = 0
     var itemstatus = "" // 商品状态 0上架 1 下架
     var stockqty = 0
     

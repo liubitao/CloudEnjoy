@@ -14,6 +14,7 @@ extension AppDelegate {
     func initBaseModules() {
         setKeyboard()   //键盘
         setApp()
+        NotificationCenter.default.addObserver(self, selector: #selector(setApp), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     private func setKeyboard() {
@@ -22,19 +23,17 @@ extension AppDelegate {
         IQKeyboardManager.shared.enableAutoToolbar = false
     }
     
-    private func setApp() {
-        if appIsLogin() == true {
-            let screenBool = AppDataCache.get(key: "screenSwitch") as? Bool ?? false
-            UIApplication.shared.isIdleTimerDisabled = screenBool
-        }
-//        UIApplication.shared.addObserver(self, forKeyPath: "idleTimerDisabled", options: [.new, .old], context: nil)
+    @objc private func setApp() {
+        let screenBool = AppDataCache.get(key: "screenSwitch") as? Bool ?? true
+        UIApplication.shared.isIdleTimerDisabled = screenBool
+//        UIApplication.shared.addObserver(self, forKeyPath: "isIdleTimerDisabled", options: .new, context: nil)
     }
     
 }
 
 extension AppDelegate {
     override class func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        let screenBool = AppDataCache.get(key: "screenSwitch") as? Bool ?? false
+        let screenBool = AppDataCache.get(key: "screenSwitch") as? Bool ?? true
         UIApplication.shared.isIdleTimerDisabled = screenBool
     }
 }

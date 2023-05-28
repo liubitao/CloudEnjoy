@@ -9,6 +9,8 @@ import UIKit
 import RxDataSources
 import RxSwift
 import SwifterSwift
+import LSBaseModules
+
 class LSRoyaltiesDetailsController: LSBaseViewController {
     var tableView: UITableView!
     @IBOutlet weak var listNumberLab: UILabel!
@@ -20,12 +22,12 @@ class LSRoyaltiesDetailsController: LSBaseViewController {
     var startdate: String!
     var enddate: String!
     var count: String!
-    var commission: String!
+    var commission: Double!
     
     var items = PublishSubject<[SectionModel<String, LSRoyaltiesDetailsModel>]>()
     var models = [LSRoyaltiesDetailsModel]()
     
-    convenience init(selecttype: Int, startdate: String, enddate: String, count: String, commission: String) {
+    convenience init(selecttype: Int, startdate: String, enddate: String, count: String, commission: Double) {
         self.init()
         self.selecttype = selecttype
         self.startdate = startdate
@@ -67,7 +69,7 @@ class LSRoyaltiesDetailsController: LSBaseViewController {
                 cell.commissionLab.text = "￥\(element.commission)"
                 cell.roomNameLab.text = "房间：\(element.roomname)"
                 cell.projectTypeLab.text = "类型：\(element.ctypename)"
-                cell.amtLab.text = "金额：￥\(element.amt)"
+                cell.amtLab.text = "金额：￥\(element.amt.stringValue(retain: 2))"
                 cell.timeLab.text = "时间：\(element.createtime)"
                 return cell
             }
@@ -84,7 +86,7 @@ class LSRoyaltiesDetailsController: LSBaseViewController {
     
     override func setupData() {
         self.listNumberLab.text = "共\(self.count.unwrapped(or: "0"))条记录"
-        self.totalRoyaltiesLab.text = "提成总和：￥\(self.commission.unwrapped(or: "0.00"))"
+        self.totalRoyaltiesLab.text = "提成总和：￥\(self.commission.stringValue(retain: 2))"
     }
     
     func netwrokData(page: Int) {

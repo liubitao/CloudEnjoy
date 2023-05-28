@@ -73,7 +73,19 @@ class LSOrderDetailsViewController: LSBaseViewController {
     }
     
     @IBAction func confirmAction(_ sender: Any) {
-        let editOrderVC = LSAddOrderViewController(orderModel: self.orderModel)
-        self.navigationController?.pushViewController(editOrderVC, animated: true)
+        Toast.showHUD()
+        LSWorkbenchServer.getOrderInfo(billid: self.orderModel.billid).subscribe { orderDetailsModel in
+            guard let orderDetailsModel = orderDetailsModel else {
+                return
+            }
+            let editOrderVC = LSAddOrderViewController(orderModel: orderDetailsModel)
+            self.navigationController?.pushViewController(editOrderVC, animated: true)
+        } onFailure: { error in
+            Toast.show(error.localizedDescription)
+        } onDisposed: {
+            Toast.hiddenHUD()
+        }.disposed(by: self.rx.disposeBag)
+
+        
     }
 }

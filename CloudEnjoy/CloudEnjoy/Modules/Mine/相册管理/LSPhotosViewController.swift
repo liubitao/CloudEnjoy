@@ -77,6 +77,9 @@ class LSPhotosViewController: LSBaseViewController {
                 }
                 var options = PickerOptionsInfo()
                 options.selectLimit = 5 - self.models.count
+                var captureOptions = CaptureOptionsInfo()
+                captureOptions.mediaOptions = .photo
+                options.captureOptions = captureOptions
                 let controller = ImagePickerController(options: options, delegate: self)
                 self.present(controller, animated: true, completion: nil)
             }.disposed(by: self.rx.disposeBag)

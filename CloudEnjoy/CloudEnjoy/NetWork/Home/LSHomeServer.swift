@@ -38,8 +38,10 @@ class LSHomeServer {
                                   
     static func addClock(billid: String,
                          projectid: String,
-                         qty: String) -> Single<LSNetworkResultModel>{
-        return provider.lsRequest(.addClock(billid: billid, projectid: projectid, qty: qty))
+                         qty: String,
+                         refid: String,
+                         refname: String) -> Single<LSNetworkResultModel>{
+        return provider.lsRequest(.addClock(billid: billid, projectid: projectid, qty: qty, refid: refid, refname: refname))
     }
     
     static func addProduct(billid: String,

@@ -52,14 +52,14 @@ enum LSTimeSectionType: Int, CaseIterable {
 
 // 我的提成
 struct LSRoyaltiesTotalModel: HandyJSON {
-    var commissionsum = ""
+    var commissionsum: Double = 0
     var list: [LSRoyaltiesItemModel] = []
     
 }
 struct LSRoyaltiesItemModel: HandyJSON {
     var name = ""
     var count = ""
-    var commission = ""
+    var commission: Double = 0
     var selecttype = 0
 }
 
@@ -67,9 +67,9 @@ struct LSRoyaltiesItemModel: HandyJSON {
 struct LSRoyaltiesDetailsModel: HandyJSON {
     var id = ""
     var projectname = ""
-    var amt = ""
+    var amt: Double = 0
     var ctypename = ""
-    var commission = ""
+    var commission: Double = 0
     var roomname = ""
     var createtime = ""
 }
@@ -132,8 +132,8 @@ struct LSOrderServerModel: HandyJSON {
     var ctypename = ""
     var statusname = ""
     var status: LSOrderServerStatus = .wait
-    var amt = ""
-    var commission = ""
+    var amt: Double = 0
+    var commission: Double = 0
     var createtime = ""
     var billid = ""
 }
@@ -402,6 +402,65 @@ struct LSOrderModel: HandyJSON {
     }
 }
 
+
+struct LSYuyueOrderDetailsModel: HandyJSON {
+    var billid = ""
+    var name = ""
+    var mobile = ""
+    var qty = ""
+    var custtype = LSCustomerType.common
+    var ctypename = ""
+    var tostoretime = ""
+    var reservemin = LSReserveTimeType.fifteen
+    var refid = ""
+    var refname = ""
+    var remark = ""
+    var statusname = ""
+    var status = LSOrderStatus.hadYuyue
+    var createname = ""
+    var tname = ""
+    var createtime = ""
+    
+    var projectlist = [LSYuyueProjectModel]()
+}
+
+struct LSYuyueProjectModel: HandyJSON {
+    var bedid = ""
+    var cprice = ""
+    var remark = ""
+    var smin = ""
+    var spid = ""
+    var tid = ""
+    var sid = ""
+    var roomname = ""
+    var min = ""
+    var tlname = ""
+    var price = ""
+    var billid = ""
+    var headcardid = ""
+    var id = ""
+    var refid = ""
+    var projectid = ""
+    var tsflag = ""
+    var jprice = ""
+    var dprice = ""
+    var projectname = ""
+    var createtime = ""
+    var headcardno = ""
+    var tlid = ""
+    var sex = ""
+    var tname = ""
+    var detailid = ""
+    var roomid = ""
+    var refname = ""
+    var tcode = ""
+    var ctype = LSClockType.wheelClock
+    var xprice = ""
+    var lprice = ""
+    var bedname = ""
+    var billno = ""
+    var status = ""
+}
 
 struct LSOrderDetailsModel: HandyJSON {
     var cashname = ""

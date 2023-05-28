@@ -41,7 +41,7 @@
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0iT-ZT-KJS">
-                            <rect key="frame" x="10" y="138" width="373" height="195.33333333333337"/>
+                            <rect key="frame" x="10" y="138" width="373" height="115.33333333333331"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdV-Ea-h94">
                                     <rect key="frame" x="10" y="11" width="2" height="13"/>
@@ -111,22 +111,22 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bu-zF-job">
                                     <rect key="frame" x="279.66666666666669" y="35.333333333333343" width="93.333333333333314" height="80"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="工单汇总" imagePlacement="top" imagePadding="5">
+                                    <buttonConfiguration key="configuration" style="plain" image="会员查询" imagePlacement="top" imagePadding="5">
                                         <attributedString key="attributedTitle">
-                                            <fragment content="工单汇总">
+                                            <fragment content="会员查询">
                                                 <attributes>
                                                     <font key="NSFont" size="14" name="PingFangSC-Regular"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
                                         <color key="baseForegroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </buttonConfiguration>
                                     <connections>
-                                        <action selector="jumpOrderSummary:" destination="-1" eventType="touchUpInside" id="GtB-ne-4pj"/>
+                                        <action selector="jumpUserquery:" destination="-1" eventType="touchUpInside" id="Ed3-qh-h64"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqP-be-45g">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqP-be-45g">
                                     <rect key="frame" x="0.0" y="115.33333333333334" width="93.333333333333329" height="80"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="技师排位" imagePlacement="top" imagePadding="5">
@@ -144,12 +144,12 @@
                                         <action selector="jumpJsRank:" destination="-1" eventType="touchUpInside" id="2oB-iy-gtj"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yut-hf-uw4">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yut-hf-uw4">
                                     <rect key="frame" x="93.333333333333343" y="115.33333333333334" width="93.333333333333343" height="80"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="会员查询" imagePlacement="top" imagePadding="5">
+                                    <buttonConfiguration key="configuration" style="plain" image="工单汇总" imagePlacement="top" imagePadding="5">
                                         <attributedString key="attributedTitle">
-                                            <fragment content="会员查询">
+                                            <fragment content="工单汇总">
                                                 <attributes>
                                                     <font key="NSFont" size="14" name="PingFangSC-Regular"/>
                                                 </attributes>
@@ -158,7 +158,7 @@
                                         <color key="baseForegroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </buttonConfiguration>
                                     <connections>
-                                        <action selector="jumpUserquery:" destination="-1" eventType="touchUpInside" id="1Jt-42-zHz"/>
+                                        <action selector="jumpOrderSummary:" destination="-1" eventType="touchUpInside" id="Khg-rW-jiV"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -185,7 +185,7 @@
                                 <constraint firstItem="yut-hf-uw4" firstAttribute="centerX" secondItem="udG-46-NVq" secondAttribute="centerX" id="gSi-sF-Zjj"/>
                                 <constraint firstItem="AcR-9Y-UIW" firstAttribute="top" secondItem="zhu-ps-yM3" secondAttribute="bottom" constant="10" id="lvE-f5-Yf9"/>
                                 <constraint firstItem="Gc2-B4-VNq" firstAttribute="leading" secondItem="udG-46-NVq" secondAttribute="trailing" id="ovz-Ob-dWJ"/>
-                                <constraint firstAttribute="bottom" secondItem="IqP-be-45g" secondAttribute="bottom" id="sSW-O7-hQE"/>
+                                <constraint firstAttribute="bottom" secondItem="IqP-be-45g" secondAttribute="top" id="sSW-O7-hQE"/>
                                 <constraint firstItem="kdV-Ea-h94" firstAttribute="top" secondItem="0iT-ZT-KJS" secondAttribute="top" constant="11" id="t64-rc-ach"/>
                                 <constraint firstItem="5bu-zF-job" firstAttribute="centerY" secondItem="AcR-9Y-UIW" secondAttribute="centerY" id="xJk-uA-b96"/>
                                 <constraint firstItem="IqP-be-45g" firstAttribute="top" secondItem="AcR-9Y-UIW" secondAttribute="bottom" id="xdi-PT-EHt"/>
@@ -206,7 +206,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3T-O6-zBu">
-                            <rect key="frame" x="10" y="343.33333333333331" width="373" height="125"/>
+                            <rect key="frame" x="10" y="263.33333333333331" width="373" height="125"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EyG-KW-1F0">
                                     <rect key="frame" x="10" y="11" width="2" height="13"/>
@@ -287,7 +287,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pta-8b-l6W">
-                            <rect key="frame" x="10" y="478.33333333333326" width="373" height="125"/>
+                            <rect key="frame" x="10" y="398.33333333333331" width="373" height="124.99999999999994"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFE-mo-HGR">
                                     <rect key="frame" x="10" y="11" width="2" height="13"/>
@@ -304,7 +304,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="392-MO-IgA">
-                                    <rect key="frame" x="0.0" y="35.333333333333321" width="93.333333333333329" height="79.666666666666686"/>
+                                    <rect key="frame" x="0.0" y="35.333333333333378" width="93.333333333333329" height="79.666666666666686"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="员工打卡" imagePlacement="top" imagePadding="5">
                                         <attributedString key="attributedTitle">
@@ -321,7 +321,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3k-3i-IwB">
-                                    <rect key="frame" x="93.333333333333343" y="35.333333333333321" width="93.333333333333343" height="79.666666666666686"/>
+                                    <rect key="frame" x="93.333333333333343" y="35.333333333333378" width="93.333333333333343" height="79.666666666666686"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="员工请假" imagePlacement="top" imagePadding="5">
                                         <attributedString key="attributedTitle">

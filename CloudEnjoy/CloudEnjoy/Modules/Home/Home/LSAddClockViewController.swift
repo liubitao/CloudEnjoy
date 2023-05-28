@@ -9,18 +9,23 @@ import UIKit
 import LSBaseModules
 
 class LSAddClockViewController: LSBaseViewController {
-    @IBOutlet weak var projectPicIamgeView: UIImageView!
-    
-    @IBOutlet weak var projectNameLab: UILabel!
-    
-    @IBOutlet weak var projectPriceLab: UILabel!
-    
-    @IBOutlet weak var projectDurationLab: UILabel!
+    @IBOutlet weak var oldProjectPicIamgeView: UIImageView!
+    @IBOutlet weak var oldProjectNameLab: UILabel!
+    @IBOutlet weak var oldProjectPriceLab: UILabel!
+    @IBOutlet weak var oldProjectDurationLab: UILabel!
+    @IBOutlet weak var newProjectPicIamgeView: UIImageView!
+    @IBOutlet weak var newProjectNameLab: UILabel!
+    @IBOutlet weak var newProjectPriceLab: UILabel!
+    @IBOutlet weak var newProjectDurationLab: UILabel!
+    @IBOutlet weak var addTipLab: UILabel!
     
     @IBOutlet weak var roomNameLab: UILabel!
-    
     @IBOutlet weak var bedNoTitleLab: UILabel!
     @IBOutlet weak var bedNoLab: UILabel!
+    @IBOutlet weak var refNameLab: UILabel!
+    @IBOutlet weak var selectedProjectView: UIView!
+
+    @IBOutlet weak var refNameView: UIView!
     
     @IBOutlet weak var numberLab: UILabel!
     
@@ -28,11 +33,9 @@ class LSAddClockViewController: LSBaseViewController {
     
     @IBOutlet weak var plusBtn: UIButton!
     
-    @IBOutlet weak var referrerView: UIView!
-    @IBOutlet weak var referrerLab: UILabel!
-    
-    
     var projectModel: LSHomeProjectModel!
+    var newOrderProjectModel: LSOrderProjectModel?
+    
     var referrerModel: LSSysUserModel = LSSysUserModel()
 
     
@@ -47,21 +50,41 @@ class LSAddClockViewController: LSBaseViewController {
     }
     
     override func setupViews() {
-        self.projectPicIamgeView.kf.setImage(with: imgUrl(self.projectModel.images))
-        self.projectNameLab.text = self.projectModel.projectname
-        self.projectPriceLab.text = "￥" + self.projectModel.jprice.stringValue(retain: 2)
-        self.projectDurationLab.text = "/" + self.projectModel.jmin + "分钟"
+        self.oldProjectPicIamgeView.kf.setImage(with: imgUrl(self.projectModel.images))
+        self.oldProjectNameLab.text = self.projectModel.projectname
+        self.oldProjectPriceLab.text = "￥" + self.projectModel.jprice.stringValue(retain: 2)
+        self.oldProjectDurationLab.text = "/" + self.projectModel.jmin + "分钟"
+        
         self.roomNameLab.text = self.projectModel.roomname
         self.bedNoTitleLab.text = parametersModel().OperationMode == 0 ? "床位号" : "手牌号"
         self.bedNoLab.text = parametersModel().OperationMode == 0 ? "\(projectModel.bedname)" : "\(projectModel.handcardno)"
+        self.refNameLab.text = self.referrerModel.name
         
-        self.referrerView.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
+        self.selectedProjectView.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
+            guard let self = self else {return}
+            let chioceProjectVC = LSChioceProjectViewController.creaeFromStoryboard(with: self.newOrderProjectModel)
+            chioceProjectVC.selectedClosure = { projectModel in
+                self.newOrderProjectModel = projectModel
+                self.newProjectPicIamgeView.isHidden = false
+                self.newProjectNameLab.isHidden = false
+                self.newProjectPriceLab.isHidden = false
+                self.newProjectDurationLab.isHidden = false
+                self.addTipLab.isHidden = true
+                self.newProjectPicIamgeView.kf.setImage(with: imgUrl(projectModel.images))
+                self.newProjectNameLab.text = projectModel.name
+                self.newProjectPriceLab.text = "￥" + projectModel.lprice.stringValue(retain: 2)
+                self.newProjectDurationLab.text = "/" + projectModel.smin + "分钟"
+            }
+            chioceProjectVC.presentedWith(self)
+        }.disposed(by: self.rx.disposeBag)
+        
+        self.refNameView.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
             guard let self = self else {return}
             let referrerVC = LSReferrerViewController.creaeFromStoryboard(with: self.referrerModel)
             referrerVC.referrerModel = self.referrerModel
             referrerVC.selectedClosure = { referrerModel in
                 self.referrerModel = referrerModel
-                self.referrerLab.text = referrerModel.name
+                self.refNameLab.text = referrerModel.name
             }
             referrerVC.presentedWith(self)
         }.disposed(by: self.rx.disposeBag)
@@ -92,8 +115,12 @@ class LSAddClockViewController: LSBaseViewController {
             Toast.show("请添加您想加钟的次数")
             return
         }
+        guard let newprojectModel = self.newOrderProjectModel else {
+            Toast.show("请添加您想加钟的项目")
+            return
+        }
         Toast.showHUD()
-        LSHomeServer.addClock(billid: self.projectModel.billid, projectid: self.projectModel.projectid, qty: number.string)
+        LSHomeServer.addClock(billid: self.projectModel.billid, projectid: newprojectModel.projectid, qty: number.string, refid: self.referrerModel.userid, refname: self.referrerModel.name)
             .subscribe { _ in
                 Toast.show("已加钟成功")
                 self.navigationController?.popViewController(animated: true)

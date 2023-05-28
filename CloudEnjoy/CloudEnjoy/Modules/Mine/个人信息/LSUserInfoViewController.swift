@@ -44,6 +44,9 @@ class LSUserInfoViewController: LSBaseViewController {
             guard let self = self else {return}
             var options = PickerOptionsInfo()
             options.selectLimit = 1
+            var captureOptions = CaptureOptionsInfo()
+            captureOptions.mediaOptions = .photo
+            options.captureOptions = captureOptions
             let controller = ImagePickerController(options: options, delegate: self)
             self.present(controller, animated: true, completion: nil)
         }.disposed(by: self.rx.disposeBag)

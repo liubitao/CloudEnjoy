@@ -61,7 +61,7 @@ class LSRoyaltiesItemController: LSBaseViewController {
                 let cell: LSRoyaltiesItemTableCell = tableView.dequeueReusableCell(withClass: LSRoyaltiesItemTableCell.self)
                 cell.iconImageView.image = UIImage(named: element.name)
                 cell.titleLab.text = element.name
-                cell.moneyLab.text = "￥\(element.commission)"
+                cell.moneyLab.text = "￥\(element.commission.stringValue(retain: 2))"
                 cell.countLab.text = "\(element.count)条记录"
                 return cell
             }
@@ -95,7 +95,7 @@ class LSRoyaltiesItemController: LSBaseViewController {
     }
     
     func refreshUI() {
-        self.totalLab.text = "￥\(self.royaltiesTotalModel.commissionsum)"
+        self.totalLab.text = "￥\(self.royaltiesTotalModel.commissionsum.stringValue(retain: 2))"
         let sectionModels = self.royaltiesTotalModel.list.map{SectionModel.init(model: "", items: [$0])}
         self.items.onNext(sectionModels)
     }

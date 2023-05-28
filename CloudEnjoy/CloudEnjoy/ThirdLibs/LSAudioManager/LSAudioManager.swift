@@ -58,6 +58,7 @@ extension LSAudioOperation: AVAudioPlayerDelegate {
     }
 }
 
+
 // MARK: - QueueManager
 public final class LSAudioQueueManager {
     public static let shared = LSAudioQueueManager()
@@ -83,7 +84,7 @@ public final class LSAudioQueueManager {
             return
         }
         lock.lock()
-        Array(0..<voiceTimes).forEach{_ in pendingRequests.append(operation)}
+        Array(0..<voiceTimes).forEach{_ in pendingRequests.append(LSAudioOperation(audioName: operation.audioName))}
         runNextRequestIfNeeded()
         lock.unlock()
     }

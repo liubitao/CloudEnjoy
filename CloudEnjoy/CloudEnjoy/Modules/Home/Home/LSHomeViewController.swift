@@ -40,6 +40,8 @@ class LSHomeViewController: LSBaseViewController {
         super.viewDidLoad()
     }
     
+ 
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.vhl_navBarBackgroundAlpha = 0

@@ -91,7 +91,8 @@ class LSHomeUserStatusView: UIView {
             waitTimeLab.isHidden = hadOverTime
             hadWaitLab.isHidden = !hadOverTime
             if hadOverTime == true {
-                self.dispose = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.asyncInstance).subscribe(onNext: { _ in
+                self.dispose = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.asyncInstance).subscribe(onNext: {[weak self] _ in
+                    guard let self = self else {return}
                     let secondsSince = Date().timeIntervalSince(dispatchDate).int
                     self.hadWaitLab.text = "已等待：" + String(format: "%02d", secondsSince/3600) + ":" + String(format: "%02d", secondsSince/60%60) + ":" + String(format: "%02d", secondsSince%60)
                     let makeAppointmentReminder = (parametersModel().MakeAppointmentReminder == 0 ? 5 : parametersModel().MakeAppointmentReminder) * 60
@@ -104,7 +105,9 @@ class LSHomeUserStatusView: UIView {
             }
             
             case .servicing: view = servicingView
-            self.dispose = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.asyncInstance).subscribe(onNext: { _ in
+            self.dispose = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.asyncInstance).subscribe(onNext: {
+                [weak self] _ in
+                guard let self = self else {return}
                 let endDate = model.starttime.date(withFormat: "yyyy-MM-dd HH:mm:ss")?.adding(.minute, value: model.min)
                 let secondsSince = endDate?.timeIntervalSince(Date()).int ?? 0
                 if secondsSince > 0 {

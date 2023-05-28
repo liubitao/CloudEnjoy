@@ -191,7 +191,7 @@ class LSGoodsViewController: LSBaseViewController {
                 cell.goodsPicImageView.kf.setImage(with: imgUrl(element.imageurl))
                 cell.goodsNameLab.text = element.name
                 cell.goodsStockLab.text = "库存：" + element.stockqty.string
-                cell.goodsPriceLab.text = "￥" + element.sellprice
+                cell.goodsPriceLab.text = "￥" + element.sellprice.stringValue(retain: 2)
                 cell.goodsNumberLab.text = element.number.string
                 cell.goodsNumberLab.isHidden = element.number == 0
                 cell.subtractBtn.isHidden = element.number == 0
@@ -309,7 +309,7 @@ class LSGoodsViewController: LSBaseViewController {
         }
         let productlist = goodsModels.map{["productid": $0.productid,
                                            "qty": $0.number,
-                                           "amt": ($0.sellprice.double() ?? 0) * $0.number.double,
+                                           "amt": ($0.sellprice ?? 0) * $0.number.double,
                                            "price": $0.sellprice,
                                            "productname": $0.name,
                                            "rprice": $0.sellprice]}.ls_toJSONString() ?? ""

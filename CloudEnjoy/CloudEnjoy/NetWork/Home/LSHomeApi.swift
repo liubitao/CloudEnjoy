@@ -44,7 +44,9 @@ enum LSHomeAPI: TargetType {
     case updateClockStatus(billid: String, status: String)
     case addClock(billid: String,
                   projectid: String,
-                  qty: String)
+                  qty: String,
+                  refid: String,
+                  refname: String)
     case addProduct(billid: String,
                     roomid: String,
                     bedid: String,
@@ -138,10 +140,12 @@ extension LSHomeAPI: LSTargetType{
         case let .updateClockStatus(billid, status):
             return ["billid": billid,
                     "status": status]
-        case let .addClock(billid, projectid, qty):
+        case let .addClock(billid, projectid, qty, refid, refname):
             return ["billid": billid,
                     "projectid": projectid,
-                    "qty": qty]
+                    "qty": qty,
+                    "refid": refid,
+                    "refname": refname]
         case let .addProduct(billid, roomid, bedid, refid, refname, refjobid, productlist, remark):
             return ["billid": billid,
                     "roomid": roomid,
