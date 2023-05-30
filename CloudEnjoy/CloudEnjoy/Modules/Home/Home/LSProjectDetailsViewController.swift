@@ -130,7 +130,7 @@ class LSProjectDetailsViewController: LSBaseViewController {
     }
     
     override func setupData() {
-        let waitData: [OpeartionModel] = [("技师上下钟", "技师上钟"), ("商品下单", "商品下单"), ("呼叫服务", "呼叫服务"), ("项目加钟", "项目加钟"), ("更换项目", "更换项目"), ("退钟", "退钟")]
+        let waitData: [OpeartionModel] = [("技师上下钟", "技师上钟"), ("商品下单", "商品下单"), ("呼叫服务", "呼叫服务"), ("更换项目", "更换项目"), ("退钟", "退钟")]
         
         let servicingData: [OpeartionModel] = [("技师上下钟", "技师下钟"), ("商品下单", "商品下单"), ("呼叫服务", "呼叫服务"), ("项目加钟", "项目加钟"), ("更换项目", "更换项目"), ("退钟", "退钟")]
         

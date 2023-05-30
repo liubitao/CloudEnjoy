@@ -54,6 +54,7 @@ class LSAddClockViewController: LSBaseViewController {
         self.oldProjectPriceLab.text = "￥" + self.projectModel.jprice.stringValue(retain: 2)
         self.oldProjectDurationLab.text = "/" + self.projectModel.jmin + "分钟"
         
+        self.newOrderProjectModel = LSOrderProjectModel(name: self.projectModel.name, projectid: self.projectModel.projectid)
         self.newProjectPicIamgeView.kf.setImage(with: imgUrl(self.projectModel.images))
         self.newProjectNameLab.text = self.projectModel.projectname
         self.newProjectPriceLab.text = "￥" + self.projectModel.jprice.stringValue(retain: 2)
@@ -63,6 +64,7 @@ class LSAddClockViewController: LSBaseViewController {
         self.roomNameLab.text = self.projectModel.roomname
         self.bedNoTitleLab.text = parametersModel().OperationMode == 0 ? "床位号" : "手牌号"
         self.bedNoLab.text = parametersModel().OperationMode == 0 ? "\(projectModel.bedname)" : "\(projectModel.handcardno)"
+        self.referrerModel = LSSysUserModel(userid: userModel().userid, name: userModel().name)
         self.refNameLab.text = self.referrerModel.name
         
         self.selectedProjectView.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
