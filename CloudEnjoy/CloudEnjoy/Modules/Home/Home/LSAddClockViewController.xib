@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LSAddClockViewController" customModule="CloudEnjoy" customModuleProvider="target">
             <connections>
-                <outlet property="addTipLab" destination="PnZ-CH-0Ex" id="dX2-H1-fEG"/>
                 <outlet property="bedNoLab" destination="cgl-bq-efm" id="6bM-Pr-EA2"/>
                 <outlet property="bedNoTitleLab" destination="b0S-V8-jx7" id="S59-lV-qqW"/>
                 <outlet property="newProjectDurationLab" destination="wld-V8-Vmi" id="8u3-AV-yFa"/>
@@ -242,7 +241,7 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
-                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78q-gH-f8W">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78q-gH-f8W">
                                     <rect key="frame" x="141" y="1" width="36" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="eWB-ZJ-X1a"/>
@@ -251,7 +250,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥165.66" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIy-np-ann">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥165.66" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIy-np-ann">
                                     <rect key="frame" x="141" y="28" width="60" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="4pb-S1-8qw"/>
@@ -260,7 +259,7 @@
                                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="0.8980392157" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/60分钟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wld-V8-Vmi">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/60分钟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wld-V8-Vmi">
                                     <rect key="frame" x="201" y="28" width="51" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="BZo-ra-osG"/>
@@ -272,18 +271,11 @@
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="矩形 copy 6(1)" translatesAutoresizingMaskIntoConstraints="NO" id="kKP-YX-zQL">
                                     <rect key="frame" x="332.33333333333331" y="47.333333333333314" width="10.666666666666686" height="10.666666666666664"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择新项目" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnZ-CH-0Ex">
-                                    <rect key="frame" x="37.333333333333336" y="44.666666666666686" width="66.333333333333314" height="15.666666666666664"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <color key="textColor" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="wld-V8-Vmi" firstAttribute="centerY" secondItem="oIy-np-ann" secondAttribute="centerY" id="2sr-pB-d99"/>
                                 <constraint firstItem="kKP-YX-zQL" firstAttribute="centerY" secondItem="4IX-2Q-FTE" secondAttribute="centerY" id="6vi-0H-n4F"/>
-                                <constraint firstItem="PnZ-CH-0Ex" firstAttribute="centerY" secondItem="4IX-2Q-FTE" secondAttribute="centerY" id="GgN-du-QMF"/>
                                 <constraint firstItem="wld-V8-Vmi" firstAttribute="leading" secondItem="oIy-np-ann" secondAttribute="trailing" id="HCE-16-bKm"/>
                                 <constraint firstAttribute="bottom" secondItem="4IX-2Q-FTE" secondAttribute="bottom" constant="14" id="IId-Jg-dkD"/>
                                 <constraint firstItem="oIy-np-ann" firstAttribute="top" secondItem="78q-gH-f8W" secondAttribute="bottom" constant="6" id="IMx-UG-pBw"/>
@@ -291,7 +283,6 @@
                                 <constraint firstAttribute="trailing" secondItem="kKP-YX-zQL" secondAttribute="trailing" constant="30" id="R6a-Qo-hhw"/>
                                 <constraint firstItem="78q-gH-f8W" firstAttribute="top" secondItem="4IX-2Q-FTE" secondAttribute="top" constant="1" id="TS0-dc-fOV"/>
                                 <constraint firstItem="4IX-2Q-FTE" firstAttribute="top" secondItem="MMq-Lo-LAt" secondAttribute="top" id="TWQ-pV-5lx"/>
-                                <constraint firstItem="PnZ-CH-0Ex" firstAttribute="centerX" secondItem="4IX-2Q-FTE" secondAttribute="centerX" id="bK6-H4-riF"/>
                                 <constraint firstItem="oIy-np-ann" firstAttribute="leading" secondItem="78q-gH-f8W" secondAttribute="leading" id="o7Z-Da-p1y"/>
                                 <constraint firstItem="78q-gH-f8W" firstAttribute="leading" secondItem="4IX-2Q-FTE" secondAttribute="trailing" constant="18" id="rxw-xH-X6U"/>
                             </constraints>

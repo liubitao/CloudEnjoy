@@ -58,8 +58,9 @@ class LSWorkbenchServer {
     }
     
     static func getProjectinfoList(cond: String = "",
-                                   projecttypeid: String = "") -> Single<LSNetworkListModel<LSOrderProjectModel>?>{
-        return provider.lsRequest(.getProjectinfoList(cond: cond, projecttypeid: projecttypeid)).mapHandyModel(type: LSNetworkListModel<LSOrderProjectModel>.self)
+                                   projecttypeid: String = "",
+                                   tid: String = "") -> Single<LSNetworkListModel<LSOrderProjectModel>?>{
+        return provider.lsRequest(.getProjectinfoList(cond: cond, projecttypeid: projecttypeid, tid: tid)).mapHandyModel(type: LSNetworkListModel<LSOrderProjectModel>.self)
     }
     
     static func getProjecttypeList(cond: String = "") -> Single<LSNetworkListModel<LSProjectTypeModel>?>{

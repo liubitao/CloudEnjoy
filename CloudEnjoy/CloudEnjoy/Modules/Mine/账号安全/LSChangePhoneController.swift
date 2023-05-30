@@ -40,7 +40,12 @@ class LSChangePhoneController: LSBaseViewController {
         self.phoneTitleLab.text = self.type == .old ? "原手机号" : "新手机号"
         self.confirmBtn.setTitle(self.type == .old ? "下一步" : "确认", for: .normal)
         self.confirmBtn.setTitle(self.type == .old ? "下一步" : "确认", for: .disabled)
-        self.phoneTextField.placeholder = self.type == .old ? "请输入原始手机号" : "请输入新手机号"
+        if self.type == .old {
+            self.phoneTextField.text = userModel().mobile
+            self.phoneTextField.isEnabled = false
+        }else {
+            self.phoneTextField.placeholder = "请输入新手机号"
+        }
         self.confirmBtn.setBackgroundImage(UIImage(color: UIColor(hexString: "#E4E7ED")!, size: CGSize(width: UI.SCREEN_WIDTH - 10*2, height: 43)), for: .disabled)
         self.confirmBtn.setBackgroundImage(UIImage(color: UIColor(hexString: "#00AAB7")!, size: CGSize(width: UI.SCREEN_WIDTH - 10*2, height: 43)), for: .normal)
         
@@ -59,7 +64,7 @@ class LSChangePhoneController: LSBaseViewController {
             })
             .subscribe(onNext: { _ in
                 self.timeLeft -= 1
-                self.sendSmsButton.setTitle("(\(self.timeLeft)s)", for: .disabled)
+                self.sendSmsButton.setTitle("\(self.timeLeft)s", for: .disabled)
             }, onCompleted: {
                 self.sendSmsButton.isEnabled = true
             }, onDisposed: {

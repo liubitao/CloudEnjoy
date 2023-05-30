@@ -78,11 +78,11 @@ class LSClocksItemViewController: LSBaseViewController {
             let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSFindMeClockNumItemModel>> { dataSource, tableView, indexPath, element in
                 let cell: LSClockTableViewCell = tableView.dequeueReusableCell(withClass: LSClockTableViewCell.self)
                 cell.clockTitleLab.text = element.name
-                cell.wheelClockLab.text = element.sumlqty.string
-                cell.oClockLab.text = element.sumdqty.string
-                cell.callClockLab.text = element.sumcqty.string
-                cell.optionClockLab.text = element.sumxqty.string
-                cell.addClockLab.text = element.sumjqty.string
+                cell.wheelClockLab.text = element.sumlqty.stringValue(retain: 1) ?? "0.0"
+                cell.oClockLab.text = element.sumdqty.stringValue(retain: 1) ?? "0.0"
+                cell.callClockLab.text = element.sumcqty.stringValue(retain: 1) ?? "0.0"
+                cell.optionClockLab.text = element.sumxqty.stringValue(retain: 1) ?? "0.0"
+                cell.addClockLab.text = element.sumjqty.stringValue(retain: 1) ?? "0.0"
                 cell.contentView.backgroundColor = indexPath.row%2 == 0 ? Color(hexString: "#FFFFFF") : Color(hexString: "#F7FAFF")
                 return cell
             }
@@ -114,9 +114,9 @@ class LSClocksItemViewController: LSBaseViewController {
     
     func refreshUI() {
         let mainTotalModel = self.clockNumModel.ptypelist.first{$0.ptype == 0}
-        self.mainClockLab.text = (mainTotalModel?.sumqty ?? 0).string
+        self.mainClockLab.text = mainTotalModel?.sumqty.stringValue(retain: 1) ?? "0.0"
         let smallTotalModel = self.clockNumModel.ptypelist.first{$0.ptype == 1}
-        self.smallClockLab.text = (smallTotalModel?.sumqty ?? 0).string
+        self.smallClockLab.text = smallTotalModel?.sumqty.stringValue(retain: 1) ?? "0.0"
         if isShowMain {
             self.mainBGImageView.isHidden = false
             self.smallBGImageView.isHidden = true
@@ -124,11 +124,11 @@ class LSClocksItemViewController: LSBaseViewController {
             self.mainClockLab.textColor = Color.white
             self.smallClocTitleLab.textColor = Color(hexString: "#757575")
             self.smallClockLab.textColor = Color(hexString: "#00A4AF")
-            self.wheelClockLab.text = (mainTotalModel?.sumlqty ?? 0).string
-            self.oClockLab.text = (mainTotalModel?.sumdqty ?? 0).string
-            self.callClockLab.text = (mainTotalModel?.sumcqty ?? 0).string
-            self.optionClockLab.text = (mainTotalModel?.sumxqty ?? 0).string
-            self.addClockLab.text = (mainTotalModel?.sumjqty ?? 0).string
+            self.wheelClockLab.text = mainTotalModel?.sumlqty.stringValue(retain: 1) ?? "0.0"
+            self.oClockLab.text = mainTotalModel?.sumdqty.stringValue(retain: 1) ?? "0.0"
+            self.callClockLab.text = mainTotalModel?.sumcqty.stringValue(retain: 1) ?? "0.0"
+            self.optionClockLab.text = mainTotalModel?.sumxqty.stringValue(retain: 1) ?? "0.0"
+            self.addClockLab.text = mainTotalModel?.sumjqty.stringValue(retain: 1) ?? "0.0"
         }else {
             self.mainBGImageView.isHidden = true
             self.smallBGImageView.isHidden = false
@@ -136,11 +136,11 @@ class LSClocksItemViewController: LSBaseViewController {
             self.smallClockLab.textColor = Color.white
             self.mainClocTitleLab.textColor = Color(hexString: "#757575")
             self.mainClockLab.textColor = Color(hexString: "#00A4AF")
-            self.wheelClockLab.text = (smallTotalModel?.sumlqty ?? 0).string
-            self.oClockLab.text = (smallTotalModel?.sumdqty ?? 0).string
-            self.callClockLab.text = (smallTotalModel?.sumcqty ?? 0).string
-            self.optionClockLab.text = (smallTotalModel?.sumxqty ?? 0).string
-            self.addClockLab.text = (smallTotalModel?.sumjqty ?? 0).string
+            self.wheelClockLab.text = smallTotalModel?.sumlqty.stringValue(retain: 1) ?? "0.0"
+            self.oClockLab.text = smallTotalModel?.sumdqty.stringValue(retain: 1) ?? "0.0"
+            self.callClockLab.text = smallTotalModel?.sumcqty.stringValue(retain: 1) ?? "0.0"
+            self.optionClockLab.text = smallTotalModel?.sumxqty.stringValue(retain: 1) ?? "0.0"
+            self.addClockLab.text = smallTotalModel?.sumjqty.stringValue(retain: 1) ?? "0.0"
         }
     }
     

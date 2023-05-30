@@ -83,21 +83,21 @@ struct LSFindMeClockNumModel: HandyJSON {
 
 struct LSFindMeClockNumItemTotalModel: HandyJSON {
     var ptype = 0       //0是主项 1是小项
-    var sumdqty = 0     //点钟合计
-    var sumlqty = 0     //轮钟合计
-    var sumcqty = 0     //call钟合计
-    var sumxqty = 0     //选钟合计
-    var sumjqty = 0     //加钟合计
-    var sumqty = 0      //总计
+    var sumdqty: Double = 0     //点钟合计
+    var sumlqty: Double = 0     //轮钟合计
+    var sumcqty: Double = 0     //call钟合计
+    var sumxqty: Double = 0     //选钟合计
+    var sumjqty: Double = 0     //加钟合计
+    var sumqty: Double = 0      //总计
 }
 
 struct LSFindMeClockNumItemModel: HandyJSON {
     var name = ""
-    var sumdqty = 0     //点钟合计
-    var sumlqty = 0     //轮钟合计
-    var sumcqty = 0     //call钟合计
-    var sumxqty = 0     //选钟合计
-    var sumjqty = 0     //加钟合计
+    var sumdqty: Double = 0     //点钟合计
+    var sumlqty: Double = 0     //轮钟合计
+    var sumcqty: Double = 0     //call钟合计
+    var sumxqty: Double = 0     //选钟合计
+    var sumjqty: Double = 0     //加钟合计
     var ptype = 0
 }
 

@@ -104,7 +104,8 @@ enum LSWorkbenchAPI: TargetType {
     
     case getProjectypeList(cond: String)
     case getProjectinfoList(cond: String,
-                            projecttypeid: String)
+                            projecttypeid: String,
+                            tid: String)
     
     case getLevelList
     
@@ -301,13 +302,16 @@ extension LSWorkbenchAPI: LSTargetType{
                 params["cond"] = cond
             }
             return params
-        case let .getProjectinfoList(cond, projecttypeid):
+        case let .getProjectinfoList(cond, projecttypeid, tid):
             var params = ["is_page": "0", "stopflag": "0"]
             if cond.isEmpty == false {
                 params["cond"] = cond
             }
             if projecttypeid.isEmpty == false {
                 params["projecttypeid"] = projecttypeid
+            }
+            if tid.isEmpty == false {
+                params["tid"] = tid
             }
             return params
         case .getLevelList:

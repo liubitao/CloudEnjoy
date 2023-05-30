@@ -17,7 +17,6 @@ class LSAddClockViewController: LSBaseViewController {
     @IBOutlet weak var newProjectNameLab: UILabel!
     @IBOutlet weak var newProjectPriceLab: UILabel!
     @IBOutlet weak var newProjectDurationLab: UILabel!
-    @IBOutlet weak var addTipLab: UILabel!
     
     @IBOutlet weak var roomNameLab: UILabel!
     @IBOutlet weak var bedNoTitleLab: UILabel!
@@ -55,6 +54,12 @@ class LSAddClockViewController: LSBaseViewController {
         self.oldProjectPriceLab.text = "￥" + self.projectModel.jprice.stringValue(retain: 2)
         self.oldProjectDurationLab.text = "/" + self.projectModel.jmin + "分钟"
         
+        self.newProjectPicIamgeView.kf.setImage(with: imgUrl(self.projectModel.images))
+        self.newProjectNameLab.text = self.projectModel.projectname
+        self.newProjectPriceLab.text = "￥" + self.projectModel.jprice.stringValue(retain: 2)
+        self.newProjectDurationLab.text = "/" + self.projectModel.jmin + "分钟"
+        
+        
         self.roomNameLab.text = self.projectModel.roomname
         self.bedNoTitleLab.text = parametersModel().OperationMode == 0 ? "床位号" : "手牌号"
         self.bedNoLab.text = parametersModel().OperationMode == 0 ? "\(projectModel.bedname)" : "\(projectModel.handcardno)"
@@ -62,14 +67,9 @@ class LSAddClockViewController: LSBaseViewController {
         
         self.selectedProjectView.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
             guard let self = self else {return}
-            let chioceProjectVC = LSChioceProjectViewController.creaeFromStoryboard(with: self.newOrderProjectModel)
+            let chioceProjectVC = LSChioceProjectViewController.creaeFromStoryboard(with: self.newOrderProjectModel, tid: self.projectModel.tid)
             chioceProjectVC.selectedClosure = { projectModel in
                 self.newOrderProjectModel = projectModel
-                self.newProjectPicIamgeView.isHidden = false
-                self.newProjectNameLab.isHidden = false
-                self.newProjectPriceLab.isHidden = false
-                self.newProjectDurationLab.isHidden = false
-                self.addTipLab.isHidden = true
                 self.newProjectPicIamgeView.kf.setImage(with: imgUrl(projectModel.images))
                 self.newProjectNameLab.text = projectModel.name
                 self.newProjectPriceLab.text = "￥" + projectModel.lprice.stringValue(retain: 2)

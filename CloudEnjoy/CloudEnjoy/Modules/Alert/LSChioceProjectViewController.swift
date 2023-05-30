@@ -25,11 +25,13 @@ class LSChioceProjectViewController: LSBaseViewController {
     
     
     var selectedClosure: ((LSOrderProjectModel) -> Void)?
+    var tid: String = ""
     
-    class func creaeFromStoryboard(with selectPojectModel: LSOrderProjectModel?) -> Self {
+    class func creaeFromStoryboard(with selectPojectModel: LSOrderProjectModel?, tid: String = "") -> Self {
         let sb = UIStoryboard.init(name: "AlertStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "LSChioceProjectViewController") as! Self
         vc.selectPojectModel = selectPojectModel
+        vc.tid = tid
         return vc
     }
     
@@ -99,7 +101,7 @@ class LSChioceProjectViewController: LSBaseViewController {
     
     override func setupData() {
         Toast.showHUD()
-        Observable.zip(LSWorkbenchServer.getProjecttypeList().asObservable(), LSWorkbenchServer.getProjectinfoList().asObservable()).subscribe { projectTypeModels, projectinfoList in
+        Observable.zip(LSWorkbenchServer.getProjecttypeList().asObservable(), LSWorkbenchServer.getProjectinfoList(tid: self.tid).asObservable()).subscribe { projectTypeModels, projectinfoList in
             self.typeModels = projectTypeModels?.list ?? []
             self.projectModels = projectinfoList?.list ?? []
             self.refreshUI()
@@ -119,7 +121,7 @@ class LSChioceProjectViewController: LSBaseViewController {
     
     func networkRoom() {
         Toast.showHUD()
-        LSWorkbenchServer.getProjectinfoList(projecttypeid: self.selectProjectTypeModel?.projecttypeid ?? "").subscribe { listModel in
+        LSWorkbenchServer.getProjectinfoList(projecttypeid: self.selectProjectTypeModel?.projecttypeid ?? "", tid: self.tid).subscribe { listModel in
             self.projectModels = listModel?.list ?? []
             self.items.onNext([SectionModel.init(model: "", items: self.projectModels)])
         } onFailure: { error in
