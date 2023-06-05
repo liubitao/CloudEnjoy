@@ -2202,11 +2202,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.1.202305301524;
+				CURRENT_PROJECT_VERSION = 1.0.1.202305301900;
 				DEVELOPMENT_TEAM = 3UD665RZ6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CloudEnjoy/Supporting_Files/Config/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "云休闲";
+				INFOPLIST_KEY_CFBundleDisplayName = "聚客云休闲";
 				INFOPLIST_KEY_NSCameraUsageDescription = "云休闲需要您的同意打开相机，用来拍摄用户头像和相册管理等";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
@@ -2246,11 +2246,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.1.202305301524;
+				CURRENT_PROJECT_VERSION = 1.0.1.202305301900;
 				DEVELOPMENT_TEAM = 3UD665RZ6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CloudEnjoy/Supporting_Files/Config/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "云休闲";
+				INFOPLIST_KEY_CFBundleDisplayName = "聚客云休闲";
 				INFOPLIST_KEY_NSCameraUsageDescription = "云休闲需要您的同意打开相机，用来拍摄用户头像和相册管理等";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";

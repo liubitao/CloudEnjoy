@@ -262,7 +262,7 @@ class LSGoodsViewController: LSBaseViewController {
         }.disposed(by: self.rx.disposeBag)
 
         LSHomeServer.getProductList(spid: storeModel().spid.string, sid: storeModel().sid.string, is_page: "0", page: "1", typeid: "0", itemstatus: "0", name: "", quick: "1").subscribe { listModel in
-            self.allGoodsModels = listModel?.list.filter{$0.stockqty > 0}
+            self.allGoodsModels = listModel?.list.filter{$0.stockqty > 0 || ($0.stockqty <= 0 && parametersModel().OverStockPerSale != 3)}
             self.selectedTypeGoodsModels = self.allGoodsModels
             let sectionModels = self.selectedTypeGoodsModels?.map{SectionModel(model: "", items: [$0])} ?? [SectionModel(model: "", items: [])]
             self.goodsItems.onNext(sectionModels)

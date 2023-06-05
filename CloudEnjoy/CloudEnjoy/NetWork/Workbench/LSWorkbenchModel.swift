@@ -550,6 +550,7 @@ struct LSPlacePunchinModel: HandyJSON {
     var workshift = ""
     var shiftname = ""
     var closingtime = ""
+    var clockflag = 0       //0 打上班卡  1打下班卡
     var userclocklist = [LSPlaceClockModel]()
 }
 

@@ -121,15 +121,16 @@ class LSViewClockInItemController: LSBaseViewController {
     }
     
     func refreshUI() {
+        
         guard let model = self.placePunchinModel else { return }
-        self.clockStatusLab.text = model.sbstatus == model.xbstatus ? "上班打卡" : "下班打卡"
+        self.clockStatusLab.text = model.clockflag == 0 ? "上班打卡" : "下班打卡"
         items.onNext([SectionModel(model: "", items: self.placePunchinModel?.userclocklist ?? [])])
 
         guard model.pbflag == 1 else {
             self.clockTipLab.text = ""
             return
         }
-        self.clockTipLab.text = model.sbstatus == model.xbstatus ? "请在\(model.workshift.split(separator: ":")[0..<2].joined(separator: ":"))之前上班打卡" : "请在\(model.closingtime.split(separator: ":")[0..<2].joined(separator: ":"))之后下班打卡"
+        self.clockTipLab.text = model.clockflag == 0 ? "请在\(model.workshift.split(separator: ":")[0..<2].joined(separator: ":"))之前上班打卡" : "请在\(model.closingtime.split(separator: ":")[0..<2].joined(separator: ":"))之后下班打卡"
     }
     
     @IBAction func clockAction(_ sender: Any) {
