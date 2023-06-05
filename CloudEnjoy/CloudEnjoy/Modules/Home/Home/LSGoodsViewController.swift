@@ -217,12 +217,12 @@ class LSGoodsViewController: LSBaseViewController {
                 }.disposed(by: cell.rx.reuseBag)
                 
                 cell.plusBtn.rx.tap.subscribe { [weak self, weak cell] _ in
-                    guard let self = self,
-                          let cell = cell else {return}
-                    guard let number = cell.goodsNumberLab.text?.int,
-                          number < element.stockqty  else {
-                        return
-                    }
+                    guard let self = self else {return}
+//                          let cell = cell
+//                    guard let number = cell.goodsNumberLab.text?.int else {
+//                          number < element.stockqty
+//                        return
+//                    }
                     element.number += 1
                     
                     let allType = self.goodsTypeModels?.first
@@ -309,7 +309,7 @@ class LSGoodsViewController: LSBaseViewController {
         }
         let productlist = goodsModels.map{["productid": $0.productid,
                                            "qty": $0.number,
-                                           "amt": ($0.sellprice ?? 0) * $0.number.double,
+                                           "amt": $0.sellprice * $0.number.double,
                                            "price": $0.sellprice,
                                            "productname": $0.name,
                                            "rprice": $0.sellprice]}.ls_toJSONString() ?? ""
