@@ -14,11 +14,15 @@ class LSReferrerViewController: LSBaseViewController {
 
     @IBOutlet weak var pickerView: PickerView!
     
+    @IBOutlet weak var textField: UITextField!
+    
+    
     typealias SelectedClosure = (LSSysUserModel) -> Void
     var selectedClosure: SelectedClosure?
     
     var referrerModel: LSSysUserModel = LSSysUserModel()
-    
+    var list: [LSSysUserModel] = []
+
     var dataSource: [LSSysUserModel] = []
     
     class func creaeFromStoryboard(with referrerModel: LSSysUserModel) -> Self {
@@ -54,16 +58,26 @@ class LSReferrerViewController: LSBaseViewController {
         let overlayView = UIView(frame: CGRect(x: 0, y: 0, width: UI.SCREEN_WIDTH - 26, height: 44))
         overlayView.backgroundColor = Color(hexString: "#F1FEFF")
         self.pickerView.selectionOverlay = overlayView
+        self.textField.rx.text.changed.subscribe(onNext: {[weak self] text in
+            guard let self = self,
+                let text = text else { return }
+            self.dataSource = self.list.filter{$0.name.contains(text) || text.isEmpty}
+            let row = self.dataSource.firstIndex(where: { $0.userid == self.referrerModel.userid }) ?? 0
+            self.pickerView.reloadPickerView()
+            self.pickerView.selectRow(row, animated: false)
+        }).disposed(by: self.rx.disposeBag)
     }
     
     override func setupData() {
         Toast.showHUD()
         LSWorkbenchServer.userGetList().subscribe { model in
-            guard let list = model?.list else {
+            guard let list = model?.list,
+                  let text = self.textField.text else {
                 return
             }
-            let row = list.firstIndex(where: { $0.userid == self.referrerModel.userid }) ?? 0
-            self.dataSource = list
+            self.list = list
+            self.dataSource = list.filter{$0.name.contains(text) || text.isEmpty}
+            let row = self.dataSource.firstIndex(where: { $0.userid == self.referrerModel.userid }) ?? 0
             self.pickerView.reloadPickerView()
             self.pickerView.selectRow(row, animated: false)
         } onFailure: { error in
@@ -73,6 +87,16 @@ class LSReferrerViewController: LSBaseViewController {
         }.disposed(by: self.rx.disposeBag)
 
     }
+    
+    @IBAction func searchTextAction(_ sender: Any) {
+        self.textField.resignFirstResponder()
+        guard let text = self.textField.text else {return}
+        self.dataSource = self.list.filter{$0.name.contains(text) || text.isEmpty}
+        let row = self.dataSource.firstIndex(where: { $0.userid == self.referrerModel.userid }) ?? 0
+        self.pickerView.reloadPickerView()
+        self.pickerView.selectRow(row, animated: false)
+    }
+    
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: true)
     }

@@ -842,7 +842,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2BK-Vi-OJ6" customClass="PickerView" customModule="PickerView">
-                                <rect key="frame" x="13" y="40.333333333333336" width="339" height="119.66666666666666"/>
+                                <rect key="frame" x="13" y="90.333333333333314" width="339" height="69.666666666666686"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ew4-fn-wbT">
@@ -866,6 +866,53 @@
                                     <action selector="confirmAction:" destination="iiV-e2-0Nk" eventType="touchUpInside" id="X4F-aQ-YzX"/>
                                 </connections>
                             </button>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4x-3c-1fX">
+                                <rect key="frame" x="10" y="37.333333333333336" width="345" height="43.000000000000007"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="搜索" translatesAutoresizingMaskIntoConstraints="NO" id="Gcd-Gb-KjO">
+                                        <rect key="frame" x="14.999999999999998" y="13.000000000000002" width="16.333333333333329" height="16.666666666666671"/>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入推荐人" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vdv-Ne-M5F">
+                                        <rect key="frame" x="36.333333333333343" y="10.666666666666663" width="257.66666666666663" height="21.333333333333329"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMU-d7-IcT">
+                                        <rect key="frame" x="299" y="0.0" width="46" height="43"/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.99607843139999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="7Th-6Q-4ij"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="搜索">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="searchTextAction:" destination="iiV-e2-0Nk" eventType="touchUpInside" id="grS-cn-1fZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="vdv-Ne-M5F" firstAttribute="centerY" secondItem="o4x-3c-1fX" secondAttribute="centerY" id="9iy-Ng-Kvy"/>
+                                    <constraint firstItem="vdv-Ne-M5F" firstAttribute="leading" secondItem="Gcd-Gb-KjO" secondAttribute="trailing" constant="5" id="BO8-IR-Ecd"/>
+                                    <constraint firstItem="QMU-d7-IcT" firstAttribute="top" secondItem="o4x-3c-1fX" secondAttribute="top" id="Doe-vG-gFS"/>
+                                    <constraint firstAttribute="bottom" secondItem="QMU-d7-IcT" secondAttribute="bottom" id="IDM-Et-E1k"/>
+                                    <constraint firstAttribute="height" constant="43" id="QeZ-bZ-TQJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="QMU-d7-IcT" secondAttribute="trailing" id="ZZt-us-2lu"/>
+                                    <constraint firstItem="QMU-d7-IcT" firstAttribute="leading" secondItem="vdv-Ne-M5F" secondAttribute="trailing" constant="5" id="jEZ-6l-7Bs"/>
+                                    <constraint firstItem="Gcd-Gb-KjO" firstAttribute="leading" secondItem="o4x-3c-1fX" secondAttribute="leading" constant="15" id="piS-pl-9aD"/>
+                                    <constraint firstItem="Gcd-Gb-KjO" firstAttribute="centerY" secondItem="o4x-3c-1fX" secondAttribute="centerY" id="ucu-u3-GUo"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds " value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1nn-yF-lfK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -875,27 +922,31 @@
                             <constraint firstItem="2BK-Vi-OJ6" firstAttribute="leading" secondItem="1nn-yF-lfK" secondAttribute="leading" constant="13" id="9Np-aN-TvL"/>
                             <constraint firstItem="Ew4-fn-wbT" firstAttribute="centerY" secondItem="sVG-iq-vsj" secondAttribute="centerY" id="EhI-p6-Y1W"/>
                             <constraint firstItem="Ew4-fn-wbT" firstAttribute="width" secondItem="sVG-iq-vsj" secondAttribute="width" id="HzK-D8-RoG"/>
+                            <constraint firstItem="o4x-3c-1fX" firstAttribute="top" secondItem="FUz-1t-CEO" secondAttribute="bottom" constant="10" id="IXv-Wg-yAF"/>
                             <constraint firstItem="FUz-1t-CEO" firstAttribute="leading" secondItem="Gtn-YI-SkI" secondAttribute="trailing" constant="3.5" id="Jf6-gY-DTV"/>
                             <constraint firstItem="sVG-iq-vsj" firstAttribute="top" secondItem="2BK-Vi-OJ6" secondAttribute="bottom" constant="30" id="KJD-TG-CFb"/>
                             <constraint firstItem="sVG-iq-vsj" firstAttribute="leading" secondItem="1nn-yF-lfK" secondAttribute="leading" constant="10" id="Ksx-rx-Rix"/>
                             <constraint firstItem="1nn-yF-lfK" firstAttribute="trailing" secondItem="2BK-Vi-OJ6" secondAttribute="trailing" constant="13" id="N0W-4m-br8"/>
                             <constraint firstItem="5MM-P7-wOZ" firstAttribute="centerY" secondItem="FUz-1t-CEO" secondAttribute="centerY" id="UZB-Kw-Mxn"/>
+                            <constraint firstItem="2BK-Vi-OJ6" firstAttribute="top" secondItem="o4x-3c-1fX" secondAttribute="bottom" constant="10" id="WXX-2j-tRd"/>
+                            <constraint firstItem="1nn-yF-lfK" firstAttribute="trailing" secondItem="o4x-3c-1fX" secondAttribute="trailing" constant="10" id="XjL-aP-88S"/>
                             <constraint firstItem="1nn-yF-lfK" firstAttribute="bottom" secondItem="sVG-iq-vsj" secondAttribute="bottom" constant="10" id="aUL-vw-0QQ"/>
                             <constraint firstItem="Ew4-fn-wbT" firstAttribute="leading" secondItem="sVG-iq-vsj" secondAttribute="trailing" constant="18" id="cOn-w3-E5F"/>
+                            <constraint firstItem="o4x-3c-1fX" firstAttribute="leading" secondItem="1nn-yF-lfK" secondAttribute="leading" constant="10" id="hLc-SR-vXu"/>
                             <constraint firstItem="1nn-yF-lfK" firstAttribute="trailing" secondItem="Ew4-fn-wbT" secondAttribute="trailing" constant="10" id="q80-Av-Yo2"/>
                             <constraint firstItem="Gtn-YI-SkI" firstAttribute="top" secondItem="alC-Eh-JY6" secondAttribute="top" constant="10" id="tXr-0H-2GE"/>
                             <constraint firstAttribute="trailing" secondItem="5MM-P7-wOZ" secondAttribute="trailing" constant="10" id="vhB-BT-P32"/>
-                            <constraint firstItem="2BK-Vi-OJ6" firstAttribute="top" secondItem="FUz-1t-CEO" secondAttribute="bottom" constant="13" id="y6r-Ob-J93"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="365" height="243"/>
                     <connections>
                         <outlet property="pickerView" destination="2BK-Vi-OJ6" id="A46-ii-GAF"/>
+                        <outlet property="textField" destination="vdv-Ne-M5F" id="oyB-Hz-fBN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBU-9L-VVP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="484"/>
+            <point key="canvasLocation" x="668" y="483.62068965517244"/>
         </scene>
         <!--Choice Room View Controller-->
         <scene sceneID="DyX-yf-lq4">
@@ -2385,6 +2436,7 @@
     <resources>
         <image name="减" width="22.666666030883789" height="22.666666030883789"/>
         <image name="加" width="22.666666030883789" height="22.666666030883789"/>
+        <image name="搜索" width="16.666666030883789" height="16.666666030883789"/>
         <image name="矩形 copy 6(1)" width="10.666666984558105" height="10.666666984558105"/>
         <image name="路径 656" width="17" height="17"/>
         <systemColor name="labelColor">

@@ -21,7 +21,10 @@ extension AppDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enableAutoToolbar = false
+        
+        UITextField.appearance().delegate = self
     }
+    
     
     @objc private func setApp() {
         let screenBool = AppDataCache.get(key: "screenSwitch") as? Bool ?? true
@@ -36,5 +39,12 @@ extension AppDelegate {
         let screenBool = AppDataCache.get(key: "screenSwitch") as? Bool ?? true
         UIApplication.shared.isIdleTimerDisabled = screenBool
     }
+}
+
+extension AppDelegate: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+          textField.resignFirstResponder()
+          return true
+      }
 }
 
