@@ -26,8 +26,8 @@ class LSWorkbenchServer {
         return provider.lsRequest(.findMeClockNum(startdate: startdate, enddate: enddate)).mapHandyModel(type: LSFindMeClockNumModel.self)
     }
     
-    static func getSaleUserProjectMe(page: Int, startdate: String, enddate: String, status: LSOrderServerStatus) -> Single<LSNetworkListModel<LSOrderServerModel>?>{
-        return provider.lsRequest(.getSaleUserProjectMe(page: page, startdate: startdate, enddate: enddate, status: status)).mapHandyModel(type: LSNetworkListModel<LSOrderServerModel>.self)
+    static func getSaleUserProjectMe(page: Int, startdate: String, enddate: String, status: LSOrderServerStatus = .none, projectid: String = "") -> Single<LSNetworkListModel<LSOrderServerModel>?>{
+        return provider.lsRequest(.getSaleUserProjectMe(page: page, startdate: startdate, enddate: enddate, status: status, projectid: projectid)).mapHandyModel(type: LSNetworkListModel<LSOrderServerModel>.self)
     }
     
     

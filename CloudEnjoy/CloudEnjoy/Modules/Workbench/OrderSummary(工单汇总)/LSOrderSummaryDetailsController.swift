@@ -15,22 +15,18 @@ class LSOrderSummaryDetailsController: LSBaseViewController {
     
     var refreshControl: KyoRefreshControl!
     
-    var selecttype: Int!
     var startdate: String!
     var enddate: String!
-    var count: String!
-    var commission: String!
+    var projectid: String!
     
-    var items = PublishSubject<[SectionModel<String, LSOrderSummaryDetailsModel>]>()
-    var models = [LSOrderSummaryDetailsModel]()
+    var items = PublishSubject<[SectionModel<String, LSOrderServerModel>]>()
+    var models = [LSOrderServerModel]()
     
-    convenience init(selecttype: Int, startdate: String, enddate: String, count: String, commission: String) {
+    convenience init(startdate: String, enddate: String, projectid: String) {
         self.init()
-        self.selecttype = selecttype
         self.startdate = startdate
         self.enddate = enddate
-        self.count = count
-        self.commission = commission
+        self.projectid = projectid
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,18 +52,18 @@ class LSOrderSummaryDetailsController: LSBaseViewController {
             view.addSubview(tableView)
             tableView.snp.makeConstraints { make in
                 make.left.right.equalToSuperview()
-                make.bottom.equalToSuperview().offset(-45)
+                make.bottom.equalToSuperview()
                 make.top.equalToSuperview().offset(UI.STATUS_NAV_BAR_HEIGHT + 5)
             }
             
-            let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSOrderSummaryDetailsModel>> { dataSource, tableView, indexPath, element in
+            let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSOrderServerModel>> { dataSource, tableView, indexPath, element in
                 let cell: LSOrderSummaryCell = tableView.dequeueReusableCell(withClass: LSOrderSummaryCell.self)
-//                cell.projectNameLab.text = element.projectname
-//                cell.commissionLab.text = "￥\(element.commission)"
-//                cell.roomNameLab.text = "房间：\(element.roomname)"
-//                cell.projectTypeLab.text = "类型：\(element.ctypename)"
-//                cell.amtLab.text = "金额：￥\(element.amt)"
-//                cell.timeLab.text = "时间：\(element.createtime)"
+                cell.titleLab.text = "\(element.roomname)房--\(element.projectname)/\(element.ctypename)"
+                cell.statusLab.text = element.statusname
+                cell.statusView.backgroundColor = element.status.backColor
+                cell.royaltyLab.text = "￥\(element.commission.stringValue(retain: 2))"
+                cell.createTimeLab.text = "\(element.createtime)"
+                cell.amtLab.text = "￥\(element.amt.stringValue(retain: 2))"
                 return cell
             }
             items.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: self.rx.disposeBag)
@@ -83,20 +79,20 @@ class LSOrderSummaryDetailsController: LSBaseViewController {
     
     func netwrokData(page: Int) {
         var networkError: Error? = nil
-//        LSWorkbenchServer.findMeCommission(page: page, startdate: self.startdate, enddate: self.enddate, selecttype: self.selecttype).subscribe(onSuccess: { listModels in
-//            guard let listModels = listModels else{return}
-//            if page == 1 { self.models.removeAll() }
-//            self.refreshControl.numberOfPage = listModels.pages
-//            self.models.append(contentsOf: listModels.list)
-//            self.refreshUI()
-//        }, onFailure: { error in
-//            networkError = error
-//        }, onDisposed: {
-//            let hadData: Bool = !self.models.isEmpty
-//            self.refreshControl.kyoRefreshDoneRefreshOrLoadMore(page == 1 ? true : false,
-//                                                          withHadData: hadData,
-//                                                          withError: networkError)
-//        }).disposed(by: self.rx.disposeBag)
+        LSWorkbenchServer.getSaleUserProjectMe(page: page, startdate: self.startdate, enddate: self.enddate, projectid: self.projectid).subscribe(onSuccess: { listModels in
+            guard let listModels = listModels else{return}
+            if page == 1 { self.models.removeAll() }
+            self.refreshControl.numberOfPage = listModels.pages
+            self.models.append(contentsOf: listModels.list)
+            self.refreshUI()
+        }, onFailure: { error in
+            networkError = error
+        }, onDisposed: {
+            let hadData: Bool = !self.models.isEmpty
+            self.refreshControl.kyoRefreshDoneRefreshOrLoadMore(page == 1 ? true : false,
+                                                          withHadData: hadData,
+                                                          withError: networkError)
+        }).disposed(by: self.rx.disposeBag)
     }
     
     func refreshUI() {

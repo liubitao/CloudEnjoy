@@ -75,7 +75,8 @@ enum LSWorkbenchAPI: TargetType {
     case getSaleUserProjectMe(page: Int,
                               startdate: String,
                               enddate: String,
-                              status: LSOrderServerStatus)
+                              status: LSOrderServerStatus,
+                              projectid: String)
     
     case getVipList(page: Int,
                         cond: String)
@@ -242,13 +243,14 @@ extension LSWorkbenchAPI: LSTargetType{
             return ["userid": userModel().userid,
                     "startdate": startdate,
                     "enddate": enddate]
-        case let .getSaleUserProjectMe(page, startdate, enddate, status):
+        case let .getSaleUserProjectMe(page, startdate, enddate, status, projectid):
             return ["userid": userModel().userid,
                     "page": page,
                     "pagesize": 10,
                     "startdate": startdate,
                     "enddate": enddate,
-                    "status": status.rawValue]
+                    "status": status.rawValue,
+                    "projectid": projectid]
         case let .getVipList(page, cond):
             return ["page": page,
                     "pagesize": 10,

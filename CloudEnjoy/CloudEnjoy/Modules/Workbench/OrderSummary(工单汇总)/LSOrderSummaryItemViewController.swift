@@ -54,6 +54,7 @@ class LSOrderSummaryItemViewController: LSBaseViewController {
             tableView.register(nibWithCellClass: LSOrderSummaryItemCell.self)
             view.addSubview(tableView)
             tableView.snp.makeConstraints { make in
+                
                 make.edges.equalToSuperview().inset(UIEdgeInsets(top: 135 + 6, left: 0, bottom: 0, right: 0))
             }
             
@@ -68,7 +69,7 @@ class LSOrderSummaryItemViewController: LSBaseViewController {
             tableView.rx.itemSelected.subscribe {[weak self] indexPath in
                 guard let self = self else {return}
                 let model = self.orderSummaryModels[indexPath.section]
-//                self.navigationController?.pushViewController(LSRoyaltiesDetailsController(selecttype: model.selecttype, startdate: self.startdate, enddate: self.endDate, count: model.count, commission: model.commission), animated: true)
+                self.navigationController?.pushViewController(LSOrderSummaryDetailsController(startdate: self.startdate, enddate: self.endDate, projectid: model.projectid), animated: true)
             } onError: { _ in
             }.disposed(by: self.rx.disposeBag)
             return tableView
