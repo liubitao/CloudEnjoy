@@ -8,7 +8,18 @@
 import UIKit
 
 class LSJsRankTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var rankView: UIView!
+    
+    @IBOutlet weak var rankLab: UILabel!
+    
+    @IBOutlet weak var shiftLab: UILabel!
+    
+    @IBOutlet weak var nameLab: UILabel!
+    
+    @IBOutlet weak var jobLab: UILabel!
+    
+    @IBOutlet weak var jobStateLab: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

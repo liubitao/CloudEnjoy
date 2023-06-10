@@ -139,5 +139,14 @@ class LSWorkbenchServer {
     static func getSaleUserProjectMeSum(startdate: String, enddate: String, status: String = "") -> Single<LSNetworkListModel<LSOrderSummaryItemModel>?>{
         return provider.lsRequest(.getSaleUserProjectMeSum(startdate: startdate, enddate: enddate, status: status)).mapHandyModel(type: LSNetworkListModel<LSOrderSummaryItemModel>.self)
     }
+    
+    
+    static func getShiftList() -> Single<LSNetworkListModel<LSShiftModel>?>{
+        return provider.lsRequest(.getShiftList).mapHandyModel(type: LSNetworkListModel<LSShiftModel>.self)
+    }
   
+    
+    static func getArtificerList(jobid: String, shiftid: String) -> Single<[LSRankJSModel]?>{
+        return provider.lsRequest(.getArtificerList(jobid: jobid, shiftid: shiftid)).mapHandyModelArray(type: LSRankJSModel.self)
+    }
 }

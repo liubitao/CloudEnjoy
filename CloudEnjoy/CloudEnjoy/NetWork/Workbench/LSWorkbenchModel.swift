@@ -606,5 +606,20 @@ struct LSOrderSummaryDetailsModel: HandyJSON {
 }
 
 
+struct LSShiftModel: HandyJSON {
+    var name = ""
+    var shiftid = ""
+}
+
+
+struct LSRankJSModel: HandyJSON {
+    var workname = ""
+    var techlevelname = ""
+    var name = ""
+    var isort = 0
+    var userid = ""
+    var userclock = ""
+}
+
 
 

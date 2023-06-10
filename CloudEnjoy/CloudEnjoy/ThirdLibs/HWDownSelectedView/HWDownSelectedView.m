@@ -62,6 +62,8 @@ CGFloat angleValue(CGFloat angle) {
     _textColor = [UIColor blackColor];
     _textAlignment = NSTextAlignmentLeft;
     
+    _isBorder = true;
+    
     /// 默认不展开
     _isOpen = NO;
     
@@ -276,6 +278,11 @@ CGFloat angleValue(CGFloat angle) {
 - (NSString *)text
 {
     return self.contentLabel.text;
+}
+
+- (void)setIsBorder:(BOOL)isBorder{
+    self.clickBtn.layer.borderColor = kLineColor.CGColor;
+    self.clickBtn.layer.borderWidth = isBorder ? 0.5f : 0;
 }
 
 #pragma mark - getter

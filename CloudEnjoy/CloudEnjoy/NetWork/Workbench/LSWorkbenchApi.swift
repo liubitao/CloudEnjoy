@@ -57,6 +57,9 @@ extension LSWorkbenchAPI.APIPath {
     
     static let getSaleUserProjectMeSum = "sysuser/getSaleUserProjectMeSum"
     static let getProjectRanking = "daysum/findProjectRanking"
+    
+    static let getShiftList = "shift/getList"
+    static let getArtificerList = "artificer/getArtificerChangeList"
 }
 
 enum LSWorkbenchAPI: TargetType {
@@ -155,6 +158,10 @@ enum LSWorkbenchAPI: TargetType {
     
     case getProjectRanking(startdate: String,
                            enddate: String)
+    
+    case getShiftList
+    case getArtificerList(jobid: String,
+                          shiftid: String)
 }
 
 
@@ -219,6 +226,10 @@ extension LSWorkbenchAPI: LSTargetType{
             return APIPath.getSaleUserProjectMeSum
         case .getProjectRanking:
             return APIPath.getProjectRanking
+        case .getShiftList:
+            return APIPath.getShiftList
+        case .getArtificerList:
+            return APIPath.getArtificerList
         }
     }
     
@@ -384,6 +395,11 @@ extension LSWorkbenchAPI: LSTargetType{
         case let .getProjectRanking(startdate, enddate):
             return ["startdate": startdate,
                     "enddate": enddate]
+        case .getShiftList:
+            return ["is_page": 0]
+        case let .getArtificerList(jobid, shiftid):
+            return ["jobid": jobid,
+                    "shiftid": shiftid]
         }
 
     }

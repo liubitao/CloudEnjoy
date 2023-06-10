@@ -27,6 +27,7 @@
 @property (nonatomic, assign) NSTextAlignment textAlignment;
 @property (nonatomic, assign) NSTextAlignment downTextAlignment;
 @property (nonatomic, copy) NSString *placeholder;
+@property (nonatomic, assign) BOOL isBorder;
 
 @property (nonatomic, copy) NSString *text;
 

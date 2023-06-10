@@ -88,14 +88,14 @@ class LSReferrerViewController: LSBaseViewController {
 
     }
     
-    @IBAction func searchTextAction(_ sender: Any) {
-        self.textField.resignFirstResponder()
-        guard let text = self.textField.text else {return}
-        self.dataSource = self.list.filter{$0.name.contains(text) || text.isEmpty}
-        let row = self.dataSource.firstIndex(where: { $0.userid == self.referrerModel.userid }) ?? 0
-        self.pickerView.reloadPickerView()
-        self.pickerView.selectRow(row, animated: false)
-    }
+//    @IBAction func searchTextAction(_ sender: Any) {
+//        self.textField.resignFirstResponder()
+//        guard let text = self.textField.text else {return}
+//        self.dataSource = self.list.filter{$0.name.contains(text) || text.isEmpty}
+//        let row = self.dataSource.firstIndex(where: { $0.userid == self.referrerModel.userid }) ?? 0
+//        self.pickerView.reloadPickerView()
+//        self.pickerView.selectRow(row, animated: false)
+//    }
     
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: true)
