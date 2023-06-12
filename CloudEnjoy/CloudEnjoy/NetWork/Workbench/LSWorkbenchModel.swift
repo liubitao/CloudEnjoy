@@ -621,5 +621,10 @@ struct LSRankJSModel: HandyJSON {
     var userclock = ""
 }
 
+struct LSSysJobModel: HandyJSON {
+    var jobid = ""
+    var name = ""
+}
+
 
 

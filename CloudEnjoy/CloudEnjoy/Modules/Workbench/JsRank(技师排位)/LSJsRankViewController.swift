@@ -42,10 +42,10 @@ class LSJsRankViewController: LSBaseViewController {
     var jsModels = [LSRankJSModel]()
     
     
-    var jsLevelModels = [LSJSLevelModel]()
+    var jobModels = [LSSysJobModel]()
     var shiftModels = [LSShiftModel]()
     
-    var currentLevel: LSJSLevelModel?
+    var currentJob: LSSysJobModel?
     var currentshift: LSShiftModel?
     
     
@@ -113,9 +113,9 @@ class LSJsRankViewController: LSBaseViewController {
                 let cell: LSJsRankTableViewCell = tableView.dequeueReusableCell(withClass: LSJsRankTableViewCell.self)
                 guard let self = self else{ return cell }
                 cell.rankView.cornerRadius = 12
-                cell.rankView.borderColor = UIColor(hexString: self.rankColors[min(0, element.isort)])
+                cell.rankView.borderColor = UIColor(hexString: self.rankColors[element.isort <= 3 ? element.isort : 0])
                 cell.rankView.borderWidth = 1
-                cell.rankLab.textColor = UIColor(hexString: self.rankColors[min(0, element.isort)])
+                cell.rankLab.textColor = UIColor(hexString: self.rankColors[element.isort <= 3 ? element.isort : 0])
                 cell.rankLab.text = element.isort.string
                 cell.shiftLab.text = element.workname
                 cell.nameLab.text = element.name
@@ -127,16 +127,16 @@ class LSJsRankViewController: LSBaseViewController {
     }
     
     override func setupData() {
-        let getLevelObservable = LSWorkbenchServer.getLevelList().asObservable()
+        let getSysJobObservable = LSWorkbenchServer.getSysJobList().asObservable()
         let getShiftObservable = LSWorkbenchServer.getShiftList().asObservable()
-        Observable.zip(getLevelObservable, getShiftObservable).subscribe { (levelListModel, shiftListModel) in
-            guard let levelModels = levelListModel?.list,
+        Observable.zip(getSysJobObservable, getShiftObservable).subscribe { (jobListModel, shiftListModel) in
+            guard let jobModels = jobListModel?.list,
                   let shiftModels = shiftListModel?.list else{
                 return
             }
-            self.jsLevelModels = levelModels
+            self.jobModels = jobModels
             self.shiftModels = shiftModels
-            self.jobDownSelectedView.listArray = levelModels.map{$0.name}
+            self.jobDownSelectedView.listArray = jobModels.map{$0.name}
             self.shiftDownSelectedView.listArray = shiftModels.map{$0.name}
         } onError: { error in
             Toast.show(error.localizedDescription)
@@ -147,7 +147,7 @@ class LSJsRankViewController: LSBaseViewController {
     }
     
     func networkJS() {
-        let jobid = self.currentLevel?.tlid ?? ""
+        let jobid = self.currentJob?.jobid ?? ""
         let shiftid = self.currentshift?.shiftid ?? ""
         LSWorkbenchServer.getArtificerList(jobid: jobid, shiftid: shiftid).subscribe { jsModels in
             guard let models = jsModels else {return}
@@ -168,9 +168,9 @@ class LSJsRankViewController: LSBaseViewController {
             self.mineRankView.isHidden = false
             self.mineViewHeight.constant = 120
             self.rankView.cornerRadius = 12
-            self.rankView.borderColor = UIColor(hexString: rankColors[min(0, mineModel.isort)])
+            self.rankView.borderColor = UIColor(hexString: rankColors[mineModel.isort <= 3 ? mineModel.isort : 0])
             self.rankView.borderWidth = 1
-            self.rankLab.textColor = UIColor(hexString: rankColors[min(0, mineModel.isort)])
+            self.rankLab.textColor = UIColor(hexString: rankColors[mineModel.isort <= 3 ? mineModel.isort : 0])
             self.rankLab.text = mineModel.isort.string
             self.shiftLab.text = mineModel.workname
             self.nameLab.text = mineModel.name
@@ -186,7 +186,7 @@ class LSJsRankViewController: LSBaseViewController {
 extension LSJsRankViewController: HWDownSelectedViewDelegate {
     func downSelectedView(_ selectedView: HWDownSelectedView!, didSelectedAtIndex indexPath: IndexPath!) {
         if selectedView == self.jobDownSelectedView {
-            self.currentLevel = self.jsLevelModels[indexPath.row]
+            self.currentJob = self.jobModels[indexPath.row]
         }else if selectedView == self.shiftDownSelectedView {
             self.currentshift = self.shiftModels[indexPath.row]
         }

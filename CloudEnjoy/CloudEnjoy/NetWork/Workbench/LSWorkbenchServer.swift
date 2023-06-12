@@ -149,4 +149,10 @@ class LSWorkbenchServer {
     static func getArtificerList(jobid: String, shiftid: String) -> Single<[LSRankJSModel]?>{
         return provider.lsRequest(.getArtificerList(jobid: jobid, shiftid: shiftid)).mapHandyModelArray(type: LSRankJSModel.self)
     }
+    
+    
+    
+    static func getSysJobList() -> Single<LSNetworkListModel<LSSysJobModel>?>{
+        return provider.lsRequest(.getSysJobList).mapHandyModel(type: LSNetworkListModel<LSSysJobModel>.self)
+    }
 }

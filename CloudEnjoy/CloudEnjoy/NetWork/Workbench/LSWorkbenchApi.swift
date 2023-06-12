@@ -60,6 +60,7 @@ extension LSWorkbenchAPI.APIPath {
     
     static let getShiftList = "shift/getList"
     static let getArtificerList = "artificer/getArtificerChangeList"
+    static let getSysJobList = "sysjob/getList"
 }
 
 enum LSWorkbenchAPI: TargetType {
@@ -162,6 +163,8 @@ enum LSWorkbenchAPI: TargetType {
     case getShiftList
     case getArtificerList(jobid: String,
                           shiftid: String)
+    
+    case getSysJobList
 }
 
 
@@ -230,6 +233,8 @@ extension LSWorkbenchAPI: LSTargetType{
             return APIPath.getShiftList
         case .getArtificerList:
             return APIPath.getArtificerList
+        case .getSysJobList:
+            return APIPath.getSysJobList
         }
     }
     
@@ -400,6 +405,8 @@ extension LSWorkbenchAPI: LSTargetType{
         case let .getArtificerList(jobid, shiftid):
             return ["jobid": jobid,
                     "shiftid": shiftid]
+        case .getSysJobList:
+            return ["tflag": 1]
         }
 
     }
