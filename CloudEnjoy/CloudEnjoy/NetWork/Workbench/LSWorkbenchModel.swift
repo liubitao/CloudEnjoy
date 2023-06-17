@@ -619,6 +619,20 @@ struct LSRankJSModel: HandyJSON {
     var isort = 0
     var userid = ""
     var userclock = ""
+    var tstatus = 0
+    
+    var statusDes: String {
+        switch self.tstatus {
+        case 0: return "空闲"
+        case 1: return "休息"
+        case 2: return "请假"
+        case 3: return "圈牌中"
+        case 4: return "预约"
+        case 5: return "待上钟"
+        case 6: return "服务中"
+        default: return ""
+        }
+    }
 }
 
 struct LSSysJobModel: HandyJSON {

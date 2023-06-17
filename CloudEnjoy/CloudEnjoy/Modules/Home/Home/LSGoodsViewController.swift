@@ -186,8 +186,11 @@ class LSGoodsViewController: LSBaseViewController {
                 make.bottom.equalToSuperview().offset(-UI.BOTTOM_HEIGHT - 245 - 10)
             }
 
-            let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSGoodsModel>> { dataSource, tableView, indexPath, element in
+            let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSGoodsModel>> {[weak self] dataSource, tableView, indexPath, element in
                 let cell: LSGoodsTableViewCell = tableView.dequeueReusableCell(withClass: LSGoodsTableViewCell.self)
+                guard let self = self else {
+                    return cell
+                }
                 cell.goodsPicImageView.kf.setImage(with: imgUrl(element.imageurl))
                 cell.goodsNameLab.text = element.name
                 cell.goodsStockLab.text = "库存：" + element.stockqty.string
@@ -208,7 +211,7 @@ class LSGoodsViewController: LSBaseViewController {
                     allType?.number -= 1
                     if allType?.typeid != self.selectedTypeModel?.typeid {
                         self.selectedTypeModel?.number -= 1
-                    }else {
+                    }else if element.typeid != "0" {
                         self.goodsTypeModels?.first{$0.typeid == element.typeid}?.number -= 1
                     }
                     
@@ -229,7 +232,7 @@ class LSGoodsViewController: LSBaseViewController {
                     allType?.number += 1
                     if allType?.typeid != self.selectedTypeModel?.typeid {
                         self.selectedTypeModel?.number += 1
-                    }else {
+                    }else if element.typeid != "0" {
                         self.goodsTypeModels?.first{$0.typeid == element.typeid}?.number += 1
                     }
                     self.tableView.reloadData()

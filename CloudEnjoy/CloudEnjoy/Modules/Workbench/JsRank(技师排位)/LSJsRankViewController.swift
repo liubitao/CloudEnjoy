@@ -120,6 +120,7 @@ class LSJsRankViewController: LSBaseViewController {
                 cell.shiftLab.text = element.workname
                 cell.nameLab.text = element.name
                 cell.jobLab.text =  element.techlevelname.isEmpty ? "" : "(\(element.techlevelname))"
+                cell.jobStateLab.text = element.statusDes
                 return cell
             }
             items.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: self.rx.disposeBag)

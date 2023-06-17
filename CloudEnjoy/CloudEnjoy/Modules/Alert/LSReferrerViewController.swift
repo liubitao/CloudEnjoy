@@ -64,7 +64,6 @@ class LSReferrerViewController: LSBaseViewController {
             self.dataSource = self.list.filter{$0.name.contains(text) || text.isEmpty}
             let row = self.dataSource.firstIndex(where: { $0.userid == self.referrerModel.userid }) ?? 0
             self.pickerView.reloadPickerView()
-            self.pickerView.selectRow(row, animated: false)
         }).disposed(by: self.rx.disposeBag)
     }
     
@@ -106,6 +105,10 @@ class LSReferrerViewController: LSBaseViewController {
     }
     
     @IBAction func confirmAction(_ sender: Any) {
+        guard self.dataSource.count > self.pickerView.currentSelectedIndex else{
+            Toast.show("请选择您的推荐人")
+            return
+        }
         self.referrerModel = self.dataSource[self.pickerView.currentSelectedIndex]
         self.selectedClosure?(self.referrerModel)
         self.dismiss(animated: true)
@@ -135,6 +138,10 @@ extension LSReferrerViewController: PickerViewDataSource, PickerViewDelegate {
         } else {
             label.textColor = Color(hexString: "#333333")
         }
+    }
+    
+    func pickerView(_ pickerView: PickerView, didSelectRow row: Int) {
+        self.referrerModel = self.dataSource[self.pickerView.currentSelectedIndex]
     }
 }
 
