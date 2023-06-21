@@ -58,6 +58,7 @@ public class LSUserModel: HandyJSON{
     public var mobile: String = ""     //手机号码
     public var sex: LSSex = .woman     //性别
     public var tlname: String = ""      //技师等级
+    public var jobid: String = ""       
     required public init(){}
 }
 

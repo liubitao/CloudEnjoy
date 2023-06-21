@@ -146,8 +146,8 @@ class LSWorkbenchServer {
     }
   
     
-    static func getArtificerList(jobid: String, shiftid: String) -> Single<[LSRankJSModel]?>{
-        return provider.lsRequest(.getArtificerList(jobid: jobid, shiftid: shiftid)).mapHandyModelArray(type: LSRankJSModel.self)
+    static func getArtificerList(jobid: String = "", shiftid: String = "", code: String = "") -> Single<[LSRankJSModel]?>{
+        return provider.lsRequest(.getArtificerList(jobid: jobid, shiftid: shiftid, code: code)).mapHandyModelArray(type: LSRankJSModel.self)
     }
     
     

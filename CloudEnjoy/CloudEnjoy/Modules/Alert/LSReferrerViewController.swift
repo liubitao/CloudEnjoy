@@ -122,7 +122,7 @@ extension LSReferrerViewController: PickerViewDataSource, PickerViewDelegate {
     }
     
     func pickerView(_ pickerView: PickerView, titleForRow row: Int) -> String {
-        return dataSource[row].name
+        return dataSource[row].code + "-" + dataSource[row].name
     }
    
     func pickerViewHeightForRows(_ pickerView: PickerView) -> CGFloat {

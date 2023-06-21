@@ -620,6 +620,8 @@ struct LSRankJSModel: HandyJSON {
     var userid = ""
     var userclock = ""
     var tstatus = 0
+    var jobid = ""
+    var shiftid = ""
     
     var statusDes: String {
         switch self.tstatus {

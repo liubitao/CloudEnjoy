@@ -130,21 +130,27 @@ class LSJsRankViewController: LSBaseViewController {
     override func setupData() {
         let getSysJobObservable = LSWorkbenchServer.getSysJobList().asObservable()
         let getShiftObservable = LSWorkbenchServer.getShiftList().asObservable()
-        Observable.zip(getSysJobObservable, getShiftObservable).subscribe { (jobListModel, shiftListModel) in
+        let getUserObservable = LSWorkbenchServer.getArtificerList(code: userModel().code).asObservable().map{$0?.last}
+        Observable.zip(getSysJobObservable, getShiftObservable, getUserObservable).subscribe {[weak self] (jobListModel, shiftListModel, userModel) in
             guard let jobModels = jobListModel?.list,
-                  let shiftModels = shiftListModel?.list else{
+                  let shiftModels = shiftListModel?.list,
+                  let userModel = userModel,
+                  let self = self else{
                 return
             }
             self.jobModels = jobModels
             self.shiftModels = shiftModels
             self.jobDownSelectedView.listArray = jobModels.map{$0.name}
             self.shiftDownSelectedView.listArray = shiftModels.map{$0.name}
+            self.currentJob = jobModels.first(where: {$0.jobid == userModel.jobid})
+            self.currentshift = shiftModels.first(where: {$0.shiftid == userModel.shiftid})
+            self.jobDownSelectedView.text = self.currentJob?.name
+            self.shiftDownSelectedView.text = self.currentshift?.name
+            self.networkJS()
         } onError: { error in
             Toast.show(error.localizedDescription)
         } onDisposed: {
         }.disposed(by: self.rx.disposeBag)
-        
-        networkJS()
     }
     
     func networkJS() {

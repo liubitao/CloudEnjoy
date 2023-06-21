@@ -162,7 +162,8 @@ enum LSWorkbenchAPI: TargetType {
     
     case getShiftList
     case getArtificerList(jobid: String,
-                          shiftid: String)
+                          shiftid: String,
+                          code: String)
     
     case getSysJobList
 }
@@ -402,7 +403,10 @@ extension LSWorkbenchAPI: LSTargetType{
                     "enddate": enddate]
         case .getShiftList:
             return ["is_page": 0]
-        case let .getArtificerList(jobid, shiftid):
+        case let .getArtificerList(jobid, shiftid, code):
+            if code.isEmpty == false {
+                return ["code": code]
+            }
             return ["jobid": jobid,
                     "shiftid": shiftid]
         case .getSysJobList:
