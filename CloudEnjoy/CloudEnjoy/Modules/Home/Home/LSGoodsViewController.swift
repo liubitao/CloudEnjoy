@@ -198,9 +198,8 @@ class LSGoodsViewController: LSBaseViewController {
                 cell.goodsNumberLab.text = element.number.string
                 cell.goodsNumberLab.isHidden = element.number == 0
                 cell.subtractBtn.isHidden = element.number == 0
-                cell.subtractBtn.rx.tap.subscribe { [weak self, weak cell] _ in
-                    guard let self = self,
-                          let cell = cell else {return}
+                cell.subtractBtn.rx.tap.subscribe(onNext: { [weak self] _ in
+                    guard let self = self else {return}
                     guard let number = cell.goodsNumberLab.text?.int,
                           number >= 1 else {
                         return
@@ -217,9 +216,10 @@ class LSGoodsViewController: LSBaseViewController {
                     
                     self.tableView.reloadData()
                     self.goodsTableView.reloadData()
-                }.disposed(by: cell.rx.reuseBag)
+                }).disposed(by: cell.rx.reuseBag)
                 
-                cell.plusBtn.rx.tap.subscribe { [weak self, weak cell] _ in
+                
+                cell.plusBtn.rx.tap.subscribe(onNext: { [weak self] _ in
                     guard let self = self else {return}
 //                          let cell = cell
 //                    guard let number = cell.goodsNumberLab.text?.int else {
@@ -237,7 +237,8 @@ class LSGoodsViewController: LSBaseViewController {
                     }
                     self.tableView.reloadData()
                     self.goodsTableView.reloadData()
-                }.disposed(by: cell.rx.reuseBag)
+                }).disposed(by: cell.rx.reuseBag)
+                   
                 return cell
             }
             goodsItems.bind(to: goodsTableView.rx.items(dataSource: dataSource)).disposed(by: self.rx.disposeBag)

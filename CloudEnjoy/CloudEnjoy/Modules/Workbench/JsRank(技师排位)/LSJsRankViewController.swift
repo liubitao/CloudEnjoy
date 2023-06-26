@@ -183,6 +183,7 @@ class LSJsRankViewController: LSBaseViewController {
             self.nameLab.text = mineModel.name
             self.jobLab.text = mineModel.techlevelname.isEmpty ? "" : "(\(mineModel.techlevelname))"
             self.jobDescLab.text = mineModel.userclock
+            self.jobStateLab.text = mineModel.statusDes
         }else {
             self.mineRankView.isHidden = true
             self.mineViewHeight.constant = 0

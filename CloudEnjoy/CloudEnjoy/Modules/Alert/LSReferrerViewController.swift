@@ -61,7 +61,7 @@ class LSReferrerViewController: LSBaseViewController {
         self.textField.rx.text.changed.subscribe(onNext: {[weak self] text in
             guard let self = self,
                 let text = text else { return }
-            self.dataSource = self.list.filter{$0.name.contains(text) || text.isEmpty}
+            self.dataSource = self.list.filter{$0.name.contains(text) || text.isEmpty || $0.code.contains(text)}
             let row = self.dataSource.firstIndex(where: { $0.userid == self.referrerModel.userid }) ?? 0
             self.pickerView.reloadPickerView()
         }).disposed(by: self.rx.disposeBag)
