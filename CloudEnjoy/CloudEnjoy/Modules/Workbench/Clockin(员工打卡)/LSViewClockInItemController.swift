@@ -140,7 +140,7 @@ class LSViewClockInItemController: LSBaseViewController {
         }
         let firstModel = self.punchinModels.first { placeModel in
             let distance = CLLocation.init(latitude: placeModel.lat, longitude: placeModel.lng).distance(from: lastLocation)
-            return Int(distance) < placeModel.range
+            return Int(distance) < (placeModel.range + 50)
         }
         guard let punchinModel = firstModel else {
             Toast.show("不在打卡范围内，请靠近再打卡")

@@ -28,4 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        FJDeepSleepPreventerPlus.sharedInstance().stop()
+
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        FJDeepSleepPreventerPlus.sharedInstance().start()
+    }
 }

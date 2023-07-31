@@ -36,6 +36,9 @@ class LSHomeViewController: LSBaseViewController {
     
     var refreshControl: KyoRefreshControl!
     
+    var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -165,6 +168,8 @@ class LSHomeViewController: LSBaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(networkHomeData), name: LSMessageType.returnProject.notification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(networkHomeData), name: LSMessageType.autoCancelOrder.notification, object: nil)
 
+//        NotificationCenter.default.addObserver(self, selector: #selector(beginBackgroundTask), name: UIApplication.didEnterBackgroundNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(endBackgroundTask), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     @objc func jumpMessage() {
@@ -292,5 +297,26 @@ extension LSHomeViewController: KyoRefreshControlDelegate{
         kyoDataTipsModel.tip = NSAttributedString(string: "您暂无派工信息，请耐心等待…", attributes: [.foregroundColor: UIColor(hexString: "#999999")!, .font: Font.pingFangRegular(14)])
         return kyoDataTipsModel
     }
+}
+
+extension LSHomeViewController {
+    @objc func beginBackgroundTask() {
+        self.endBackgroundTask()
+        guard UIApplication.shared.applicationState == .background else {return}
+        self.backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(withName: "Keep-Alive") {
+            if let backgroundTaskIdentifier = self.backgroundTaskIdentifier,
+               backgroundTaskIdentifier != UIBackgroundTaskIdentifier.invalid {
+                UIApplication.shared.endBackgroundTask(backgroundTaskIdentifier)
+                self.backgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
+            }
+        }
+    }
+    
+    @objc func endBackgroundTask() {
+        if let backgroundTaskIdentifier = self.backgroundTaskIdentifier {
+            UIApplication.shared.endBackgroundTask(backgroundTaskIdentifier)
+        }
+    }
+    
 }
 

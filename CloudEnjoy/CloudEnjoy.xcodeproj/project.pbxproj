@@ -244,6 +244,9 @@
 		0CB765B929BF0B000048B1B3 /* LSWorkorderItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB765B829BF0B000048B1B3 /* LSWorkorderItemViewController.xib */; };
 		0CB765BC29BF0C900048B1B3 /* LSOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */; };
 		0CB765BD29BF0C900048B1B3 /* LSOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */; };
+		0CD30BFD2A77934200D6AE83 /* FJDeepSleepPreventer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD30BF82A77934200D6AE83 /* FJDeepSleepPreventer.m */; };
+		0CD30BFE2A77934200D6AE83 /* Silence.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0CD30BFB2A77934200D6AE83 /* Silence.wav */; };
+		0CD30BFF2A77934200D6AE83 /* FJDeepSleepPreventerPlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD30BFC2A77934200D6AE83 /* FJDeepSleepPreventerPlus.m */; };
 		0CD97C052A19C42700A79D9E /* LSOrderSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD97C042A19C42700A79D9E /* LSOrderSummaryViewController.swift */; };
 		0CD97C082A19C44A00A79D9E /* LSOrderSummaryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD97C062A19C44A00A79D9E /* LSOrderSummaryItemViewController.swift */; };
 		0CD97C0C2A19C45C00A79D9E /* LSOrderSummaryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD97C0A2A19C45C00A79D9E /* LSOrderSummaryDetailsController.swift */; };
@@ -561,6 +564,11 @@
 		0CB765B829BF0B000048B1B3 /* LSWorkorderItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSWorkorderItemViewController.xib; sourceTree = "<group>"; };
 		0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderTableViewCell.swift; sourceTree = "<group>"; };
 		0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSOrderTableViewCell.xib; sourceTree = "<group>"; };
+		0CD30BF82A77934200D6AE83 /* FJDeepSleepPreventer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJDeepSleepPreventer.m; sourceTree = "<group>"; };
+		0CD30BF92A77934200D6AE83 /* FJDeepSleepPreventerPlus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJDeepSleepPreventerPlus.h; sourceTree = "<group>"; };
+		0CD30BFA2A77934200D6AE83 /* FJDeepSleepPreventer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJDeepSleepPreventer.h; sourceTree = "<group>"; };
+		0CD30BFB2A77934200D6AE83 /* Silence.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Silence.wav; sourceTree = "<group>"; };
+		0CD30BFC2A77934200D6AE83 /* FJDeepSleepPreventerPlus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJDeepSleepPreventerPlus.m; sourceTree = "<group>"; };
 		0CD97C042A19C42700A79D9E /* LSOrderSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderSummaryViewController.swift; sourceTree = "<group>"; };
 		0CD97C062A19C44A00A79D9E /* LSOrderSummaryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderSummaryItemViewController.swift; sourceTree = "<group>"; };
 		0CD97C0A2A19C45C00A79D9E /* LSOrderSummaryDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderSummaryDetailsController.swift; sourceTree = "<group>"; };
@@ -690,6 +698,7 @@
 		0C0CC84D29AF60D000CC3A6E /* ThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
+				0CD30BF72A77934200D6AE83 /* FJDeepSleepPreventer */,
 				0CDC77462A025B7500E992D3 /* LSAudioManager */,
 				0CE435E029F1181B009A5141 /* RMQClient */,
 				0C29C1F529C5A3F00043109A /* UUMarqueeView */,
@@ -1488,6 +1497,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0CD30BF72A77934200D6AE83 /* FJDeepSleepPreventer */ = {
+			isa = PBXGroup;
+			children = (
+				0CD30BFA2A77934200D6AE83 /* FJDeepSleepPreventer.h */,
+				0CD30BF82A77934200D6AE83 /* FJDeepSleepPreventer.m */,
+				0CD30BF92A77934200D6AE83 /* FJDeepSleepPreventerPlus.h */,
+				0CD30BFC2A77934200D6AE83 /* FJDeepSleepPreventerPlus.m */,
+				0CD30BFB2A77934200D6AE83 /* Silence.wav */,
+			);
+			path = FJDeepSleepPreventer;
+			sourceTree = "<group>";
+		};
 		0CD97BFF2A19C3C800A79D9E /* OrderSummary(工单汇总) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1794,6 +1815,7 @@
 				0CB7654B29BB4E260048B1B3 /* LSRoyaltiesItemController.xib in Resources */,
 				0C23783C29B210AA003AC759 /* LSAboutViewController.xib in Resources */,
 				0C29C1F329C59B0C0043109A /* LSHomeViewController.xib in Resources */,
+				0CD30BFE2A77934200D6AE83 /* Silence.wav in Resources */,
 				0C23784129B217D0003AC759 /* LSSystemViewController.xib in Resources */,
 				0C23787629B87435003AC759 /* LSTextViewController.xib in Resources */,
 				0C66263229C1C9A700AADCC7 /* LSAddOrderViewController.xib in Resources */,
@@ -1979,6 +2001,7 @@
 				0C23786F29B86774003AC759 /* LSAppServer.swift in Sources */,
 				0C7E4CBA29E0246000CDE80A /* LSGoodsTypeCollectionViewCell.swift in Sources */,
 				0CB7655E29BC56620048B1B3 /* LSRoyaltiesDetailsCell.swift in Sources */,
+				0CD30BFD2A77934200D6AE83 /* FJDeepSleepPreventer.m in Sources */,
 				0C23783F29B2177B003AC759 /* LSSystemViewController.swift in Sources */,
 				0C23785F29B5D496003AC759 /* HPActivityIndicator.swift in Sources */,
 				0C0CC8BA29B07E9E00CC3A6E /* LSHomeViewController.swift in Sources */,
@@ -1993,6 +2016,7 @@
 				0C7E4CBE29E108DC00CDE80A /* LSGoodsTableViewCell.swift in Sources */,
 				0C0CC8B129AF60E900CC3A6E /* KyoCircleLoadView.m in Sources */,
 				0C0C35CF29B98B3E0039C535 /* TransitionAnimationInteractive.m in Sources */,
+				0CD30BFF2A77934200D6AE83 /* FJDeepSleepPreventerPlus.m in Sources */,
 				0C50294729AF36C7003977F0 /* LSNavigationController.swift in Sources */,
 				0C440EE129CDC177004B8382 /* LSMessageServer.swift in Sources */,
 				0CD97C1F2A19E70900A79D9E /* LSJsRankTableViewCell.swift in Sources */,
@@ -2202,7 +2226,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.2.202306211500;
+				CURRENT_PROJECT_VERSION = 1.0.3.202307311548;
 				DEVELOPMENT_TEAM = 3UD665RZ6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CloudEnjoy/Supporting_Files/Config/Info.plist;
@@ -2224,7 +2248,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.boyou.www.CloudEnjoyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2246,7 +2270,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.2.202306211500;
+				CURRENT_PROJECT_VERSION = 1.0.3.202307311548;
 				DEVELOPMENT_TEAM = 3UD665RZ6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CloudEnjoy/Supporting_Files/Config/Info.plist;
@@ -2268,7 +2292,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.boyou.www.CloudEnjoyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
