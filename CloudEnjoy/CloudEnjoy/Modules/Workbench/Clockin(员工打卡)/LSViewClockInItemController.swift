@@ -29,8 +29,8 @@ class LSViewClockInItemController: LSBaseViewController {
     
     private var locationManager: CLLocationManager!
     private var geocoder: CLGeocoder = CLGeocoder()
-    private var lastLocation: CLLocation?
-    private var lastAddress: String?
+    private var currentLocation: CLLocation?
+    private var currentAddress: String?
     
     private var punchinModels: [LSPlaceModel] = []
     private var placePunchinModel: LSPlacePunchinModel?
@@ -102,7 +102,12 @@ class LSViewClockInItemController: LSBaseViewController {
         self.locationManager = {
             let locationManager = CLLocationManager()
             locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.activityType = .fitness
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest //定位精准度
+            locationManager.pausesLocationUpdatesAutomatically = false
+            locationManager.showsBackgroundLocationIndicator = true
+            locationManager.allowsBackgroundLocationUpdates = true
             if #available(iOS 14.0, *) {
                 guard locationManager.authorizationStatus == .authorizedAlways ||
                         locationManager.authorizationStatus == .authorizedWhenInUse else {
@@ -134,13 +139,13 @@ class LSViewClockInItemController: LSBaseViewController {
     }
     
     @IBAction func clockAction(_ sender: Any) {
-        guard let lastLocation = self.lastLocation else {
+        guard let currentLocation = self.currentLocation else {
             Toast.show("gps定位信号弱，请稍后再试")
             return
         }
         let firstModel = self.punchinModels.first { placeModel in
-            let distance = CLLocation.init(latitude: placeModel.lat, longitude: placeModel.lng).distance(from: lastLocation)
-            return Int(distance) < (placeModel.range + 50)
+            let distance = CLLocation.init(latitude: placeModel.lat, longitude: placeModel.lng).distance(from: currentLocation)
+            return Int(distance) < (placeModel.range + 20)
         }
         guard let punchinModel = firstModel else {
             Toast.show("不在打卡范围内，请靠近再打卡")
@@ -177,24 +182,14 @@ extension LSViewClockInItemController : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation = locations.first else{return}
-        defer { self.lastLocation = currentLocation }
-        
-        guard let lastLocation = lastLocation else {
-            geocoder.reverseGeocodeLocation(currentLocation) { (placemarks, error) in
-                self.lastAddress = placemarks?.first?.name
-                self.currentAddressLab.text = self.lastAddress
-            }
-            return
-        }
-        
-        let distanceSinceLastPoint = currentLocation.distance(from: lastLocation)
-        guard distanceSinceLastPoint > 10 else {
-            return
-        }
         
         geocoder.reverseGeocodeLocation(currentLocation) { (placemarks, error) in
-            self.lastAddress = placemarks?.first?.name
-            self.currentAddressLab.text = self.lastAddress
+            self.currentAddress = placemarks?.first?.name
+            self.currentAddressLab.text = self.currentAddress
+            
+            let tr = LSLocationHelper().transformFromWGSToGCJ(wgsLoc: currentLocation.coordinate)
+            let transformCl = CLLocation.init(latitude: tr.latitude, longitude: tr.longitude)
+            self.currentLocation = transformCl
         }
     }
 }

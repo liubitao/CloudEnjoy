@@ -244,6 +244,7 @@
 		0CB765B929BF0B000048B1B3 /* LSWorkorderItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB765B829BF0B000048B1B3 /* LSWorkorderItemViewController.xib */; };
 		0CB765BC29BF0C900048B1B3 /* LSOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */; };
 		0CB765BD29BF0C900048B1B3 /* LSOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */; };
+		0CBB64C02A77AC1A00395710 /* LSLocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB64BF2A77AC1A00395710 /* LSLocationHelper.swift */; };
 		0CD30BFD2A77934200D6AE83 /* FJDeepSleepPreventer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD30BF82A77934200D6AE83 /* FJDeepSleepPreventer.m */; };
 		0CD30BFE2A77934200D6AE83 /* Silence.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0CD30BFB2A77934200D6AE83 /* Silence.wav */; };
 		0CD30BFF2A77934200D6AE83 /* FJDeepSleepPreventerPlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD30BFC2A77934200D6AE83 /* FJDeepSleepPreventerPlus.m */; };
@@ -564,6 +565,7 @@
 		0CB765B829BF0B000048B1B3 /* LSWorkorderItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSWorkorderItemViewController.xib; sourceTree = "<group>"; };
 		0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderTableViewCell.swift; sourceTree = "<group>"; };
 		0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSOrderTableViewCell.xib; sourceTree = "<group>"; };
+		0CBB64BF2A77AC1A00395710 /* LSLocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSLocationHelper.swift; sourceTree = "<group>"; };
 		0CD30BF82A77934200D6AE83 /* FJDeepSleepPreventer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJDeepSleepPreventer.m; sourceTree = "<group>"; };
 		0CD30BF92A77934200D6AE83 /* FJDeepSleepPreventerPlus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJDeepSleepPreventerPlus.h; sourceTree = "<group>"; };
 		0CD30BFA2A77934200D6AE83 /* FJDeepSleepPreventer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJDeepSleepPreventer.h; sourceTree = "<group>"; };
@@ -698,6 +700,7 @@
 		0C0CC84D29AF60D000CC3A6E /* ThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
+				0CBB64BE2A77AC1A00395710 /* LocationHelper */,
 				0CD30BF72A77934200D6AE83 /* FJDeepSleepPreventer */,
 				0CDC77462A025B7500E992D3 /* LSAudioManager */,
 				0CE435E029F1181B009A5141 /* RMQClient */,
@@ -1497,6 +1500,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0CBB64BE2A77AC1A00395710 /* LocationHelper */ = {
+			isa = PBXGroup;
+			children = (
+				0CBB64BF2A77AC1A00395710 /* LSLocationHelper.swift */,
+			);
+			path = LocationHelper;
+			sourceTree = "<group>";
+		};
 		0CD30BF72A77934200D6AE83 /* FJDeepSleepPreventer */ = {
 			isa = PBXGroup;
 			children = (
@@ -2062,6 +2073,7 @@
 				0C0CC8A729AF60E800CC3A6E /* KyoDataTipsModel.m in Sources */,
 				0C4F3FA929CD83CC00A20F03 /* LSHomeApi.swift in Sources */,
 				0C7E4C8B29D2D36D00CDE80A /* LSLeaveTableViewCell.swift in Sources */,
+				0CBB64C02A77AC1A00395710 /* LSLocationHelper.swift in Sources */,
 				0C0C35B329B8A1B60039C535 /* LSVoiceViewController.swift in Sources */,
 				0C29C1E829C58DF50043109A /* LSSegmentedTitleCell.swift in Sources */,
 				0CB7659D29BC760D0048B1B3 /* FSCalendarConstants.m in Sources */,
@@ -2226,7 +2238,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3.202307311548;
+				CURRENT_PROJECT_VERSION = 1.0.3.202307311736;
 				DEVELOPMENT_TEAM = 3UD665RZ6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CloudEnjoy/Supporting_Files/Config/Info.plist;
@@ -2270,7 +2282,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3.202307311548;
+				CURRENT_PROJECT_VERSION = 1.0.3.202307311736;
 				DEVELOPMENT_TEAM = 3UD665RZ6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CloudEnjoy/Supporting_Files/Config/Info.plist;
