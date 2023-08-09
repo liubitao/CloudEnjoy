@@ -105,9 +105,6 @@ class LSViewClockInItemController: LSBaseViewController {
             locationManager.activityType = .fitness
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest //定位精准度
-            locationManager.pausesLocationUpdatesAutomatically = false
-            locationManager.showsBackgroundLocationIndicator = true
-            locationManager.allowsBackgroundLocationUpdates = true
             if #available(iOS 14.0, *) {
                 guard locationManager.authorizationStatus == .authorizedAlways ||
                         locationManager.authorizationStatus == .authorizedWhenInUse else {
