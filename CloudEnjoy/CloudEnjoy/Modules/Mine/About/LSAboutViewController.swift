@@ -23,6 +23,27 @@ class LSAboutViewController: LSBaseViewController {
     override func setupViews() {
         verisonLabel.text = "V\(UIApplication.shared.version.unwrapped(or: ""))"
         
+        {
+            let icpLabel = UILabel()
+            icpLabel.text = "ICP备案号: 粤ICP备14066122号-28A >"
+            icpLabel.font = Font.pingFangRegular(14)
+            icpLabel.textColor = UIColor.black
+            self.view.addSubview(icpLabel)
+            icpLabel.rx.tapGesture()
+                .when(.recognized)
+                .subscribe { _ in
+                    let url = URL(string: "www.beian.miit.gov.cn")!
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    }
+                }.disposed(by: self.rx.disposeBag)
+            icpLabel.snp.makeConstraints { make in
+                make.bottom.equalToSuperview().offset(-30 - UI.BOTTOM_HEIGHT)
+                make.centerX.equalToSuperview()
+            }
+        }()
+        
+        
         self.agreementView.rx.tapGesture().when(.recognized).asObservable().flatMap { _ in
             Toast.showHUD()
             return LSAppServer.findAgreementList().asObservable()
