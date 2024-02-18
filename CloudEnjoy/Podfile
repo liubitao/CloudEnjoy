@@ -3,7 +3,7 @@
 # source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
 # 定义当前pod支持的最低版本
-IosPlatform = '12.0'
+IosPlatform = '13.0'
 
 platform :ios, IosPlatform
 inhibit_all_warnings!
@@ -62,5 +62,13 @@ target 'CloudEnjoy' do
   pod "PickerView"
   
   pod 'RMQClient', '~> 0.12.0'
+  
 end
 
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] = "13.0"
+    end
+  end
+end

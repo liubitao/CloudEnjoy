@@ -32,7 +32,7 @@ class LSAboutViewController: LSBaseViewController {
             icpLabel.rx.tapGesture()
                 .when(.recognized)
                 .subscribe { _ in
-                    let url = URL(string: "www.beian.miit.gov.cn")!
+                    let url = URL(string: "https://beian.miit.gov.cn/")!
                     if UIApplication.shared.canOpenURL(url) {
                         UIApplication.shared.open(url)
                     }
