@@ -78,11 +78,11 @@ class LSClocksItemViewController: LSBaseViewController {
             let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSFindMeClockNumItemModel>> { dataSource, tableView, indexPath, element in
                 let cell: LSClockTableViewCell = tableView.dequeueReusableCell(withClass: LSClockTableViewCell.self)
                 cell.clockTitleLab.text = element.name
-                cell.wheelClockLab.text = element.sumlqty.stringValue(retain: 1) ?? "0.0"
-                cell.oClockLab.text = element.sumdqty.stringValue(retain: 1) ?? "0.0"
-                cell.callClockLab.text = element.sumcqty.stringValue(retain: 1) ?? "0.0"
-                cell.optionClockLab.text = element.sumxqty.stringValue(retain: 1) ?? "0.0"
-                cell.addClockLab.text = element.sumjqty.stringValue(retain: 1) ?? "0.0"
+                cell.wheelClockLab.text = element.sumlqty.stringValue(retain: 1)
+                cell.oClockLab.text = element.sumdqty.stringValue(retain: 1)
+                cell.callClockLab.text = element.sumcqty.stringValue(retain: 1)
+                cell.optionClockLab.text = element.sumxqty.stringValue(retain: 1)
+                cell.addClockLab.text = element.sumjqty.stringValue(retain: 1)
                 cell.contentView.backgroundColor = indexPath.row%2 == 0 ? Color(hexString: "#FFFFFF") : Color(hexString: "#F7FAFF")
                 return cell
             }
@@ -93,11 +93,12 @@ class LSClocksItemViewController: LSBaseViewController {
         
     }
     override func setupData() {
+        self.timeLab.text = self.startdate + "至" + self.endDate
+
         self.netwerkData()
     }
     
     func netwerkData() {
-        self.timeLab.text = "\(self.startdate.components(separatedBy: " ").first.unwrapped(or: "")) 至 \(self.endDate.components(separatedBy: " ").first.unwrapped(or: ""))"
         Toast.showHUD()
         LSWorkbenchServer.findMeClockNum(startdate: self.startdate, enddate: self.endDate).subscribe { royaltiesTotalModel in
             guard let totalModel = royaltiesTotalModel else { return }

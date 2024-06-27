@@ -8,6 +8,7 @@
 import UIKit
 import JXSegmentedView
 import SwifterSwift
+import LSBaseModules
 
 class LSOrderSummaryViewController: LSBaseViewController {
     var segmentedView: JXSegmentedView!
@@ -85,8 +86,11 @@ extension LSOrderSummaryViewController: JXSegmentedViewDelegate, JXSegmentedList
         calendarViewController.selectedClosure = {[weak self] startDate, endDate in
             guard let self = self else {return}
             let subVC = self.subViewControllers[4]
-            subVC.startdate = startDate.beginning(of: .day)?.stringTime24(withFormat: "yyyy-MM-dd HH:mm:ss") ?? ""
-            subVC.endDate = endDate.end(of: .day)?.stringTime24(withFormat: "yyyy-MM-dd HH:mm:ss") ?? ""
+            let shopStartTime = parametersModel().ShopStartTime
+            let shopEndTime = parametersModel().ShopEndTime
+            subVC.startdate = startDate.beginning(of: .day)?.stringTime24(withFormat: "yyyy-MM-dd ").appending(shopStartTime) ?? ""
+            subVC.endDate = endDate.end(of: .day)?.adding(.day, value: 1).stringTime24(withFormat: "yyyy-MM-dd ").appending(shopEndTime) ?? ""
+            subVC.timeLab.text = subVC.startdate + "至" + subVC.endDate
             subVC.netwerkData()
         }
         calendarViewController.presentedWith(self)

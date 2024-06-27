@@ -10,6 +10,7 @@ import SwifterSwift
 
 class LSOrderTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var sortIndexLab: UILabel!
     @IBOutlet weak var titleLab: UILabel!
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var statusLab: UILabel!

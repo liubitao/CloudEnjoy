@@ -77,11 +77,11 @@ class LSRoyaltiesItemController: LSBaseViewController {
         
     }
     override func setupData() {
+        self.timeLab.text = self.startdate + "至" + self.endDate
         self.netwerkData()
     }
     
     func netwerkData() {
-        self.timeLab.text = "\(self.startdate.components(separatedBy: " ").first.unwrapped(or: "")) 至 \(self.endDate.components(separatedBy: " ").first.unwrapped(or: ""))"
         Toast.showHUD()
         LSWorkbenchServer.findMeByCommission(startdate: self.startdate, enddate: self.endDate).subscribe { royaltiesTotalModel in
             guard let totalModel = royaltiesTotalModel else { return }

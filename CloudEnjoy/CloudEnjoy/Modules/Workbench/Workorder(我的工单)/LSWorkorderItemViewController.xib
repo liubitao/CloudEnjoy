@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LSWorkorderItemViewController" customModule="CloudEnjoy" customModuleProvider="target">
             <connections>
+                <outlet property="listNumberLab" destination="cwm-oa-69s" id="jZ6-PF-CTU"/>
                 <outlet property="timeLab" destination="wJN-Yj-Nmt" id="v3C-r4-tuH"/>
+                <outlet property="totalRoyaltiesLab" destination="rEs-Tr-f8i" id="7zh-9r-Q15"/>
                 <outlet property="view" destination="iN0-l3-epB" id="3h7-39-Lbm"/>
             </connections>
         </placeholder>
@@ -29,12 +31,43 @@
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFK-Js-aO3">
+                    <rect key="frame" x="10" y="817" width="373" height="35"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共15条记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwm-oa-69s">
+                            <rect key="frame" x="15" y="8" width="65.333333333333329" height="19"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="19" id="XGp-49-hke"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提成总和：￥525585.666" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEs-Tr-f8i">
+                            <rect key="frame" x="206" y="8" width="152" height="19"/>
+                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="HO2-ac-mH3"/>
+                        <constraint firstItem="cwm-oa-69s" firstAttribute="centerY" secondItem="bFK-Js-aO3" secondAttribute="centerY" id="VWg-sj-Bjp"/>
+                        <constraint firstItem="rEs-Tr-f8i" firstAttribute="centerY" secondItem="bFK-Js-aO3" secondAttribute="centerY" id="ZLZ-X0-Cpv"/>
+                        <constraint firstAttribute="trailing" secondItem="rEs-Tr-f8i" secondAttribute="trailing" constant="15" id="fDb-nX-QCM"/>
+                        <constraint firstItem="cwm-oa-69s" firstAttribute="leading" secondItem="bFK-Js-aO3" secondAttribute="leading" constant="15" id="rB4-jT-mWs"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="wJN-Yj-Nmt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5ek-4y-szu"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bFK-Js-aO3" secondAttribute="trailing" constant="10" id="Fn9-fX-z62"/>
                 <constraint firstItem="wJN-Yj-Nmt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dgX-1B-JmQ"/>
+                <constraint firstItem="bFK-Js-aO3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="w3A-Hf-Oei"/>
+                <constraint firstAttribute="bottom" secondItem="bFK-Js-aO3" secondAttribute="bottom" id="wIB-yy-LeK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="138" y="21"/>

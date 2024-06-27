@@ -60,6 +60,7 @@ class LSAddClockViewController: LSBaseViewController {
         self.newProjectPriceLab.text = "￥" + self.projectModel.jprice.stringValue(retain: 2)
         self.newProjectDurationLab.text = "/" + self.projectModel.jmin + "分钟"
         
+        self.numberLab.text = parametersModel().addClockDefTime.floorString(retain: 1)
         
         self.roomNameLab.text = self.projectModel.roomname
         self.bedNoTitleLab.text = parametersModel().OperationMode == 0 ? "床位号" : "手牌号"
@@ -93,19 +94,21 @@ class LSAddClockViewController: LSBaseViewController {
     }
     
     @IBAction func subtractAction(_ sender: Any) {
+        let defTime = parametersModel().addClockDefTime
         guard let number = self.numberLab.text?.double(),
-              number > 0.5 else {
+              number > defTime else {
             return
         }
-        self.numberLab.text = (number - 0.5).string
+        self.numberLab.text = (number - defTime).string
     }
     
     
     @IBAction func plusAction(_ sender: Any) {
+        let defTime = parametersModel().addClockDefTime
         guard let number = self.numberLab.text?.double() else {
             return
         }
-        self.numberLab.text = (number + 0.5).string
+        self.numberLab.text = (number + defTime).string
     }
     
     @IBAction func cancelAction(_ sender: Any) {

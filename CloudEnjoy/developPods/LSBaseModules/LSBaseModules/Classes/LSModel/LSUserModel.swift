@@ -84,6 +84,10 @@ public class LSParametersModel: HandyJSON {
     public var MakeAppointmentReminder = 0 //项目未上钟每多少分钟的提示一次，根据派工时间和当前时间校验
     public var OperationMode = 0 //0房间模式 1手牌模式
     public var OverStockPerSale = 0 //1 允许销售，不提示   2 允许销售，提示  3 不允许销售，并提示
+    public var addClockDefTime: Double = 0 // 加钟默认钟数
+    public var ShopStartTime: String = "" // 开门营业时间
+    public var ShopEndTime: String = "" // 关门营业时间
+
     required public init(){}
 }
 

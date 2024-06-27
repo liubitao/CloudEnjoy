@@ -14,6 +14,9 @@ import LSBaseModules
 
 class LSWorkorderItemViewController: LSBaseViewController {
     @IBOutlet weak var timeLab: UILabel!
+    @IBOutlet weak var listNumberLab: UILabel!
+    @IBOutlet weak var totalRoyaltiesLab: UILabel!
+    
     var tableView: UITableView!
 
     var refreshControl: KyoRefreshControl!
@@ -25,6 +28,7 @@ class LSWorkorderItemViewController: LSBaseViewController {
 
     var items = PublishSubject<[SectionModel<String, LSOrderServerModel>]>()
     var models = [LSOrderServerModel]()
+    var sumDataModel = LSOrderSummaryTotalModel()
     
 
     
@@ -57,11 +61,12 @@ class LSWorkorderItemViewController: LSBaseViewController {
             tableView.register(nibWithCellClass: LSOrderTableViewCell.self)
             view.addSubview(tableView)
             tableView.snp.makeConstraints { make in
-                make.edges.equalToSuperview().inset(UIEdgeInsets(top: 45, left: 0, bottom: 0, right: 0))
+                make.edges.equalToSuperview().inset(UIEdgeInsets(top: 45, left: 0, bottom: -40, right: 0))
             }
             
             let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSOrderServerModel>> { dataSource, tableView, indexPath, element in
                 let cell: LSOrderTableViewCell = tableView.dequeueReusableCell(withClass: LSOrderTableViewCell.self)
+                cell.sortIndexLab.text = "\(indexPath.row + 1)"
                 cell.titleLab.text = "\(element.roomname)房--\(element.projectname)/\(element.ctypename)"
                 cell.statusLab.text = element.statusname
                 cell.statusView.backgroundColor = element.status.backColor
@@ -86,15 +91,35 @@ class LSWorkorderItemViewController: LSBaseViewController {
     }
     
     override func setupData() {
-        self.timeLab.text = "\(self.startdate.components(separatedBy: " ").first.unwrapped(or: "")) 至 \(self.enddate.components(separatedBy: " ").first.unwrapped(or: ""))"
+        self.timeLab.text = self.startdate + "至" + self.enddate
+        self.networkSumData()
     }
     
     func changeOrderStatus(_ orderStatus: LSOrderServerStatus) {
         self.orderServerStatus = orderStatus
+        self.networkSumData()
         self.refreshControl?.kyoRefreshOperation(withDelay: 0, with: KyoManualRefreshType.center)
+        
     }
     
-    func netwrokData(page: Int) {
+    func networkSumData() {
+        LSWorkbenchServer.getSaleUserProjectMeSum(startdate: self.startdate, enddate: self.enddate, status: self.orderServerStatus.rawValue).subscribe { listModel in
+            guard let listModel = listModel else { return }
+            self.sumDataModel = LSOrderSummaryTotalModel.deserialize(from: listModel.sumdata as? [String: Any]) ?? LSOrderSummaryTotalModel()
+            guard let listNumberLab = self.listNumberLab,
+                  let totalRoyaltiesLab = self.totalRoyaltiesLab else {
+                return
+            }
+            listNumberLab.text = "共\(self.sumDataModel.qty)条记录"
+            totalRoyaltiesLab.text = "提成总和：￥\(self.sumDataModel.commission.stringValue(retain: 2))"
+        } onFailure: { error in
+            Toast.show(error.localizedDescription)
+        } onDisposed: {
+            Toast.hiddenHUD()
+        }.disposed(by: self.rx.disposeBag)
+    }
+    
+    func networkData(page: Int) {
         var networkError: Error? = nil
         LSWorkbenchServer.getSaleUserProjectMe(page: page, startdate: self.startdate, enddate: self.enddate, status: self.orderServerStatus).subscribe(onSuccess: { listModels in
             guard let listModels = listModels else{return}
@@ -120,11 +145,11 @@ class LSWorkorderItemViewController: LSBaseViewController {
 
 extension LSWorkorderItemViewController: KyoRefreshControlDelegate{
     func kyoRefreshDidTriggerRefresh(_ refreshControl: KyoRefreshControl!) {
-        netwrokData(page: 1)
+        networkData(page: 1)
     }
     
     func kyoRefreshLoadMore(_ refreshControl: KyoRefreshControl!, loadPage index: Int) {
-        netwrokData(page: index + 1)
+        networkData(page: index + 1)
     }
     func kyoRefresh(_ refreshControl: KyoRefreshControl!, withNoDataShow kyoDataTipsView: KyoDataTipsView!, withCurrentKyoDataTipsModel kyoDataTipsModel: KyoDataTipsModel!, with kyoDataTipsViewType: KyoDataTipsViewType) -> KyoDataTipsModel! {
         kyoDataTipsModel.img = UIImage(named: "无信息")

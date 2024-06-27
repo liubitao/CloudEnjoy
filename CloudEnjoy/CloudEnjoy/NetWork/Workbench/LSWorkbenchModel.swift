@@ -19,30 +19,51 @@ enum LSTimeSectionType: Int, CaseIterable {
     case custom = 4
     
     var startdate: String {
+        var shopStartTimes = parametersModel().ShopStartTime.components(separatedBy: ":").map{Int($0) ?? 0}
+        if shopStartTimes.count != 3 {
+            shopStartTimes = [0, 0, 0]
+        }
+        var startDate = Date(hour: shopStartTimes[0], minute: shopStartTimes[1], second: shopStartTimes[2], nanosecond: 0) ?? Date().beginning(of: .day) ?? Date()
+        var endDate = Date(hour: shopStartTimes[0], minute: shopStartTimes[1], second: shopStartTimes[2], nanosecond: 0)?.adding(.day, value: 1) ??  Date().beginning(of: .day)?.adding(.day, value: 1) ?? Date()
+        if Date().isBetween(startDate, endDate, includeBounds: true) == false {
+            endDate = startDate
+            startDate = startDate.adding(.day, value: -1)
+        }
+
         switch self {
         case .today:
-            return Date().beginning(of: .day)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
+            return startDate.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss")
         case .yesterday:
-            return Date().adding(.day, value: -1).beginning(of: .day)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
+            return startDate.adding(.day, value: -1).stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss")
         case .currentMonth:
-            return Date().beginning(of: .month)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
+            return startDate.changing(.day, value: 1)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
         case .lastMonth:
-            return Date().adding(.month, value: -1).beginning(of: .month)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
+            return startDate.adding(.month, value: -1).changing(.day, value: 1)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
         case .custom:
-            return Date().beginning(of: .day)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
+            return startDate.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss")
         }
     }
     
     var endDate: String {
+        var shopStartTimes = parametersModel().ShopStartTime.components(separatedBy: ":").map{Int($0) ?? 0}
+        if shopStartTimes.count != 3 {
+            shopStartTimes = [0, 0, 0]
+        }
+        var startDate = Date(hour: shopStartTimes[0], minute: shopStartTimes[1], second: shopStartTimes[2], nanosecond: 0) ?? Date().beginning(of: .day) ?? Date()
+        var endDate = Date(hour: shopStartTimes[0], minute: shopStartTimes[1], second: shopStartTimes[2], nanosecond: 0)?.adding(.day, value: 1) ??  Date().beginning(of: .day)?.adding(.day, value: 1) ?? Date()
+        if Date().isBetween(startDate, endDate, includeBounds: true) == false {
+            endDate = startDate
+            startDate = startDate.adding(.day, value: -1)
+        }
         switch self {
         case .today:
             return Date().stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss")
         case .yesterday:
-            return Date().adding(.day, value: -1).end(of: .day)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
+            return endDate.adding(.day, value: -1).stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss")
         case .currentMonth:
             return Date().stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss")
         case .lastMonth:
-            return Date().adding(.month, value: -1).end(of: .month)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
+            return startDate.changing(.day, value: 1)?.stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss") ?? ""
         case .custom:
             return Date().stringTime24(withFormat:"yyyy-MM-dd HH:mm:ss")
         }
@@ -592,6 +613,7 @@ struct LSOrderSummaryItemModel: HandyJSON {
 struct LSOrderSummaryTotalModel: HandyJSON {
     var qty = 0
     var amt: Double = 0
+    var commission: Double = 0
 }
 
 
