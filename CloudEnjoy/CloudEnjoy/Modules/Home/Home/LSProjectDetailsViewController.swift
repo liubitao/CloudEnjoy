@@ -18,6 +18,7 @@ class LSProjectDetailsViewController: LSBaseViewController {
     @IBOutlet weak var headBgView: UIImageView!
     @IBOutlet weak var statusImageView: UIImageView!
     @IBOutlet weak var statusTitleLab: UILabel!
+    @IBOutlet weak var roomTitleLab: UILabel!
     @IBOutlet weak var roomNameLab: UILabel!
     @IBOutlet weak var projectNameLab: UILabel!
     @IBOutlet weak var numberLab: UILabel!
@@ -59,7 +60,19 @@ class LSProjectDetailsViewController: LSBaseViewController {
         self.statusImageView.image = projectModel.status.statusImage
         self.statusTitleLab.text = projectModel.status.statusString
         
-        self.roomNameLab.text = projectModel.roomname + (parametersModel().OperationMode == 0 ? "(床位：\(projectModel.bedname))" : "(手牌：\(projectModel.handcardno))")
+        var roomDetailsStr = ""
+        switch parametersModel().OperationMode {
+        case .room:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(床位：\(projectModel.bedname))"
+        case .roomAndHandCard:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(手牌：\(projectModel.handcardno))"
+        case .handCard:
+            self.roomTitleLab.text = "手牌号"
+            roomDetailsStr = projectModel.handcardno
+        }
+        self.roomNameLab.text = roomDetailsStr
         self.projectNameLab.text = projectModel.projectname
         self.numberLab.text = projectModel.qty.stringValue(retain: 2)
         self.projectMoneyLab.text = "￥" + projectModel.amt.stringValue(retain: 2)

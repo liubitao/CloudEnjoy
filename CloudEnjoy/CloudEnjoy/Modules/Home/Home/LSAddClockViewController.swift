@@ -18,9 +18,8 @@ class LSAddClockViewController: LSBaseViewController {
     @IBOutlet weak var newProjectPriceLab: UILabel!
     @IBOutlet weak var newProjectDurationLab: UILabel!
     
+    @IBOutlet weak var roomTitleLab: UILabel!
     @IBOutlet weak var roomNameLab: UILabel!
-    @IBOutlet weak var bedNoTitleLab: UILabel!
-    @IBOutlet weak var bedNoLab: UILabel!
     @IBOutlet weak var refNameLab: UILabel!
     @IBOutlet weak var selectedProjectView: UIView!
 
@@ -62,9 +61,20 @@ class LSAddClockViewController: LSBaseViewController {
         
         self.numberLab.text = parametersModel().addClockDefTime.floorString(retain: 1)
         
-        self.roomNameLab.text = self.projectModel.roomname
-        self.bedNoTitleLab.text = parametersModel().OperationMode == 0 ? "床位号" : "手牌号"
-        self.bedNoLab.text = parametersModel().OperationMode == 0 ? "\(projectModel.bedname)" : "\(projectModel.handcardno)"
+        var roomDetailsStr = ""
+        switch parametersModel().OperationMode {
+        case .room:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(床位：\(projectModel.bedname))"
+        case .roomAndHandCard:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(手牌：\(projectModel.handcardno))"
+        case .handCard:
+            self.roomTitleLab.text = "手牌号"
+            roomDetailsStr = projectModel.handcardno
+        }
+        self.roomNameLab.text = roomDetailsStr
+        
         self.referrerModel = LSSysUserModel(userid: userModel().userid, name: userModel().name)
         self.refNameLab.text = self.referrerModel.name
         

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,6 +24,7 @@
                 <outlet property="remarkLab" destination="bob-qV-cDB" id="wAc-0J-PwO"/>
                 <outlet property="renameLab" destination="IQK-S3-wAy" id="7ey-VN-0tY"/>
                 <outlet property="roomNameLab" destination="FY4-We-InD" id="IQ8-Se-8x7"/>
+                <outlet property="roomNameView" destination="68h-bd-JBh" id="4HX-xK-5i8"/>
                 <outlet property="stateLab" destination="vl3-iw-yrr" id="J3Q-3K-kSf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -34,7 +35,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GN9-nJ-cFL">
-                    <rect key="frame" x="10" y="614" width="168.66666666666666" height="43"/>
+                    <rect key="frame" x="10" y="580" width="168.66666666666666" height="43"/>
                     <color key="backgroundColor" red="0.87450980389999999" green="0.95686274510000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="43" id="Gmj-92-vXD"/>
@@ -61,7 +62,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95e-f6-Cbg">
-                    <rect key="frame" x="196.66666666666663" y="614" width="168.33333333333337" height="43"/>
+                    <rect key="frame" x="196.66666666666663" y="580" width="168.33333333333337" height="43"/>
                     <color key="backgroundColor" red="0.17254901959999999" green="0.72156862749999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="43" id="dud-4N-8sZ"/>
@@ -82,7 +83,7 @@
                     </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnU-K5-qBG">
-                    <rect key="frame" x="10" y="69" width="355" height="535"/>
+                    <rect key="frame" x="10" y="69" width="355" height="501"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sce-3J-vW9">
                             <rect key="frame" x="0.0" y="0.0" width="355" height="540"/>

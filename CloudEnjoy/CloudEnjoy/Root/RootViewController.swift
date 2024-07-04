@@ -20,7 +20,6 @@ class RootViewController: LSBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          
         self.setupLaunch()
     }
 

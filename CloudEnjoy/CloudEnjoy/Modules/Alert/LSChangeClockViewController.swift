@@ -20,9 +20,8 @@ class LSChangeClockViewController: LSBaseViewController {
     @IBOutlet weak var newProjectPriceLab: UILabel!
     @IBOutlet weak var newProjectDurationLab: UILabel!
     @IBOutlet weak var addTipLab: UILabel!
+    @IBOutlet weak var roomTitleLab: UILabel!
     @IBOutlet weak var roomNameLab: UILabel!
-    @IBOutlet weak var bedNoTitleLab: UILabel!
-    @IBOutlet weak var bedNoLab: UILabel!
     @IBOutlet weak var refNameLab: UILabel!
     @IBOutlet weak var selectedProjectView: UIView!
 
@@ -58,16 +57,26 @@ class LSChangeClockViewController: LSBaseViewController {
     override func setupViews() {
         self.view.backgroundColor = UIColor.white;
         self.view.cornerRadius = 5
-        self.view.frame = CGRectMake(0, 0, UI.SCREEN_WIDTH, 549 + UI.BOTTOM_HEIGHT);
+        self.view.frame = CGRectMake(0, 0, UI.SCREEN_WIDTH, 505 + UI.BOTTOM_HEIGHT);
         
         self.oldProjectPicIamgeView.kf.setImage(with: imgUrl(self.projectModel.images))
         self.oldProjectNameLab.text = self.projectModel.projectname
         self.oldProjectPriceLab.text = "￥" + self.projectModel.jprice.stringValue(retain: 2)
         self.oldProjectDurationLab.text = "/" + self.projectModel.jmin + "分钟"
         
-        self.roomNameLab.text = self.projectModel.roomname
-        self.bedNoTitleLab.text = parametersModel().OperationMode == 0 ? "床位号" : "手牌号"
-        self.bedNoLab.text = parametersModel().OperationMode == 0 ? "\(projectModel.bedname)" : "\(projectModel.handcardno)"
+        var roomDetailsStr = ""
+        switch parametersModel().OperationMode {
+        case .room:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(床位：\(projectModel.bedname))"
+        case .roomAndHandCard:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(手牌：\(projectModel.handcardno))"
+        case .handCard:
+            self.roomTitleLab.text = "手牌号"
+            roomDetailsStr = projectModel.handcardno
+        }
+        self.roomNameLab.text = roomDetailsStr
         self.refNameLab.text = self.referrerModel.name
         
         self.selectedProjectView.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,6 +26,7 @@
                 <outlet property="projectNameLab" destination="XXL-zd-k9j" id="6tb-S5-CfU"/>
                 <outlet property="refNameLab" destination="EYp-Gc-rOT" id="UAX-1u-3pn"/>
                 <outlet property="roomNameLab" destination="cTT-Pi-NUu" id="dyw-7l-DQj"/>
+                <outlet property="roomTitleLab" destination="Zvv-Oj-QYh" id="GFl-hN-rMz"/>
                 <outlet property="scrollViewBottom" destination="0Yf-6D-pVE" id="amf-9Z-he3"/>
                 <outlet property="statusImageView" destination="sIW-9r-jCK" id="fAv-Zj-WdE"/>
                 <outlet property="statusTitleLab" destination="Xpq-NE-YjT" id="o07-Tc-Dz0"/>

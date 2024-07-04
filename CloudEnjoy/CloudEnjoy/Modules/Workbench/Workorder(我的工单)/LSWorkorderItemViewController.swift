@@ -67,7 +67,19 @@ class LSWorkorderItemViewController: LSBaseViewController {
             let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSOrderServerModel>> { dataSource, tableView, indexPath, element in
                 let cell: LSOrderTableViewCell = tableView.dequeueReusableCell(withClass: LSOrderTableViewCell.self)
                 cell.sortIndexLab.text = "\(indexPath.row + 1)"
-                cell.titleLab.text = "\(element.roomname)房--\(element.projectname)/\(element.ctypename)"
+                
+                var roomDetailsStr = ""
+                switch parametersModel().OperationMode {
+                case .room:
+                    roomDetailsStr = element.roomname + "(床位：\(element.bedname))"
+                case .roomAndHandCard:
+                    roomDetailsStr = element.roomname + "(手牌：\(element.handcardno))"
+                case .handCard:
+                    roomDetailsStr = element.handcardno
+                }
+                
+                
+                cell.titleLab.text = "\(roomDetailsStr)--\(element.projectname)/\(element.ctypename)"
                 cell.statusLab.text = element.statusname
                 cell.statusView.backgroundColor = element.status.backColor
                 cell.amtLab.text = "项目金额：￥\(element.amt.stringValue(retain: 2))"

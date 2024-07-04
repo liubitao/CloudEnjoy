@@ -11,6 +11,7 @@ import RxDataSources
 import SwifterSwift
 import RxSwift
 import LSNetwork
+import LSBaseModules
 
 enum OrderType {
     case forMe
@@ -57,7 +58,9 @@ class LSOrderItemViewController: LSBaseViewController {
             
             let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSOrderModel>> { dataSource, tableView, indexPath, element in
                 let cell: LSCreateOrderTableViewCell = tableView.dequeueReusableCell(withClass: LSCreateOrderTableViewCell.self)
-                cell.titleLab.text = "\(element.roomname)房--\(element.projectname)/\(element.ctypename)"
+                
+                var detailsStr = parametersModel().showRoom ? "\(element.roomname)房" : ""
+                cell.titleLab.text = "\(detailsStr)--\(element.projectname)/\(element.ctypename)"
                 cell.statusLab.text = element.statusname
               
                 cell.statusView.backgroundColor = element.status.backColor

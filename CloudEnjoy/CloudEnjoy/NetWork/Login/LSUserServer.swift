@@ -23,6 +23,7 @@ class LSUserServer {
                 return
             }
             LoginDataCache.set(key: "LoginInfo", value: model.toJSONString())
+            AppDataCache.set(key: "storeType", value: model.store.trade)
             LSLoginModel.shared = model
         })
     }

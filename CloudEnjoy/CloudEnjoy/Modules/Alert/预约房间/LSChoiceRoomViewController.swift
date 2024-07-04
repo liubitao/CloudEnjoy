@@ -9,6 +9,7 @@ import UIKit
 import JXSegmentedView
 import SwifterSwift
 import SnapKit
+import LSBaseModules
 
 class LSChoiceRoomViewController: LSBaseViewController {
     var segmentedView: JXSegmentedView!
@@ -35,7 +36,7 @@ class LSChoiceRoomViewController: LSBaseViewController {
         vc.selectRoomModel = selectRoomModel
         vc.selectProjectModel = selectProjectModel
         vc.selectJSModel = selectJSModel
-        vc.selectedIndex = selectedIndex
+        vc.selectedIndex = parametersModel().showRoom ? selectedIndex : selectedIndex - 1
         vc.clockSelectModel = clockSelectModel
         vc.levelSelectModel = levelSelectModel
         vc.sexSelectModel = sexSelectModel
@@ -62,7 +63,9 @@ class LSChoiceRoomViewController: LSBaseViewController {
         self.view.backgroundColor = UIColor.white;
         self.view.frame = CGRectMake(0, 0, UI.SCREEN_WIDTH, 516+UI.BOTTOM_HEIGHT);
 
-        self.subViewControllers.append(LSChoiceRoomItemController(selectRoomModel: self.selectRoomModel))
+        if parametersModel().showRoom {
+            self.subViewControllers.append(LSChoiceRoomItemController(selectRoomModel: self.selectRoomModel))
+        }
         self.subViewControllers.append(LSChioceProjectItemController(selectPojectModel: self.selectProjectModel))
         self.subViewControllers.append(LSChioceTechnicianItemController(selectedProjectModel: self.selectProjectModel, selectJSModel: self.selectJSModel, clockSelectModel: self.clockSelectModel, levelSelectModel: self.levelSelectModel, sexSelectModel: self.sexSelectModel))
 
@@ -82,20 +85,25 @@ class LSChoiceRoomViewController: LSBaseViewController {
             }
             
             segmentedDataSource = JXSegmentedTitleDataSource()
-            segmentedDataSource.titles = ["选择房间", "选择项目", "选择技师"]
+            if parametersModel().showRoom {
+                segmentedDataSource.titles.append("选择房间")
+            }
+            let itemCount: CGFloat = parametersModel().showRoom ? 3 : 2
+
+            segmentedDataSource.titles.append(contentsOf: ["选择项目", "选择技师"])
             segmentedDataSource.titleNormalFont = Font.pingFangRegular(14)
             segmentedDataSource.titleSelectedFont = Font.pingFangRegular(14)
             segmentedDataSource.titleNormalColor = Color(hexString: "#363636")!
             segmentedDataSource.titleSelectedColor = Color(hexString: "#2BB8C2")!
             segmentedDataSource.itemSpacing = 0
-            segmentedDataSource.itemWidth = (UI.SCREEN_WIDTH - 20)/3
+            segmentedDataSource.itemWidth = (UI.SCREEN_WIDTH - 20)/itemCount
             segmentedView.dataSource = segmentedDataSource
 
             //配置指示器
             let indicator = JXSegmentedIndicatorImageView()
             indicator.indicatorPosition = .top
-            indicator.image = UIImage(color: Color.white, size: CGSize(width: (UI.SCREEN_WIDTH - 20)/3, height: 45))
-            indicator.indicatorWidth = (UI.SCREEN_WIDTH - 20)/3
+            indicator.image = UIImage(color: Color.white, size: CGSize(width: (UI.SCREEN_WIDTH - 20)/itemCount, height: 45))
+            indicator.indicatorWidth = (UI.SCREEN_WIDTH - 20)/itemCount
             indicator.indicatorHeight = 45
             indicator.borderWidth = 1
             indicator.borderColor = Color(hexString: "#E3E3E3")
@@ -134,11 +142,10 @@ class LSChoiceRoomViewController: LSBaseViewController {
     }
     
     @IBAction func confirmAction(_ sender: Any) {
-        let choiceRoomVC = self.subViewControllers[0] as! LSChoiceRoomItemController
-        let choiceProjectVC = self.subViewControllers[1] as! LSChioceProjectItemController
-        let choiceJSVC = self.subViewControllers[2] as! LSChioceTechnicianItemController
-
-        self.selectedClosure?(choiceRoomVC.selectRoomModel, choiceProjectVC.selectPojectModel, choiceJSVC.selectJSModel, choiceJSVC.clockSelectModel, choiceJSVC.levelSelectModel, choiceJSVC.sexSelectModel)
+        let choiceRoomVC = self.subViewControllers.first(where: {$0 is LSChoiceRoomItemController}) as? LSChoiceRoomItemController
+        let choiceProjectVC = self.subViewControllers.first(where: {$0 is LSChioceProjectItemController}) as? LSChioceProjectItemController
+        let choiceJSVC = self.subViewControllers.first(where: {$0 is LSChioceTechnicianItemController}) as? LSChioceTechnicianItemController
+        self.selectedClosure?(choiceRoomVC?.selectRoomModel, choiceProjectVC?.selectPojectModel, choiceJSVC?.selectJSModel, choiceJSVC?.clockSelectModel, choiceJSVC?.levelSelectModel, choiceJSVC?.sexSelectModel)
         self.dismiss(animated: true)
     }
 
@@ -146,20 +153,20 @@ class LSChoiceRoomViewController: LSBaseViewController {
 
 extension LSChoiceRoomViewController: JXSegmentedViewDelegate, JXSegmentedListContainerViewDataSource {
     func segmentedView(_ segmentedView: JXSegmentedView, canClickItemAt index: Int) -> Bool {
-        guard index == 2 else {
+        guard index == self.subViewControllers.count - 1 else {
             return true
         }
-        guard let choiceProjectVC = self.subViewControllers[1] as? LSChioceProjectItemController,
+        guard let choiceProjectVC = self.subViewControllers.first(where: {$0 is LSChioceProjectItemController}) as? LSChioceProjectItemController,
               let selectProjectModel = choiceProjectVC.selectPojectModel else {
             Toast.show("请先选择服务项目")
             return false
         }
-        (self.subViewControllers[2] as? LSChioceTechnicianItemController)?.selectedProjectModel = selectProjectModel
+        (self.subViewControllers.first(where: {$0 is LSChioceTechnicianItemController}) as? LSChioceTechnicianItemController)?.selectedProjectModel = selectProjectModel
         return true
     }
    
     func numberOfLists(in listContainerView: JXSegmentedListContainerView) -> Int {
-        return 3
+        return self.subViewControllers.count
     }
 
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {

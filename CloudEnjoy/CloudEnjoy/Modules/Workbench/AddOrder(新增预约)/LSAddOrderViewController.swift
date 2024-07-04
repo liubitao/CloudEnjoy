@@ -52,7 +52,6 @@ class LSAddOrderViewController: LSBaseViewController {
     @IBOutlet weak var jsView: UIView!
     @IBOutlet weak var jsPlaceholderLab: UILabel!
     
-    
     @IBOutlet weak var jsLab1: UILabel!
     @IBOutlet weak var jsLab2: UILabel!
     @IBOutlet weak var jsLab3: UILabel!
@@ -201,6 +200,7 @@ class LSAddOrderViewController: LSBaseViewController {
             referrerVC.presentedWith(self)
         }.disposed(by: self.rx.disposeBag)
         
+        self.roomView.isHidden = !parametersModel().showRoom
         self.roomView.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
             guard let self = self else {return}
             self.chioceDesc(selectedIndex: 0)
@@ -427,11 +427,15 @@ class LSAddOrderViewController: LSBaseViewController {
             Toast.show("请输入正确的联系电话")
             return
         }
-        guard let selectRoomModel = self.selectRoomModel,
-              self.models.filter({ $0.selectRoomModel == nil }).count == 0 else {
+        
+        guard (parametersModel().showRoom == true &&
+               false == (self.selectRoomModel?.roomid.isEmpty ?? true) &&
+              self.models.filter({ $0.selectRoomModel == nil }).count == 0) || parametersModel().showRoom == false else {
             Toast.show("请选择预约房间")
             return
         }
+        let selectRoomModel = self.selectRoomModel
+        
         guard let selectProjectModel = self.selectProjectModel,
               self.models.filter({ $0.selectProjectModel == nil }).count == 0 else {
             Toast.show("请选择服务项目")
@@ -457,13 +461,13 @@ class LSAddOrderViewController: LSBaseViewController {
             Toast.show("请选择预约技师")
             return
         }
-        var roomlist: [[String : Any]] = [["roomid": selectRoomModel.roomid,
-                                         "roomname": selectRoomModel.name]]
+        var roomlist: [[String : Any]] = [["roomid": selectRoomModel?.roomid ?? "",
+                                           "roomname": selectRoomModel?.name ?? ""]]
         
         var project: [String : Any] = ["projectid": selectProjectModel.projectid,
                             "projectname": selectProjectModel.name,
-                            "roomid": selectRoomModel.roomid,
-                            "roomname": selectRoomModel.name,
+                                       "roomid": selectRoomModel?.roomid ?? "",
+                                       "roomname": selectRoomModel?.name ?? "",
                             "ctype": clockSelectModel.rawValue,
                             "min": selectProjectModel.smin]
         if let jsModel = self.selectJSModel {
@@ -481,8 +485,8 @@ class LSAddOrderViewController: LSBaseViewController {
             let roomItem: [String : Any] = ["roomid": selectRoomModel!.roomid, "roomname": selectRoomModel!.name]
             var projectItem: [String : Any] = ["projectid": selectProjectModel!.projectid,
                                                "projectname": selectProjectModel!.name,
-                                               "roomid": selectRoomModel!.roomid,
-                                               "roomname": selectRoomModel!.name,
+                                               "roomid": selectRoomModel?.roomid ?? "",
+                                               "roomname": selectRoomModel?.name ?? "",
                                                "ctype": clockSelectModel!.rawValue,
                                                "min": selectProjectModel!.smin]
             if let jsModel = selectJSModel {

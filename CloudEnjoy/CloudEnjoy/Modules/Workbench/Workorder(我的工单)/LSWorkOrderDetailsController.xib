@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,6 +26,7 @@
                 <outlet property="projectRoyaltyLab" destination="49a-s5-6jb" id="rLe-8F-jEw"/>
                 <outlet property="refNameLab" destination="BhI-Of-bTK" id="njv-sm-PSm"/>
                 <outlet property="roomLab" destination="NJB-Im-viE" id="hne-hf-yUZ"/>
+                <outlet property="roomTitleLab" destination="jq0-am-XDR" id="wf6-Kn-8JE"/>
                 <outlet property="unitPriceLab" destination="OHZ-ye-Xiy" id="a25-Qr-jDk"/>
                 <outlet property="upClockNameLab" destination="iwt-lN-n7I" id="r1a-g1-O15"/>
                 <outlet property="upClockTimeLab" destination="JQE-J6-d32" id="vS0-xg-vb1"/>

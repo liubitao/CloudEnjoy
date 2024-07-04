@@ -7,6 +7,7 @@
 
 import UIKit
 import SwifterSwift
+import LSBaseModules
 
 class LSOrderDetailsViewController: LSBaseViewController {
 
@@ -23,6 +24,7 @@ class LSOrderDetailsViewController: LSBaseViewController {
     @IBOutlet weak var createNameLab: UILabel!
     @IBOutlet weak var remarkLab: UILabel!
 
+    @IBOutlet weak var roomNameView: UIView!
     
     @IBOutlet weak var confirmBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
@@ -51,6 +53,8 @@ class LSOrderDetailsViewController: LSBaseViewController {
         self.renameLab.text = orderModel.refname
         self.createNameLab.text = orderModel.createname
         self.remarkLab.text = orderModel.remark
+        
+        self.roomNameView.isHidden = !parametersModel().showRoom
         
         self.cancelBtn.isHidden = orderModel.status != .wait &&  orderModel.status != .hadYuyue
         self.confirmBtn.isHidden = orderModel.status != .wait &&  orderModel.status != .hadYuyue

@@ -93,6 +93,7 @@ struct LSRoyaltiesDetailsModel: HandyJSON {
     var commission: Double = 0
     var roomname = ""
     var createtime = ""
+    var handcardno = ""
 }
 
 
@@ -150,6 +151,8 @@ enum LSOrderServerStatus: String, CaseIterable, HandyJSONEnum {
 struct LSOrderServerModel: HandyJSON {
     var projectname = ""
     var roomname = ""
+    var handcardno = ""
+    var bedname = ""
     var ctypename = ""
     var statusname = ""
     var status: LSOrderServerStatus = .wait

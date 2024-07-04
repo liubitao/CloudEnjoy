@@ -15,6 +15,7 @@ class LSLoginViewController: LSBaseViewController {
 
     var agreePrivacyButton: UIButton!
     
+    @IBOutlet weak var storeNameLab: UILabel!
     @IBOutlet weak var loginContentView: UIView!
     
     var loginView: LSLoginContentView!
@@ -98,6 +99,8 @@ class LSLoginViewController: LSBaseViewController {
             }
             return loginView
         }()
+        
+        storeNameLab.text = "聚客" + (AppDataCache.get(key: "storeType") as? String ?? "云休闲") + "-技师端"
     }
     
     func pushUserPrivacy() {

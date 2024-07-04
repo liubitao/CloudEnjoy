@@ -9,6 +9,8 @@ import UIKit
 import LSBaseModules
 
 class LSDownClockViewController: LSBaseViewController {
+    
+    @IBOutlet weak var roomTitleLab: UILabel!
 
     @IBOutlet weak var roomNameLab: UILabel!
     
@@ -57,7 +59,19 @@ class LSDownClockViewController: LSBaseViewController {
         self.view.cornerRadius = 5
         self.view.frame = CGRectMake((UI.SCREEN_WIDTH - 290)/2.0, (UI.SCREEN_HEIGHT - 360)/2.0, 290, 360);
         
-        self.roomNameLab.text = projectModel.roomname + (parametersModel().OperationMode == 0 ? "(床位：\(projectModel.bedname))" : "(手牌：\(projectModel.handcardno))")
+        var roomDetailsStr = ""
+        switch parametersModel().OperationMode {
+        case .room:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(床位：\(projectModel.bedname))"
+        case .roomAndHandCard:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(手牌：\(projectModel.handcardno))"
+        case .handCard:
+            self.roomTitleLab.text = "手牌号"
+            roomDetailsStr = projectModel.handcardno
+        }
+        self.roomNameLab.text = roomDetailsStr
         self.serviceDurationLab.text = Date().minutesSince(projectModel.starttime.date(withFormat: "yyyy-MM-dd HH:mm:ss") ?? Date()).int.string + "分钟"
         self.projectNameLab.text = projectModel.projectname
         self.clockTypeLab.text = projectModel.ctype.clockString

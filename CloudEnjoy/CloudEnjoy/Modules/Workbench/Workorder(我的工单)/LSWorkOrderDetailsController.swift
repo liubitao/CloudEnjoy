@@ -11,6 +11,7 @@ import LSBaseModules
 class LSWorkOrderDetailsController: LSBaseViewController {
 
     @IBOutlet weak var jsLab: UILabel!
+    @IBOutlet weak var roomTitleLab: UILabel!
     @IBOutlet weak var roomLab: UILabel!
     @IBOutlet weak var clockTypeLab: UILabel!
     @IBOutlet weak var projectNameLab: UILabel!
@@ -60,7 +61,20 @@ class LSWorkOrderDetailsController: LSBaseViewController {
             return
         }
         jsLab.text = orderModel.tname
-        roomLab.text = orderModel.roomname + (parametersModel().OperationMode == 0 ? "(床位：\(orderModel.bedname))" : "(手牌：\(orderModel.handcardno))")
+        var roomDetailsStr = ""
+        switch parametersModel().OperationMode {
+        case .room:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = orderModel.roomname + "(床位：\(orderModel.bedname))"
+        case .roomAndHandCard:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = orderModel.roomname + "(手牌：\(orderModel.handcardno))"
+        case .handCard:
+            self.roomTitleLab.text = "手牌号"
+            roomDetailsStr = orderModel.handcardno
+        }
+        self.roomLab.text = roomDetailsStr
+        
         clockTypeLab.text = orderModel.ctype.clockString
         projectNameLab.text = orderModel.projectname
         createNameLab.text = orderModel.createname

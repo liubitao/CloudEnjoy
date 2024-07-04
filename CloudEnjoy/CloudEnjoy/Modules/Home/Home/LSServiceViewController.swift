@@ -14,9 +14,8 @@ import LSBaseModules
 class LSServiceViewController: LSBaseViewController {
     
     @IBOutlet weak var searchGoodsTextField: UITextField!
+    @IBOutlet weak var roomTitleLab: UILabel!
     @IBOutlet weak var roomNameLab: UILabel!
-    @IBOutlet weak var bedTitleLab: UILabel!
-    @IBOutlet weak var bedNoLab: UILabel!
     @IBOutlet weak var remarkTrxtField: UITextField!
 
     
@@ -39,9 +38,19 @@ class LSServiceViewController: LSBaseViewController {
     }
     
     override func setupViews() {
-        self.roomNameLab.text = projectModel.roomname
-        self.bedTitleLab.text = parametersModel().OperationMode == 0 ? "床位号" : "手牌号"
-        self.bedNoLab.text =  parametersModel().OperationMode == 0 ? projectModel.bedname : projectModel.handcardno
+        var roomDetailsStr = ""
+        switch parametersModel().OperationMode {
+        case .room:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(床位：\(projectModel.bedname))"
+        case .roomAndHandCard:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(手牌：\(projectModel.handcardno))"
+        case .handCard:
+            self.roomTitleLab.text = "手牌号"
+            roomDetailsStr = projectModel.handcardno
+        }
+        self.roomNameLab.text = roomDetailsStr
         
         self.tableView = {
             var tableView = UITableView(frame: CGRect.zero, style: .grouped)

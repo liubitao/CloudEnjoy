@@ -67,7 +67,7 @@ class LSRoyaltiesDetailsController: LSBaseViewController {
                 let cell: LSRoyaltiesDetailsCell = tableView.dequeueReusableCell(withClass: LSRoyaltiesDetailsCell.self)
                 cell.projectNameLab.text = element.projectname
                 cell.commissionLab.text = "￥\(element.commission)"
-                cell.roomNameLab.text = "房间：\(element.roomname)"
+                cell.roomNameLab.text = parametersModel().showRoom ? "房间：\(element.roomname)" : "手牌：\(element.handcardno)"
                 cell.projectTypeLab.text = "类型：\(element.ctypename)"
                 cell.amtLab.text = "金额：￥\(element.amt.stringValue(retain: 2))"
                 cell.timeLab.text = "时间：\(element.createtime)"

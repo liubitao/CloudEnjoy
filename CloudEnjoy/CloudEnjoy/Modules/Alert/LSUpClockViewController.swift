@@ -10,6 +10,9 @@ import SwifterSwift
 import LSBaseModules
 
 class LSUpClockViewController: LSBaseViewController {
+    
+    @IBOutlet weak var roomTitleLab: UILabel!
+
     @IBOutlet weak var roomNameLab: UILabel!
     
     @IBOutlet weak var waitTimeLab: UILabel!
@@ -52,7 +55,20 @@ class LSUpClockViewController: LSBaseViewController {
         self.view.cornerRadius = 5
         self.view.frame = CGRectMake((UI.SCREEN_WIDTH - 290)/2.0, (UI.SCREEN_HEIGHT - 270)/2.0, 290, 270);
         
-        self.roomNameLab.text = projectModel.roomname + (parametersModel().OperationMode == 0 ? "(床位号：\(projectModel.bedname))" : "(手牌号：\(projectModel.handcardno))")
+        var roomDetailsStr = ""
+        switch parametersModel().OperationMode {
+        case .room:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(床位：\(projectModel.bedname))"
+        case .roomAndHandCard:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(手牌：\(projectModel.handcardno))"
+        case .handCard:
+            self.roomTitleLab.text = "手牌号"
+            roomDetailsStr = projectModel.handcardno
+        }
+        
+        self.roomNameLab.text = roomDetailsStr
         self.projectNameLab.text = projectModel.projectname
         self.waitTimeLab.text = Date().minutesSince(projectModel.dispatchtime.date(withFormat: "yyyy-MM-dd HH:mm:ss") ?? Date()).stringValue(retain: 0) + "分钟"
         self.projectNameLab.text = projectModel.projectname

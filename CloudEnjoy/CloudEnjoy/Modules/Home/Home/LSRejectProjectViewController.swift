@@ -10,10 +10,8 @@ import LSBaseModules
 import SwifterSwift
 
 class LSRejectProjectViewController: LSBaseViewController {
-
+    @IBOutlet weak var roomTitleLab: UILabel!
     @IBOutlet weak var roomNameLab: UILabel!
-    @IBOutlet weak var bedTitle: UILabel!
-    @IBOutlet weak var bedNameLab: UILabel!
     @IBOutlet weak var projectNameLab: UILabel!
     @IBOutlet weak var jsNameLab: UILabel!
     @IBOutlet weak var clockTypeLab: UILabel!
@@ -40,9 +38,19 @@ class LSRejectProjectViewController: LSBaseViewController {
     }
     
     override func setupViews() {
-        self.roomNameLab.text = projectModel.roomname
-        self.bedTitle.text = parametersModel().OperationMode == 0 ? "床位号" : "手牌号"
-        self.bedNameLab.text =  parametersModel().OperationMode == 0 ? projectModel.bedname : projectModel.handcardno
+        var roomDetailsStr = ""
+        switch parametersModel().OperationMode {
+        case .room:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(床位：\(projectModel.bedname))"
+        case .roomAndHandCard:
+            self.roomTitleLab.text = "房间号"
+            roomDetailsStr = projectModel.roomname + "(手牌：\(projectModel.handcardno))"
+        case .handCard:
+            self.roomTitleLab.text = "手牌号"
+            roomDetailsStr = projectModel.handcardno
+        }
+        self.roomNameLab.text = roomDetailsStr
         self.projectNameLab.text = projectModel.projectname
         self.jsNameLab.text = userModel().name
         self.clockTypeLab.text = projectModel.ctype.clockString
