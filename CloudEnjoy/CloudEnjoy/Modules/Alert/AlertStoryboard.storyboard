@@ -953,8 +953,8 @@
                                     <action selector="closeAction:" destination="zk8-ua-6cs" eventType="touchUpInside" id="FaT-FQ-TZz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择预约房间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1z-hu-2sE">
-                                <rect key="frame" x="17.666666666666671" y="7.6666666666666679" width="84" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择预约" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1z-hu-2sE">
+                                <rect key="frame" x="17.666666666666671" y="7.6666666666666679" width="56" height="20"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2374,6 +2374,112 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jx2-Tv-FRQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="612.79999999999995" y="822.78325123152717"/>
+        </scene>
+        <!--Chioce Container View Controller-->
+        <scene sceneID="mPW-jz-Crj">
+            <objects>
+                <viewController storyboardIdentifier="LSChioceContainerViewController" id="bTk-VA-aUK" customClass="LSChioceContainerViewController" customModule="CloudEnjoy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TJD-6P-F8R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oic-LB-dX4">
+                                <rect key="frame" x="11.666666666666666" y="10.666666666666664" width="2.3333333333333339" height="14.333333333333336"/>
+                                <color key="backgroundColor" red="0.17254901959999999" green="0.72156862749999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="2.5" id="6MF-4t-KMZ"/>
+                                    <constraint firstAttribute="height" constant="14.5" id="rog-LK-3KI"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Thn-Ba-nDL">
+                                <rect key="frame" x="346.66666666666669" y="6.6666666666666679" width="17" height="22"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="路径 656"/>
+                                <connections>
+                                    <action selector="closeAction:" destination="bTk-VA-aUK" eventType="touchUpInside" id="KWG-Uk-fT3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWe-XD-kEF">
+                                <rect key="frame" x="17.666666666666668" y="7.6666666666666679" width="28.000000000000004" height="20"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MQ-rn-Xvn">
+                                <rect key="frame" x="10" y="283" width="168.66666666666666" height="43"/>
+                                <color key="backgroundColor" red="0.87450980389999999" green="0.95686274510000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Aat-T9-qeN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="取消">
+                                    <color key="titleColor" red="0.17254901959999999" green="0.72156862749999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds " value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.17254901959999999" green="0.72156862749999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelAction:" destination="bTk-VA-aUK" eventType="touchUpInside" id="Xf5-cf-ObD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgc-QQ-RN5">
+                                <rect key="frame" x="196.66666666666663" y="283" width="168.33333333333337" height="43"/>
+                                <color key="backgroundColor" red="0.17254901959999999" green="0.72156862749999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="V9a-Vq-bwN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="确认">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds " value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="confirmAction:" destination="bTk-VA-aUK" eventType="touchUpInside" id="hu2-Rj-jgN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Vjt-Eh-Gr2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HWe-XD-kEF" firstAttribute="leading" secondItem="Oic-LB-dX4" secondAttribute="trailing" constant="3.5" id="Lxt-fv-WqY"/>
+                            <constraint firstItem="Oic-LB-dX4" firstAttribute="top" secondItem="TJD-6P-F8R" secondAttribute="top" constant="10.5" id="RN4-xY-19Z"/>
+                            <constraint firstItem="fgc-QQ-RN5" firstAttribute="leading" secondItem="6MQ-rn-Xvn" secondAttribute="trailing" constant="18" id="VyL-VF-7wi"/>
+                            <constraint firstItem="Oic-LB-dX4" firstAttribute="leading" secondItem="TJD-6P-F8R" secondAttribute="leading" constant="11.5" id="Vya-06-cCs"/>
+                            <constraint firstItem="Vjt-Eh-Gr2" firstAttribute="trailing" secondItem="fgc-QQ-RN5" secondAttribute="trailing" constant="10" id="WBF-UW-IfY"/>
+                            <constraint firstItem="Thn-Ba-nDL" firstAttribute="centerY" secondItem="HWe-XD-kEF" secondAttribute="centerY" id="Y1B-rY-SSb"/>
+                            <constraint firstItem="Vjt-Eh-Gr2" firstAttribute="bottom" secondItem="6MQ-rn-Xvn" secondAttribute="bottom" constant="10" id="jNl-jY-0mh"/>
+                            <constraint firstItem="6MQ-rn-Xvn" firstAttribute="leading" secondItem="Vjt-Eh-Gr2" secondAttribute="leading" constant="10" id="mKj-b9-7G1"/>
+                            <constraint firstItem="HWe-XD-kEF" firstAttribute="centerY" secondItem="Oic-LB-dX4" secondAttribute="centerY" id="t0L-O8-7K6"/>
+                            <constraint firstItem="fgc-QQ-RN5" firstAttribute="width" secondItem="6MQ-rn-Xvn" secondAttribute="width" id="tG2-iH-cHT"/>
+                            <constraint firstAttribute="trailing" secondItem="Thn-Ba-nDL" secondAttribute="trailing" constant="11.5" id="uPf-ib-cvv"/>
+                            <constraint firstItem="Vjt-Eh-Gr2" firstAttribute="bottom" secondItem="fgc-QQ-RN5" secondAttribute="bottom" constant="10" id="vZ5-Rf-vzp"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="370"/>
+                    <connections>
+                        <outlet property="titleLab" destination="HWe-XD-kEF" id="tn7-b5-aj3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qox-en-R0b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1686" y="-180"/>
         </scene>
     </scenes>
     <resources>

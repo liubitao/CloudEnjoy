@@ -16,7 +16,6 @@ class LSChoiceRoomViewController: LSBaseViewController {
     var segmentedDataSource: JXSegmentedTitleDataSource!
     var listContainerView: JXSegmentedListContainerView!
     var subViewControllers: [JXSegmentedListContainerViewListDelegate] = []
-
     
     typealias SelectedClosure = (LSOrderRoomModel?, LSOrderProjectModel?, LSSysUserModel?, LSClockType?, LSJSLevelModel?, (String, String)?) -> Void
     var selectedClosure: SelectedClosure?

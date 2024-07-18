@@ -19,8 +19,26 @@ public class LSLoginModel: HandyJSON {
     public var mach: LSMachModel = LSMachModel()
     public var parameters: LSParametersModel = LSParametersModel()
     
+    public var rolemap: [LSRoleType] = []
+
+    
     required public init(){
         
+    }
+    
+    public func mapping(mapper: HelpingMapper) {
+        mapper <<<
+            self.rolemap <-- TransformOf<[LSRoleType], [String: String]>(fromJSON: { roleMaps in
+                guard let roleMaps = roleMaps else{
+                    return []
+                }
+                return roleMaps.keys.map{LSRoleType(rawValue: $0) ?? .other}
+            }, toJSON:{ roleMaps in
+                guard let roleMaps = roleMaps else{
+                    return [:]
+                }
+                return roleMaps.reduce([String : String]()){$0.merging([$1.rawValue : $1.title]){$0 + $1}}
+            })
     }
     
     public static var shared: LSLoginModel = LSLoginModel.deserialize(from: LoginDataCache.get(key: "LoginInfo") as? String) ?? LSLoginModel()
@@ -81,7 +99,7 @@ public class LSStoreModel: HandyJSON {
 }
 
 public enum OperationModeType: Int, HandyJSONEnum {
-    case room = 0 //房间模式
+    case roomAndBed = 0 //房间加床位
     case roomAndHandCard = 1 //房间加手牌
     case handCard = 2 //手牌模式
 }
@@ -89,7 +107,7 @@ public class LSParametersModel: HandyJSON {
     public var NextBellReminder = 0 //项目服务中还剩多少分钟的时候提示
     public var TimeoutReminder = 0  //超时每隔几分钟提醒
     public var MakeAppointmentReminder = 0 //项目未上钟每多少分钟的提示一次，根据派工时间和当前时间校验
-    public var OperationMode: OperationModeType = .room //0是房间模式 1是房间加手牌 2是手牌模式
+    public var OperationMode: OperationModeType = .roomAndBed //0是房间模式 1是房间加手牌 2是手牌模式
     public var OverStockPerSale = 0 //1 允许销售，不提示   2 允许销售，提示  3 不允许销售，并提示
     public var addClockDefTime: Double = 0 // 加钟默认钟数
     public var ShopStartTime: String = "" // 开门营业时间
@@ -99,6 +117,21 @@ public class LSParametersModel: HandyJSON {
         self.OperationMode != .handCard
     }
     required public init(){}
+}
+
+public enum LSRoleType: String, HandyJSONEnum {
+    case sendWork = "0209" //派工
+    
+    case other = "" //其他
+    
+    var title: String {
+        switch self {
+        case .sendWork:
+            "派工"
+        case .other:
+            "其他"
+        }
+    }
 }
 
 
@@ -116,6 +149,11 @@ public func machModel() -> LSMachModel {
 
 public func parametersModel() -> LSParametersModel {
     return LSLoginModel.shared.parameters
+}
+
+
+public func rolemapModel() -> [LSRoleType] {
+    return LSLoginModel.shared.rolemap
 }
 
 public func appIsLogin() -> Bool {

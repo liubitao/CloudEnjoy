@@ -199,6 +199,8 @@
 		0C9128DC29AF504600D6237E /* UIGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9128D129AF504600D6237E /* UIGlobal.swift */; };
 		0C9128E029AF504600D6237E /* ThirdsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9128D529AF504600D6237E /* ThirdsConfig.swift */; };
 		0C9128F329AF50BF00D6237E /* LSBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9128EC29AF50BF00D6237E /* LSBaseViewController.swift */; };
+		0CA9C0282C4771FC00CFC088 /* LSRoomChioceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9C0272C4771FC00CFC088 /* LSRoomChioceViewController.xib */; };
+		0CA9C0292C4771FC00CFC088 /* LSRoomChioceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9C0262C4771FC00CFC088 /* LSRoomChioceViewController.swift */; };
 		0CB7653429B9E6EF0048B1B3 /* LSPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB7653329B9E6EF0048B1B3 /* LSPhotosViewController.swift */; };
 		0CB7653629B9FAD10048B1B3 /* LSUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB7653529B9FAD10048B1B3 /* LSUserModel.swift */; };
 		0CB7653929BB10950048B1B3 /* LSUploadApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB7653829BB10950048B1B3 /* LSUploadApi.swift */; };
@@ -245,6 +247,19 @@
 		0CB765BC29BF0C900048B1B3 /* LSOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */; };
 		0CB765BD29BF0C900048B1B3 /* LSOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */; };
 		0CBB64C02A77AC1A00395710 /* LSLocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB64BF2A77AC1A00395710 /* LSLocationHelper.swift */; };
+		0CC3A9A42C48ED4B00FBDE2A /* LSProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3A9A02C48ED4B00FBDE2A /* LSProjectTableViewCell.swift */; };
+		0CC3A9A52C48ED4B00FBDE2A /* LSProjectTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC3A9A12C48ED4B00FBDE2A /* LSProjectTypeTableViewCell.xib */; };
+		0CC3A9A62C48ED4B00FBDE2A /* LSProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC3A9A22C48ED4B00FBDE2A /* LSProjectTableViewCell.xib */; };
+		0CC3A9A72C48ED4B00FBDE2A /* LSProjectTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3A9A32C48ED4B00FBDE2A /* LSProjectTypeTableViewCell.swift */; };
+		0CC3A9AA2C48FE9600FBDE2A /* LSProjectAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC3A9A92C48FE9600FBDE2A /* LSProjectAddViewController.xib */; };
+		0CC3A9AB2C48FE9600FBDE2A /* LSProjectAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3A9A82C48FE9600FBDE2A /* LSProjectAddViewController.swift */; };
+		0CC3A9AE2C49059800FBDE2A /* LSProjectAddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC3A9AD2C49059800FBDE2A /* LSProjectAddTableViewCell.xib */; };
+		0CC3A9AF2C49059800FBDE2A /* LSProjectAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3A9AC2C49059800FBDE2A /* LSProjectAddTableViewCell.swift */; };
+		0CC3A9B12C49205600FBDE2A /* LSChioceContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3A9B02C49205600FBDE2A /* LSChioceContainerViewController.swift */; };
+		0CC697682C48B44500DC7BC5 /* LSHandCardChioceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC697662C48B44500DC7BC5 /* LSHandCardChioceViewController.swift */; };
+		0CC697692C48B44500DC7BC5 /* LSHandCardChioceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC697672C48B44500DC7BC5 /* LSHandCardChioceViewController.xib */; };
+		0CC6976C2C48BED400DC7BC5 /* LSProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6976A2C48BED400DC7BC5 /* LSProjectListViewController.swift */; };
+		0CC6976D2C48BED400DC7BC5 /* LSProjectListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC6976B2C48BED400DC7BC5 /* LSProjectListViewController.xib */; };
 		0CD30BFD2A77934200D6AE83 /* FJDeepSleepPreventer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD30BF82A77934200D6AE83 /* FJDeepSleepPreventer.m */; };
 		0CD30BFE2A77934200D6AE83 /* Silence.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0CD30BFB2A77934200D6AE83 /* Silence.wav */; };
 		0CD30BFF2A77934200D6AE83 /* FJDeepSleepPreventerPlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD30BFC2A77934200D6AE83 /* FJDeepSleepPreventerPlus.m */; };
@@ -503,6 +518,8 @@
 		0C9128D129AF504600D6237E /* UIGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGlobal.swift; sourceTree = "<group>"; };
 		0C9128D529AF504600D6237E /* ThirdsConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdsConfig.swift; sourceTree = "<group>"; };
 		0C9128EC29AF50BF00D6237E /* LSBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSBaseViewController.swift; sourceTree = "<group>"; };
+		0CA9C0262C4771FC00CFC088 /* LSRoomChioceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSRoomChioceViewController.swift; sourceTree = "<group>"; };
+		0CA9C0272C4771FC00CFC088 /* LSRoomChioceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSRoomChioceViewController.xib; sourceTree = "<group>"; };
 		0CB7653329B9E6EF0048B1B3 /* LSPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSPhotosViewController.swift; sourceTree = "<group>"; };
 		0CB7653529B9FAD10048B1B3 /* LSUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSUserModel.swift; sourceTree = "<group>"; };
 		0CB7653829BB10950048B1B3 /* LSUploadApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSUploadApi.swift; sourceTree = "<group>"; };
@@ -566,6 +583,19 @@
 		0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderTableViewCell.swift; sourceTree = "<group>"; };
 		0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSOrderTableViewCell.xib; sourceTree = "<group>"; };
 		0CBB64BF2A77AC1A00395710 /* LSLocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSLocationHelper.swift; sourceTree = "<group>"; };
+		0CC3A9A02C48ED4B00FBDE2A /* LSProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSProjectTableViewCell.swift; sourceTree = "<group>"; };
+		0CC3A9A12C48ED4B00FBDE2A /* LSProjectTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSProjectTypeTableViewCell.xib; sourceTree = "<group>"; };
+		0CC3A9A22C48ED4B00FBDE2A /* LSProjectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSProjectTableViewCell.xib; sourceTree = "<group>"; };
+		0CC3A9A32C48ED4B00FBDE2A /* LSProjectTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSProjectTypeTableViewCell.swift; sourceTree = "<group>"; };
+		0CC3A9A82C48FE9600FBDE2A /* LSProjectAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSProjectAddViewController.swift; sourceTree = "<group>"; };
+		0CC3A9A92C48FE9600FBDE2A /* LSProjectAddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSProjectAddViewController.xib; sourceTree = "<group>"; };
+		0CC3A9AC2C49059800FBDE2A /* LSProjectAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSProjectAddTableViewCell.swift; sourceTree = "<group>"; };
+		0CC3A9AD2C49059800FBDE2A /* LSProjectAddTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSProjectAddTableViewCell.xib; sourceTree = "<group>"; };
+		0CC3A9B02C49205600FBDE2A /* LSChioceContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSChioceContainerViewController.swift; sourceTree = "<group>"; };
+		0CC697662C48B44500DC7BC5 /* LSHandCardChioceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSHandCardChioceViewController.swift; sourceTree = "<group>"; };
+		0CC697672C48B44500DC7BC5 /* LSHandCardChioceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSHandCardChioceViewController.xib; sourceTree = "<group>"; };
+		0CC6976A2C48BED400DC7BC5 /* LSProjectListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSProjectListViewController.swift; sourceTree = "<group>"; };
+		0CC6976B2C48BED400DC7BC5 /* LSProjectListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSProjectListViewController.xib; sourceTree = "<group>"; };
 		0CD30BF82A77934200D6AE83 /* FJDeepSleepPreventer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJDeepSleepPreventer.m; sourceTree = "<group>"; };
 		0CD30BF92A77934200D6AE83 /* FJDeepSleepPreventerPlus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJDeepSleepPreventerPlus.h; sourceTree = "<group>"; };
 		0CD30BFA2A77934200D6AE83 /* FJDeepSleepPreventer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJDeepSleepPreventer.h; sourceTree = "<group>"; };
@@ -1295,6 +1325,7 @@
 				0C66267429C315AD00AADCC7 /* LSChioceProjectItemController.xib */,
 				0C66267729C315DE00AADCC7 /* LSChioceTechnicianItemController.swift */,
 				0C66267829C315DE00AADCC7 /* LSChioceTechnicianItemController.xib */,
+				0CC3A9B02C49205600FBDE2A /* LSChioceContainerViewController.swift */,
 			);
 			path = "预约房间";
 			sourceTree = "<group>";
@@ -1315,6 +1346,22 @@
 				0C66266829C314F600AADCC7 /* arrow_up@2x.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		0C6A9E722C36B59300D6DF88 /* SendWork(派工) */ = {
+			isa = PBXGroup;
+			children = (
+				0CC3A9972C48EC5000FBDE2A /* View */,
+				0CA9C0262C4771FC00CFC088 /* LSRoomChioceViewController.swift */,
+				0CA9C0272C4771FC00CFC088 /* LSRoomChioceViewController.xib */,
+				0CC697662C48B44500DC7BC5 /* LSHandCardChioceViewController.swift */,
+				0CC697672C48B44500DC7BC5 /* LSHandCardChioceViewController.xib */,
+				0CC6976A2C48BED400DC7BC5 /* LSProjectListViewController.swift */,
+				0CC6976B2C48BED400DC7BC5 /* LSProjectListViewController.xib */,
+				0CC3A9A82C48FE9600FBDE2A /* LSProjectAddViewController.swift */,
+				0CC3A9A92C48FE9600FBDE2A /* LSProjectAddViewController.xib */,
+			);
+			path = "SendWork(派工)";
 			sourceTree = "<group>";
 		};
 		0C7E4C8829D2D33C00CDE80A /* View */ = {
@@ -1508,6 +1555,19 @@
 			path = LocationHelper;
 			sourceTree = "<group>";
 		};
+		0CC3A9972C48EC5000FBDE2A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0CC3A9A32C48ED4B00FBDE2A /* LSProjectTypeTableViewCell.swift */,
+				0CC3A9A12C48ED4B00FBDE2A /* LSProjectTypeTableViewCell.xib */,
+				0CC3A9A02C48ED4B00FBDE2A /* LSProjectTableViewCell.swift */,
+				0CC3A9A22C48ED4B00FBDE2A /* LSProjectTableViewCell.xib */,
+				0CC3A9AC2C49059800FBDE2A /* LSProjectAddTableViewCell.swift */,
+				0CC3A9AD2C49059800FBDE2A /* LSProjectAddTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0CD30BF72A77934200D6AE83 /* FJDeepSleepPreventer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1647,6 +1707,7 @@
 		0CE8EE4529AF3892003DE097 /* Workbench */ = {
 			isa = PBXGroup;
 			children = (
+				0C6A9E722C36B59300D6DF88 /* SendWork(派工) */,
 				0CD97C002A19C3D600A79D9E /* JsRank(技师排位) */,
 				0CD97BFF2A19C3C800A79D9E /* OrderSummary(工单汇总) */,
 				0C23783529B20BE1003AC759 /* Leave(员工请假) */,
@@ -1776,6 +1837,7 @@
 				0C4D061929D19D4400D30F95 /* LSRankTableViewCell.xib in Resources */,
 				0CB7654429BB2D170048B1B3 /* LSUserInfoViewController.xib in Resources */,
 				0C5A4F5A29B0B59800B8C032 /* LSMineHeadView.xib in Resources */,
+				0CA9C0282C4771FC00CFC088 /* LSRoomChioceViewController.xib in Resources */,
 				0C66267629C315AD00AADCC7 /* LSChioceProjectItemController.xib in Resources */,
 				0C23784329B2DD93003AC759 /* LSLoginViewController.xib in Resources */,
 				0CE8EE4D29AF3A93003DE097 /* LaunchScreen.storyboard in Resources */,
@@ -1783,6 +1845,7 @@
 				0CDC77522A02600300E992D3 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).mp3 in Resources */,
 				0C66267A29C315DE00AADCC7 /* LSChioceTechnicianItemController.xib in Resources */,
 				0C0CC89A29AF60E800CC3A6E /* kyo_refresh_nodata_hadnetworkerror@3x.png in Resources */,
+				0CC6976D2C48BED400DC7BC5 /* LSProjectListViewController.xib in Resources */,
 				0CE7F14A29BF20A0008FF8C5 /* LSUserqueryViewController.xib in Resources */,
 				0C23786A29B5F7EB003AC759 /* LSLaunchViewController.xib in Resources */,
 				0CB765B929BF0B000048B1B3 /* LSWorkorderItemViewController.xib in Resources */,
@@ -1805,6 +1868,7 @@
 				0CB765BD29BF0C900048B1B3 /* LSOrderTableViewCell.xib in Resources */,
 				0CB765AF29BED3070048B1B3 /* LSClockTableViewCell.xib in Resources */,
 				0C7E4C9E29D59CCD00CDE80A /* LSClockListViewController.xib in Resources */,
+				0CC3A9AA2C48FE9600FBDE2A /* LSProjectAddViewController.xib in Resources */,
 				0C7E4CB729E01D4100CDE80A /* LSGoodsTypeTableViewCell.xib in Resources */,
 				0C23785629B5875D003AC759 /* LSAccountLoginView.xib in Resources */,
 				0C0CC8A129AF60E800CC3A6E /* button_249_47_58@2x.png in Resources */,
@@ -1819,6 +1883,7 @@
 				0CE7F15329BF24FD008FF8C5 /* LSVipTableViewCell.xib in Resources */,
 				0C0CC88F29AF60E800CC3A6E /* kyo_refresh_nodata_relogin@2x.png in Resources */,
 				0C7E4CD129E6A73D00CDE80A /* LSRejectProjectViewController.xib in Resources */,
+				0CC3A9A52C48ED4B00FBDE2A /* LSProjectTypeTableViewCell.xib in Resources */,
 				0C0CC88C29AF60E800CC3A6E /* kyo_refresh_nodata_hadnetworkerror@2x.png in Resources */,
 				0C23785829B59189003AC759 /* LSPhoneLoginView.xib in Resources */,
 				0C0CC89D29AF60E800CC3A6E /* kyo_refresh_no_network@3x.png in Resources */,
@@ -1858,6 +1923,8 @@
 				0CD97C1C2A19E6F500A79D9E /* LSJsRankViewController.xib in Resources */,
 				0C7E4CC729E1552600CDE80A /* LSServiceTableViewCell.xib in Resources */,
 				0C0CC89B29AF60E800CC3A6E /* com_refresh_icon@2x.png in Resources */,
+				0CC697692C48B44500DC7BC5 /* LSHandCardChioceViewController.xib in Resources */,
+				0CC3A9A62C48ED4B00FBDE2A /* LSProjectTableViewCell.xib in Resources */,
 				0C0CC8A329AF60E800CC3A6E /* kyo_refresh_nodata_haderror@3x.png in Resources */,
 				0CB765AA29BECC500048B1B3 /* LSClocksItemViewController.xib in Resources */,
 				0C0CC89829AF60E800CC3A6E /* refresh_warter_forground@1x.png in Resources */,
@@ -1865,6 +1932,7 @@
 				0C49D15029B9C2A60084C2F5 /* LSAccountSecureStoryboard.storyboard in Resources */,
 				0C5A4F6929B1EA5900B8C032 /* LSMineSettingCell.xib in Resources */,
 				0C7E4CA329DA836900CDE80A /* LSHomeUserStatusView.xib in Resources */,
+				0CC3A9AE2C49059800FBDE2A /* LSProjectAddTableViewCell.xib in Resources */,
 				0C7E4C8729D2D11E00CDE80A /* LSAddLeaveViewController.xib in Resources */,
 				0C0CC8A529AF60E800CC3A6E /* kyo_refresh_default_icon@2x.png in Resources */,
 				0C29C1F129C597690043109A /* LSJSTableViewCell.xib in Resources */,
@@ -1932,6 +2000,8 @@
 				0C23784D29B2F0CA003AC759 /* LSUserApi.swift in Sources */,
 				0CB7653B29BB110A0048B1B3 /* LSUploadServer.swift in Sources */,
 				0C0C35D229B98B3E0039C535 /* TransitionAnimationPresentationController.m in Sources */,
+				0CA9C0292C4771FC00CFC088 /* LSRoomChioceViewController.swift in Sources */,
+				0CC3A9A72C48ED4B00FBDE2A /* LSProjectTypeTableViewCell.swift in Sources */,
 				0C5A4F5B29B0B59800B8C032 /* LSMineHeadView.swift in Sources */,
 				0C4F3FAB29CD83D800A20F03 /* LSHomeServer.swift in Sources */,
 				0CB7659829BC760D0048B1B3 /* FSCalendar.m in Sources */,
@@ -1980,23 +2050,29 @@
 				0C0C35C129B986CD0039C535 /* KyoTransitioningInteractive.swift in Sources */,
 				0C23783B29B210AA003AC759 /* LSAboutViewController.swift in Sources */,
 				0C66263429C1D1E100AADCC7 /* LSChoiceCustomerViewController.swift in Sources */,
+				0CC697682C48B44500DC7BC5 /* LSHandCardChioceViewController.swift in Sources */,
 				0CB7654A29BB4E260048B1B3 /* LSRoyaltiesItemController.swift in Sources */,
 				0C0C35D029B98B3E0039C535 /* TransitionAnimationChangeAlpha.m in Sources */,
 				0C7E4C9229D2F91500CDE80A /* LSCancelLeaveViewController.swift in Sources */,
 				0C0CC8AC29AF60E900CC3A6E /* RHRefreshControlViewSequenceImages.m in Sources */,
 				0C7E4CCD29E173F700CDE80A /* LSChioceProjectViewController.swift in Sources */,
+				0CC3A9AF2C49059800FBDE2A /* LSProjectAddTableViewCell.swift in Sources */,
 				0CB765B129BED70F0048B1B3 /* LSClockHeaderView.swift in Sources */,
 				0C7E4CB629E01D4100CDE80A /* LSGoodsTypeTableViewCell.swift in Sources */,
+				0CC3A9A42C48ED4B00FBDE2A /* LSProjectTableViewCell.swift in Sources */,
 				0C0CC8AD29AF60E900CC3A6E /* JMRefreshControlViewWave.m in Sources */,
 				0C7E4CAA29DE76CD00CDE80A /* LSProjectDetailsViewController.swift in Sources */,
 				0C66266C29C314F600AADCC7 /* HWDownSelectedView.m in Sources */,
 				0C0C35D929B98BB60039C535 /* UIView-WhenTappedBlocks.m in Sources */,
 				0CDD4C6A29CAE9A4003402DF /* LSOrderItemViewController.swift in Sources */,
 				0C66266029C2F07200AADCC7 /* LSReserveTimeViewController.swift in Sources */,
+				0CC3A9AB2C48FE9600FBDE2A /* LSProjectAddViewController.swift in Sources */,
 				0C50293129AF3331003977F0 /* AppDelegate.swift in Sources */,
 				0C4D061829D19D4400D30F95 /* LSRankTableViewCell.swift in Sources */,
 				0CE435E229F11867009A5141 /* LSRMQClient.swift in Sources */,
 				0CB7659329BC760D0048B1B3 /* FSCalendarCollectionView.m in Sources */,
+				0CC3A9B12C49205600FBDE2A /* LSChioceContainerViewController.swift in Sources */,
+				0CC6976C2C48BED400DC7BC5 /* LSProjectListViewController.swift in Sources */,
 				0C0CC88B29AF60E800CC3A6E /* KyoLoadMoreControl.m in Sources */,
 				0CB7659929BC760D0048B1B3 /* FSCalendarCollectionViewLayout.m in Sources */,
 				0CB7659B29BC760D0048B1B3 /* FSCalendarSeparatorDecorationView.m in Sources */,

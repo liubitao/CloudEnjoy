@@ -25,10 +25,10 @@ class LSReferrerViewController: LSBaseViewController {
 
     var dataSource: [LSSysUserModel] = []
     
-    class func creaeFromStoryboard(with referrerModel: LSSysUserModel) -> Self {
+    class func creaeFromStoryboard(with referrerModel: LSSysUserModel?) -> Self {
         let sb = UIStoryboard.init(name: "AlertStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "LSReferrerViewController") as! Self
-        vc.referrerModel = referrerModel
+        vc.referrerModel = referrerModel ?? LSSysUserModel()
         return vc
     }
     

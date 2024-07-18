@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwifterSwift
+import LSBaseModules
 
 class LSWorkbenchViewController: LSBaseViewController {
     @IBOutlet weak var headBackImageView: UIImageView!
@@ -23,6 +24,9 @@ class LSWorkbenchViewController: LSBaseViewController {
     @IBOutlet weak var btn8: UIButton!
     @IBOutlet weak var btn9: UIButton!
     @IBOutlet weak var btn10: UIButton!
+    
+    @IBOutlet weak var sendWorkBtn: UIButton!
+    
 
     
     
@@ -45,9 +49,11 @@ class LSWorkbenchViewController: LSBaseViewController {
         self.headBackImageView.image = UIImage.createGradientImage(startColor: Color(hexString: "#00AAB7")!, endColor: Color(hexString: "#00C294")!, width: UI.SCREEN_WIDTH, height: UI.STATUS_NAV_BAR_HEIGHT + 73, isTopToBottom: false)
         self.headBackHeight.constant = UI.STATUS_NAV_BAR_HEIGHT + 73
         
-        [btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8].forEach { btn in
+        [btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, sendWorkBtn].forEach { btn in
             btn?.centerTextAndImage(imageAboveText: true, spacing: 5)
         }
+        
+        sendWorkBtn.isHidden = !rolemapModel().contains(.sendWork)
     }
     
     @IBAction func jumpRoyalties(_ sender: Any) {
@@ -84,5 +90,12 @@ class LSWorkbenchViewController: LSBaseViewController {
     }
     @IBAction func jumpLeave(_ sender: Any) {
         self.navigationController?.pushViewController(LSLeaveViewController(), animated: true)
+    }
+    @IBAction func jumpSendWork(_ sender: Any) {
+        if parametersModel().OperationMode == .roomAndBed {
+            self.navigationController?.pushViewController(LSRoomChioceViewController(), animated: true)
+        }else {
+            self.navigationController?.pushViewController(LSHandCardChioceViewController(), animated: true)
+        }
     }
 }

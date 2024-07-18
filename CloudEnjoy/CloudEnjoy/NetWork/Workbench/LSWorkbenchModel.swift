@@ -321,8 +321,26 @@ struct LSRoomTypeModel: HandyJSON {
 
 struct LSOrderRoomModel: HandyJSON {
     var roomtypename = ""
-//    var id = ""
     var roomid = ""
+    var name = ""
+}
+
+// 房间类型
+struct LSHandCardTypeModel: HandyJSON {
+    var name = ""
+    var handCardtypeid = ""
+    var id = ""
+}
+
+struct LSHandCardModel: HandyJSON {
+    var handCardtypename = ""
+    var handCardid = ""
+    var name = ""
+}
+
+struct LSBedModel: HandyJSON {
+    var bedtypename = ""
+    var bedid = ""
     var name = ""
 }
 
@@ -337,6 +355,7 @@ struct LSOrderProjectModel: HandyJSON {
     var smin = ""
     var lprice: Double = 0
     var images = ""
+    var projecttypeid = ""
 }
 
 

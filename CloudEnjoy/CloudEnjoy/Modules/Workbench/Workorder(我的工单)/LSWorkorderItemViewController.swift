@@ -70,7 +70,7 @@ class LSWorkorderItemViewController: LSBaseViewController {
                 
                 var roomDetailsStr = ""
                 switch parametersModel().OperationMode {
-                case .room:
+                case .roomAndBed:
                     roomDetailsStr = element.roomname + "(床位：\(element.bedname))"
                 case .roomAndHandCard:
                     roomDetailsStr = element.roomname + "(手牌：\(element.handcardno))"

@@ -40,7 +40,7 @@ class LSRejectProjectViewController: LSBaseViewController {
     override func setupViews() {
         var roomDetailsStr = ""
         switch parametersModel().OperationMode {
-        case .room:
+        case .roomAndBed:
             self.roomTitleLab.text = "房间号"
             roomDetailsStr = projectModel.roomname + "(床位：\(projectModel.bedname))"
         case .roomAndHandCard:

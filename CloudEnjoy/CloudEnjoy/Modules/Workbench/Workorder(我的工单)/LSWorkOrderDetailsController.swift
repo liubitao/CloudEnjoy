@@ -63,7 +63,7 @@ class LSWorkOrderDetailsController: LSBaseViewController {
         jsLab.text = orderModel.tname
         var roomDetailsStr = ""
         switch parametersModel().OperationMode {
-        case .room:
+        case .roomAndBed:
             self.roomTitleLab.text = "房间号"
             roomDetailsStr = orderModel.roomname + "(床位：\(orderModel.bedname))"
         case .roomAndHandCard:
