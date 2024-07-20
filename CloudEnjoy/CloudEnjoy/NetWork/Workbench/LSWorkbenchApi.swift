@@ -24,7 +24,7 @@ extension LSWorkbenchAPI.APIPath {
     static let insertAppointment = "about/insert"
     
     static let userGetList = "sysuser/getList"
-
+    
     static let getRoomtypeList = "otherinfo/getRoomtypeList"
     static let getRoominfoList = "roominfo/getList"
     
@@ -61,13 +61,19 @@ extension LSWorkbenchAPI.APIPath {
     static let getShiftList = "shift/getList"
     static let getArtificerList = "artificer/getArtificerChangeList"
     static let getSysJobList = "sysjob/getList"
+    
+    static let getBedList = "roominfo/getRoomBed"
+    static let getHandCardTypeList = "otherinfo/getHandcardtypeList"
+    static let getHandcardinfoList = "handcardinfo/getList"
+    
+    static let saleBills = "salebill/setProjectList"
 }
 
 enum LSWorkbenchAPI: TargetType {
     struct APIPath {}
-
+    
     case findMeByCommission(startdate: String,
-                             enddate: String)
+                            enddate: String)
     case findMeCommission(page: Int,
                           startdate: String,
                           enddate: String,
@@ -83,7 +89,7 @@ enum LSWorkbenchAPI: TargetType {
                               projectid: String)
     
     case getVipList(page: Int,
-                        cond: String)
+                    cond: String)
     case getVipInfo(spid: String,
                     sid: String,
                     vipid: String)
@@ -120,16 +126,16 @@ enum LSWorkbenchAPI: TargetType {
     case cancelYuyue(billid: String)
     case aboutUpdate(billid: String,
                      name: String,
-                    mobile: String,
-                    custtype: LSCustomerType,
-                    qty: String,
-                    refid: String,
-                    tostoretime: String,
-                    reservemin: String,
-                    remark: String,
-                    roomlist: String,
-                    projectlist: String,
-                    status: String)
+                     mobile: String,
+                     custtype: LSCustomerType,
+                     qty: String,
+                     refid: String,
+                     tostoretime: String,
+                     reservemin: String,
+                     remark: String,
+                     roomlist: String,
+                     projectlist: String,
+                     status: String)
     
     case projectDetails(billid: String)
     
@@ -166,6 +172,16 @@ enum LSWorkbenchAPI: TargetType {
                           code: String)
     
     case getSysJobList
+    
+    case getBedList(roomid: String)
+    case getHandCardTypeList
+    case getHandcardinfoList(cond: String,
+                             handcardtypeid: String)
+    
+    case saleBills(opentype: String,
+                   roomid: String,
+                   roomname: String,
+                   projectlist: String)
 }
 
 
@@ -236,6 +252,14 @@ extension LSWorkbenchAPI: LSTargetType{
             return APIPath.getArtificerList
         case .getSysJobList:
             return APIPath.getSysJobList
+        case .getBedList:
+            return APIPath.getBedList
+        case .getHandCardTypeList:
+            return APIPath.getHandCardTypeList
+        case .getHandcardinfoList:
+            return APIPath.getHandcardinfoList
+        case .saleBills:
+            return APIPath.saleBills
         }
     }
     
@@ -345,16 +369,16 @@ extension LSWorkbenchAPI: LSTargetType{
         case let .aboutUpdate(billid, name, mobile, custtype, qty, refid, tostoretime, reservemin, remark, roomlist, projectlist, status):
             return ["billid": billid,
                     "name": name,
-                     "mobile": mobile,
-                     "custtype": custtype.rawValue,
-                     "qty": qty,
-                     "refid": refid,
-                     "tostoretime": tostoretime,
-                     "reservemin": reservemin,
-                     "remark": remark,
-                     "roomlist": roomlist,
-                     "projectlist": projectlist,
-                        "status": status]
+                    "mobile": mobile,
+                    "custtype": custtype.rawValue,
+                    "qty": qty,
+                    "refid": refid,
+                    "tostoretime": tostoretime,
+                    "reservemin": reservemin,
+                    "remark": remark,
+                    "roomlist": roomlist,
+                    "projectlist": projectlist,
+                    "status": status]
         case let .projectDetails(billid):
             return ["billid": billid]
         case let .getLeaveList(page):
@@ -411,8 +435,22 @@ extension LSWorkbenchAPI: LSTargetType{
                     "shiftid": shiftid]
         case .getSysJobList:
             return ["tflag": 1]
+        case let .getBedList(roomid):
+            return ["roomid": roomid,
+                    "bedstatus": ""]
+        case .getHandCardTypeList:
+            return [:]
+        case let .getHandcardinfoList(cond, handcardtypeid):
+            return ["cond": cond,
+                    "handcardtypeid": handcardtypeid,
+                    "stopflag": 0]
+        case let .saleBills(opentype, roomid, roomname, projectlist):
+            return ["opentype": opentype,
+                    "roomid": roomid,
+                    "roomname": roomname,
+                    "projectlist": projectlist]
         }
-
+        
     }
     
     

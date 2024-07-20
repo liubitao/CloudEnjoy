@@ -10,6 +10,7 @@ import LSBaseModules
 import SwifterSwift
 import RxSwift
 import RxDataSources
+import AttributedString
 
 class LSProjectListViewController: LSBaseViewController {
     
@@ -20,6 +21,9 @@ class LSProjectListViewController: LSBaseViewController {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var cartCalculateLab: UILabel!
     @IBOutlet weak var cartBtn: UIButton!
+    @IBOutlet weak var cartRedbagView: UIView!
+    @IBOutlet weak var cartNumLab: UILabel!
+    
     var tableView: UITableView!
     var projectTypeItems = PublishSubject<[SectionModel<String, LSProjectTypeModel>]>()
     var projectTableView: UITableView!
@@ -29,6 +33,8 @@ class LSProjectListViewController: LSBaseViewController {
     var allProjectModels: [LSOrderProjectModel]?
     var selectedTypeModel: LSProjectTypeModel?
     var selectedTypeProjectModels: [LSOrderProjectModel]?
+    
+    var cartItemModels = [ProjectAddItemModel]()
     
     var roomModel: LSOrderRoomModel? = nil
     var handCardModel: LSHandCardModel? = nil
@@ -46,9 +52,10 @@ class LSProjectListViewController: LSBaseViewController {
     
     override func setupViews() {
         self.roomView.isHidden = parametersModel().OperationMode != .roomAndBed
-      
+        
         self.roomNameLab.text = roomModel?.name ?? ""
         
+        self.refreshCartView()
         self.tableView = {
             let tableView = UITableView(frame: CGRect.zero, style: .plain)
             tableView.backgroundColor = Color.clear
@@ -133,6 +140,10 @@ class LSProjectListViewController: LSBaseViewController {
                 cell.plusBtn.rx.tap.subscribe(onNext: { [weak self] _ in
                     guard let self = self else {return}
                     let vc = LSProjectAddViewController(projectModel: element, roomModel: self.roomModel, handCardModel: self.handCardModel)
+                    vc.selectedClosure = {[weak self] addItemModels in
+                        self?.cartItemModels += addItemModels
+                        self?.refreshCartView()
+                    }
                     self.navigationController?.pushViewController(vc)
                 }).disposed(by: cell.rx.reuseBag)
                 
@@ -141,8 +152,6 @@ class LSProjectListViewController: LSBaseViewController {
             projectsItems.bind(to: projectTableView.rx.items(dataSource: dataSource)).disposed(by: self.rx.disposeBag)
             return projectTableView
         }()
-        
-        
     }
     
     override func setupData() {
@@ -170,6 +179,15 @@ class LSProjectListViewController: LSBaseViewController {
         }.disposed(by: self.rx.disposeBag)
     }
     
+    func refreshCartView() {
+        self.cartRedbagView.isHidden = self.cartItemModels.isEmpty
+        self.cartNumLab.text = self.cartItemModels.count.string
+        let totalMoney = self.cartItemModels.reduce(0, {total, nextModel in return total + nextModel.projectModel.lprice})
+        let a: ASAttributedString = "\("合计：", .font(Font.pingFangMedium(14)), .foreground(UIColor.black))"
+        let b: ASAttributedString = "\("￥" + totalMoney.stringValue(retain: 2), .font(Font.pingFangRegular(14)), .foreground(Color(hexString:"#FF0000")!))"
+        self.cartCalculateLab.attributed.text = a + b
+    }
+    
     func refreshTypeUI() {
         self.projectTypeItems.onNext([SectionModel(model: "", items: self.projectTypeModels!)])
     }
@@ -180,7 +198,7 @@ class LSProjectListViewController: LSBaseViewController {
         }
         self.selectedTypeProjectModels = self.allProjectModels?.filter{$0.projecttypeid == selectedTypeModel.projecttypeid || selectedTypeModel.projecttypeid.isEmpty}
         if let key = self.searchProjectTextField.text,
-            key.isEmpty == false {
+           key.isEmpty == false {
             self.selectedTypeProjectModels = self.selectedTypeProjectModels?.filter{$0.name.contains(key)}
         }
         let sectionModels = self.selectedTypeProjectModels?.map{SectionModel(model: "", items: [$0])} ?? [SectionModel(model: "", items: [])]
@@ -189,34 +207,60 @@ class LSProjectListViewController: LSBaseViewController {
     
     
     @IBAction func cartAction(_ sender: Any) {
-        
+        let projectCartVC = LSProjectCartViewController.creaeFromStoryboard(models: self.cartItemModels)
+        projectCartVC.selectedClosure = {[weak self] itemModels in
+            self?.cartItemModels = itemModels
+            self?.refreshCartView()
+        }
+        projectCartVC.presentedWith(self)
     }
     
     @IBAction func confirmAction(_ sender: Any) {
-//        guard let goodsModels = self.allGoodsModels?.filter({$0.number > 0}),
-//              goodsModels.isEmpty == false else {
-//            Toast.show("请选择商品后，再下单")
-//            return
-//        }
-//        guard self.referrerModel.userid.isEmpty == false else {
-//            Toast.show("请选择推荐人")
-//            return
-//        }
-//        let productlist = goodsModels.map{["productid": $0.productid,
-//                                           "qty": $0.number,
-//                                           "amt": $0.sellprice * $0.number.double,
-//                                           "price": $0.sellprice,
-//                                           "productname": $0.name,
-//                                           "rprice": $0.sellprice]}.ls_toJSONString() ?? ""
-//        Toast.showHUD()
-//        LSHomeServer.addProduct(billid: self.projectModel.billid, roomid: self.projectModel.roomid, bedid: self.projectModel.bedid, refid: self.referrerModel.userid, refname: self.referrerModel.name, refjobid: self.referrerModel.jobid, productlist: productlist, remark: remarkTextField.text ?? "").subscribe { _ in
-//            Toast.show("商品已下单成功")
-//            self.navigationController?.popViewController(animated: true)
-//        } onFailure: { error in
-//            Toast.show(error.localizedDescription)
-//        } onDisposed: {
-//            Toast.hiddenHUD()
-//        }.disposed(by: self.rx.disposeBag)
+        guard self.cartItemModels.isEmpty == false else {
+            Toast.show("请添加项目")
+            return
+        }
+        
+        let opentype = parametersModel().OperationMode == .roomAndBed ? "1" : "2"
+        
+        let projectlist: [[String: String]] = self.cartItemModels.map {
+            var projectItem: [String : String] =  ["roomid": self.roomModel?.roomid ?? "",
+                                "roomname": self.roomModel?.name ?? "",
+                                "handcardid": $0.handCardModel?.handcardid ?? "",
+                                "handcardno": $0.handCardModel?.handcardno ?? "",
+                                "bedid": $0.bedSelectModel?.bedid ?? "",
+                                "bedname": $0.bedSelectModel?.name ?? "",
+                                "refid": $0.referrerModel?.userid ?? "",
+                                "remark": $0.remark ?? "",
+                                "projectid": $0.projectModel.projectid,
+                                "projectname": $0.projectModel.name,
+                                "ctype": $0.clockSelectModel!.rawValue.string,
+                                "price": $0.projectModel.lprice.string,
+                                "amt": $0.projectModel.lprice.string,
+                                "qty": "1"
+            ]
+            if let jsModel = $0.selectJSModel {
+                projectItem["tid"] = jsModel.userid
+                projectItem["tname"] = jsModel.name
+            }else {
+                projectItem["tlid"] = $0.levelSelectModel!.tlid
+                projectItem["tlname"] = $0.levelSelectModel!.name
+                projectItem["sex"] = $0.sexSelectModel!.1
+            }
+            return projectItem
+        }
+        Toast.showHUD()
+        LSWorkbenchServer.saleBills(opentype: opentype,
+                                    roomid: self.roomModel?.roomid ?? "",
+                                    roomname: self.roomModel?.name ?? "",
+                                    projectlist: projectlist.ls_toJSONString() ?? "").subscribe { _ in
+            Toast.show("派单已成功")
+            self.navigationController?.popToRootViewController(animated: true)
+        } onFailure: { error in
+            Toast.show(error.localizedDescription)
+        } onDisposed: {
+            Toast.hiddenHUD()
+        }.disposed(by: self.rx.disposeBag)
     }
     
     

@@ -175,6 +175,9 @@
                             <color key="value" red="0.17254901959999999" green="0.72156862749999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="HeP-uK-Pmg"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bue-tg-Th3">
                     <rect key="frame" x="205.66666666666663" y="765" width="177.33333333333337" height="43"/>
@@ -193,6 +196,9 @@
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds " value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="confirmAction:" destination="-1" eventType="touchUpInside" id="HEW-VQ-JRC"/>
+                    </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bda-UL-skc">
                     <rect key="frame" x="0.0" y="212" width="393" height="543"/>

@@ -21,7 +21,8 @@ extension AppDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enableAutoToolbar = false
-        
+//        UITextField.appearance().returnKeyType = .done
+//        UITextView.appearance().returnKeyType = .done
         UITextField.appearance().delegate = self
     }
     

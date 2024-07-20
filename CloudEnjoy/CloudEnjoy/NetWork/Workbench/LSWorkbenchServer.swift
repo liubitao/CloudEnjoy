@@ -155,4 +155,24 @@ class LSWorkbenchServer {
     static func getSysJobList() -> Single<LSNetworkListModel<LSSysJobModel>?>{
         return provider.lsRequest(.getSysJobList).mapHandyModel(type: LSNetworkListModel<LSSysJobModel>.self)
     }
+    
+    
+    static func getBedList(roomid: String) -> Single<[LSBedModel]?>{
+        return provider.lsRequest(.getBedList(roomid: roomid)).mapHandyModelArray(type: LSBedModel.self)
+    }
+    
+    static func getHandCardTypeList() -> Single<LSNetworkListModel<LSHandCardTypeModel>?>{
+        return provider.lsRequest(.getHandCardTypeList).mapHandyModel(type: LSNetworkListModel<LSHandCardTypeModel>.self)
+    }
+    static func getHandcardinfoList(cond: String, handcardtypeid: String) -> Single<LSNetworkListModel<LSHandCardModel>?>{
+        return provider.lsRequest(.getHandcardinfoList(cond: cond, handcardtypeid: handcardtypeid)).mapHandyModel(type: LSNetworkListModel<LSHandCardModel>.self)
+    }
+    
+    static func saleBills(opentype: String,
+                           roomid: String,
+                           roomname: String,
+                           projectlist: String)  -> Single<LSNetworkResultModel> {
+        return provider.lsRequest(.saleBills(opentype: opentype, roomid: roomid, roomname: roomname, projectlist: projectlist))
+    }
+    
 }

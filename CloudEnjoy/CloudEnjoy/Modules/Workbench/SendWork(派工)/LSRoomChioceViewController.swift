@@ -101,11 +101,6 @@ class LSRoomChioceViewController: LSBaseViewController {
     }
 
     @IBAction func searchAction(_ sender: Any) {
-        guard let text = self.roomNumTextField.text,
-              !text.isEmpty else {
-            return
-        }
-        
         self.networkRoom()
     }
     @IBAction func cancelAction(_ sender: Any) {

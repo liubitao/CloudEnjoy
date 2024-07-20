@@ -11,8 +11,7 @@ import SwifterSwift
 import RxSwift
 import RxDataSources
 
-typealias ProjectAddItemModel = (selectJSModel: LSSysUserModel?, clockSelectModel: LSClockType?, levelSelectModel: LSJSLevelModel?, sexSelectModel: (String, String)?, bedSelectModel: LSBedModel?, handCardModel: LSHandCardModel?, referrerModel: LSSysUserModel?, remark: String?)
-let InitProjectAddItemModel: ProjectAddItemModel = (nil, nil, nil, nil, nil, nil, nil, nil)
+typealias ProjectAddItemModel = (projectModel: LSOrderProjectModel,selectJSModel: LSSysUserModel?, clockSelectModel: LSClockType?, levelSelectModel: LSJSLevelModel?, sexSelectModel: (String, String)?, bedSelectModel: LSBedModel?, handCardModel: LSHandCardModel?, referrerModel: LSSysUserModel?, remark: String?)
 
 class LSProjectAddViewController: LSBaseViewController {
 
@@ -30,13 +29,19 @@ class LSProjectAddViewController: LSBaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var items = PublishSubject<[SectionModel<String, ProjectAddItemModel>]>()
-    var models = [InitProjectAddItemModel]
+    var models = [ProjectAddItemModel]()
+    
+    var selectedClosure: (([ProjectAddItemModel]) -> Void)?
     
     var number = 1
     
     var roomModel: LSOrderRoomModel? = nil
     var handCardModel: LSHandCardModel? = nil
     var projectModel: LSOrderProjectModel!
+    
+    lazy var initProjectAddItemModel: ProjectAddItemModel = {
+        (projectModel, nil, nil, nil, nil, nil, handCardModel, nil, nil)
+    }()
     
     convenience init(projectModel: LSOrderProjectModel, roomModel: LSOrderRoomModel? = nil, handCardModel: LSHandCardModel? = nil) {
         self.init()
@@ -94,7 +99,7 @@ class LSProjectAddViewController: LSBaseViewController {
             cell.jsPlaceholderLab.isHidden = element.clockSelectModel != nil
             
             cell.bedTextField.text = element.bedSelectModel?.name
-            cell.handCardTextField.text = element.handCardModel?.name
+            cell.handCardTextField.text = element.handCardModel?.handcardno
             cell.referrerTextField.text = element.referrerModel?.name
             cell.remarkTextField.text = element.remark
             
@@ -137,9 +142,43 @@ class LSProjectAddViewController: LSBaseViewController {
                         changeElement.levelSelectModel = levelSelectModel
                         changeElement.sexSelectModel = sexSelectModel
                         self.models[indexPath.section] = changeElement
+                        let sectionModels = self.models.map{ SectionModel(model: "", items: [$0])}
+                        self.items.onNext(sectionModels)
                     }
                 }
                 choiceRoomVC.presentedWith(self)
+            }.disposed(by: cell.rx.reuseBag)
+            
+            cell.bedView.rx.tapGesture().when(.recognized).subscribe{ [weak self, weak cell] _ in
+                guard let self = self,
+                    let cell = cell,
+                    let roomModel = self.roomModel else {return}
+                let chioceBedVC = LSChioceBedViewController.creaeFromStoryboard(roomModel: roomModel, bedModel: element.bedSelectModel)
+                chioceBedVC.selectedClosure = { bedModel in
+                    var changeElement = element
+                    changeElement.bedSelectModel = bedModel
+                    self.models[indexPath.section] = changeElement
+                    cell.bedTextField.text = bedModel.name
+                    let sectionModels = self.models.map{ SectionModel(model: "", items: [$0])}
+                    self.items.onNext(sectionModels)
+                }
+                chioceBedVC.presentedWith(self)
+            }.disposed(by: cell.rx.reuseBag)
+            
+            
+            cell.handCardView.rx.tapGesture().when(.recognized).subscribe{ [weak self, weak cell] _ in
+                guard let self = self,
+                    let cell = cell else {return}
+                let chioceHandCardVC = LSHandCardChioceAlertViewController.creaeFromStoryboard(handCardModel: element.handCardModel)
+                chioceHandCardVC.selectedClosure = { handCardModel in
+                    var changeElement = element
+                    changeElement.handCardModel = handCardModel
+                    self.models[indexPath.section] = changeElement
+                    cell.handCardTextField.text = handCardModel.handcardno
+                    let sectionModels = self.models.map{ SectionModel(model: "", items: [$0])}
+                    self.items.onNext(sectionModels)
+                }
+                chioceHandCardVC.presentedWith(self)
             }.disposed(by: cell.rx.reuseBag)
             
             cell.referrerView.rx.tapGesture().when(.recognized).subscribe { [weak self, weak cell] _ in
@@ -151,24 +190,27 @@ class LSProjectAddViewController: LSBaseViewController {
                     changeElement.referrerModel = referrerModel
                     self.models[indexPath.section] = changeElement
                     cell.referrerTextField.text = referrerModel.name
+                    let sectionModels = self.models.map{ SectionModel(model: "", items: [$0])}
+                    self.items.onNext(sectionModels)
                 }
                 referrerVC.presentedWith(self)
             }.disposed(by: cell.rx.reuseBag)
             
-            cell.remarkTextField.rx.text.subscribe { [weak self, weak cell] text in
+            cell.remarkTextField.rx.controlEvent(.editingDidEnd).subscribe { [weak self, weak cell] text in
                 guard let self = self,
                     let cell = cell else {return}
                 var changeElement = element
-                changeElement.remark = text
+                changeElement.remark = cell.remarkTextField.text
                 self.models[indexPath.section] = changeElement
+                let sectionModels = self.models.map{ SectionModel(model: "", items: [$0])}
+                self.items.onNext(sectionModels)
             }.disposed(by: cell.rx.reuseBag)
-            
-            
             
             return cell
         }
         items.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: self.rx.disposeBag)
         
+        self.models = [initProjectAddItemModel]
         let sectionModels = self.models.map{ SectionModel(model: "", items: [$0])}
         self.items.onNext(sectionModels)
     }
@@ -188,9 +230,43 @@ class LSProjectAddViewController: LSBaseViewController {
         self.subtractBtn.isEnabled = number > 1
         self.numberLab.text = number.string
         
-        models.append(InitProjectAddItemModel)
+        models.append(initProjectAddItemModel)
         let sectionModels = models.map{ SectionModel(model: "", items: [$0])}
         items.onNext(sectionModels)
+    }
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func confirmAction(_ sender: Any) {
+        guard models.filter({$0.clockSelectModel == nil}).count == 0 else {
+            Toast.show("请选择预约技师")
+            return
+        }
+        
+        guard self.models.filter({
+            ($0.clockSelectModel == .wheelClock &&
+                  nil != $0.levelSelectModel &&
+                   nil != $0.sexSelectModel) || (
+                      $0.clockSelectModel != .wheelClock &&
+                    nil != $0.selectJSModel)}).count == self.models.count else {
+            Toast.show("请选择预约技师")
+            return
+        }
+        
+        guard models.filter({$0.bedSelectModel == nil && $0.handCardModel == nil}).count == 0 else {
+            Toast.show(parametersModel().OperationMode == .roomAndBed ? "请选择床位" : "请选择手牌")
+            return
+        }
+        
+        guard models.filter({$0.referrerModel == nil}).count == 0 else {
+            Toast.show("请选择推荐人")
+            return
+        }
+        self.selectedClosure?(self.models)
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
 }

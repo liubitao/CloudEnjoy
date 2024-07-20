@@ -18,13 +18,13 @@ class LSHandCardChioceViewController: LSBaseViewController {
     @IBOutlet weak var handCardNumTextField: UITextField!
     
     var collectionView: UICollectionView!
-    var items = PublishSubject<[SectionModel<String, LSOrderRoomModel>]>()
-    var roomModels = [LSOrderRoomModel]()
+    var items = PublishSubject<[SectionModel<String, LSHandCardModel>]>()
+    var handCardModels = [LSHandCardModel]()
     
-    var typeModels = [LSRoomTypeModel]()
+    var typeModels = [LSHandCardTypeModel]()
     
-    var selectRoomTypeModel: LSRoomTypeModel?
-    var selectRoomModel: LSOrderRoomModel?
+    var selectHandCardTypeModel: LSHandCardTypeModel?
+    var selectHandCardModel: LSHandCardModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +57,11 @@ class LSHandCardChioceViewController: LSBaseViewController {
             make.top.equalToSuperview().offset(65 + UI.STATUS_NAV_BAR_HEIGHT)
             make.bottom.equalToSuperview().offset(-43 - 10 - UI.BOTTOM_HEIGHT - 10)
         }
-        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, LSOrderRoomModel>> { [weak self] dataSource, collectionView, indexPath, model in
+        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, LSHandCardModel>> { [weak self] dataSource, collectionView, indexPath, model in
             let cell = collectionView.dequeueReusableCell(withClass: LSRoomChioceCell.self, for: indexPath)
-            cell.nameLab.text = model.name
-            cell.desLab.text = model.roomtypename
-            let isSelected = self?.selectRoomModel?.roomid == model.roomid
+            cell.nameLab.text = model.handcardno
+            cell.desLab.text = model.handcardtypename
+            let isSelected = self?.selectHandCardModel?.handcardid == model.handcardid
             cell.nameLab.textColor = isSelected ? Color.white : Color(hexString: "#333333")
             cell.desLab.textColor = isSelected ? Color.white : Color(hexString: "#333333")
             cell.bgView.backgroundColor = isSelected ? Color(hexString: "#2BB8C2") : Color(hexString: "#DEFDFF")
@@ -72,8 +72,8 @@ class LSHandCardChioceViewController: LSBaseViewController {
         
         self.collectionView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             guard let self = self else {return}
-            self.selectRoomModel = self.roomModels[indexPath.item]
-            self.items.onNext([SectionModel.init(model: "", items: self.roomModels)])
+            self.selectHandCardModel = self.handCardModels[indexPath.item]
+            self.items.onNext([SectionModel.init(model: "", items: self.handCardModels)])
         }, onError: {_ in
             
         }).disposed(by: self.rx.disposeBag)
@@ -82,9 +82,9 @@ class LSHandCardChioceViewController: LSBaseViewController {
     
     override func setupData() {
         Toast.showHUD()
-        Observable.zip(LSWorkbenchServer.getRoomtypeList(cond: "").asObservable(), LSWorkbenchServer.getRoominfoList(cond: "", roomtypeid: "").asObservable()).subscribe { roomTypeModels, roominfoList in
-            self.typeModels = roomTypeModels?.list ?? []
-            self.roomModels = roominfoList?.list ?? []
+        Observable.zip(LSWorkbenchServer.getHandCardTypeList().asObservable(), LSWorkbenchServer.getHandcardinfoList(cond: "", handcardtypeid: "").asObservable()).subscribe { handCardTypeModels, handCardinfoList in
+            self.typeModels = [LSHandCardTypeModel.init(name: "全部手牌")] +  (handCardTypeModels?.list ?? [])
+            self.handCardModels = handCardinfoList?.list ?? []
             self.refreshUI()
         } onError: { error in
             Toast.show(error.localizedDescription)
@@ -97,30 +97,25 @@ class LSHandCardChioceViewController: LSBaseViewController {
     
     func refreshUI() {
         self.handCardTypeSelectedView.listArray = self.typeModels.map{$0.name}
-        self.items.onNext([SectionModel.init(model: "", items: self.roomModels)])
+        self.items.onNext([SectionModel.init(model: "", items: self.handCardModels)])
     }
 
     @IBAction func searchAction(_ sender: Any) {
-        guard let text = self.handCardNumTextField.text,
-              !text.isEmpty else {
-            return
-        }
-        
-        self.networkRoom()
+        self.networkHandCard()
     }
     @IBAction func cancelAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func confirmAction(_ sender: Any) {
-//        self.navigationController?.pushViewController(LSProjectListViewController(handCardModel: self.selectRoomModel))
+        self.navigationController?.pushViewController(LSProjectListViewController(handCardModel: self.selectHandCardModel))
     }
     
-    func networkRoom() {
+    func networkHandCard() {
         Toast.showHUD()
-        LSWorkbenchServer.getRoominfoList(cond: self.handCardNumTextField.text ?? "", roomtypeid: self.selectRoomTypeModel?.roomtypeid ?? "").subscribe { listModel in
-            self.roomModels = listModel?.list ?? []
-            self.items.onNext([SectionModel.init(model: "", items: self.roomModels)])
+        LSWorkbenchServer.getHandcardinfoList(cond: self.handCardNumTextField.text ?? "", handcardtypeid: self.selectHandCardTypeModel?.handcardtypeid ?? "").subscribe { listModel in
+            self.handCardModels = listModel?.list ?? []
+            self.items.onNext([SectionModel.init(model: "", items: self.handCardModels)])
         } onFailure: { error in
             Toast.show(error.localizedDescription)
         } onDisposed: {
@@ -138,8 +133,8 @@ class LSHandCardChioceViewController: LSBaseViewController {
 
 extension LSHandCardChioceViewController: HWDownSelectedViewDelegate {
     func downSelectedView(_ selectedView: HWDownSelectedView!, didSelectedAtIndex indexPath: IndexPath!) {
-        self.selectRoomTypeModel = self.typeModels[indexPath.row]
-        self.networkRoom()
+        self.selectHandCardTypeModel = self.typeModels[indexPath.row]
+        self.networkHandCard()
     }
 }
 

@@ -328,18 +328,17 @@ struct LSOrderRoomModel: HandyJSON {
 // 房间类型
 struct LSHandCardTypeModel: HandyJSON {
     var name = ""
-    var handCardtypeid = ""
-    var id = ""
+    var handcardtypeid = ""
 }
 
 struct LSHandCardModel: HandyJSON {
-    var handCardtypename = ""
-    var handCardid = ""
-    var name = ""
+    var handcardid = ""
+    var handcardno = ""
+    var handcardtypename = ""
 }
 
 struct LSBedModel: HandyJSON {
-    var bedtypename = ""
+    var bedstatus = 0   // 0空闲 1占用
     var bedid = ""
     var name = ""
 }
