@@ -171,8 +171,10 @@ class LSWorkbenchServer {
     static func saleBills(opentype: String,
                            roomid: String,
                            roomname: String,
+                          handcardid: String,
+                          handcardno: String,
                            projectlist: String)  -> Single<LSNetworkResultModel> {
-        return provider.lsRequest(.saleBills(opentype: opentype, roomid: roomid, roomname: roomname, projectlist: projectlist))
+        return provider.lsRequest(.saleBills(opentype: opentype, roomid: roomid, roomname: roomname, handcardid: handcardid, handcardno: handcardno, projectlist: projectlist))
     }
     
 }

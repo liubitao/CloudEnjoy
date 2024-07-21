@@ -225,19 +225,24 @@ class LSProjectListViewController: LSBaseViewController {
         
         let projectlist: [[String: String]] = self.cartItemModels.map {
             var projectItem: [String : String] =  ["roomid": self.roomModel?.roomid ?? "",
-                                "roomname": self.roomModel?.name ?? "",
-                                "handcardid": $0.handCardModel?.handcardid ?? "",
-                                "handcardno": $0.handCardModel?.handcardno ?? "",
-                                "bedid": $0.bedSelectModel?.bedid ?? "",
-                                "bedname": $0.bedSelectModel?.name ?? "",
-                                "refid": $0.referrerModel?.userid ?? "",
-                                "remark": $0.remark ?? "",
-                                "projectid": $0.projectModel.projectid,
-                                "projectname": $0.projectModel.name,
-                                "ctype": $0.clockSelectModel!.rawValue.string,
-                                "price": $0.projectModel.lprice.string,
-                                "amt": $0.projectModel.lprice.string,
-                                "qty": "1"
+                                                   "roomname": self.roomModel?.name ?? "",
+                                                   "handcardid": $0.handCardModel?.handcardid ?? "",
+                                                   "handcardno": $0.handCardModel?.handcardno ?? "",
+                                                   "bedid": $0.bedSelectModel?.bedid ?? "",
+                                                   "bedname": $0.bedSelectModel?.name ?? "",
+                                                   "refid": $0.referrerModel?.userid ?? "",
+                                                   "refname": $0.referrerModel?.name ?? "",
+                                                   "remark": $0.remark ?? "",
+                                                   "projectid": $0.projectModel.projectid,
+                                                   "projectname": $0.projectModel.name,
+                                                   "ctype": $0.clockSelectModel!.rawValue.string,
+                                                   "price": $0.projectModel.lprice.string,
+                                                   "min": $0.projectModel.smin,
+                                                   "amt": $0.projectModel.lprice.string,
+                                                   "qty": "1",
+                                                   "setmealflag": "0",
+                                                   "tsflag": "0"
+                                                   
             ]
             if let jsModel = $0.selectJSModel {
                 projectItem["tid"] = jsModel.userid
@@ -253,6 +258,8 @@ class LSProjectListViewController: LSBaseViewController {
         LSWorkbenchServer.saleBills(opentype: opentype,
                                     roomid: self.roomModel?.roomid ?? "",
                                     roomname: self.roomModel?.name ?? "",
+                                    handcardid: self.handCardModel?.handcardid ?? "",
+                                    handcardno: self.handCardModel?.handcardno ?? "",
                                     projectlist: projectlist.ls_toJSONString() ?? "").subscribe { _ in
             Toast.show("派单已成功")
             self.navigationController?.popToRootViewController(animated: true)

@@ -181,6 +181,8 @@ enum LSWorkbenchAPI: TargetType {
     case saleBills(opentype: String,
                    roomid: String,
                    roomname: String,
+                   handcardid: String,
+                   handcardno: String,
                    projectlist: String)
 }
 
@@ -444,10 +446,12 @@ extension LSWorkbenchAPI: LSTargetType{
             return ["cond": cond,
                     "handcardtypeid": handcardtypeid,
                     "stopflag": 0]
-        case let .saleBills(opentype, roomid, roomname, projectlist):
+        case let .saleBills(opentype, roomid, roomname,  handcardid, handcardno, projectlist):
             return ["opentype": opentype,
                     "roomid": roomid,
                     "roomname": roomname,
+                    "handcardid": handcardid,
+                    "handcardno": handcardno,
                     "projectlist": projectlist]
         }
         
