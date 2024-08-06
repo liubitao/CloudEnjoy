@@ -747,7 +747,6 @@
 				0CBB64BE2A77AC1A00395710 /* LocationHelper */,
 				0CD30BF72A77934200D6AE83 /* FJDeepSleepPreventer */,
 				0CDC77462A025B7500E992D3 /* LSAudioManager */,
-				0CE435E029F1181B009A5141 /* RMQClient */,
 				0C29C1F529C5A3F00043109A /* UUMarqueeView */,
 				0C1D1D3829C58A8000255BDB /* SegmentControl */,
 				0C66266629C314F500AADCC7 /* HWDownSelectedView */,
@@ -1252,6 +1251,7 @@
 		0C50293229AF3433003977F0 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				0CE435E029F1181B009A5141 /* RMQClient */,
 				0C4F3FA729CD83BB00A20F03 /* Home */,
 				0C29C1F429C5A3750043109A /* Message */,
 				0CB7655029BC26790048B1B3 /* Workbench */,
@@ -2342,7 +2342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.0.202407201818;
+				CURRENT_PROJECT_VERSION = 1.0.6.202408061030;
 				DEVELOPMENT_TEAM = 3UD665RZ6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CloudEnjoy/Supporting_Files/Config/Info.plist;
@@ -2351,9 +2351,9 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "云休闲需要您的同意去打开麦克风";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "云休闲需要您的同意读取媒体资料库，帮助您分享本地相册";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "云休闲需要您的同意读取媒体资料库，帮助您分享本地相册";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "云休闲需要您的同意去打开麦克风，用来相册管理等";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "云休闲需要您的同意打开相机，用来拍摄用户头像和相册管理等";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "云休闲需要您的同意打开相机，用来拍摄用户头像和相册管理等";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
@@ -2364,7 +2364,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.boyou.www.CloudEnjoyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2386,7 +2386,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.0.202407201818;
+				CURRENT_PROJECT_VERSION = 1.0.6.202408061030;
 				DEVELOPMENT_TEAM = 3UD665RZ6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CloudEnjoy/Supporting_Files/Config/Info.plist;
@@ -2395,9 +2395,9 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "云休闲需要您的同意去打开麦克风";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "云休闲需要您的同意读取媒体资料库，帮助您分享本地相册";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "云休闲需要您的同意读取媒体资料库，帮助您分享本地相册";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "云休闲需要您的同意去打开麦克风，用来相册管理等";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "云休闲需要您的同意打开相机，用来拍摄用户头像和相册管理等";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "云休闲需要您的同意打开相机，用来拍摄用户头像和相册管理等";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
@@ -2408,7 +2408,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.boyou.www.CloudEnjoyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

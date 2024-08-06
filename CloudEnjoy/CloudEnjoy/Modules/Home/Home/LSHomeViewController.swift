@@ -106,7 +106,14 @@ class LSHomeViewController: LSBaseViewController {
                 }
                 cell.statusView.backgroundColor = element.status.backColor
                 cell.statusLab.text = element.status.statusString
-                cell.roomNameLab.text = "房间：" + element.roomname
+                
+                
+                if parametersModel().OperationMode != .handCard {
+                    cell.roomNameLab.text = "房间：" + element.roomname
+                }else {
+                    cell.roomNameLab.text = "手牌：" + element.handcardno
+                }
+               
                 cell.projectNameLab.text = element.projectname
                 cell.durationLab.text = element.min + "分钟"
                 cell.typeLab.text = element.ctype.clockString
@@ -205,14 +212,6 @@ class LSHomeViewController: LSBaseViewController {
         } onDisposed: {
             Toast.hiddenHUD()
         }.disposed(by: self.rx.disposeBag)
-        
-//        LSMessageServer.getSeeCount().subscribe { resultModel in
-//
-//        } onFailure: { error in
-//            Toast.show(error.localizedDescription)
-//        } onDisposed: {
-//            Toast.hiddenHUD()
-//        }.disposed(by: self.rx.disposeBag)
         
         LSHomeServer.getUserStatus().subscribe { userStatusModel in
             self.userStatusModel = userStatusModel
