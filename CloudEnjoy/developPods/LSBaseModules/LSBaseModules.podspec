@@ -40,7 +40,7 @@ TODO: Add long description of the pod here.
   # s.frameworks = 'UIKit', 'MapKit'
 
   s.dependency 'SwifterSwift', '~> 5.2.0'
-  s.dependency 'HandyJSON', '~> 5.0.2'
+  s.dependency 'SmartCodable', '~> 4.1.8'
   s.dependency 'RxSwift', '~> 6.2.0'
   s.dependency 'CocoaLumberjack/Swift' , '3.7.2'
   s.dependency 'SwifterSwift', '~> 5.2.0'

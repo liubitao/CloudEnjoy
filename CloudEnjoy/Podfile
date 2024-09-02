@@ -35,7 +35,8 @@ target 'CloudEnjoy' do
   pod 'SnapKit', '~> 5.0.1'
   
   # 数据解析
-  pod 'HandyJSON', '~> 5.0.2'
+#  pod 'HandyJSON', '~> 5.0.2'
+  pod 'SmartCodable', '~> 4.1.8'
   
   # 图片加载
   pod 'Kingfisher' , '~> 6.3.1'

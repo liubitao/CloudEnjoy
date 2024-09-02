@@ -6,16 +6,16 @@
 //
 
 import Foundation
-import HandyJSON
+import SmartCodable
 
 
-struct LSAgreementModel: HandyJSON, Codable{
+struct LSAgreementModel: SmartCodable, Codable{
     var agreementname = ""
     var id = 0
     var content = ""
 }
 
-struct LSVerisonModel: HandyJSON{
+struct LSVerisonModel: SmartCodable{
     var cname = ""
     var updateinfo = ""
 }

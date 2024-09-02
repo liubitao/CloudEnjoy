@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import HandyJSON
+import SmartCodable
 
 public enum LSNetworkResultError: Error {
     /// 通用错误

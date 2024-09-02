@@ -6,23 +6,24 @@
 //
 
 import Foundation
-import HandyJSON
+import SmartCodable
 
-struct LSLoginAccountModel: HandyJSON {
+struct LSLoginAccountModel: SmartCodable {
     var account: String?
     var mobile: String?
     var code: String?
 }
 
-struct LSPhotoModel: HandyJSON {
+struct LSPhotoModel: SmartCodable {
     var imgid = ""
     var img = ""
     var detimg = false
     var isSelected = false
     
-    mutating func mapping(mapper: HelpingMapper) {
-        mapper >>> self.isSelected
+    enum CodingKeys: CodingKey {
+        case imgid
+        case img
+        case detimg
     }
-    
 }
 

@@ -9,7 +9,7 @@ import Foundation
 import LSNetwork
 import RxSwift
 import LSBaseModules
-import HandyJSON
+import SmartCodable
 
 class LSUserServer {
     static let provider = LSProvider<LSUserAPI>()

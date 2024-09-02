@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import HandyJSON
+import SmartCodable
 
-public class LSLoginModel: HandyJSON {
+public class LSLoginModel: SmartCodable {
     public var rabbitport: String = "" //消息端口
     public var rabbitaddress: String = "" //消息服地址
     public var diff: Int = 0   //有效天数 >=0 还可以用 不然不能用
@@ -20,31 +20,44 @@ public class LSLoginModel: HandyJSON {
     public var parameters: LSParametersModel = LSParametersModel()
     
     public var rolemap: [LSRoleType] = []
-
+    
     
     required public init(){
         
     }
     
-    public func mapping(mapper: HelpingMapper) {
-        mapper <<<
-            self.rolemap <-- TransformOf<[LSRoleType], [String: String]>(fromJSON: { roleMaps in
-                guard let roleMaps = roleMaps else{
-                    return []
-                }
-                return roleMaps.keys.map{LSRoleType(rawValue: $0) ?? .other}
-            }, toJSON:{ roleMaps in
-                guard let roleMaps = roleMaps else{
-                    return [:]
-                }
-                return roleMaps.reduce([String : String]()){$0.merging([$1.rawValue : $1.title]){$0 + $1}}
-            })
+    struct SmartRolemapTransformer: ValueTransformable {
+        typealias JSON = [String: String]
+        typealias Object = [LSRoleType]
+        
+        init() {}
+        
+        func transformFromJSON(_ value: Any) -> [LSRoleType]? {
+            guard let roleMaps = value as? [String : String] else{
+                return []
+            }
+            return roleMaps.keys.map{LSRoleType(rawValue: $0) ?? .other}
+        }
+        
+        func transformToJSON(_ value: [LSRoleType]) -> [String: String]? {
+            guard value.count > 0 else{
+                return [:]
+            }
+            return value.reduce([String : String]()){$0.merging([$1.rawValue : $1.title]){$0 + $1}}
+        }
     }
+
+    public static func mappingForValue() -> [SmartValueTransformer]? {
+        [
+            CodingKeys.rolemap <--- SmartRolemapTransformer(),
+        ]
+    }
+    
     
     public static var shared: LSLoginModel = LSLoginModel.deserialize(from: LoginDataCache.get(key: "LoginInfo") as? String) ?? LSLoginModel()
 }
 
-public enum LSSex:Int, HandyJSONEnum {
+public enum LSSex:Int, SmartCaseDefaultable {
     case woman = 0
     case man = 1
     
@@ -58,13 +71,13 @@ public enum LSSex:Int, HandyJSONEnum {
     }
 }
 
-public class LSMachModel: HandyJSON {
+public class LSMachModel: SmartCodable {
     public var code: String = ""
     
     required public init(){}
 }
 
-public class LSUserModel: HandyJSON{
+public class LSUserModel: SmartCodable{
     public var spid = 0
     public var sid = 0
     public var headimg: String = ""    //头像
@@ -76,11 +89,11 @@ public class LSUserModel: HandyJSON{
     public var mobile: String = ""     //手机号码
     public var sex: LSSex = .woman     //性别
     public var tlname: String = ""      //技师等级
-    public var jobid: String = ""       
+    public var jobid: String = ""
     required public init(){}
 }
 
-public class LSStoreModel: HandyJSON {
+public class LSStoreModel: SmartCodable {
     public var spid = 0
     public var sid = 0
     public var id: String = ""
@@ -94,16 +107,16 @@ public class LSStoreModel: HandyJSON {
     public var lat: Double = 0          //纬度
     public var lng: Double = 0          //经度
     public var trade: String = "" // 商家门店类型
-
+    
     required public init(){}
 }
 
-public enum OperationModeType: Int, HandyJSONEnum {
+public enum OperationModeType: Int, SmartCaseDefaultable {
     case roomAndBed = 0 //房间加床位
     case roomAndHandCard = 1 //房间加手牌
     case handCard = 2 //手牌模式
 }
-public class LSParametersModel: HandyJSON {
+public class LSParametersModel: SmartCodable {
     public var NextBellReminder = 0 //项目服务中还剩多少分钟的时候提示
     public var TimeoutReminder = 0  //超时每隔几分钟提醒
     public var MakeAppointmentReminder = 0 //项目未上钟每多少分钟的提示一次，根据派工时间和当前时间校验
@@ -112,14 +125,14 @@ public class LSParametersModel: HandyJSON {
     public var addClockDefTime: Double = 0 // 加钟默认钟数
     public var ShopStartTime: String = "" // 开门营业时间
     public var ShopEndTime: String = "" // 关门营业时间
-
+    
     public var showRoom: Bool {
         self.OperationMode != .handCard
     }
     required public init(){}
 }
 
-public enum LSRoleType: String, HandyJSONEnum {
+public enum LSRoleType: String, SmartCaseDefaultable {
     case sendWork = "0209" //派工
     
     case other = "" //其他

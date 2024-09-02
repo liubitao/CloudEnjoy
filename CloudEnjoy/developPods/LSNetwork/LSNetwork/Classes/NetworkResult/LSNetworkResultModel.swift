@@ -11,7 +11,7 @@ import CoreMedia
 import Moya
 import RxSwift
 import Result
-import HandyJSON
+import SmartCodable
 
 extension Result where Value: Moya.Response {
     var resultModel: Result<LSNetworkResultModel, LSNetworkResultError> {
@@ -38,7 +38,8 @@ extension Result where Value: Moya.Response {
 
 
 
-public struct LSNetworkResultModel: HandyJSON {
+public struct LSNetworkResultModel: SmartCodable {
+    @SmartAny
     public var data: Any?
     public var retcode: Code = .unknown
     public var retmsg: String = ""
@@ -46,12 +47,13 @@ public struct LSNetworkResultModel: HandyJSON {
     public init(){}
 }
 
-public struct LSNetworkListModel<T>: HandyJSON {
+public struct LSNetworkListModel<T: SmartCodable>: SmartCodable {
     public var total = 0   //总数据
     public var pages = 0   //总页数
     public var pageNum = 0 //当前页数
     public var list = [T]()
     public var isLastPage = 0
+    @SmartAny
     public var sumdata: Any?
     public init(){}
 }
@@ -60,7 +62,7 @@ public struct LSNetworkListModel<T>: HandyJSON {
 
 extension LSNetworkResultModel {
     /// 网络请求状态码
-    public enum Code: Int, HandyJSONEnum {
+    public enum Code: Int, SmartCaseDefaultable {
         /// 未知，默认值
         case unknown = -1
         /// 成功

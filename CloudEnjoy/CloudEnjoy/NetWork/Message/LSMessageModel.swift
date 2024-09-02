@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import HandyJSON
+import SmartCodable
 
 
-enum LSMsgType: String, CaseIterable, HandyJSONEnum {
+enum LSMsgType: String, CaseIterable, SmartCaseDefaultable {
     case all = ""
     case yuyue = "1"
     case wait = "2"
@@ -17,7 +17,7 @@ enum LSMsgType: String, CaseIterable, HandyJSONEnum {
     case other = "4"
 }
 
-struct LSMessageModel: HandyJSON {
+struct LSMessageModel: SmartCodable {
     var createtime = ""
     var title = ""
     var content = ""

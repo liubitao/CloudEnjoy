@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import HandyJSON
+import SmartCodable
 import SwifterSwift
 
-struct LSJSHomeModel: HandyJSON {
+struct LSJSHomeModel: SmartCodable {
     var basesaleductamt = ""
     var rechargesaleductamt = ""
     var txsaleductamt = ""
@@ -22,7 +22,7 @@ struct LSJSHomeModel: HandyJSON {
 }
 
 
-struct LSRankModel: HandyJSON {
+struct LSRankModel: SmartCodable {
     var headimg = ""
     var tlname = ""
     var sumqty = ""
@@ -31,7 +31,7 @@ struct LSRankModel: HandyJSON {
 }
 
 
-enum LSUserStatus: Int, HandyJSONEnum {
+enum LSUserStatus: Int, SmartCaseDefaultable {
     case rest = 0 //休息
     case leave = 1 //请假
     case noSign = 2 //未签到
@@ -41,7 +41,7 @@ enum LSUserStatus: Int, HandyJSONEnum {
     case servicing  = 6 //服务中
     case subscribe = 7 // 预约中
 }
-struct LSUserStatusModel: HandyJSON {
+struct LSUserStatusModel: SmartCodable {
     var statusname = ""
     var status = LSUserStatus.rest
     var leavetypename = ""
@@ -58,7 +58,7 @@ struct LSUserStatusModel: HandyJSON {
 }
 
 
-enum LSHomeProjectStatus: Int, HandyJSONEnum {
+enum LSHomeProjectStatus: Int, SmartCaseDefaultable {
     case wait = 0
     case servicing = 1
     case finish = 2
@@ -104,7 +104,7 @@ enum LSHomeProjectStatus: Int, HandyJSONEnum {
     }
     
 }
-struct LSHomeProjectModel: HandyJSON {
+struct LSHomeProjectModel: SmartCodable {
     var bedid = ""
     var roomname = ""
     var starttime = ""
@@ -143,7 +143,7 @@ struct LSHomeProjectModel: HandyJSON {
     var tlid = ""
 }
 
-class LSGoodsTypeModel: HandyJSON {
+class LSGoodsTypeModel: SmartCodable {
     var level = 0
     var name = ""
     var typeid = ""
@@ -155,7 +155,7 @@ class LSGoodsTypeModel: HandyJSON {
 }
 
 
-class LSGoodsModel: HandyJSON {
+class LSGoodsModel: SmartCodable {
     var productid = ""
     var name = ""
     var imageurl = ""
@@ -172,7 +172,7 @@ class LSGoodsModel: HandyJSON {
 }
 
 
-class LSServiceModel: HandyJSON {
+class LSServiceModel: SmartCodable {
     var content = ""
     var serviceid = ""
     

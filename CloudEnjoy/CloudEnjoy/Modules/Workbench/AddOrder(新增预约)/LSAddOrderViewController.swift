@@ -10,7 +10,7 @@ import RxGesture
 import RxSwift
 import SwifterSwift
 import LSBaseModules
-import HandyJSON
+import SmartCodable
 import LSNetwork
 import RxDataSources
 

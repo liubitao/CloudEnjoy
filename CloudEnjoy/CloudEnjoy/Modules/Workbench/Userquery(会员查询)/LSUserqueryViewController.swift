@@ -10,7 +10,7 @@ import RxDataSources
 import RxSwift
 import SwifterSwift
 import LSBaseModules
-import HandyJSON
+import SmartCodable
 
 class LSUserqueryViewController: LSBaseViewController {
 

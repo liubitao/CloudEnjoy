@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import HandyJSON
+import SmartCodable
 
-struct LSUploadPhotoModel: HandyJSON {
+struct LSUploadPhotoModel: SmartCodable {
     var msg = ""
     var code = 0
     var imgurl = ""
@@ -16,7 +16,7 @@ struct LSUploadPhotoModel: HandyJSON {
 }
 
 
-struct LSUploadFileModel: HandyJSON {
+struct LSUploadFileModel: SmartCodable {
     var msg = ""
     var imgurl = ""
 }

@@ -8,7 +8,7 @@
 import Foundation
 import RMQClient
 import LSBaseModules
-import HandyJSON
+import SmartCodable
 
 
 
@@ -58,7 +58,7 @@ class LSRMQClient {
     }
 }
 
-enum LSMessageType: Int, HandyJSONEnum {
+enum LSMessageType: Int, SmartCaseDefaultable {
     case heartbeat = 1
     case dispatchOrder = 669
     case updateYuyueStatus = 668
@@ -130,7 +130,7 @@ struct LSRMQNotification{
     static let autoCancelOrder = Notification.Name("LSRMQ.autoCancelOrder")
 }
 
-struct LSMQMessageModel: HandyJSON {
+struct LSMQMessageModel: SmartCodable {
     var data = ""
     var dbid = ""
     var otherdata = ""

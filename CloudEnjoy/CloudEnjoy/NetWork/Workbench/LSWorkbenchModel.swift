@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import HandyJSON
+import SmartCodable
 import SwifterSwift
 import LSBaseModules
 
@@ -72,12 +72,12 @@ enum LSTimeSectionType: Int, CaseIterable {
 
 
 // 我的提成
-struct LSRoyaltiesTotalModel: HandyJSON {
+struct LSRoyaltiesTotalModel: SmartCodable {
     var commissionsum: Double = 0
     var list: [LSRoyaltiesItemModel] = []
     
 }
-struct LSRoyaltiesItemModel: HandyJSON {
+struct LSRoyaltiesItemModel: SmartCodable {
     var name = ""
     var count = ""
     var commission: Double = 0
@@ -85,7 +85,7 @@ struct LSRoyaltiesItemModel: HandyJSON {
 }
 
 
-struct LSRoyaltiesDetailsModel: HandyJSON {
+struct LSRoyaltiesDetailsModel: SmartCodable {
     var id = ""
     var projectname = ""
     var amt: Double = 0
@@ -98,12 +98,12 @@ struct LSRoyaltiesDetailsModel: HandyJSON {
 
 
 // 我的钟数
-struct LSFindMeClockNumModel: HandyJSON {
+struct LSFindMeClockNumModel: SmartCodable {
     var ptypelist: [LSFindMeClockNumItemTotalModel] = []
     var list: [LSFindMeClockNumItemModel] = []
 }
 
-struct LSFindMeClockNumItemTotalModel: HandyJSON {
+struct LSFindMeClockNumItemTotalModel: SmartCodable {
     var ptype = 0       //0是主项 1是小项
     var sumdqty: Double = 0     //点钟合计
     var sumlqty: Double = 0     //轮钟合计
@@ -113,7 +113,7 @@ struct LSFindMeClockNumItemTotalModel: HandyJSON {
     var sumqty: Double = 0      //总计
 }
 
-struct LSFindMeClockNumItemModel: HandyJSON {
+struct LSFindMeClockNumItemModel: SmartCodable {
     var name = ""
     var sumdqty: Double = 0     //点钟合计
     var sumlqty: Double = 0     //轮钟合计
@@ -125,7 +125,7 @@ struct LSFindMeClockNumItemModel: HandyJSON {
 
 
 // 我的工单
-enum LSOrderServerStatus: String, CaseIterable, HandyJSONEnum {
+enum LSOrderServerStatus: String, CaseIterable, SmartCaseDefaultable {
     case none = ""
     case wait = "0"
     case ing = "1"
@@ -148,7 +148,7 @@ enum LSOrderServerStatus: String, CaseIterable, HandyJSONEnum {
     }
 }
 
-struct LSOrderServerModel: HandyJSON {
+struct LSOrderServerModel: SmartCodable {
     var projectname = ""
     var roomname = ""
     var handcardno = ""
@@ -164,7 +164,7 @@ struct LSOrderServerModel: HandyJSON {
 
 // 会员
 
-enum LSCardstatus: Int, HandyJSONEnum {
+enum LSCardstatus: Int, SmartCaseDefaultable {
     case stop = 0
     case normal = 1
     case lose = 2
@@ -186,7 +186,7 @@ enum LSCardstatus: Int, HandyJSONEnum {
         }
     }
 }
-struct LSVipModel: HandyJSON {
+struct LSVipModel: SmartCodable {
     var vipid = ""
     var spid = ""
     var sid = ""
@@ -226,14 +226,14 @@ struct LSVipModel: HandyJSON {
 }
 
 
-struct LSVipSumModel: HandyJSON {
+struct LSVipSumModel: SmartCodable {
     var nowmoney: Double = 0
     var nowpoint: Double = 0
 }
 
 
 // 预约
-enum LSCustomerType: Int, CaseIterable, HandyJSONEnum {
+enum LSCustomerType: Int, CaseIterable, SmartCaseDefaultable {
     case common = 0
     case vip = 1
     
@@ -248,7 +248,7 @@ enum LSCustomerType: Int, CaseIterable, HandyJSONEnum {
 }
 
 
-enum LSClockType: Int, CaseIterable, HandyJSONEnum {
+enum LSClockType: Int, CaseIterable, SmartCaseDefaultable {
     case wheelClock = 1
     case optionClock = 2
     case oClock = 3
@@ -271,7 +271,7 @@ enum LSClockType: Int, CaseIterable, HandyJSONEnum {
     }
 }
 
-enum LSReserveTimeType: Int, CaseIterable, HandyJSONEnum {
+enum LSReserveTimeType: Int, CaseIterable, SmartCaseDefaultable {
     case fifteen = 15
     case thirty = 30
     case sixty = 60
@@ -301,7 +301,7 @@ enum LSReserveTimeType: Int, CaseIterable, HandyJSONEnum {
 
 
 // 人员查询
-struct LSSysUserModel: HandyJSON {
+struct LSSysUserModel: SmartCodable {
     var userid = ""
     var name = ""
     var imgurl = ""
@@ -313,42 +313,42 @@ struct LSSysUserModel: HandyJSON {
 
 
 // 房间类型
-struct LSRoomTypeModel: HandyJSON {
+struct LSRoomTypeModel: SmartCodable {
     var name = ""
     var roomtypeid = ""
     var id = ""
 }
 
-struct LSOrderRoomModel: HandyJSON {
+struct LSOrderRoomModel: SmartCodable {
     var roomtypename = ""
     var roomid = ""
     var name = ""
 }
 
 // 房间类型
-struct LSHandCardTypeModel: HandyJSON {
+struct LSHandCardTypeModel: SmartCodable {
     var name = ""
     var handcardtypeid = ""
 }
 
-struct LSHandCardModel: HandyJSON {
+struct LSHandCardModel: SmartCodable {
     var handcardid = ""
     var handcardno = ""
     var handcardtypename = ""
 }
 
-struct LSBedModel: HandyJSON {
+struct LSBedModel: SmartCodable {
     var bedstatus = 0   // 0空闲 1占用
     var bedid = ""
     var name = ""
 }
 
-struct LSProjectTypeModel: HandyJSON {
+struct LSProjectTypeModel: SmartCodable {
     var name = ""
     var projecttypeid = ""
 }
 
-struct LSOrderProjectModel: HandyJSON {
+struct LSOrderProjectModel: SmartCodable {
     var name = ""
     var projectid = ""
     var smin = ""
@@ -358,12 +358,12 @@ struct LSOrderProjectModel: HandyJSON {
 }
 
 
-struct LSJSLevelModel: HandyJSON {
+struct LSJSLevelModel: SmartCodable {
     var name = ""
     var tlid = ""
 }
 
-enum LSOrderStatus: Int, HandyJSONEnum {
+enum LSOrderStatus: Int, SmartCaseDefaultable {
     case hadYuyue = 0
     case wait = 1
     case cancel = 2
@@ -386,7 +386,7 @@ enum LSOrderStatus: Int, HandyJSONEnum {
     }
 }
 
-struct LSOrderModel: HandyJSON {
+struct LSOrderModel: SmartCodable {
     init() {
     }
     
@@ -445,7 +445,7 @@ struct LSOrderModel: HandyJSON {
 }
 
 
-struct LSYuyueOrderDetailsModel: HandyJSON {
+struct LSYuyueOrderDetailsModel: SmartCodable {
     var billid = ""
     var name = ""
     var mobile = ""
@@ -466,7 +466,7 @@ struct LSYuyueOrderDetailsModel: HandyJSON {
     var projectlist = [LSYuyueProjectModel]()
 }
 
-struct LSYuyueProjectModel: HandyJSON {
+struct LSYuyueProjectModel: SmartCodable {
     var bedid = ""
     var cprice = ""
     var remark = ""
@@ -504,7 +504,7 @@ struct LSYuyueProjectModel: HandyJSON {
     var status = ""
 }
 
-struct LSOrderDetailsModel: HandyJSON {
+struct LSOrderDetailsModel: SmartCodable {
     var cashname = ""
     var bedid = ""
     var amt: Double = 0
@@ -552,7 +552,7 @@ struct LSOrderDetailsModel: HandyJSON {
 }
 
 
-struct LSLeaveModel: HandyJSON {
+struct LSLeaveModel: SmartCodable {
     var statusname = ""
     var leavetypename = ""
     var starttime = ""
@@ -569,19 +569,19 @@ struct LSLeaveModel: HandyJSON {
 }
 
 
-struct LSLeaveTypeModel: HandyJSON {
+struct LSLeaveTypeModel: SmartCodable {
     var leavetypeid = ""
     var name = ""
 }
 
-struct LSPlaceModel: HandyJSON {
+struct LSPlaceModel: SmartCodable {
     var range = 0
     var lat: Double = 0
     var lng: Double = 0
     var name = ""
 }
 
-struct LSPlacePunchinModel: HandyJSON {
+struct LSPlacePunchinModel: SmartCodable {
     var msg = ""
     var sbstatus = 0
     var xbstatus = 0
@@ -597,7 +597,7 @@ struct LSPlacePunchinModel: HandyJSON {
 }
 
 
-enum LSClockInType: Int, HandyJSONEnum {
+enum LSClockInType: Int, SmartCaseDefaultable {
     case upClock = 1
     case downClock = 2
     
@@ -610,35 +610,35 @@ enum LSClockInType: Int, HandyJSONEnum {
         }
     }
 }
-struct LSPlaceClockModel: HandyJSON {
+struct LSPlaceClockModel: SmartCodable {
     var adr = ""
     var clockintime = ""
     var ctype = LSClockInType.upClock
     var status = ""
 }
 
-struct LSPlacePunchinItemModel: HandyJSON {
+struct LSPlacePunchinItemModel: SmartCodable {
     var datetime = ""
     var sbstatus = 0
     var xbstatus = 0
 }
 
 // 工单汇总
-struct LSOrderSummaryItemModel: HandyJSON {
+struct LSOrderSummaryItemModel: SmartCodable {
     var projectname = ""
     var qty = 0
     var amt: Double = 0
     var projectid = ""
 }
 
-struct LSOrderSummaryTotalModel: HandyJSON {
+struct LSOrderSummaryTotalModel: SmartCodable {
     var qty = 0
     var amt: Double = 0
     var commission: Double = 0
 }
 
 
-struct LSOrderSummaryDetailsModel: HandyJSON {
+struct LSOrderSummaryDetailsModel: SmartCodable {
     var id = ""
     var projectname = ""
     var amt = ""
@@ -649,13 +649,13 @@ struct LSOrderSummaryDetailsModel: HandyJSON {
 }
 
 
-struct LSShiftModel: HandyJSON {
+struct LSShiftModel: SmartCodable {
     var name = ""
     var shiftid = ""
 }
 
 
-struct LSRankJSModel: HandyJSON {
+struct LSRankJSModel: SmartCodable {
     var workname = ""
     var techlevelname = ""
     var name = ""
@@ -680,7 +680,7 @@ struct LSRankJSModel: HandyJSON {
     }
 }
 
-struct LSSysJobModel: HandyJSON {
+struct LSSysJobModel: SmartCodable {
     var jobid = ""
     var name = ""
 }

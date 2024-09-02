@@ -8,11 +8,11 @@
 
 import Foundation
 import RxSwift
-import HandyJSON
+import SmartCodable
 
 public extension PrimitiveSequenceType where Trait == SingleTrait, Element == LSNetworkResultModel{
     /// 普通 Json 转 Model
-    public func mapHandyModel <T : HandyJSON> (type : T.Type) -> Single<T?> {
+    public func mapHandyModel <T : SmartCodable> (type : T.Type) -> Single<T?> {
         return self.map { (element) -> T? in
             let data = element.data
             let parsedElement : T?
@@ -30,7 +30,7 @@ public extension PrimitiveSequenceType where Trait == SingleTrait, Element == LS
     }
     
     // 将 Json 转成 模型数组
-    public func mapHandyModelArray<T: HandyJSON>(type: T.Type) -> Single<[T]?> {
+    public func mapHandyModelArray<T: SmartCodable>(type: T.Type) -> Single<[T]?> {
         return self.map { (element) -> [T]? in
             let data = element.data
             let parsedArray : [T?]?

@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import CocoaLumberjack
 import Moya
-import HandyJSON
+import SmartCodable
 import Accessibility
 import LSBaseModules
 
@@ -110,7 +110,7 @@ extension LSProvider: SessionProtocol {
     
 }
 
-public class LSToken: HandyJSON {
+public class LSToken: SmartCodable {
     public var accesstoken: String = ""
     public var refreshToken: String = ""
     public var deviceId: String = ""
