@@ -10,12 +10,6 @@
 		0C0C358F29B892320039C535 /* CommonDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C358E29B892320039C535 /* CommonDefine.swift */; };
 		0C0C35B129B8A1980039C535 /* AlertStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C0C35B029B8A1980039C535 /* AlertStoryboard.storyboard */; };
 		0C0C35B329B8A1B60039C535 /* LSVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C35B229B8A1B60039C535 /* LSVoiceViewController.swift */; };
-		0C0C35BD29B986CD0039C535 /* KyoTransitioningAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C35B629B986CD0039C535 /* KyoTransitioningAlpha.swift */; };
-		0C0C35BE29B986CD0039C535 /* KyoTransitioningAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C35B729B986CD0039C535 /* KyoTransitioningAnimation.swift */; };
-		0C0C35BF29B986CD0039C535 /* KyoTransitioningScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C35B829B986CD0039C535 /* KyoTransitioningScale.swift */; };
-		0C0C35C029B986CD0039C535 /* KyoTransitioningPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C35B929B986CD0039C535 /* KyoTransitioningPosition.swift */; };
-		0C0C35C129B986CD0039C535 /* KyoTransitioningInteractive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C35BB29B986CD0039C535 /* KyoTransitioningInteractive.swift */; };
-		0C0C35C229B986CD0039C535 /* KyoTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C35BC29B986CD0039C535 /* KyoTransitioning.swift */; };
 		0C0C35CE29B98B3E0039C535 /* TransitionAnimationPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C35C529B98B3D0039C535 /* TransitionAnimationPosition.m */; };
 		0C0C35CF29B98B3E0039C535 /* TransitionAnimationInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C35C629B98B3D0039C535 /* TransitionAnimationInteractive.m */; };
 		0C0C35D029B98B3E0039C535 /* TransitionAnimationChangeAlpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C35C929B98B3E0039C535 /* TransitionAnimationChangeAlpha.m */; };
@@ -158,6 +152,12 @@
 		0C7168C52C4BAE6900527930 /* LSProjectCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7168C32C4BAE6900527930 /* LSProjectCartTableViewCell.swift */; };
 		0C7168C62C4BAE6900527930 /* LSProjectCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7168C42C4BAE6900527930 /* LSProjectCartTableViewCell.xib */; };
 		0C7168C82C4BB17A00527930 /* LSHandCardChioceAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7168C72C4BB17A00527930 /* LSHandCardChioceAlertViewController.swift */; };
+		0C7D51082C85C88F00F625AB /* KyoTransitioningAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7D50FF2C85C88F00F625AB /* KyoTransitioningAlpha.swift */; };
+		0C7D51092C85C88F00F625AB /* KyoTransitioningAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7D51002C85C88F00F625AB /* KyoTransitioningAnimation.swift */; };
+		0C7D510A2C85C88F00F625AB /* KyoTransitioningPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7D51012C85C88F00F625AB /* KyoTransitioningPosition.swift */; };
+		0C7D510B2C85C88F00F625AB /* KyoTransitioningScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7D51022C85C88F00F625AB /* KyoTransitioningScale.swift */; };
+		0C7D510C2C85C88F00F625AB /* KyoTransitioningInteractive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7D51042C85C88F00F625AB /* KyoTransitioningInteractive.swift */; };
+		0C7D510D2C85C88F00F625AB /* KyoTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7D51062C85C88F00F625AB /* KyoTransitioning.swift */; };
 		0C7E4C8329D2D0B000CDE80A /* LSLeaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E4C8229D2D0B000CDE80A /* LSLeaveViewController.xib */; };
 		0C7E4C8629D2D11E00CDE80A /* LSAddLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E4C8429D2D11E00CDE80A /* LSAddLeaveViewController.swift */; };
 		0C7E4C8729D2D11E00CDE80A /* LSAddLeaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E4C8529D2D11E00CDE80A /* LSAddLeaveViewController.xib */; };
@@ -311,12 +311,6 @@
 		0C0C358E29B892320039C535 /* CommonDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDefine.swift; sourceTree = "<group>"; };
 		0C0C35B029B8A1980039C535 /* AlertStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertStoryboard.storyboard; sourceTree = "<group>"; };
 		0C0C35B229B8A1B60039C535 /* LSVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSVoiceViewController.swift; sourceTree = "<group>"; };
-		0C0C35B629B986CD0039C535 /* KyoTransitioningAlpha.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyoTransitioningAlpha.swift; sourceTree = "<group>"; };
-		0C0C35B729B986CD0039C535 /* KyoTransitioningAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyoTransitioningAnimation.swift; sourceTree = "<group>"; };
-		0C0C35B829B986CD0039C535 /* KyoTransitioningScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyoTransitioningScale.swift; sourceTree = "<group>"; };
-		0C0C35B929B986CD0039C535 /* KyoTransitioningPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyoTransitioningPosition.swift; sourceTree = "<group>"; };
-		0C0C35BB29B986CD0039C535 /* KyoTransitioningInteractive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyoTransitioningInteractive.swift; sourceTree = "<group>"; };
-		0C0C35BC29B986CD0039C535 /* KyoTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyoTransitioning.swift; sourceTree = "<group>"; };
 		0C0C35C429B98B3D0039C535 /* TransitionAnimationChangeAlpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionAnimationChangeAlpha.h; sourceTree = "<group>"; };
 		0C0C35C529B98B3D0039C535 /* TransitionAnimationPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionAnimationPosition.m; sourceTree = "<group>"; };
 		0C0C35C629B98B3D0039C535 /* TransitionAnimationInteractive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionAnimationInteractive.m; sourceTree = "<group>"; };
@@ -482,6 +476,12 @@
 		0C7168C32C4BAE6900527930 /* LSProjectCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSProjectCartTableViewCell.swift; sourceTree = "<group>"; };
 		0C7168C42C4BAE6900527930 /* LSProjectCartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSProjectCartTableViewCell.xib; sourceTree = "<group>"; };
 		0C7168C72C4BB17A00527930 /* LSHandCardChioceAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSHandCardChioceAlertViewController.swift; sourceTree = "<group>"; };
+		0C7D50FF2C85C88F00F625AB /* KyoTransitioningAlpha.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyoTransitioningAlpha.swift; sourceTree = "<group>"; };
+		0C7D51002C85C88F00F625AB /* KyoTransitioningAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyoTransitioningAnimation.swift; sourceTree = "<group>"; };
+		0C7D51012C85C88F00F625AB /* KyoTransitioningPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyoTransitioningPosition.swift; sourceTree = "<group>"; };
+		0C7D51022C85C88F00F625AB /* KyoTransitioningScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyoTransitioningScale.swift; sourceTree = "<group>"; };
+		0C7D51042C85C88F00F625AB /* KyoTransitioningInteractive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyoTransitioningInteractive.swift; sourceTree = "<group>"; };
+		0C7D51062C85C88F00F625AB /* KyoTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyoTransitioning.swift; sourceTree = "<group>"; };
 		0C7E4C8229D2D0B000CDE80A /* LSLeaveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSLeaveViewController.xib; sourceTree = "<group>"; };
 		0C7E4C8429D2D11E00CDE80A /* LSAddLeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSAddLeaveViewController.swift; sourceTree = "<group>"; };
 		0C7E4C8529D2D11E00CDE80A /* LSAddLeaveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSAddLeaveViewController.xib; sourceTree = "<group>"; };
@@ -692,36 +692,6 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
-		0C0C35B429B986CD0039C535 /* KyoTransitionAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				0C0C35B529B986CD0039C535 /* Animation */,
-				0C0C35BA29B986CD0039C535 /* Interactive */,
-				0C0C35BC29B986CD0039C535 /* KyoTransitioning.swift */,
-			);
-			name = KyoTransitionAnimation;
-			path = ../../../../LiYu/LiYu/ThirdLibs/KyoTransitionAnimation;
-			sourceTree = "<group>";
-		};
-		0C0C35B529B986CD0039C535 /* Animation */ = {
-			isa = PBXGroup;
-			children = (
-				0C0C35B629B986CD0039C535 /* KyoTransitioningAlpha.swift */,
-				0C0C35B729B986CD0039C535 /* KyoTransitioningAnimation.swift */,
-				0C0C35B829B986CD0039C535 /* KyoTransitioningScale.swift */,
-				0C0C35B929B986CD0039C535 /* KyoTransitioningPosition.swift */,
-			);
-			path = Animation;
-			sourceTree = "<group>";
-		};
-		0C0C35BA29B986CD0039C535 /* Interactive */ = {
-			isa = PBXGroup;
-			children = (
-				0C0C35BB29B986CD0039C535 /* KyoTransitioningInteractive.swift */,
-			);
-			path = Interactive;
-			sourceTree = "<group>";
-		};
 		0C0C35C329B98B3D0039C535 /* TransitionAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -755,7 +725,7 @@
 				0C23785929B5D496003AC759 /* HUD */,
 				0C5A4F6329B1A0DB00B8C032 /* VHLNavigation */,
 				0C0CC84E29AF60E800CC3A6E /* KyoRefreshControl */,
-				0C0C35B429B986CD0039C535 /* KyoTransitionAnimation */,
+				0C7D51072C85C88F00F625AB /* KyoTransitionAnimation */,
 				0C0C35C329B98B3D0039C535 /* TransitionAnimation */,
 			);
 			path = ThirdLibs;
@@ -1385,6 +1355,35 @@
 				0C7168C42C4BAE6900527930 /* LSProjectCartTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0C7D51032C85C88F00F625AB /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				0C7D50FF2C85C88F00F625AB /* KyoTransitioningAlpha.swift */,
+				0C7D51002C85C88F00F625AB /* KyoTransitioningAnimation.swift */,
+				0C7D51012C85C88F00F625AB /* KyoTransitioningPosition.swift */,
+				0C7D51022C85C88F00F625AB /* KyoTransitioningScale.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		0C7D51052C85C88F00F625AB /* Interactive */ = {
+			isa = PBXGroup;
+			children = (
+				0C7D51042C85C88F00F625AB /* KyoTransitioningInteractive.swift */,
+			);
+			path = Interactive;
+			sourceTree = "<group>";
+		};
+		0C7D51072C85C88F00F625AB /* KyoTransitionAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				0C7D51032C85C88F00F625AB /* Animation */,
+				0C7D51052C85C88F00F625AB /* Interactive */,
+				0C7D51062C85C88F00F625AB /* KyoTransitioning.swift */,
+			);
+			path = KyoTransitionAnimation;
 			sourceTree = "<group>";
 		};
 		0C7E4C8829D2D33C00CDE80A /* View */ = {
@@ -2043,8 +2042,8 @@
 				0CDD4C6E29CB007E003402DF /* LSCreateOrderTableViewCell.swift in Sources */,
 				0C23782B29B20B8F003AC759 /* LSUserqueryViewController.swift in Sources */,
 				0CB7653929BB10950048B1B3 /* LSUploadApi.swift in Sources */,
+				0C7D51092C85C88F00F625AB /* KyoTransitioningAnimation.swift in Sources */,
 				0C23783129B20BC0003AC759 /* LSAddOrderViewController.swift in Sources */,
-				0C0C35BF29B986CD0039C535 /* KyoTransitioningScale.swift in Sources */,
 				0C29C1EA29C58E880043109A /* LSSegmentedTitleDataSource.swift in Sources */,
 				0CE7F14829BF1692008FF8C5 /* LSOrderFilterViewController.swift in Sources */,
 				0CD97C082A19C44A00A79D9E /* LSOrderSummaryItemViewController.swift in Sources */,
@@ -2053,7 +2052,6 @@
 				0CB765A929BECC500048B1B3 /* LSClocksItemViewController.swift in Sources */,
 				0C440EDF29CDC16B004B8382 /* LSMessageApi.swift in Sources */,
 				0C66265E29C2CEB400AADCC7 /* LSDatePickerView.swift in Sources */,
-				0C0C35C229B986CD0039C535 /* KyoTransitioning.swift in Sources */,
 				0C50294629AF36C7003977F0 /* UIViewController+LSNavigation.swift in Sources */,
 				0C7E4CA629DC214C00CDE80A /* LSHomeProjectCell.swift in Sources */,
 				0C49D15429B9C3DA0084C2F5 /* LSChangePasswordController.swift in Sources */,
@@ -2073,7 +2071,6 @@
 				0C7E4C9629D4289B00CDE80A /* LSChoiceTimeViewController.swift in Sources */,
 				0C9128D929AF504600D6237E /* NotificationName.swift in Sources */,
 				0C1187B329FE5DFC004BA940 /* LSAddOrderTableViewCell.swift in Sources */,
-				0C0C35C129B986CD0039C535 /* KyoTransitioningInteractive.swift in Sources */,
 				0C23783B29B210AA003AC759 /* LSAboutViewController.swift in Sources */,
 				0C66263429C1D1E100AADCC7 /* LSChoiceCustomerViewController.swift in Sources */,
 				0CC697682C48B44500DC7BC5 /* LSHandCardChioceViewController.swift in Sources */,
@@ -2087,6 +2084,9 @@
 				0C7E4CB629E01D4100CDE80A /* LSGoodsTypeTableViewCell.swift in Sources */,
 				0CC3A9A42C48ED4B00FBDE2A /* LSProjectTableViewCell.swift in Sources */,
 				0C7168C82C4BB17A00527930 /* LSHandCardChioceAlertViewController.swift in Sources */,
+				0C7D510D2C85C88F00F625AB /* KyoTransitioning.swift in Sources */,
+				0C7D51082C85C88F00F625AB /* KyoTransitioningAlpha.swift in Sources */,
+				0C7D510B2C85C88F00F625AB /* KyoTransitioningScale.swift in Sources */,
 				0C7168C12C4BACBB00527930 /* LSProjectCartViewController.swift in Sources */,
 				0C0CC8AD29AF60E900CC3A6E /* JMRefreshControlViewWave.m in Sources */,
 				0C7E4CAA29DE76CD00CDE80A /* LSProjectDetailsViewController.swift in Sources */,
@@ -2117,6 +2117,7 @@
 				0C7E4CBA29E0246000CDE80A /* LSGoodsTypeCollectionViewCell.swift in Sources */,
 				0CB7655E29BC56620048B1B3 /* LSRoyaltiesDetailsCell.swift in Sources */,
 				0CD30BFD2A77934200D6AE83 /* FJDeepSleepPreventer.m in Sources */,
+				0C7D510A2C85C88F00F625AB /* KyoTransitioningPosition.swift in Sources */,
 				0C23783F29B2177B003AC759 /* LSSystemViewController.swift in Sources */,
 				0C23785F29B5D496003AC759 /* HPActivityIndicator.swift in Sources */,
 				0C0CC8BA29B07E9E00CC3A6E /* LSHomeViewController.swift in Sources */,
@@ -2160,10 +2161,8 @@
 				0C7E4CA129DA835400CDE80A /* LSHomeUserStatusView.swift in Sources */,
 				0C23784F29B2F456003AC759 /* LSUserServer.swift in Sources */,
 				0C66266229C2F5B200AADCC7 /* LSReferrerViewController.swift in Sources */,
-				0C0C35C029B986CD0039C535 /* KyoTransitioningPosition.swift in Sources */,
 				0C50294829AF36C7003977F0 /* LSTabBarViewController.swift in Sources */,
 				0C50294A29AF36C7003977F0 /* LSLaunchViewController.swift in Sources */,
-				0C0C35BD29B986CD0039C535 /* KyoTransitioningAlpha.swift in Sources */,
 				0CB765B529BF0AE00048B1B3 /* LSWorkorderItemViewController.swift in Sources */,
 				0C66267929C315DE00AADCC7 /* LSChioceTechnicianItemController.swift in Sources */,
 				0C50294529AF36C7003977F0 /* RootViewController.swift in Sources */,
@@ -2173,7 +2172,6 @@
 				0C4D060829D143FA00D30F95 /* LSMessageItemViewController.swift in Sources */,
 				0CD97C242A19E83200A79D9E /* LSAddClockViewController.swift in Sources */,
 				0CB7659529BC760D0048B1B3 /* FSCalendarDelegationFactory.m in Sources */,
-				0C0C35BE29B986CD0039C535 /* KyoTransitioningAnimation.swift in Sources */,
 				0C0CC8A729AF60E800CC3A6E /* KyoDataTipsModel.m in Sources */,
 				0C4F3FA929CD83CC00A20F03 /* LSHomeApi.swift in Sources */,
 				0C7E4C8B29D2D36D00CDE80A /* LSLeaveTableViewCell.swift in Sources */,
@@ -2192,6 +2190,7 @@
 				0C5A4F6529B1A0DB00B8C032 /* VHLNavigation.swift in Sources */,
 				0CB7653D29BB1C520048B1B3 /* LSUploadModel.swift in Sources */,
 				0C23787129B86850003AC759 /* LSAppModel.swift in Sources */,
+				0C7D510C2C85C88F00F625AB /* KyoTransitioningInteractive.swift in Sources */,
 				0C23783429B20BD8003AC759 /* LSClockinViewController.swift in Sources */,
 				0CB7659F29BC760D0048B1B3 /* FSCalendarHeaderView.m in Sources */,
 				0C7E4CC229E152DB00CDE80A /* LSServiceViewController.swift in Sources */,
