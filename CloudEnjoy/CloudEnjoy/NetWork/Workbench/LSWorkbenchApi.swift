@@ -443,7 +443,8 @@ extension LSWorkbenchAPI: LSTargetType{
         case .getHandCardTypeList:
             return [:]
         case let .getHandcardinfoList(cond, handcardtypeid):
-            return ["cond": cond,
+            return ["is_page": "0",
+                    "cond": cond,
                     "handcardtypeid": handcardtypeid,
                     "stopflag": 0]
         case let .saleBills(opentype, roomid, roomname,  handcardid, handcardno, projectlist):
