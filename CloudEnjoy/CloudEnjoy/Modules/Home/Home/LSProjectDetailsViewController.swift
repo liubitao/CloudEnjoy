@@ -120,20 +120,48 @@ class LSProjectDetailsViewController: LSBaseViewController {
             guard let self = self else {return}
             switch model.title {
             case "技师上钟":
+                guard rolemapModel().contains(.upClock) else {
+                    Toast.show("暂无权限")
+                    return
+                }
                 let clockVC = LSUpClockViewController.creaeFromStoryboard(with: self.projectModel)
                 clockVC.presentedWith(self)
             case "技师下钟":
+                guard rolemapModel().contains(.downClock) else {
+                    Toast.show("暂无权限")
+                    return
+                }
                 let clockVC = LSDownClockViewController.creaeFromStoryboard(with: self.projectModel)
                 clockVC.presentedWith(self)
             case "商品下单":
+                guard rolemapModel().contains(.goods) else {
+                    Toast.show("暂无权限")
+                    return
+                }
                 self.navigationController?.pushViewController(LSGoodsViewController(with: self.projectModel), animated: true)
             case "呼叫服务":
+                guard rolemapModel().contains(.service) else {
+                    Toast.show("暂无权限")
+                    return
+                }
                 self.navigationController?.pushViewController(LSServiceViewController(with: self.projectModel), animated: true)
             case "项目加钟":
+                guard rolemapModel().contains(.addClock) else {
+                    Toast.show("暂无权限")
+                    return
+                }
                 self.navigationController?.pushViewController(LSAddClockViewController(with: self.projectModel), animated: true)
             case "更换项目":
+                guard rolemapModel().contains(.changeClock) else {
+                    Toast.show("暂无权限")
+                    return
+                }
                 LSChangeClockViewController.creaeFromStoryboard(with: self.projectModel).presentedWith(self)
             case "退钟":
+                guard rolemapModel().contains(.rejectClock) else {
+                    Toast.show("暂无权限")
+                    return
+                }
                 self.navigationController?.pushViewController(LSRejectProjectViewController(with: self.projectModel), animated: true)
             default: break
             }

@@ -133,7 +133,7 @@ public class LSParametersModel: SmartCodable {
 }
 
 public enum LSRoleType: String, SmartCaseDefaultable {
-    
+    // 工作台
     case royalties = "0201" //我的提成
     case clocks = "0202" //我的钟数
     case workorder = "0203" //我的工单
@@ -148,6 +148,15 @@ public enum LSRoleType: String, SmartCaseDefaultable {
     case clockin = "0207" //打卡
     case leave = "0208" //员工请假
     
+    //首页
+    case upClock = "0101" //上钟
+    case downClock = "0102" //下钟
+    case addClock = "0103" //加钟
+    case goods = "0104" //商品下单
+    case service = "0105" //呼叫服务
+    case changeClock = "0106" //更换项目
+    case rejectClock = "0107" //退钟
+
     case other = "" //其他
     
     public var title: String {
@@ -164,6 +173,13 @@ public enum LSRoleType: String, SmartCaseDefaultable {
         case .clockin: return "员工打卡"
         case .leave: return "员工请假"
         case .other: return "其他"
+        case .upClock: return "上钟"
+        case .downClock: return "下钟"
+        case .addClock: return "加钟"
+        case .goods: return "商品下单"
+        case .service: return "呼叫服务"
+        case .changeClock: return "更换项目"
+        case .rejectClock: return "退钟"
         }
     }
 }

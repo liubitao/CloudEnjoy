@@ -109,7 +109,7 @@ class LSWorkbenchViewController: LSBaseViewController {
                 case .leave:
                     self.jumpLeave()
                     break
-                case .other:
+                default:
                     break
                 }
             }).disposed(by: self.rx.disposeBag)
