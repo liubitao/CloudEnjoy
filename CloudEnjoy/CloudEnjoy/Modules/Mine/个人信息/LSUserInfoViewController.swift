@@ -86,7 +86,7 @@ extension LSUserInfoViewController: ImagePickerControllerDelegate {
             return LSUserServer.userUpdate(headimg: headimg).asObservable()
         }.subscribe { _ in
             self.iconImageView.image = image
-            var userModel: LSUserModel = userModel()
+            let userModel: LSUserModel = userModel()
             userModel.headimg = headimg
             LSLoginModel.shared.user = userModel
             LoginDataCache.set(key: "LoginInfo", value: LSLoginModel.shared.toJSONString())

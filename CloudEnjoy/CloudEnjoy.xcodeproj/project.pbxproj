@@ -136,7 +136,6 @@
 		0C66263229C1C9A700AADCC7 /* LSAddOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C66263129C1C9A700AADCC7 /* LSAddOrderViewController.xib */; };
 		0C66263429C1D1E100AADCC7 /* LSChoiceCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66263329C1D1E100AADCC7 /* LSChoiceCustomerViewController.swift */; };
 		0C66263629C2BE5100AADCC7 /* LSArriveStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66263529C2BE5100AADCC7 /* LSArriveStoreViewController.swift */; };
-		0C66265E29C2CEB400AADCC7 /* LSDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66265D29C2CEB400AADCC7 /* LSDatePickerView.swift */; };
 		0C66266029C2F07200AADCC7 /* LSReserveTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66265F29C2F07200AADCC7 /* LSReserveTimeViewController.swift */; };
 		0C66266229C2F5B200AADCC7 /* LSReferrerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66266129C2F5B200AADCC7 /* LSReferrerViewController.swift */; };
 		0C66266429C3131300AADCC7 /* LSChoiceRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66266329C3131300AADCC7 /* LSChoiceRoomViewController.swift */; };
@@ -205,6 +204,9 @@
 		0C9128F329AF50BF00D6237E /* LSBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9128EC29AF50BF00D6237E /* LSBaseViewController.swift */; };
 		0CA9C0282C4771FC00CFC088 /* LSRoomChioceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9C0272C4771FC00CFC088 /* LSRoomChioceViewController.xib */; };
 		0CA9C0292C4771FC00CFC088 /* LSRoomChioceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9C0262C4771FC00CFC088 /* LSRoomChioceViewController.swift */; };
+		0CAEA6B82CCB6F55009717D4 /* LSDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAEA6B62CCB6F55009717D4 /* LSDatePickerView.swift */; };
+		0CAEA6BC2CCB722E009717D4 /* LSWorkbenchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAEA6BA2CCB722E009717D4 /* LSWorkbenchCell.swift */; };
+		0CAEA6BD2CCB722E009717D4 /* LSWorkbenchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CAEA6BB2CCB722E009717D4 /* LSWorkbenchCell.xib */; };
 		0CB7653429B9E6EF0048B1B3 /* LSPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB7653329B9E6EF0048B1B3 /* LSPhotosViewController.swift */; };
 		0CB7653629B9FAD10048B1B3 /* LSUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB7653529B9FAD10048B1B3 /* LSUserModel.swift */; };
 		0CB7653929BB10950048B1B3 /* LSUploadApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB7653829BB10950048B1B3 /* LSUploadApi.swift */; };
@@ -459,7 +461,6 @@
 		0C66263129C1C9A700AADCC7 /* LSAddOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSAddOrderViewController.xib; sourceTree = "<group>"; };
 		0C66263329C1D1E100AADCC7 /* LSChoiceCustomerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSChoiceCustomerViewController.swift; sourceTree = "<group>"; };
 		0C66263529C2BE5100AADCC7 /* LSArriveStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSArriveStoreViewController.swift; sourceTree = "<group>"; };
-		0C66265D29C2CEB400AADCC7 /* LSDatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LSDatePickerView.swift; path = CloudEnjoy/ThirdLibs/DatePickerView/LSDatePickerView.swift; sourceTree = SOURCE_ROOT; };
 		0C66265F29C2F07200AADCC7 /* LSReserveTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSReserveTimeViewController.swift; sourceTree = "<group>"; };
 		0C66266129C2F5B200AADCC7 /* LSReferrerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSReferrerViewController.swift; sourceTree = "<group>"; };
 		0C66266329C3131300AADCC7 /* LSChoiceRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSChoiceRoomViewController.swift; sourceTree = "<group>"; };
@@ -529,6 +530,9 @@
 		0C9128EC29AF50BF00D6237E /* LSBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSBaseViewController.swift; sourceTree = "<group>"; };
 		0CA9C0262C4771FC00CFC088 /* LSRoomChioceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSRoomChioceViewController.swift; sourceTree = "<group>"; };
 		0CA9C0272C4771FC00CFC088 /* LSRoomChioceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSRoomChioceViewController.xib; sourceTree = "<group>"; };
+		0CAEA6B62CCB6F55009717D4 /* LSDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSDatePickerView.swift; sourceTree = "<group>"; };
+		0CAEA6BA2CCB722E009717D4 /* LSWorkbenchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSWorkbenchCell.swift; sourceTree = "<group>"; };
+		0CAEA6BB2CCB722E009717D4 /* LSWorkbenchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSWorkbenchCell.xib; sourceTree = "<group>"; };
 		0CB7653329B9E6EF0048B1B3 /* LSPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSPhotosViewController.swift; sourceTree = "<group>"; };
 		0CB7653529B9FAD10048B1B3 /* LSUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSUserModel.swift; sourceTree = "<group>"; };
 		0CB7653829BB10950048B1B3 /* LSUploadApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSUploadApi.swift; sourceTree = "<group>"; };
@@ -720,13 +724,13 @@
 				0C29C1F529C5A3F00043109A /* UUMarqueeView */,
 				0C1D1D3829C58A8000255BDB /* SegmentControl */,
 				0C66266629C314F500AADCC7 /* HWDownSelectedView */,
-				0C66264F29C2CAF000AADCC7 /* DatePickerView */,
 				0CB7656029BC760D0048B1B3 /* FSCalendar */,
 				0C23785929B5D496003AC759 /* HUD */,
 				0C5A4F6329B1A0DB00B8C032 /* VHLNavigation */,
 				0C0CC84E29AF60E800CC3A6E /* KyoRefreshControl */,
 				0C7D51072C85C88F00F625AB /* KyoTransitionAnimation */,
 				0C0C35C329B98B3D0039C535 /* TransitionAnimation */,
+				0CAEA6B72CCB6F55009717D4 /* DatePickerView */,
 			);
 			path = ThirdLibs;
 			sourceTree = "<group>";
@@ -877,6 +881,7 @@
 		0C0CC8BB29B07EA400CC3A6E /* Workbench */ = {
 			isa = PBXGroup;
 			children = (
+				0CAEA6B92CCB7205009717D4 /* View */,
 				0C0CC8BC29B07EBD00CC3A6E /* LSWorkbenchViewController.swift */,
 				0C27885E29B2003300C3B6F9 /* LSWorkbenchViewController.xib */,
 			);
@@ -1289,15 +1294,6 @@
 			path = VHLNavigation;
 			sourceTree = "<group>";
 		};
-		0C66264F29C2CAF000AADCC7 /* DatePickerView */ = {
-			isa = PBXGroup;
-			children = (
-				0C66265D29C2CEB400AADCC7 /* LSDatePickerView.swift */,
-			);
-			name = DatePickerView;
-			path = "../../../../../Downloads/DatePicker-master/DatePickerView";
-			sourceTree = "<group>";
-		};
 		0C66266529C3141100AADCC7 /* 预约房间 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1450,6 +1446,23 @@
 				0C9128EC29AF50BF00D6237E /* LSBaseViewController.swift */,
 			);
 			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		0CAEA6B72CCB6F55009717D4 /* DatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				0CAEA6B62CCB6F55009717D4 /* LSDatePickerView.swift */,
+			);
+			path = DatePickerView;
+			sourceTree = "<group>";
+		};
+		0CAEA6B92CCB7205009717D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0CAEA6BA2CCB722E009717D4 /* LSWorkbenchCell.swift */,
+				0CAEA6BB2CCB722E009717D4 /* LSWorkbenchCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		0CAEC37D29B0B063009A49E4 /* View */ = {
@@ -1934,6 +1947,7 @@
 				0C7E4CB329DFC0FE00CDE80A /* LSGoodsViewController.xib in Resources */,
 				0C4D061129D1830000D30F95 /* LSWorkOrderDetailsController.xib in Resources */,
 				0C4D060D29D148B800D30F95 /* LSMessageTableViewCell.xib in Resources */,
+				0CAEA6BD2CCB722E009717D4 /* LSWorkbenchCell.xib in Resources */,
 				0C7E4CBB29E0246000CDE80A /* LSGoodsTypeCollectionViewCell.xib in Resources */,
 				0CD97C102A19C53000A79D9E /* LSOrderSummaryItemViewController.xib in Resources */,
 				0C4D060629D133FC00D30F95 /* LSMessageViewController.xib in Resources */,
@@ -2014,6 +2028,7 @@
 				0C7168C52C4BAE6900527930 /* LSProjectCartTableViewCell.swift in Sources */,
 				0C4D061429D19D0F00D30F95 /* LSRankViewController.swift in Sources */,
 				0C23787429B87400003AC759 /* LSTextViewController.swift in Sources */,
+				0CAEA6B82CCB6F55009717D4 /* LSDatePickerView.swift in Sources */,
 				0C0CC8A829AF60E800CC3A6E /* KyoDataTipsView.m in Sources */,
 				0CDC77482A025C1B00E992D3 /* LSAudioManager.swift in Sources */,
 				0C9128F329AF50BF00D6237E /* LSBaseViewController.swift in Sources */,
@@ -2051,7 +2066,6 @@
 				0C7E4C8629D2D11E00CDE80A /* LSAddLeaveViewController.swift in Sources */,
 				0CB765A929BECC500048B1B3 /* LSClocksItemViewController.swift in Sources */,
 				0C440EDF29CDC16B004B8382 /* LSMessageApi.swift in Sources */,
-				0C66265E29C2CEB400AADCC7 /* LSDatePickerView.swift in Sources */,
 				0C50294629AF36C7003977F0 /* UIViewController+LSNavigation.swift in Sources */,
 				0C7E4CA629DC214C00CDE80A /* LSHomeProjectCell.swift in Sources */,
 				0C49D15429B9C3DA0084C2F5 /* LSChangePasswordController.swift in Sources */,
@@ -2133,6 +2147,7 @@
 				0C0CC8B129AF60E900CC3A6E /* KyoCircleLoadView.m in Sources */,
 				0C0C35CF29B98B3E0039C535 /* TransitionAnimationInteractive.m in Sources */,
 				0CD30BFF2A77934200D6AE83 /* FJDeepSleepPreventerPlus.m in Sources */,
+				0CAEA6BC2CCB722E009717D4 /* LSWorkbenchCell.swift in Sources */,
 				0C50294729AF36C7003977F0 /* LSNavigationController.swift in Sources */,
 				0C440EE129CDC177004B8382 /* LSMessageServer.swift in Sources */,
 				0CD97C1F2A19E70900A79D9E /* LSJsRankTableViewCell.swift in Sources */,

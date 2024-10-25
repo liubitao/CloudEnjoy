@@ -46,7 +46,10 @@ class RootViewController: LSBaseViewController {
     
     func showHomeViewController() {
         /// 根据数据库中的token判断
-        guard appIsLogin() else {
+        guard let isUpdated = AppDataCache.get(key: "isUpdated") as? Bool,
+              isUpdated == true,
+                appIsLogin() else {
+            AppDataCache.set(key: "isUpdated", value: true)
             self.setupLoginViewController()
             return
         }
