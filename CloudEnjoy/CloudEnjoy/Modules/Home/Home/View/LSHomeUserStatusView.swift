@@ -97,7 +97,7 @@ class LSHomeUserStatusView: UIView {
                     self.hadWaitLab.text = "已等待：" + String(format: "%02d", secondsSince/3600) + ":" + String(format: "%02d", secondsSince/60%60) + ":" + String(format: "%02d", secondsSince%60)
                     let makeAppointmentReminder = (parametersModel().MakeAppointmentReminder == 0 ? 5 : parametersModel().MakeAppointmentReminder) * 60
                     if secondsSince % makeAppointmentReminder == 0 {
-                        LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟)"))
+//                        LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟)"))
                     }
                 })
             }else {
@@ -114,12 +114,12 @@ class LSHomeUserStatusView: UIView {
                     self.timeRemainingLab.text = "剩余时长：" + String(format: "%02d", secondsSince/3600) + ":" + String(format: "%02d", secondsSince/60%60) + ":" + String(format: "%02d", secondsSince%60)
                     let nextBellReminder = (parametersModel().NextBellReminder == 0 ? 5 : parametersModel().NextBellReminder) * 60
                     if secondsSince == nextBellReminder {
-                        LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟)"))
+//                        LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟)"))
                     }
                 }else {
                     let timeoutReminder = (parametersModel().TimeoutReminder == 0 ? 5 : parametersModel().TimeoutReminder) * 60
                     if secondsSince % timeoutReminder == 0 {
-                        LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟)"))
+//                        LSAudioQueueManager.shared.enqueueToQueue(LSAudioOperation(audioName: "本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟)"))
                     }
                     self.timeRemainingLab.text = "剩余时长：00:00:00"
                 }

@@ -11,12 +11,13 @@ import LSNetwork
 import LSBaseModules
 import SnapKit
 import SwifterSwift
+import RxSwift
 
 class RootViewController: LSBaseViewController {
     
     var tabBarViewController: LSTabBarViewController?
     var loginVC: LSLoginViewController?
-
+    var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +55,6 @@ class RootViewController: LSBaseViewController {
             return
         }
         
-//        self.getUserInfo()
         LSRMQClient.install(rabbitaddress: LSLoginModel.shared.rabbitaddress, rabbitport: LSLoginModel.shared.rabbitport)
         self.setupTabBarViewController()
     }
@@ -66,6 +66,13 @@ class RootViewController: LSBaseViewController {
         addChild(tabBarViewController!)
         view.addSubview(tabBarViewController!.view)
         tabBarViewController!.view.sendSubviewToBack(view)
+        
+        LSJPushServer.bind(deviceToken: JPUSHService.registrationID(),
+                           userid: userModel().userid,
+                           spid: storeModel().spid.string,
+                           sid: storeModel().sid.string)
+            .subscribe()
+            .disposed(by: self.disposeBag)
     }
     
     /// 登录界面
@@ -90,12 +97,14 @@ class RootViewController: LSBaseViewController {
         loginVC = nil
     }
     
-    /// 请求用户信息并加入数据库中
-    func getUserInfo() {
-    }
-    
     //退出登录，删除所有信息
     @objc func logout() {
+        LSJPushServer.unBind(deviceToken: JPUSHService.registrationID(),
+                             userid: userModel().userid,
+                             spid: storeModel().spid.string,
+                             sid: storeModel().sid.string)
+            .subscribe()
+            .disposed(by: self.disposeBag)
         LSRMQClient.unInstall()
         LoginDataCache.removeAll()
         self.setupLoginViewController()

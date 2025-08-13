@@ -106,5 +106,16 @@ class LSHomeServer {
     static func getServiceList() -> Single<LSNetworkListModel<LSServiceModel>?>{
         return provider.lsRequest(.getServiceList).mapHandyModel(type: LSNetworkListModel<LSServiceModel>.self)
     }
+    
+    static func getYuyueInfo(billid: String) -> Single<LSOrderModel?>{
+        return provider.lsRequest(.getYuyueInfo(billid: billid)).mapHandyModel(type: LSOrderModel.self)
+    }
+    
+    
+    
+    static func bindHandcard(billid: String, roomid: String, handcardid: String, handcardno: String) -> Single<LSNetworkResultModel>{
+        return provider.lsRequest(.bindHandcard(billid: billid, roomid: roomid, handcardid: handcardid, handcardno: handcardno))
+    }
+    
 }
 

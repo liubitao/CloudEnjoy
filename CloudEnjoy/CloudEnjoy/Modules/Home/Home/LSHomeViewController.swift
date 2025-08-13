@@ -79,7 +79,10 @@ class LSHomeViewController: LSBaseViewController {
             self?.navigationController?.pushViewController(LSRoyaltiesViewController(), animated: true)
         }.disposed(by: self.rx.disposeBag)
         
-        self.rankLab.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
+        self.rankLab.rx.tapGesture().when(.recognized)
+        .filter{ _ in
+            rolemapModel().contains(.jsRank)
+        }.subscribe { [weak self] _ in
             self?.navigationController?.pushViewController(LSRankViewController(), animated: true)
         }.disposed(by: self.rx.disposeBag)
         

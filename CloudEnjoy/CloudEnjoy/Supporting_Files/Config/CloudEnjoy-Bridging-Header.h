@@ -12,5 +12,8 @@
 #import "HWDownSelectedView.h"
 #import "UUMarqueeView.h"
 #import "FJDeepSleepPreventerPlus.h"
-
+// 友盟统计
+#import <UMCommon/UMCommon.h>
+// 极光推送
+#import <JPUSHService.h>
 

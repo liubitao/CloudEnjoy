@@ -17,4 +17,14 @@ public struct ThirdsKey{
         static let AppId = "fca930d537"
     }
     
+    //友盟统计
+    struct UMKey {
+        static let AppId = "688887b279267e0210c7662d"
+    }
+    
+    //极光推送
+    struct JPushKey {
+        static let AppKey = "2a6488e2674e5a91da941de9"
+    }
+    
 }

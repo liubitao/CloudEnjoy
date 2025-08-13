@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C009A2A2E38D87900A4CE15 /* 本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0C009A242E38D87900A4CE15 /* 本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）.caf */; };
+		0C009A2B2E38D87900A4CE15 /* 您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0C009A282E38D87900A4CE15 /* 您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）.caf */; };
+		0C009A2C2E38D87900A4CE15 /* 本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟).caf in Resources */ = {isa = PBXBuildFile; fileRef = 0C009A232E38D87900A4CE15 /* 本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟).caf */; };
+		0C009A2D2E38D87900A4CE15 /* 你有新的派工消息（收银端派工后，对应技师员工端收到提醒）.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0C009A272E38D87900A4CE15 /* 你有新的派工消息（收银端派工后，对应技师员工端收到提醒）.caf */; };
+		0C009A2E2E38D87900A4CE15 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).caf in Resources */ = {isa = PBXBuildFile; fileRef = 0C009A222E38D87900A4CE15 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).caf */; };
+		0C009A2F2E38D87900A4CE15 /* 你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟).caf in Resources */ = {isa = PBXBuildFile; fileRef = 0C009A262E38D87900A4CE15 /* 你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟).caf */; };
+		0C009A302E38D87900A4CE15 /* 本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).caf in Resources */ = {isa = PBXBuildFile; fileRef = 0C009A252E38D87900A4CE15 /* 本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).caf */; };
 		0C0C358F29B892320039C535 /* CommonDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C358E29B892320039C535 /* CommonDefine.swift */; };
 		0C0C35B129B8A1980039C535 /* AlertStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C0C35B029B8A1980039C535 /* AlertStoryboard.storyboard */; };
 		0C0C35B329B8A1B60039C535 /* LSVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C35B229B8A1B60039C535 /* LSVoiceViewController.swift */; };
@@ -252,6 +259,8 @@
 		0CB765B929BF0B000048B1B3 /* LSWorkorderItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB765B829BF0B000048B1B3 /* LSWorkorderItemViewController.xib */; };
 		0CB765BC29BF0C900048B1B3 /* LSOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */; };
 		0CB765BD29BF0C900048B1B3 /* LSOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */; };
+		0CBA28362E4327ED006D68AA /* LSBindhandCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA28342E4327ED006D68AA /* LSBindhandCardViewController.swift */; };
+		0CBA28372E4327ED006D68AA /* LSBindhandCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA28352E4327ED006D68AA /* LSBindhandCardViewController.xib */; };
 		0CBB64C02A77AC1A00395710 /* LSLocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB64BF2A77AC1A00395710 /* LSLocationHelper.swift */; };
 		0CC3A9A42C48ED4B00FBDE2A /* LSProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3A9A02C48ED4B00FBDE2A /* LSProjectTableViewCell.swift */; };
 		0CC3A9A52C48ED4B00FBDE2A /* LSProjectTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC3A9A12C48ED4B00FBDE2A /* LSProjectTypeTableViewCell.xib */; };
@@ -304,12 +313,23 @@
 		0CE7F15329BF24FD008FF8C5 /* LSVipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE7F15129BF24FD008FF8C5 /* LSVipTableViewCell.xib */; };
 		0CE8EE4D29AF3A93003DE097 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE8EE4829AF3A93003DE097 /* LaunchScreen.storyboard */; };
 		0CE8EE4F29AF3A93003DE097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CE8EE4C29AF3A93003DE097 /* Assets.xcassets */; };
+		0CF287372E3B476C00D7BB9C /* LSJPushServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF287352E3B476C00D7BB9C /* LSJPushServer.swift */; };
+		0CF287392E3B476C00D7BB9C /* LSJPushApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF287342E3B476C00D7BB9C /* LSJPushApi.swift */; };
+		0CF2873B2E3B4A6000D7BB9C /* LSUntil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF2873A2E3B4A6000D7BB9C /* LSUntil.swift */; };
 		0CF5C1A129C0210B00960506 /* LSVipDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF5C19F29C0210B00960506 /* LSVipDetailsViewController.swift */; };
 		0CF5C1A229C0210B00960506 /* LSVipDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5C1A029C0210B00960506 /* LSVipDetailsViewController.xib */; };
 		AF0DB1D6861E5C464D508649 /* Pods_CloudEnjoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2901513FD79CDDE99643A01 /* Pods_CloudEnjoy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C009A212E38C45600A4CE15 /* CloudEnjoy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudEnjoy.entitlements; sourceTree = "<group>"; };
+		0C009A222E38D87900A4CE15 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).caf"; sourceTree = "<group>"; };
+		0C009A232E38D87900A4CE15 /* 本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟).caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟).caf"; sourceTree = "<group>"; };
+		0C009A242E38D87900A4CE15 /* 本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）.caf"; sourceTree = "<group>"; };
+		0C009A252E38D87900A4CE15 /* 本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).caf"; sourceTree = "<group>"; };
+		0C009A262E38D87900A4CE15 /* 你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟).caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟).caf"; sourceTree = "<group>"; };
+		0C009A272E38D87900A4CE15 /* 你有新的派工消息（收银端派工后，对应技师员工端收到提醒）.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "你有新的派工消息（收银端派工后，对应技师员工端收到提醒）.caf"; sourceTree = "<group>"; };
+		0C009A282E38D87900A4CE15 /* 您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）.caf"; sourceTree = "<group>"; };
 		0C0C358E29B892320039C535 /* CommonDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDefine.swift; sourceTree = "<group>"; };
 		0C0C35B029B8A1980039C535 /* AlertStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertStoryboard.storyboard; sourceTree = "<group>"; };
 		0C0C35B229B8A1B60039C535 /* LSVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSVoiceViewController.swift; sourceTree = "<group>"; };
@@ -595,6 +615,8 @@
 		0CB765B829BF0B000048B1B3 /* LSWorkorderItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSWorkorderItemViewController.xib; sourceTree = "<group>"; };
 		0CB765BA29BF0C900048B1B3 /* LSOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSOrderTableViewCell.swift; sourceTree = "<group>"; };
 		0CB765BB29BF0C900048B1B3 /* LSOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSOrderTableViewCell.xib; sourceTree = "<group>"; };
+		0CBA28342E4327ED006D68AA /* LSBindhandCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSBindhandCardViewController.swift; sourceTree = "<group>"; };
+		0CBA28352E4327ED006D68AA /* LSBindhandCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSBindhandCardViewController.xib; sourceTree = "<group>"; };
 		0CBB64BF2A77AC1A00395710 /* LSLocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSLocationHelper.swift; sourceTree = "<group>"; };
 		0CC3A9A02C48ED4B00FBDE2A /* LSProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSProjectTableViewCell.swift; sourceTree = "<group>"; };
 		0CC3A9A12C48ED4B00FBDE2A /* LSProjectTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSProjectTypeTableViewCell.xib; sourceTree = "<group>"; };
@@ -650,6 +672,9 @@
 		0CE8EE4929AF3A93003DE097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CE8EE4A29AF3A93003DE097 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CE8EE4C29AF3A93003DE097 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0CF287342E3B476C00D7BB9C /* LSJPushApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSJPushApi.swift; sourceTree = "<group>"; };
+		0CF287352E3B476C00D7BB9C /* LSJPushServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSJPushServer.swift; sourceTree = "<group>"; };
+		0CF2873A2E3B4A6000D7BB9C /* LSUntil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSUntil.swift; sourceTree = "<group>"; };
 		0CF5C19F29C0210B00960506 /* LSVipDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSVipDetailsViewController.swift; sourceTree = "<group>"; };
 		0CF5C1A029C0210B00960506 /* LSVipDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSVipDetailsViewController.xib; sourceTree = "<group>"; };
 		A2901513FD79CDDE99643A01 /* Pods_CloudEnjoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CloudEnjoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -669,6 +694,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C009A292E38D87900A4CE15 /* caf */ = {
+			isa = PBXGroup;
+			children = (
+				0C009A222E38D87900A4CE15 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).caf */,
+				0C009A232E38D87900A4CE15 /* 本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟).caf */,
+				0C009A242E38D87900A4CE15 /* 本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）.caf */,
+				0C009A252E38D87900A4CE15 /* 本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).caf */,
+				0C009A262E38D87900A4CE15 /* 你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟).caf */,
+				0C009A272E38D87900A4CE15 /* 你有新的派工消息（收银端派工后，对应技师员工端收到提醒）.caf */,
+				0C009A282E38D87900A4CE15 /* 您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）.caf */,
+			);
+			path = caf;
+			sourceTree = "<group>";
+		};
 		0C0C35AF29B8A1750039C535 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,6 +770,7 @@
 				0C7D51072C85C88F00F625AB /* KyoTransitionAnimation */,
 				0C0C35C329B98B3D0039C535 /* TransitionAnimation */,
 				0CAEA6B72CCB6F55009717D4 /* DatePickerView */,
+				0C9AAA8D2E3B114700DA7A4C /* KyoUtil */,
 			);
 			path = ThirdLibs;
 			sourceTree = "<group>";
@@ -874,6 +914,8 @@
 				0C7E4CCF29E6A73D00CDE80A /* LSRejectProjectViewController.xib */,
 				0CD97C222A19E83200A79D9E /* LSAddClockViewController.swift */,
 				0CD97C232A19E83200A79D9E /* LSAddClockViewController.xib */,
+				0CBA28342E4327ED006D68AA /* LSBindhandCardViewController.swift */,
+				0CBA28352E4327ED006D68AA /* LSBindhandCardViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1201,6 +1243,7 @@
 		0C50291429AF1F3A003977F0 /* CloudEnjoy */ = {
 			isa = PBXGroup;
 			children = (
+				0C009A212E38C45600A4CE15 /* CloudEnjoy.entitlements */,
 				0C0CC84D29AF60D000CC3A6E /* ThirdLibs */,
 				0C9128CB29AF504600D6237E /* Defines */,
 				0C50293229AF3433003977F0 /* NetWork */,
@@ -1226,6 +1269,7 @@
 		0C50293229AF3433003977F0 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				0CF287332E3B475B00D7BB9C /* Jpush */,
 				0CE435E029F1181B009A5141 /* RMQClient */,
 				0C4F3FA729CD83BB00A20F03 /* Home */,
 				0C29C1F429C5A3750043109A /* Message */,
@@ -1446,6 +1490,14 @@
 				0C9128EC29AF50BF00D6237E /* LSBaseViewController.swift */,
 			);
 			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		0C9AAA8D2E3B114700DA7A4C /* KyoUtil */ = {
+			isa = PBXGroup;
+			children = (
+				0CF2873A2E3B4A6000D7BB9C /* LSUntil.swift */,
+			);
+			path = KyoUtil;
 			sourceTree = "<group>";
 		};
 		0CAEA6B72CCB6F55009717D4 /* DatePickerView */ = {
@@ -1780,10 +1832,20 @@
 		0CE8EE4B29AF3A93003DE097 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0C009A292E38D87900A4CE15 /* caf */,
 				0CDC77492A025FE700E992D3 /* audio */,
 				0CE8EE4C29AF3A93003DE097 /* Assets.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		0CF287332E3B475B00D7BB9C /* Jpush */ = {
+			isa = PBXGroup;
+			children = (
+				0CF287342E3B476C00D7BB9C /* LSJPushApi.swift */,
+				0CF287352E3B476C00D7BB9C /* LSJPushServer.swift */,
+			);
+			path = Jpush;
 			sourceTree = "<group>";
 		};
 		6AA33F1F7E235E7709477CE7 /* Frameworks */ = {
@@ -1895,6 +1957,7 @@
 				0CDD4C6F29CB007E003402DF /* LSCreateOrderTableViewCell.xib in Resources */,
 				0C0CC89729AF60E800CC3A6E /* refresh_warter@1x.png in Resources */,
 				0C7168C62C4BAE6900527930 /* LSProjectCartTableViewCell.xib in Resources */,
+				0CBA28372E4327ED006D68AA /* LSBindhandCardViewController.xib in Resources */,
 				0C0CC8A429AF60E800CC3A6E /* kyo_refresh_default_icon@3x.png in Resources */,
 				0CDC77552A02600300E992D3 /* 您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）.mp3 in Resources */,
 				0C0CC89F29AF60E800CC3A6E /* btn_blue_moren.png in Resources */,
@@ -1904,6 +1967,13 @@
 				0CB765BD29BF0C900048B1B3 /* LSOrderTableViewCell.xib in Resources */,
 				0CB765AF29BED3070048B1B3 /* LSClockTableViewCell.xib in Resources */,
 				0C7E4C9E29D59CCD00CDE80A /* LSClockListViewController.xib in Resources */,
+				0C009A2A2E38D87900A4CE15 /* 本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）.caf in Resources */,
+				0C009A2B2E38D87900A4CE15 /* 您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）.caf in Resources */,
+				0C009A2C2E38D87900A4CE15 /* 本次服务已超时请注意下钟时间(超时提醒，后台设置每隔几分钟).caf in Resources */,
+				0C009A2D2E38D87900A4CE15 /* 你有新的派工消息（收银端派工后，对应技师员工端收到提醒）.caf in Resources */,
+				0C009A2E2E38D87900A4CE15 /* 本次服务即将到时请注意下钟时(下钟前提醒，后台设置提前几分钟).caf in Resources */,
+				0C009A2F2E38D87900A4CE15 /* 你有派工任务请尽快安排上钟(派工后提醒，后台设置每隔几分钟).caf in Resources */,
+				0C009A302E38D87900A4CE15 /* 本次项目已下钟期待您的下次光(收银端或技师端点击下钟后提醒).caf in Resources */,
 				0CC3A9AA2C48FE9600FBDE2A /* LSProjectAddViewController.xib in Resources */,
 				0C7E4CB729E01D4100CDE80A /* LSGoodsTypeTableViewCell.xib in Resources */,
 				0C23785629B5875D003AC759 /* LSAccountLoginView.xib in Resources */,
@@ -1987,9 +2057,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CloudEnjoy/Pods-CloudEnjoy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CloudEnjoy/Pods-CloudEnjoy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2092,6 +2166,7 @@
 				0C0C35D029B98B3E0039C535 /* TransitionAnimationChangeAlpha.m in Sources */,
 				0C7E4C9229D2F91500CDE80A /* LSCancelLeaveViewController.swift in Sources */,
 				0C0CC8AC29AF60E900CC3A6E /* RHRefreshControlViewSequenceImages.m in Sources */,
+				0CF2873B2E3B4A6000D7BB9C /* LSUntil.swift in Sources */,
 				0C7E4CCD29E173F700CDE80A /* LSChioceProjectViewController.swift in Sources */,
 				0CC3A9AF2C49059800FBDE2A /* LSProjectAddTableViewCell.swift in Sources */,
 				0CB765B129BED70F0048B1B3 /* LSClockHeaderView.swift in Sources */,
@@ -2183,6 +2258,9 @@
 				0C50294529AF36C7003977F0 /* RootViewController.swift in Sources */,
 				0CD97C052A19C42700A79D9E /* LSOrderSummaryViewController.swift in Sources */,
 				0CB7653629B9FAD10048B1B3 /* LSUserModel.swift in Sources */,
+				0CF287372E3B476C00D7BB9C /* LSJPushServer.swift in Sources */,
+				0CBA28362E4327ED006D68AA /* LSBindhandCardViewController.swift in Sources */,
+				0CF287392E3B476C00D7BB9C /* LSJPushApi.swift in Sources */,
 				0C0CC8BD29B07EBD00CC3A6E /* LSWorkbenchViewController.swift in Sources */,
 				0C4D060829D143FA00D30F95 /* LSMessageItemViewController.swift in Sources */,
 				0CD97C242A19E83200A79D9E /* LSAddClockViewController.swift in Sources */,
@@ -2355,12 +2433,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CloudEnjoy/CloudEnjoy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.8.202410251800;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3UD665RZ6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CloudEnjoy/Supporting_Files/Config/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "聚客云休闲";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "云休闲需要您的同意打开相机，用来拍摄用户头像和相册管理等";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
@@ -2378,7 +2458,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.boyou.www.CloudEnjoyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2398,13 +2478,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CloudEnjoy/CloudEnjoy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.8.202410251800;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3UD665RZ6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CloudEnjoy/Supporting_Files/Config/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "聚客云休闲";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "云休闲需要您的同意打开相机，用来拍摄用户头像和相册管理等";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "云休闲要您的同意获取定位，以便为您更快速的打卡";
@@ -2422,7 +2504,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.boyou.www.CloudEnjoyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

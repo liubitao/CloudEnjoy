@@ -174,7 +174,7 @@ enum LSCardstatus: Int, SmartCaseDefaultable {
     var statusString: String {
         switch self {
         case .stop:
-            return "停用"
+            return "未发行"
         case .normal:
             return "正常"
         case .lose:
@@ -215,7 +215,7 @@ struct LSVipModel: SmartCodable {
     var updatetime = ""// 更新时间
     var operid = ""//创建人
     var opername = ""//创建人名称
-    var cardstatus: LSCardstatus = .normal //卡状态  1正常 0停用 2挂失 3作废 4过期
+    var cardstatus: LSCardstatus = .normal //卡状态  1正常 0未发行 2挂失 3作废 4过期
     var usesid = ""//使用门店
     var lastsaledate = ""//会员最后使用日期
     var status = ""//状态 0删除 1正常

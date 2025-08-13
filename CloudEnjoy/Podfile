@@ -64,6 +64,13 @@ target 'CloudEnjoy' do
   
   pod 'RMQClient', '~> 0.12.0'
   
+  # 友盟统计
+  pod 'UMCommon'
+  pod 'UMDevice'
+  
+  # 极光推送
+  pod 'JPush'
+  
 end
 
 post_install do |installer|

@@ -97,9 +97,11 @@ enum LSMessageType: Int, SmartCaseDefaultable {
     var audioName: String? {
         switch self {
         case .dispatchOrder:
-            return "你有新的派工消息（收银端派工后，对应技师员工端收到提醒）"
+//            return "你有新的派工消息（收银端派工后，对应技师员工端收到提醒）"
+            return nil
         case .updateYuyueStatus:
-            return "您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）"
+//            return "您有新的预约订单（收银端或技师端提交预约后，对应技师员工端收到提醒）"
+            return nil
         case .upClock:
             return "本次项目已开始上钟很高兴为您（收银端或技师端点击上钟后提醒）"
         case .downClock:

@@ -163,6 +163,10 @@ class LSProjectDetailsViewController: LSBaseViewController {
                     return
                 }
                 self.navigationController?.pushViewController(LSRejectProjectViewController(with: self.projectModel), animated: true)
+            case "绑手牌":
+                
+                self.navigationController?.pushViewController(LSBindhandCardViewController(with: self.projectModel), animated: true)
+
             default: break
             }
         }, onError: {_ in
@@ -171,9 +175,14 @@ class LSProjectDetailsViewController: LSBaseViewController {
     }
     
     override func setupData() {
-        let waitData: [OpeartionModel] = [("技师上下钟", "技师上钟"), ("商品下单", "商品下单"), ("呼叫服务", "呼叫服务"), ("更换项目", "更换项目"), ("退钟", "退钟")]
+        var waitData: [OpeartionModel] = [("技师上下钟", "技师上钟"), ("商品下单", "商品下单"), ("呼叫服务", "呼叫服务"), ("更换项目", "更换项目"), ("退钟", "退钟")]
         
-        let servicingData: [OpeartionModel] = [("技师上下钟", "技师下钟"), ("商品下单", "商品下单"), ("呼叫服务", "呼叫服务"), ("项目加钟", "项目加钟"), ("更换项目", "更换项目"), ("退钟", "退钟")]
+        var servicingData: [OpeartionModel] = [("技师上下钟", "技师下钟"), ("商品下单", "商品下单"), ("呼叫服务", "呼叫服务"), ("项目加钟", "项目加钟"), ("更换项目", "更换项目"), ("退钟", "退钟")]
+        
+        if projectModel.handcardno.isEmpty {
+            waitData.append(("绑手牌", "绑手牌"))
+            servicingData.append(("绑手牌", "绑手牌"))
+        }
         
         let sectionModels = [SectionModel.init(model: "", items: self.projectModel.status == .wait ? waitData : servicingData)]
         self.items.onNext(sectionModels)

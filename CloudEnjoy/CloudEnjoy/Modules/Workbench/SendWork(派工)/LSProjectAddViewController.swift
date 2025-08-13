@@ -40,8 +40,10 @@ class LSProjectAddViewController: LSBaseViewController {
     var projectModel: LSOrderProjectModel!
     
     lazy var initProjectAddItemModel: ProjectAddItemModel = {
-        (projectModel, nil, nil, nil, nil, nil, handCardModel, nil, nil)
+        (projectModel, nil, nil, nil, nil, nil, handCardModel, initReferrerModel, nil)
     }()
+    
+    lazy var initReferrerModel = LSSysUserModel(userid: userModel().userid, name: userModel().name, jobid: userModel().jobid)
     
     convenience init(projectModel: LSOrderProjectModel, roomModel: LSOrderRoomModel? = nil, handCardModel: LSHandCardModel? = nil) {
         self.init()
@@ -260,10 +262,10 @@ class LSProjectAddViewController: LSBaseViewController {
             return
         }
         
-        guard models.filter({$0.referrerModel == nil}).count == 0 else {
-            Toast.show("请选择推荐人")
-            return
-        }
+//        guard models.filter({$0.referrerModel == nil}).count == 0 else {
+//            Toast.show("请选择推荐人")
+//            return
+//        }
         self.selectedClosure?(self.models)
         self.navigationController?.popViewController(animated: true)
         

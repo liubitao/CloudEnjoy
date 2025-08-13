@@ -86,7 +86,7 @@ enum LSHomeProjectStatus: Int, SmartCaseDefaultable {
         case .finish:
             return "已完成"
         case .subscribe:
-            return "预约中"
+            return "已预约"
         }
     }
     

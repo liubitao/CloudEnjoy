@@ -29,6 +29,9 @@ extension LSHomeAPI.APIPath {
     
     static let getServiceList = "serviceinfo/getList"
     
+    static let getYuyueInfo = "about/getInfo"
+    
+    static let bindHandcard = "salebill/setProHandcardid"
 }
 enum LSHomeAPI: TargetType {
     struct APIPath {}
@@ -88,6 +91,14 @@ enum LSHomeAPI: TargetType {
                         quick: String)
     
     case getServiceList
+    
+    case getYuyueInfo(billid: String)
+    
+    case bindHandcard(billid: String,
+                      roomid: String,
+                      handcardid: String,
+                      handcardno: String)
+    
 }
 
 extension LSHomeAPI: LSTargetType{
@@ -119,6 +130,10 @@ extension LSHomeAPI: LSTargetType{
             return APIPath.getProductList
         case .getServiceList:
             return APIPath.getServiceList
+        case .getYuyueInfo:
+            return APIPath.getYuyueInfo
+        case .bindHandcard:
+            return APIPath.bindHandcard
         }
     }
     
@@ -194,6 +209,13 @@ extension LSHomeAPI: LSTargetType{
         case .getServiceList:
             return ["is_page": "0",
                     "stopflag": "0"]
+        case let .getYuyueInfo(billid):
+            return ["billid": billid]
+        case let .bindHandcard(billid, roomid, handcardid, handcardno):
+            return ["billid": billid,
+                    "roomid": roomid,
+                    "handcardid": handcardid,
+                    "handcardno": handcardno]
         }
 
     }

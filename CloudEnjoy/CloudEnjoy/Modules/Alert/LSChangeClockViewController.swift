@@ -35,7 +35,16 @@ class LSChangeClockViewController: LSBaseViewController {
         let sb = UIStoryboard.init(name: "AlertStoryboard", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "LSChangeClockViewController") as! Self
         vc.projectModel = projectModel
-        vc.referrerModel = LSSysUserModel(userid: projectModel.refid, name: projectModel.refname, jobid: projectModel.jobid, tlid: projectModel.reftlid)
+        if projectModel.refid.isEmpty {
+            let user = userModel()
+            vc.referrerModel = LSSysUserModel(userid: user.userid,
+                                              name: user.name,
+                                              jobid: user.jobid)
+        }else {
+            vc.referrerModel = LSSysUserModel(userid: projectModel.refid,
+                                              name: projectModel.refname,
+                                              jobid: projectModel.jobid)
+        }
         return vc
     }
     
@@ -124,10 +133,10 @@ class LSChangeClockViewController: LSBaseViewController {
             Toast.show("请选择更换的新项目")
             return
         }
-        guard self.referrerModel.userid.isEmpty == false else {
-            Toast.show("请选择推荐人")
-            return
-        }
+//        guard self.referrerModel.userid.isEmpty == false else {
+//            Toast.show("请选择推荐人")
+//            return
+//        }
         Toast.showHUD()
         LSHomeServer.updateProject(billid: self.projectModel.billid, roomid: self.projectModel.roomid, roomname: self.projectModel.roomname, handcardid: self.projectModel.handcardid, handcardno: self.projectModel.handcardno, bedid: self.projectModel.bedid, bedname: self.projectModel.bedname, projectid: orderProjectModel.projectid, projectname: orderProjectModel.name, min: orderProjectModel.smin, refid: self.referrerModel.userid, refname: self.referrerModel.name, refjobid: self.referrerModel.jobid)
             .subscribe { _ in
