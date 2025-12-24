@@ -94,6 +94,9 @@ struct LSRoyaltiesDetailsModel: SmartCodable {
     var roomname = ""
     var createtime = ""
     var handcardno = ""
+    var vipno = ""
+    var billamt: Double = 0
+    var saleductamt: Double = 0
 }
 
 

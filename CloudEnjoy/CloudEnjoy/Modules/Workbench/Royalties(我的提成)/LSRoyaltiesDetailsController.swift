@@ -63,14 +63,25 @@ class LSRoyaltiesDetailsController: LSBaseViewController {
                 make.top.equalToSuperview().offset(UI.STATUS_NAV_BAR_HEIGHT + 5)
             }
             
-            let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSRoyaltiesDetailsModel>> { dataSource, tableView, indexPath, element in
+            let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, LSRoyaltiesDetailsModel>> { [weak self] dataSource, tableView, indexPath, element in
                 let cell: LSRoyaltiesDetailsCell = tableView.dequeueReusableCell(withClass: LSRoyaltiesDetailsCell.self)
-                cell.projectNameLab.text = element.projectname
-                cell.commissionLab.text = "￥\(element.commission)"
-                cell.roomNameLab.text = parametersModel().showRoom ? "房间：\(element.roomname)" : "手牌：\(element.handcardno)"
-                cell.projectTypeLab.text = "类型：\(element.ctypename)"
-                cell.amtLab.text = "金额：￥\(element.amt.stringValue(retain: 2))"
-                cell.timeLab.text = "时间：\(element.createtime)"
+                guard let self else { return cell }
+                if self.selecttype < 3 {
+                    cell.projectNameLab.text = element.projectname
+                    cell.roomNameLab.text = parametersModel().showRoom ? "房间：\(element.roomname)" : "手牌：\(element.handcardno)"
+                    cell.projectTypeLab.text = "类型：\(element.ctypename)"
+                    cell.timeLab.text = "时间：\(element.createtime)"
+                    cell.commissionLab.text = "￥\(element.commission.stringValue(retain: 2))"
+                    cell.amtLab.text = "金额：￥\(element.amt.stringValue(retain: 2))"
+                }else {
+                    cell.projectNameLab.text = "会员卡"
+                    cell.roomNameLab.text = "卡号：\(element.vipno)"
+                    cell.projectTypeLab.text = "时间：\(element.createtime)"
+                    cell.timeLab.text = ""
+                    cell.commissionLab.text = "￥\(element.saleductamt.stringValue(retain: 2))"
+                    cell.amtLab.text = "金额：￥\(element.billamt.stringValue(retain: 2))"
+                }
+              
                 return cell
             }
             items.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: self.rx.disposeBag)

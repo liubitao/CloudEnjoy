@@ -61,7 +61,8 @@ class LSChioceBedViewController: LSBaseViewController {
     override func setupData() {
         Toast.showHUD()
         LSWorkbenchServer.getBedList(roomid: roomModel.roomid).subscribe { models in
-            guard let list = models else {
+            guard let list = models,
+                !list.isEmpty else {
                 return
             }
             self.list = list
