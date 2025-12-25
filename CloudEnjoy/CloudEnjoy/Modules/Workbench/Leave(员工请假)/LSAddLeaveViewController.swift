@@ -5,25 +5,23 @@
 //  Created by liubitao on 2023/3/28.
 //
 
-import UIKit
 import LSBaseModules
 import RxSwift
+import UIKit
 
 class LSAddLeaveViewController: LSBaseViewController {
+    @IBOutlet var typeView: UIView!
+    @IBOutlet var typeTextField: UITextField!
 
+    @IBOutlet var startTimeView: UIView!
+    @IBOutlet var startTimeTextField: UITextField!
     
-    @IBOutlet weak var typeView: UIView!
-    @IBOutlet weak var typeTextField: UITextField!
-
-    @IBOutlet weak var startTimeView: UIView!
-    @IBOutlet weak var startTimeTextField: UITextField!
+    @IBOutlet var endTimeView: UIView!
+    @IBOutlet var endTimeTextField: UITextField!
     
-    @IBOutlet weak var endTimeView: UIView!
-    @IBOutlet weak var endTimeTextField: UITextField!
+    @IBOutlet var durationLab: UILabel!
     
-    @IBOutlet weak var durationLab: UILabel!
-    
-    @IBOutlet weak var reasonTextField: UITextField!
+    @IBOutlet var reasonTextField: UITextField!
     
     var leaveTypeModel: LSLeaveTypeModel?
     var startTime: Date?
@@ -34,11 +32,11 @@ class LSAddLeaveViewController: LSBaseViewController {
 
         self.title = "新增请假"
         
-        print( "22323232232323" )
+        print("22323232232323")
     }
     
     override func setupViews() {
-        self.typeView.rx.tapGesture().when(.recognized).subscribe {[weak self] _ in
+        self.typeView.rx.tapGesture().when(.recognized).subscribe { [weak self] _ in
             guard let self = self else { return }
             let choiceTypeVC = LSChoiceLeaveTypeController.creaeFromStoryboard(with: self.leaveTypeModel)
             choiceTypeVC.selectedClosure = { leaveTypeModel in
@@ -83,7 +81,8 @@ class LSAddLeaveViewController: LSBaseViewController {
               let hours = self.durationLab.text,
               hours.isEmpty == false,
               let reason = self.reasonTextField.text,
-              reason.isEmpty == false else {
+              reason.isEmpty == false
+        else {
             Toast.show("请填写完全")
             return
         }
@@ -98,6 +97,4 @@ class LSAddLeaveViewController: LSBaseViewController {
             Toast.hiddenHUD()
         }.disposed(by: self.rx.disposeBag)
     }
-   
-
 }
