@@ -1,0 +1,92 @@
+# .github/workflows/ios-pr-merge.yml
+# 适用：Swift / SwiftUI / UIKit 项目
+# 功能：
+# 1️⃣ PR 创建 / 更新：Lint + Build 校验
+# 2️⃣ PR Approve 后：再次校验（可选）
+# 3️⃣ PR 合并到 main：执行合并后脚本（如版本号、通知、发布）
+
+name: iOS PR & Merge Pipeline
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  format-after-approve:
+    # 仅在第一次 Approved 时触发
+    if: github.event.review.state == 'approved'
+    runs-on: macos-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Install SwiftFormat
+        run: brew install swiftformat || brew upgrade swiftformat
+
+      # ① 防止多人 approve 重复触发（只跑一次）
+      - name: Check if already formatted
+        id: already_formatted
+        run: |
+          if git log --pretty=%B | grep -q "chore: auto format after approve"; then
+            echo "already=true" >> $GITHUB_OUTPUT
+          else
+            echo "already=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Exit if already formatted
+        if: steps.already_formatted.outputs.already == 'true'
+        run: echo "Format already applied, skip."
+
+      # ② 只 format PR 改动文件
+      - name: SwiftFormat only changed files
+        if: steps.already_formatted.outputs.already == 'false'
+        run: |
+          git fetch origin ${{ github.event.pull_request.base.ref }}
+          FILES=$(git diff --name-only origin/${{ github.event.pull_request.base.ref }}...HEAD | grep '\.swift$' || true)
+          if [ -z "$FILES" ]; then
+            echo "No Swift files changed"
+            exit 0
+          fi
+          echo "$FILES" | xargs swiftformat
+
+      # ③ 提交 format 结果
+      - name: Commit formatted code
+        if: steps.already_formatted.outputs.already == 'false'
+        run: |
+          if git status --porcelain | grep .; then
+            git config user.name "github-actions"
+            git config user.email "github-actions@github.com"
+            git add .
+            git commit -m "chore: auto format after approve"
+            git push
+          else
+            echo "No formatting changes"
+          fi
+
+      # ④ format 后重新请求 review
+      - name: Re-request review
+        if: steps.already_formatted.outputs.already == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const reviewers = context.payload.pull_request.requested_reviewers.map(r => r.login)
+            if (reviewers.length === 0) return
+            await github.rest.pulls.requestReviewers({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              reviewers
+            })
+
+# =========================
+# 行为总结：
+# 1️⃣ 只有第一次 approve 会触发 format
+# 2️⃣ 只 format 本 PR 改动的 Swift 文件
+# 3️⃣ format 结果 commit 回 PR 分支
+# 4️⃣ 自动重新请求 review，确保变更被再次确认
+# =========================
