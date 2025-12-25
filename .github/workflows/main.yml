@@ -6,10 +6,7 @@ on:
 
 jobs:
   format-on-comment:
-    if: |
-      github.event.issue.pull_request &&
-      startsWith(github.event.comment.body, '/format') &&
-      github.event.comment.user.login != github.event.pull_request.user.login
+    if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/format')
     runs-on: macos-latest
     timeout-minutes: 15
 
