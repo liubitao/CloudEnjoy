@@ -33,8 +33,6 @@ class LSAddLeaveViewController: LSBaseViewController {
         super.viewDidLoad()
 
         self.title = "新增请假"
-        
-        print( "2232323" )
     }
     
     override func setupViews() {
