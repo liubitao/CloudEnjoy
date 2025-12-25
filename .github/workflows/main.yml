@@ -15,12 +15,6 @@ jobs:
       pull-requests: write # Required to post comments
 
     steps:
-      - name: Debug workspace
-        run: |
-          pwd
-          ls -la
-          find . -maxdepth 2 -name ".swiftformat"
-          
       - name: Get PR info
         id: pr
         env:
@@ -36,6 +30,12 @@ jobs:
         with:
           ref: ${{ steps.pr.outputs.head_ref }}
           fetch-depth: 0 # Crucial for diffing against base
+          
+      - name: Debug workspace
+        run: |
+          pwd
+          ls -la
+          find . -maxdepth 2 -name ".swiftformat"
 
       - name: Install SwiftFormat
         run: brew install swiftformat
