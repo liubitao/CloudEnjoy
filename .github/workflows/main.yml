@@ -37,31 +37,33 @@ jobs:
       - name: Fetch base branch
         run: git fetch origin ${{ steps.pr.outputs.base_ref }}
 
-      - name: Run SwiftFormat (only changed files)
+       - name: Run SwiftFormat (Only Changed Files)
         run: |
-          # Get list of changed .swift files
-          files=$(git diff --name-only origin/${{ steps.pr.outputs.base_ref }}...HEAD -- '*.swift' | xargs)
+          # 1. 强制 Git 不转义中文路径
+          git config core.quotepath false
           
-          if [ -n "$files" ]; then
-            echo "Formatting: $files"
-            swiftformat $files --config .swiftformat
-          else
-            echo "No swift files changed."
-          fi
+          # 2. 获取变更文件，并处理中文/空格路径
+          # -z 使用 NUL 字符分隔文件名，防止空格和换行符导致路径断开
+          # xargs -0 配合 -I {} 可以安全处理包含中文和空格的路径
+          git diff --name-only -z origin/${{ steps.pr.outputs.base_ref }}...HEAD -- '*.swift' | \
+          xargs -0 -I {} sh -c 'if [ -f "{}" ]; then swiftformat "{}" --config .swiftformat; fi'
 
       - name: Commit and Push changes
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # 同样在提交前确保路径显示正常
+          git config core.quotepath false
+          
           if git diff --quiet; then
-            echo "No formatting changes needed."
+            echo "No formatting changes"
             exit 0
           fi
           
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # 使用 git add . 自动处理所有变更（包括中文路径）
           git add .
-          git commit -m "chore: swiftformat"
+          git commit -m "chore: swiftformat (auto-formatted)"
           git push origin HEAD:${{ steps.pr.outputs.head_ref }}
 
       - name: Comment result
