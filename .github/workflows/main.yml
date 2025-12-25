@@ -7,7 +7,7 @@ on:
     types: [created]
 
 jobs:
-  format-after-approve:
+  format-on-comment:
     # 仅在第一次 Approved 且非作者本人时触发
     if: |
       github.event.review.state == 'approved' &&
