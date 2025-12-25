@@ -7,14 +7,18 @@
 
 name: iOS PR & Merge Pipeline
 
+
 on:
-  pull_request_review:
-    types: [submitted]
+  issue_comment:
+    types: [created]
 
 jobs:
-  format-after-approve:
-    # 仅在第一次 Approved 时触发
-    if: github.event.review.state == 'approved'
+  format-on-comment:
+    # 仅在 PR 评论且评论内容为 /format 时触发
+    if: |
+      github.event.issue.pull_request &&
+      startsWith(github.event.comment.body, '/format') &&
+      github.event.comment.user.login != github.event.pull_request.user.login
     runs-on: macos-latest
     timeout-minutes: 15
 
