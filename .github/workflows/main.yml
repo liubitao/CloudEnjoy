@@ -37,7 +37,7 @@ jobs:
       - name: Fetch base branch
         run: git fetch origin ${{ steps.pr.outputs.base_ref }}
 
-       - name: Run SwiftFormat (Only Changed Files)
+      - name: Run SwiftFormat (Only Changed Files)
         run: |
           # 1. 强制 Git 不转义中文路径
           git config core.quotepath false
