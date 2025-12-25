@@ -6,7 +6,6 @@ on:
 
 jobs:
   format-on-comment:
-    # 仅在 PR 评论且评论内容为 /format 时触发
     if: |
       github.event.issue.pull_request &&
       startsWith(github.event.comment.body, '/format') &&
