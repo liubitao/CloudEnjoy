@@ -6,12 +6,16 @@ on:
 
 jobs:
   format-on-comment:
+    # Ensure it only runs on PRs, when the comment starts with /format
     if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/format')
     runs-on: macos-latest
     timeout-minutes: 15
+    permissions:
+      contents: write  # Required to push changes
+      pull-requests: write # Required to post comments
 
     steps:
-            - name: Get PR info
+      - name: Get PR info
         id: pr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -20,51 +24,49 @@ jobs:
           pr_json=$(gh api "$pr_url")
           echo "head_ref=$(echo "$pr_json" | jq -r '.head.ref')" >> $GITHUB_OUTPUT
           echo "base_ref=$(echo "$pr_json" | jq -r '.base.ref')" >> $GITHUB_OUTPUT
-          echo "author=$(echo "$pr_json" | jq -r '.user.login')" >> $GITHUB_OUTPUT
 
       - name: Checkout PR branch
         uses: actions/checkout@v4
         with:
           ref: ${{ steps.pr.outputs.head_ref }}
-          fetch-depth: 0
+          fetch-depth: 0 # Crucial for diffing against base
 
       - name: Install SwiftFormat
-        run: brew install swiftformat || brew upgrade swiftformat
+        run: brew install swiftformat
 
       - name: Fetch base branch
         run: git fetch origin ${{ steps.pr.outputs.base_ref }}
 
-      - name: Detect changed Swift files
-        id: diff
-        run: |
-          files=$(git diff --name-only origin/${{ steps.pr.outputs.base_ref }}...HEAD -- '*.swift')
-          echo "files<<EOF" >> $GITHUB_OUTPUT
-          echo "$files" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
       - name: Run SwiftFormat (only changed files)
-        if: steps.diff.outputs.files != ''
         run: |
-          echo "Formatting files:" 
-          echo "${{ steps.diff.outputs.files }}"
-          swiftformat ${{ steps.diff.outputs.files }} --config .swiftformat
-
-      - name: Commit formatted changes
-        if: steps.diff.outputs.files != ''
-        run: |
-          if git diff --quiet; then
-            echo "No formatting changes"
-            exit 0
+          # Get list of changed .swift files
+          files=$(git diff --name-only origin/${{ steps.pr.outputs.base_ref }}...HEAD -- '*.swift' | xargs)
+          
+          if [ -n "$files" ]; then
+            echo "Formatting: $files"
+            swiftformat $files --config .swiftformat
+          else
+            echo "No swift files changed."
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "chore: swiftformat"
-          git push
 
-      - name: Comment result
+      - name: Commit and Push changes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh api repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments \
-            -X POST \
-            -f body='✅ SwiftFormat 已执行完成，如有代码变更请重新 review'
+          if git diff --quiet; then
+            echo "No formatting changes needed."
+            exit 0
+          fi
+          
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: swiftformat"
+          git push origin HEAD:${{ steps.pr.outputs.head_ref }}
+
+      - name: Comment result
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr comment ${{ github.event.issue.number }} --body "✅ SwiftFormat execution finished. Please check the latest commit."
